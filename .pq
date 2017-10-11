@@ -1,0 +1,3 @@
+><‘H‘About’’
+
+11l — is a ‘very high-level’[https://en.wikipedia.org/wiki/Very_high-level_programming_language] [[[universal/]]]general-purpose programming language, at the same time providing a simple and direct mapping to hardware and aiming to/at following a zero-overhead principle (unused language features do not add ‘run-time overhead’[‘excess computation time, oftentimes combined with the additional length of a compiled machine code’]).

@@ -80,3 +80,71 @@ There are 11 keywords at the root of that tree, and each word can be written as 
                  └── try_end
 ```
 }
+
+
+><‘‘Samples’{
+T‘><‘‘Python’ ‘11l’ ‘C++’’
+‘‘[[[
+while True:
+    if instr[i] == "[":
+        nesting_level += 1
+    elif instr[i] == "]":
+        nesting_level -= 1
+        if nesting_level == 0:
+            break
+    i += 1
+]]https://tohtml.com:]'‘<pre style='color:#000000;background:#ffffff;'><span style='color:#0000FF'>while</span> <span style='color:#074726; '>True</span><span style='color:#808030; '>:</span>
+    <span style='color:#0000FF'>if</span> instr<span style='color:#808030; '>[</span>i<span style='color:#808030; '>]</span> <span style='color:#44aadd; '>==</span> <span style='color:#800000; '>"["</span><span style='color:#808030; '>:</span>
+        nesting_level <span style='color:#44aadd; '>+</span><span style='color:#808030; '>=</span> <span style='color:#008c00; '>1</span>
+    <span style='color:#0000FF'>elif</span> instr<span style='color:#808030; '>[</span>i<span style='color:#808030; '>]</span> <span style='color:#44aadd; '>==</span> <span style='color:#800000; '>"]"</span><span style='color:#808030; '>:</span>
+        nesting_level <span style='color:#44aadd; '>-</span><span style='color:#808030; '>=</span> <span style='color:#008c00; '>1</span>
+        <span style='color:#0000FF'>if</span> nesting_level <span style='color:#44aadd; '>==</span> <span style='color:#008c00; '>0</span><span style='color:#808030; '>:</span>
+            <span style='color:#0000FF'>break</span>
+    i <span style='color:#44aadd; '>+</span><span style='color:#808030; '>=</span> <span style='color:#008c00; '>1</span>
+</pre>’'’
+‘Р‘https://raw.githubusercontent.com/alextretyak/3/master/codesample.png’’
+‘[[[
+while (true)
+{
+    switch (instr[i])
+    {
+    case '[':
+        nesting_level++;
+        break;
+    case ']':
+        if (--nesting_level == 0)
+            goto break_;
+        break;
+    }
+    i++;
+    ...
+}
+break_:
+]]]'‘<pre style='color:#000000;background:#ffffff;'><span style='color:#0000FF'>while</span> <span style='color:#808030; '>(</span><span style='color:#0000FF'>true</span><span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+    <span style='color:#0000FF'>switch</span> <span style='color:#808030; '>(</span>instr<span style='color:#808030; '>[</span>i<span style='color:#808030; '>]</span><span style='color:#808030; '>)</span>
+    <span style='color:#800080; '>{</span>
+    <span style='color:#0000FF'>case </span><span style='color:#800000; '>'['</span><span style='color:#e34adc; '>:</span>
+        nesting_level<span style='color:#808030; '>+</span><span style='color:#808030; '>+</span><span style='color:#800080; '>;</span>
+        <span style='color:#0000FF'>break</span><span style='color:#800080; '>;</span>
+    <span style='color:#0000FF'>case </span><span style='color:#800000; '>']'</span><span style='color:#e34adc; '>:</span>
+        <span style='color:#0000FF'>if</span> <span style='color:#808030; '>(</span><span style='color:#808030; '>-</span><span style='color:#808030; '>-</span>nesting_level <span style='color:#808030; '>=</span><span style='color:#808030; '>=</span> <span style='color:#008c00; '>0</span><span style='color:#808030; '>)</span>
+            <span style='color:#008484; '>goto</span> <span style='color:#e34adc; '>break_</span><span style='color:#800080; '>;</span>
+        <span style='color:#0000FF'>break</span><span style='color:#800080; '>;</span>
+    <span style='color:#800080; '>}</span>
+    i<span style='color:#808030; '>+</span><span style='color:#808030; '>+</span><span style='color:#800080; '>;</span>
+    ...
+}
+<span style='color:#e34adc; '>break_</span>:
+</pre>’'’’’
+}
+
+
+Documentation
+
+
+Install
+
+
+English Forum \ Русскоязычный форум
+’

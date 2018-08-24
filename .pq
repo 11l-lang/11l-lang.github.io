@@ -72,7 +72,7 @@ There are 11 keywords at the root of that tree, and each word can be written as 
 ── R/return
 ── S/switch ──┬── break
               └── fallthrough
-── T/type ──┬── super
+── T/type ──┬── base
             ├── enum
             └── interface
 ── X/exception ──┬── try
@@ -159,6 +159,11 @@ for i in range(len(self.children)):
 
 ...
 
+for line_number, line in enumerate(file.readlines(), 1):
+    print(str(line_number) + '. ' + line)
+
+...
+
 if token.category in (Token.Category.NUMERIC_LITERAL,
                       Token.Category.STRING_LITERAL):
     key = '(literal)'
@@ -199,6 +204,11 @@ span.comment {color: #808080;}
 
 ...
 
+<span class="keyword">for</span> <span class="identifier">line_number</span>, <span class="identifier">line</span> <span class="keyword">in</span> <span class="identifier">enumerate</span>(<span class="identifier">file</span>.<span class="identifier">readlines</span>(), <span class="numeric-literal">1</span>):
+    <span class="identifier">print</span>(<span class="identifier">str</span>(<span class="identifier">line_number</span>) + <span class="string-literal">'. '</span> + <span class="identifier">line</span>)
+
+...
+
 <span class="keyword">if</span> <span class="identifier">token</span>.<span class="identifier">category</span> <span class="keyword">in</span> (<span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">NUMERIC_LITERAL</span>,
                       <span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">STRING_LITERAL</span>):
     <span class="identifier">key</span> = <span class="string-literal">'(literal)'</span>
@@ -232,6 +242,12 @@ L(child) .children
 
 ...
 
+L(line) file.readlines()
+   A line_number = L.index + 1
+   print(line_number‘. ’line)
+
+...
+
 A key = S token.category
    NUMERIC_LITERAL, STRING_LITERAL
       ‘(literal)’
@@ -244,12 +260,13 @@ A key = S token.category
    E
       token.value(source)
 ]]]'‘<pre>
+
 <span class="keyword">L</span>(<span class="identifier">i</span>) (<span class="numeric-literal">1</span> .< .<span class="identifier">children</span>.<span class="identifier">len</span>).<span class="identifier">step</span>(<span class="numeric-literal">2</span>)
    <span class="keyword">I</span> .<span class="identifier">children</span>[<span class="identifier">i</span>].<span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>) <span class="keyword">C</span> (<span class="string-literal">‘E’</span>, <span class="string-literal">‘И’</span>, <span class="string-literal">‘else’</span>, <span class="string-literal">‘иначе’</span>)
       <span class="identifier">res</span> ‘’= <span class="identifier">char_or_str</span>(.<span class="identifier">children</span>[<span class="identifier">i</span>+<span class="numeric-literal">1</span>], <span class="identifier">char_val</span>)
       <span class="keyword">L.break</span>
-   <span class="identifier">res</span> ‘’= <span class="string-literal">‘a == ’</span><span class="string-literal"></span><span class="identifier">char_or_str</span>(.<span class="identifier">children</span>[<span class="identifier">i</span>], <span class="identifier">char_key</span>)<span class="string-literal"></span><span class="string-literal">‘ ? ’</span>
-                <span class="string-literal">‘’</span><span class="identifier">char_or_str</span>(.<span class="identifier">children</span>[<span class="identifier">i</span>+<span class="numeric-literal">1</span>], <span class="identifier">char_val</span>)<span class="string-literal"></span><span class="string-literal">‘ : ’</span>
+   <span class="identifier">res</span> ‘’= <span class="string-literal">‘a == ’</span><span class="identifier">char_or_str</span>(.<span class="identifier">children</span>[<span class="identifier">i</span>], <span class="identifier">char_key</span>)<span class="string-literal">‘ ? ’</span>
+                ‘’<span class="identifier">char_or_str</span>(.<span class="identifier">children</span>[<span class="identifier">i</span>+<span class="numeric-literal">1</span>], <span class="identifier">char_val</span>)<span class="string-literal">‘ : ’</span>
 
    <span class="keyword">L.was_no_break</span>
       <span class="identifier">res</span> ‘’= <span class="string-literal">‘throw KeyError(a)’</span>
@@ -260,6 +277,12 @@ A key = S token.category
     <span class="identifier">res</span> ‘’= <span class="identifier">child</span>.<span class="identifier">to_str</span>()
     <span class="keyword">I</span> <span class="keyword">L.next</span>
         <span class="identifier">res</span> ‘’= <span class="string-literal">‘, ’</span>
+
+...
+
+<span class="keyword">L</span>(<span class="identifier">line</span>) <span class="identifier">file</span>.<span class="identifier">readlines</span>()
+   <span class="keyword">A</span> <span class="identifier">line_number</span> = <span class="keyword">L.index</span> + <span class="numeric-literal">1</span>
+   <span class="identifier">print</span>(<span class="identifier">line_number</span><span class="string-literal">‘. ’</span><span class="identifier">line</span>)
 
 ...
 

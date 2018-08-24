@@ -164,6 +164,13 @@ for line_number, line in enumerate(file.readlines(), 1):
 
 ...
 
+while i < len(source) and ('0' <= source[i] <= '9'
+                        or 'a' <= source[i] <= 'z'
+                        or 'A' <= source[i] <= 'Z' or source[i] == '_'):
+    i += 1
+
+...
+
 if token.category in (Token.Category.NUMERIC_LITERAL,
                       Token.Category.STRING_LITERAL):
     key = '(literal)'
@@ -209,6 +216,13 @@ span.comment {color: #808080;}
 
 ...
 
+<span class="keyword">while</span> <span class="identifier">i</span> < <span class="identifier">len</span>(<span class="identifier">source</span>) <span class="keyword">and</span> (<span class="string-literal">'0'</span> <= <span class="identifier">source</span>[<span class="identifier">i</span>] <= <span class="string-literal">'9'</span>
+                        <span class="keyword">or</span> <span class="string-literal">'a'</span> <= <span class="identifier">source</span>[<span class="identifier">i</span>] <= <span class="string-literal">'z'</span>
+                        <span class="keyword">or</span> <span class="string-literal">'A'</span> <= <span class="identifier">source</span>[<span class="identifier">i</span>] <= <span class="string-literal">'Z'</span> <span class="keyword">or</span> <span class="identifier">source</span>[<span class="identifier">i</span>] == <span class="string-literal">'_'</span>):
+    <span class="identifier">i</span> += <span class="numeric-literal">1</span>
+
+...
+
 <span class="keyword">if</span> <span class="identifier">token</span>.<span class="identifier">category</span> <span class="keyword">in</span> (<span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">NUMERIC_LITERAL</span>,
                       <span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">STRING_LITERAL</span>):
     <span class="identifier">key</span> = <span class="string-literal">'(literal)'</span>
@@ -248,6 +262,11 @@ L(line) file.readlines()
 
 ...
 
+L i < source.len & source[i] C (‘0’..‘9’, ‘a’..‘z’, ‘A’..‘Z’, ‘_’)
+   i++
+
+...
+
 A key = S token.category
    NUMERIC_LITERAL, STRING_LITERAL
       ‘(literal)’
@@ -283,6 +302,11 @@ A key = S token.category
 <span class="keyword">L</span>(<span class="identifier">line</span>) <span class="identifier">file</span>.<span class="identifier">readlines</span>()
    <span class="keyword">A</span> <span class="identifier">line_number</span> = <span class="keyword">L.index</span> + <span class="numeric-literal">1</span>
    <span class="identifier">print</span>(<span class="identifier">line_number</span><span class="string-literal">‘. ’</span><span class="identifier">line</span>)
+
+...
+
+<span class="keyword">L</span> <span class="identifier">i</span> < <span class="identifier">source</span>.<span class="identifier">len</span> & <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> (<span class="string-literal">‘0’</span>..<span class="string-literal">‘9’</span>, <span class="string-literal">‘a’</span>..<span class="string-literal">‘z’</span>, <span class="string-literal">‘A’</span>..<span class="string-literal">‘Z’</span>, <span class="string-literal">‘_’</span>)
+   <span class="identifier">i</span>++
 
 ...
 

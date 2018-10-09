@@ -43,7 +43,7 @@ C(4)‘```
 [[[><‘H‘About’’]]]
 
 11l [[[— ]]]is a [[[‘very high-level’[https://en.wikipedia.org/wiki/Very_high-level_programming_language]]this term is unclear]]high-level [[[universal/]]]general-purpose programming language, [[[at the same time providing]]]which provides a simple and direct mapping to hardware and aims to[[[/at]]] follow[[[ing]]] a zero-overhead principle, like C++ (unused language features do not add ‘run-time overhead’[‘excess computation time, oftentimes combined with the additional length of a compiled machine code’]). 11l is statically typed, but [[[smells]]]feels very much like dynamically typed language (e.g. Python)[[[ or even scripting language]]].
-The design of 11l is aimed to achive as much conciseness as possible.
+The design of 11l is aimed to achive as much conciseness as possible[[[, and to reconsider all programming language elements]]].
 
 The evident distinction of 11l from all other existing programming languages is its keywords are organized in a tree, not just a list.
 There are 11 keywords at the root of that tree, and each word can be written as [[[its first]]]one letter. [Short one-letter keywords look odd at first sight, but it's just a matter of habit.]
@@ -328,6 +328,64 @@ A key = S token.category
       <span class="string-literal">‘;’</span>
    <span class="keyword">E</span>
       <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>)
+
+</pre>’'’’’
+T‘‘‘[[[
+
+main_window.pos.x = 10
+main_window.pos.y = 20
+
+...
+
+width = active_window.rect.right - active_window.rect.left
+
+...
+
+dot_pos = token.value(source).find('.')
+if dot_pos == -1:
+    dot_pos = len(token.value(source))
+]]]'‘<pre>
+
+<span class="identifier">main_window</span>.<span class="identifier">pos</span>.<span class="identifier">x</span> = <span class="numeric-literal">10</span>
+<span class="identifier">main_window</span>.<span class="identifier">pos</span>.<span class="identifier">y</span> = <span class="numeric-literal">20</span>
+
+...
+
+<span class="identifier">width</span> = <span class="identifier">active_window</span>.<span class="identifier">rect</span>.<span class="identifier">right</span> - <span class="identifier">active_window</span>.<span class="identifier">rect</span>.<span class="identifier">left</span>
+
+...
+
+<span class="identifier">dot_pos</span> = <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>).<span class="identifier">find</span>(<span class="string-literal">'.'</span>)
+<span class="keyword">if</span> <span class="identifier">dot_pos</span> == -<span class="numeric-literal">1</span>:
+    <span class="identifier">dot_pos</span> = <span class="identifier">len</span>(<span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>))
+</pre>’'’
+‘[[[
+main_window.pos.
+   .x = 10
+   .y = 20
+
+...
+
+A width = active_window.rect. {.right - .left}
+
+...
+
+A dot_pos = token.value(source). {.find(‘.’) ? .len}
+
+
+]]]'‘<pre>
+<span class="identifier">main_window</span>.<span class="identifier">pos</span>.
+   .<span class="identifier">x</span> = <span class="numeric-literal">10</span>
+   .<span class="identifier">y</span> = <span class="numeric-literal">20</span>
+
+...
+
+<span class="keyword">A</span> <span class="identifier">width</span> = <span class="identifier">active_window</span>.<span class="identifier">rect</span>. {.<span class="identifier">right</span> - .<span class="identifier">left</span>}
+
+...
+
+<span class="keyword">A</span> <span class="identifier">dot_pos</span> = <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>). {.<span class="identifier">find</span>(<span class="string-literal">‘.’</span>) ? .<span class="identifier">len</span>}
+
 
 </pre>’'’’’
 }

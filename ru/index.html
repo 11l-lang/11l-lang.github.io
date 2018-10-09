@@ -419,6 +419,65 @@ A key = S token.category
 
 </pre></td></tr>
 </table>
+<table>
+<tr><td><!--[[[
+
+main_window.pos.x = 10
+main_window.pos.y = 20
+
+...
+
+width = active_window.rect.right - active_window.rect.left
+
+...
+
+dot_pos = token.value(source).find('.')
+if dot_pos == -1:
+    dot_pos = len(token.value(source))
+]]]--><pre>
+
+<span class="identifier">main_window</span>.<span class="identifier">pos</span>.<span class="identifier">x</span> = <span class="numeric-literal">10</span>
+<span class="identifier">main_window</span>.<span class="identifier">pos</span>.<span class="identifier">y</span> = <span class="numeric-literal">20</span>
+
+...
+
+<span class="identifier">width</span> = <span class="identifier">active_window</span>.<span class="identifier">rect</span>.<span class="identifier">right</span> - <span class="identifier">active_window</span>.<span class="identifier">rect</span>.<span class="identifier">left</span>
+
+...
+
+<span class="identifier">dot_pos</span> = <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>).<span class="identifier">find</span>(<span class="string-literal">'.'</span>)
+<span class="keyword">if</span> <span class="identifier">dot_pos</span> == -<span class="numeric-literal">1</span>:
+    <span class="identifier">dot_pos</span> = <span class="identifier">len</span>(<span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>))
+</pre></td><td><!--[[[
+main_window.pos.
+   .x = 10
+   .y = 20
+
+...
+
+A width = active_window.rect. {.right - .left}
+
+...
+
+A dot_pos = token.value(source). {.find(‘.’) ? .len}
+
+
+]]]--><pre>
+<span class="identifier">main_window</span>.<span class="identifier">pos</span>.
+   .<span class="identifier">x</span> = <span class="numeric-literal">10</span>
+   .<span class="identifier">y</span> = <span class="numeric-literal">20</span>
+
+...
+
+<span class="keyword">A</span> <span class="identifier">width</span> = <span class="identifier">active_window</span>.<span class="identifier">rect</span>. {.<span class="identifier">right</span> - .<span class="identifier">left</span>}
+
+...
+
+<span class="keyword">A</span> <span class="identifier">dot_pos</span> = <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>). {.<span class="identifier">find</span>(<span class="string-literal">‘.’</span>) ? .<span class="identifier">len</span>}
+
+
+</pre></td></tr>
+</table>
 </div>
 <br />
 <br />

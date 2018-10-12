@@ -47,7 +47,7 @@ The design of 11l is aimed to achive as much conciseness as possible[[[, and to 
 
 The evident distinction of 11l from all other existing programming languages is its keywords are organized in a tree, not just a list.
 There are 11 keywords at the root of that tree, and each word can be written as [[[its first]]]one letter. [Short one-letter keywords look odd at first sight, but it's just a matter of habit.]
-‘Tree of all 11l keywords.’{
+‘Tree of all 11l keywords[[[.]]]’{
 ```
 ── A/var
 ── C/in

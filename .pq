@@ -390,7 +390,7 @@ A dot_pos = token.value(source). {.find(‘.’) ? .len}
 </pre>’'’’’
 T‘‘‘Python:[[[
 for root, dirs, files in os.walk('.'):
-    dirs[:] = [d for d in dirs if not d[0] == '.'] # exclude hidden folders (e.g. `.hg`)
+    dirs[:] = [d for d in dirs if d[0] != '.'] # exclude hidden folders (e.g. `.hg`)
     for name in files:
         if name.endswith(".py") or name.endswith(".txt"):
             filestr = open(os.path.join(root, name), encoding = 'utf8', newline = '').read()
@@ -400,7 +400,7 @@ for root, dirs, files in os.walk('.'):
 
 '‘<pre>
 <span class="keyword">for</span> <span class="identifier">root</span>, <span class="identifier">dirs</span>, <span class="identifier">files</span> <span class="keyword">in</span> <span class="identifier">os</span>.<span class="identifier">walk</span>(<span class="string-literal">'.'</span>):
-    <span class="identifier">dirs</span>[:] = [<span class="identifier">d</span> <span class="keyword">for</span> <span class="identifier">d</span> <span class="keyword">in</span> <span class="identifier">dirs</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="identifier">d</span>[<span class="numeric-literal">0</span>] == <span class="string-literal">'.'</span>] <span class="comment"># exclude hidden folders (e.g. `.hg`)</span>
+    <span class="identifier">dirs</span>[:] = [<span class="identifier">d</span> <span class="keyword">for</span> <span class="identifier">d</span> <span class="keyword">in</span> <span class="identifier">dirs</span> <span class="keyword">if</span> <span class="identifier">d</span>[<span class="numeric-literal">0</span>] != <span class="string-literal">'.'</span>] <span class="comment"># exclude hidden folders (e.g. `.hg`)</span>
     <span class="keyword">for</span> <span class="identifier">name</span> <span class="keyword">in</span> <span class="identifier">files</span>:
         <span class="keyword">if</span> <span class="identifier">name</span>.<span class="identifier">endswith</span>(<span class="string-literal">".py"</span>) <span class="keyword">or</span> <span class="identifier">name</span>.<span class="identifier">endswith</span>(<span class="string-literal">".txt"</span>):
             <span class="identifier">filestr</span> = <span class="identifier">open</span>(<span class="identifier">os</span>.<span class="identifier">path</span>.<span class="identifier">join</span>(<span class="identifier">root</span>, <span class="identifier">name</span>), <span class="identifier">encoding</span> = <span class="string-literal">'utf8'</span>, <span class="identifier">newline</span> = <span class="string-literal">''</span>).<span class="identifier">read</span>()

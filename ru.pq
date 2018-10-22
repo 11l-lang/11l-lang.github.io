@@ -395,7 +395,7 @@ for root, dirs, files in os.walk('.'):
         if name.endswith(".py") or name.endswith(".txt"):
             filestr = open(os.path.join(root, name), encoding = 'utf8', newline = '').read()
             if "\r" in filestr or "\t" in filestr:
-                print(R"Unallowed character (\r or \t) found in file " + os.path.join(root[2:], name))
+                print(R"Unallowed character (\r or \t) found in file " + os.path.join(root, name)[2:])
 ]]]
 
 '‘<pre>
@@ -405,7 +405,7 @@ for root, dirs, files in os.walk('.'):
         <span class="keyword">if</span> <span class="identifier">name</span>.<span class="identifier">endswith</span>(<span class="string-literal">".py"</span>) <span class="keyword">or</span> <span class="identifier">name</span>.<span class="identifier">endswith</span>(<span class="string-literal">".txt"</span>):
             <span class="identifier">filestr</span> = <span class="identifier">open</span>(<span class="identifier">os</span>.<span class="identifier">path</span>.<span class="identifier">join</span>(<span class="identifier">root</span>, <span class="identifier">name</span>), <span class="identifier">encoding</span> = <span class="string-literal">'utf8'</span>, <span class="identifier">newline</span> = <span class="string-literal">''</span>).<span class="identifier">read</span>()
             <span class="keyword">if</span> <span class="string-literal">"\r"</span> <span class="keyword">in</span> <span class="identifier">filestr</span> <span class="keyword">or</span> <span class="string-literal">"\t"</span> <span class="keyword">in</span> <span class="identifier">filestr</span>:
-                <span class="identifier">print</span>(<span class="string-literal">R"Unallowed character (\r or \t) found in file "</span> + <span class="identifier">os</span>.<span class="identifier">path</span>.<span class="identifier">join</span>(<span class="identifier">root</span>[<span class="numeric-literal">2</span>:], <span class="identifier">name</span>))
+                <span class="identifier">print</span>(<span class="string-literal">R"Unallowed character (\r or \t) found in file "</span> + <span class="identifier">os</span>.<span class="identifier">path</span>.<span class="identifier">join</span>(<span class="identifier">root</span>, <span class="identifier">name</span>)[<span class="numeric-literal">2</span>:])
 
 </pre>’'’’‘‘11l:[[[
 L(fname) fs:walk(‘.’, dir_filter' d -> d[0] != ‘.’)

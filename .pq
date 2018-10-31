@@ -258,7 +258,7 @@ L(child) .children
 
 ...
 
-L(line) file.readlines()
+L(line) file.read_lines()
    A line_number = L.index + 1
    print(line_number‘. ’line)
 
@@ -304,7 +304,7 @@ A key = S token.category
 
 ...
 
-<span class="keyword">L</span>(<span class="identifier">line</span>) <span class="identifier">file</span>.<span class="identifier">readlines</span>()
+<span class="keyword">L</span>(<span class="identifier">line</span>) <span class="identifier">file</span>.<span class="identifier">read_lines</span>()
    <span class="keyword">A</span> <span class="identifier">line_number</span> = <span class="keyword">L.index</span> + <span class="numeric-literal">1</span>
    <span class="identifier">print</span>(<span class="identifier">line_number</span><span class="string-literal">‘. ’</span><span class="identifier">line</span>)
 
@@ -408,13 +408,13 @@ for root, dirs, files in os.walk('.'):
                 <span class="identifier">print</span>(<span class="string-literal">R"Unallowed character (\r or \t) found in file '"</span> + <span class="identifier">os</span>.<span class="identifier">path</span>.<span class="identifier">join</span>(<span class="identifier">root</span>, <span class="identifier">name</span>)[<span class="numeric-literal">2</span>:] + <span class="string-literal">"'"</span>)
 
 </pre>’'’’‘‘11l:[[[
-L(fname) fs:walk(‘.’, dir_filter' d -> d[0] != ‘.’)
+L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
    I fname.ends_with((‘.py’, ‘.txt’)) & File(fname).read_bytes().find(("\r".code, "\t".code)) != N
       print(‘Unallowed character (\r or \t) found in file '’fname[2..]‘'’)
 ]]]
 
 '‘<pre>
-<span class="keyword">L</span>(<span class="identifier">fname</span>) <span class="identifier">fs</span>:<span class="identifier">walk</span>(<span class="string-literal">‘.’</span>, <span class="identifier">dir_filter'</span> <span class="identifier">d</span> -> <span class="identifier">d</span>[<span class="numeric-literal">0</span>] != <span class="string-literal">‘.’</span>)
+<span class="keyword">L</span>(<span class="identifier">fname</span>) <span class="identifier">fs</span>:<span class="identifier">walk_dir</span>(<span class="string-literal">‘.’</span>, <span class="identifier">dir_filter'</span> <span class="identifier">d</span> -> <span class="identifier">d</span>[<span class="numeric-literal">0</span>] != <span class="string-literal">‘.’</span>)
    <span class="keyword">I</span> <span class="identifier">fname</span>.<span class="identifier">ends_with</span>((<span class="string-literal">‘.py’</span>, <span class="string-literal">‘.txt’</span>)) & <span class="identifier">File</span>(<span class="identifier">fname</span>).<span class="identifier">read_bytes</span>().<span class="identifier">find</span>((<span class="string-literal">"\r"</span>.<span class="identifier">code</span>, <span class="string-literal">"\t"</span>.<span class="identifier">code</span>)) != <span class="keyword">N</span>
       <span class="identifier">print</span>(<span class="string-literal">‘Unallowed character (\r or \t) found in file '’</span><span class="identifier">fname</span>[<span class="numeric-literal">2</span>..]<span class="string-literal">‘'’</span>)
 

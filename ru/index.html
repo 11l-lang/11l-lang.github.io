@@ -248,7 +248,7 @@ for i in range(len(self.children)):
 ...
 
 for line_number, line in enumerate(file.readlines(), 1):
-    print(str(line_number) + '. ' + line)
+    print(str(line_number) + '. ' + line.rstrip("\n"))
 
 
 ...
@@ -301,7 +301,7 @@ span.comment {color: #808080;}
 ...
 
 <span class="keyword">for</span> <span class="identifier">line_number</span>, <span class="identifier">line</span> <span class="keyword">in</span> <span class="identifier">enumerate</span>(<span class="identifier">file</span>.<span class="identifier">readlines</span>(), <span class="numeric-literal">1</span>):
-    <span class="identifier">print</span>(<span class="identifier">str</span>(<span class="identifier">line_number</span>) + <span class="string-literal">'. '</span> + <span class="identifier">line</span>)
+    <span class="identifier">print</span>(<span class="identifier">str</span>(<span class="identifier">line_number</span>) + <span class="string-literal">'. '</span> + <span class="identifier">line</span>.<span class="identifier">rstrip</span>(<span class="string-literal">"\n"</span>))
 
 
 ...

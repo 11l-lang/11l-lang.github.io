@@ -1,5 +1,5 @@
 ﻿[[[
-Credits to:
+Credits/thanks to:
 . [https://doc.rust-lang.org/1.7.0/book/loops.html <- google:‘rust do while’]
 . [https://trizen.gitbooks.io/sidef-lang/content/syntax_and_semantics/constructs/while.html]
 ]]]H(1)‘L/loop keyword’
@@ -37,7 +37,7 @@ L 3
 ```
 will print "ABC" 3 times.
 
-~‘Notice: only numeric literals/constants are considered so far as `<number>`.’
+~‘Notice: only numeric literals/constants are considered so far as `<number>` {if you want to iterate [[[from 0 to ]]]an arbitrary number of times, you can use ranges, for example: `L 1..number`}.’
 
 
 H‘4. A "for in" loop.’

@@ -5,11 +5,15 @@ Credits/thanks to:
 ]]]H(1)‘L/loop keyword’
 
 
+There are 4 forms of loops in 11l.
+
+
 H‘1. The infinite loop.’
 
 #(11l)‘
 L
    print("\a")
+   sleep(1)
 ’
 
 

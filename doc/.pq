@@ -1,5 +1,5 @@
 [[[Н‘11l Documentation’]]]
-Semicolon Free Grammar
+[[[Semicolon Free Grammar]]]‘[[[Scoping rules/]]]Code blocks’[./code-blocks]
 
 Keywords:
    L/loop[./L]

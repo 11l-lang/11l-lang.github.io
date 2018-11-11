@@ -138,7 +138,7 @@ break_:
 <span style='color:#e34adc; '>break_</span>:
 </pre>’'’’’
 T‘><‘‘Python’ ‘11l’’
-‘‘[[[
+‘‘#(Python)‘
 was_break = False
 for i in range(1, len(self.children), 2):
     if self.children[i].token.value(source) in ('E', 'И', 'else', 'иначе'):
@@ -184,60 +184,7 @@ elif token.category in (Token.Category.STATEMENT_SEPARATOR,
     key = ';'
 else:
     key = token.value(source)
-]]]'‘<style>
-span.keyword {color: #0000FF; font-weight: bold;}
-span.identifier {color: #00009F;}
-span.string-literal {color: #800000;}
-span.numeric-literal {color: #008000;}
-span.constant {color: #008000;}
-span.comment {color: #808080;}
-</style><pre>
-<span class="identifier">was_break</span> = <span class="constant">False</span>
-<span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="numeric-literal">1</span>, <span class="identifier">len</span>(<span class="identifier">self</span>.<span class="identifier">children</span>), <span class="numeric-literal">2</span>):
-    <span class="keyword">if</span> <span class="identifier">self</span>.<span class="identifier">children</span>[<span class="identifier">i</span>].<span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>) <span class="keyword">in</span> (<span class="string-literal">'E'</span>, <span class="string-literal">'И'</span>, <span class="string-literal">'else'</span>, <span class="string-literal">'иначе'</span>):
-        <span class="identifier">res</span> += <span class="identifier">char_or_str</span>(<span class="identifier">self</span>.<span class="identifier">children</span>[<span class="identifier">i</span>+<span class="numeric-literal">1</span>], <span class="identifier">char_val</span>)
-        <span class="identifier">was_break</span> = <span class="constant">True</span>
-        <span class="keyword">break</span>
-    <span class="identifier">res</span> += <span class="string-literal">'a == '</span> + <span class="identifier">char_or_str</span>(<span class="identifier">self</span>.<span class="identifier">children</span>[<span class="identifier">i</span>], <span class="identifier">char_key</span>) \
-           + <span class="string-literal">' ? '</span> + <span class="identifier">char_or_str</span>(<span class="identifier">self</span>.<span class="identifier">children</span>[<span class="identifier">i</span>+<span class="numeric-literal">1</span>], <span class="identifier">char_val</span>) + <span class="string-literal">' : '</span>
-<span class="keyword">if</span> <span class="keyword">not</span> <span class="identifier">was_break</span>:
-    <span class="identifier">res</span> += <span class="string-literal">'throw KeyError(a)'</span>
-
-...
-
-<span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="identifier">len</span>(<span class="identifier">self</span>.<span class="identifier">children</span>)):
-    <span class="identifier">res</span> += <span class="identifier">self</span>.<span class="identifier">children</span>[<span class="identifier">i</span>].<span class="identifier">to_str</span>()
-    <span class="keyword">if</span> <span class="identifier">i</span> < <span class="identifier">len</span>(<span class="identifier">self</span>.<span class="identifier">children</span>)-<span class="numeric-literal">1</span>:
-        <span class="identifier">res</span> += <span class="string-literal">', '</span>
-
-...
-
-<span class="keyword">for</span> <span class="identifier">line_number</span>, <span class="identifier">line</span> <span class="keyword">in</span> <span class="identifier">enumerate</span>(<span class="identifier">file</span>.<span class="identifier">readlines</span>(), <span class="numeric-literal">1</span>):
-    <span class="identifier">print</span>(<span class="identifier">str</span>(<span class="identifier">line_number</span>) + <span class="string-literal">'. '</span> + <span class="identifier">line</span>.<span class="identifier">rstrip</span>(<span class="string-literal">"\n"</span>))
-
-
-...
-
-<span class="keyword">while</span> <span class="identifier">i</span> < <span class="identifier">len</span>(<span class="identifier">source</span>) <span class="keyword">and</span> (<span class="string-literal">'0'</span> <= <span class="identifier">source</span>[<span class="identifier">i</span>] <= <span class="string-literal">'9'</span>
-                        <span class="keyword">or</span> <span class="string-literal">'a'</span> <= <span class="identifier">source</span>[<span class="identifier">i</span>] <= <span class="string-literal">'z'</span>
-                        <span class="keyword">or</span> <span class="string-literal">'A'</span> <= <span class="identifier">source</span>[<span class="identifier">i</span>] <= <span class="string-literal">'Z'</span> <span class="keyword">or</span> <span class="identifier">source</span>[<span class="identifier">i</span>] == <span class="string-literal">'_'</span>):
-    <span class="identifier">i</span> += <span class="numeric-literal">1</span>
-
-...
-
-<span class="keyword">if</span> <span class="identifier">token</span>.<span class="identifier">category</span> <span class="keyword">in</span> (<span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">NUMERIC_LITERAL</span>,
-                      <span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">STRING_LITERAL</span>):
-    <span class="identifier">key</span> = <span class="string-literal">'(literal)'</span>
-<span class="keyword">elif</span> <span class="identifier">token</span>.<span class="identifier">category</span> == <span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">NAME</span>:
-    <span class="identifier">key</span> = <span class="string-literal">'(name)'</span>
-<span class="keyword">elif</span> <span class="identifier">token</span>.<span class="identifier">category</span> == <span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">CONSTANT</span>:
-    <span class="identifier">key</span> = <span class="string-literal">'(constant)'</span>
-<span class="keyword">elif</span> <span class="identifier">token</span>.<span class="identifier">category</span> <span class="keyword">in</span> (<span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">STATEMENT_SEPARATOR</span>,
-                        <span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">DEDENT</span>):
-    <span class="identifier">key</span> = <span class="string-literal">';'</span>
-<span class="keyword">else</span>:
-    <span class="identifier">key</span> = <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>)
-</pre>’'’ ‘[[[
+’’ ‘#(11l)‘
 
 L(i) (1 .< .children.len).step(2)
    I .children[i].token.value(source) C (‘E’, ‘И’, ‘else’, ‘иначе’)
@@ -283,54 +230,8 @@ A key = S token.category
    E
       token.value(source)
 
-]]]'‘<pre>
-
-<span class="keyword">L</span>(<span class="identifier">i</span>) (<span class="numeric-literal">1</span> .< .<span class="identifier">children</span>.<span class="identifier">len</span>).<span class="identifier">step</span>(<span class="numeric-literal">2</span>)
-   <span class="keyword">I</span> .<span class="identifier">children</span>[<span class="identifier">i</span>].<span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>) <span class="keyword">C</span> (<span class="string-literal">‘E’</span>, <span class="string-literal">‘И’</span>, <span class="string-literal">‘else’</span>, <span class="string-literal">‘иначе’</span>)
-      <span class="identifier">res</span> ‘’= <span class="identifier">char_or_str</span>(.<span class="identifier">children</span>[<span class="identifier">i</span>+<span class="numeric-literal">1</span>], <span class="identifier">char_val</span>)
-      <span class="keyword">L.break</span>
-   <span class="identifier">res</span> ‘’= <span class="string-literal">‘a == ’</span><span class="identifier">char_or_str</span>(.<span class="identifier">children</span>[<span class="identifier">i</span>], <span class="identifier">char_key</span>)<span class="string-literal">‘ ? ’</span>
-                ‘’<span class="identifier">char_or_str</span>(.<span class="identifier">children</span>[<span class="identifier">i</span>+<span class="numeric-literal">1</span>], <span class="identifier">char_val</span>)<span class="string-literal">‘ : ’</span>
-
-   <span class="keyword">L.was_no_break</span>
-      <span class="identifier">res</span> ‘’= <span class="string-literal">‘throw KeyError(a)’</span>
-
-...
-
-<span class="keyword">L</span>(<span class="identifier">child</span>) .<span class="identifier">children</span>
-   <span class="identifier">res</span> ‘’= <span class="identifier">child</span>.<span class="identifier">to_str</span>()
-   <span class="keyword">I</span> <span class="keyword">L.next</span>
-      <span class="identifier">res</span> ‘’= <span class="string-literal">‘, ’</span>
-
-...
-
-<span class="keyword">L</span>(<span class="identifier">line</span>) <span class="identifier">file</span>.<span class="identifier">read_lines</span>()
-   <span class="keyword">A</span> <span class="identifier">line_number</span> = <span class="keyword">L.index</span> + <span class="numeric-literal">1</span>
-   <span class="identifier">print</span>(<span class="identifier">line_number</span><span class="string-literal">‘. ’</span><span class="identifier">line</span>)
-
-...
-
-
-<span class="keyword">L</span> <span class="identifier">i</span> < <span class="identifier">source</span>.<span class="identifier">len</span> & <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> (<span class="string-literal">‘0’</span>..<span class="string-literal">‘9’</span>, <span class="string-literal">‘a’</span>..<span class="string-literal">‘z’</span>, <span class="string-literal">‘A’</span>..<span class="string-literal">‘Z’</span>, <span class="string-literal">‘_’</span>)
-   <span class="identifier">i</span>++
-
-
-...
-
-<span class="keyword">A</span> <span class="identifier">key</span> = <span class="keyword">S</span> <span class="identifier">token</span>.<span class="identifier">category</span>
-   <span class="identifier">NUMERIC_LITERAL</span>, <span class="identifier">STRING_LITERAL</span>
-      <span class="string-literal">‘(literal)’</span>
-   <span class="identifier">NAME</span>
-      <span class="string-literal">‘(name)’</span>
-   <span class="identifier">CONSTANT</span>
-      <span class="string-literal">‘(constant)’</span>
-   <span class="identifier">STATEMENT_SEPARATOR</span>, <span class="identifier">DEDENT</span>
-      <span class="string-literal">‘;’</span>
-   <span class="keyword">E</span>
-      <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>)
-
-</pre>’'’’’
-T‘‘‘[[[
+’’’’
+T‘‘‘#(Python)‘
 
 main_window.pos.x = 10
 main_window.pos.y = 20
@@ -344,22 +245,8 @@ width = active_window.rect.right - active_window.rect.left
 dot_pos = token.value(source).find('.')
 if dot_pos == -1:
     dot_pos = len(token.value(source))
-]]]'‘<pre>
-
-<span class="identifier">main_window</span>.<span class="identifier">pos</span>.<span class="identifier">x</span> = <span class="numeric-literal">10</span>
-<span class="identifier">main_window</span>.<span class="identifier">pos</span>.<span class="identifier">y</span> = <span class="numeric-literal">20</span>
-
-...
-
-<span class="identifier">width</span> = <span class="identifier">active_window</span>.<span class="identifier">rect</span>.<span class="identifier">right</span> - <span class="identifier">active_window</span>.<span class="identifier">rect</span>.<span class="identifier">left</span>
-
-...
-
-<span class="identifier">dot_pos</span> = <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>).<span class="identifier">find</span>(<span class="string-literal">'.'</span>)
-<span class="keyword">if</span> <span class="identifier">dot_pos</span> == -<span class="numeric-literal">1</span>:
-    <span class="identifier">dot_pos</span> = <span class="identifier">len</span>(<span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>))
-</pre>’'’
-‘[[[
+’’
+‘#(11l)‘
 main_window.pos.
    .x = 10
    .y = 20
@@ -373,22 +260,10 @@ A width = active_window.rect. {.right - .left}
 A dot_pos = token.value(source). {.find(‘.’) ? .len}
 
 
-]]]'‘<pre>
-<span class="identifier">main_window</span>.<span class="identifier">pos</span>.
-   .<span class="identifier">x</span> = <span class="numeric-literal">10</span>
-   .<span class="identifier">y</span> = <span class="numeric-literal">20</span>
+’’’’
+T‘‘‘Python:
 
-...
-
-<span class="keyword">A</span> <span class="identifier">width</span> = <span class="identifier">active_window</span>.<span class="identifier">rect</span>. {.<span class="identifier">right</span> - .<span class="identifier">left</span>}
-
-...
-
-<span class="keyword">A</span> <span class="identifier">dot_pos</span> = <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>). {.<span class="identifier">find</span>(<span class="string-literal">‘.’</span>) ? .<span class="identifier">len</span>}
-
-
-</pre>’'’’’
-T‘‘‘Python:[[[
+#(Python)‘
 for root, dirs, files in os.walk('.'):
     dirs[:] = [d for d in dirs if d[0] != '.'] # exclude hidden folders (e.g. `.hg`)
     for name in files:
@@ -396,29 +271,17 @@ for root, dirs, files in os.walk('.'):
             file_bytes = open(os.path.join(root, name), 'rb').read()
             if b"\r" in file_bytes or b"\t" in file_bytes:
                 print(R"Unallowed character (\r or \t) found in file '" + os.path.join(root, name)[2:] + "'")
-]]]
 
-'‘<pre>
-<span class="keyword">for</span> <span class="identifier">root</span>, <span class="identifier">dirs</span>, <span class="identifier">files</span> <span class="keyword">in</span> <span class="identifier">os</span>.<span class="identifier">walk</span>(<span class="string-literal">'.'</span>):
-    <span class="identifier">dirs</span>[:] = [<span class="identifier">d</span> <span class="keyword">for</span> <span class="identifier">d</span> <span class="keyword">in</span> <span class="identifier">dirs</span> <span class="keyword">if</span> <span class="identifier">d</span>[<span class="numeric-literal">0</span>] != <span class="string-literal">'.'</span>] <span class="comment"># exclude hidden folders (e.g. `.hg`)</span>
-    <span class="keyword">for</span> <span class="identifier">name</span> <span class="keyword">in</span> <span class="identifier">files</span>:
-        <span class="keyword">if</span> <span class="identifier">name</span>.<span class="identifier">endswith</span>(<span class="string-literal">".py"</span>) <span class="keyword">or</span> <span class="identifier">name</span>.<span class="identifier">endswith</span>(<span class="string-literal">".txt"</span>):
-            <span class="identifier">file_bytes</span> = <span class="identifier">open</span>(<span class="identifier">os</span>.<span class="identifier">path</span>.<span class="identifier">join</span>(<span class="identifier">root</span>, <span class="identifier">name</span>), <span class="string-literal">'rb'</span>).<span class="identifier">read</span>()
-            <span class="keyword">if</span> <span class="string-literal">b"\r"</span> <span class="keyword">in</span> <span class="identifier">file_bytes</span> <span class="keyword">or</span> <span class="string-literal">b"\t"</span> <span class="keyword">in</span> <span class="identifier">file_bytes</span>:
-                <span class="identifier">print</span>(<span class="string-literal">R"Unallowed character (\r or \t) found in file '"</span> + <span class="identifier">os</span>.<span class="identifier">path</span>.<span class="identifier">join</span>(<span class="identifier">root</span>, <span class="identifier">name</span>)[<span class="numeric-literal">2</span>:] + <span class="string-literal">"'"</span>)
+’
+’’‘‘11l:
 
-</pre>’'’’‘‘11l:[[[
+#(11l)‘
 L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
    I fname.ends_with((‘.py’, ‘.txt’)) & File(fname).read_bytes().find(("\r".code, "\t".code)) != N
       print(‘Unallowed character (\r or \t) found in file '’fname[2..]‘'’)
-]]]
 
-'‘<pre>
-<span class="keyword">L</span>(<span class="identifier">fname</span>) <span class="identifier">fs</span>:<span class="identifier">walk_dir</span>(<span class="string-literal">‘.’</span>, <span class="identifier">dir_filter'</span> <span class="identifier">d</span> -> <span class="identifier">d</span>[<span class="numeric-literal">0</span>] != <span class="string-literal">‘.’</span>)
-   <span class="keyword">I</span> <span class="identifier">fname</span>.<span class="identifier">ends_with</span>((<span class="string-literal">‘.py’</span>, <span class="string-literal">‘.txt’</span>)) & <span class="identifier">File</span>(<span class="identifier">fname</span>).<span class="identifier">read_bytes</span>().<span class="identifier">find</span>((<span class="string-literal">"\r"</span>.<span class="identifier">code</span>, <span class="string-literal">"\t"</span>.<span class="identifier">code</span>)) != <span class="keyword">N</span>
-      <span class="identifier">print</span>(<span class="string-literal">‘Unallowed character (\r or \t) found in file '’</span><span class="identifier">fname</span>[<span class="numeric-literal">2</span>..]<span class="string-literal">‘'’</span>)
-
-</pre>’'’’’
+’
+’’’
 }
 
 

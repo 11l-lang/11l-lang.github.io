@@ -1,6 +1,6 @@
 import os, sys
 
-for root, dirs, files in os.walk('doc'):
+for root, dirs, files in os.walk('.'):
     #dirs[:] = [d for d in dirs if d != 'ru']
     for name in files:
         if name.endswith(".pq"):

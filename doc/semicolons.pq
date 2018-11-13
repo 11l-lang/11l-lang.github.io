@@ -2,6 +2,9 @@
 ]]]H‘Semicolon free grammar’
 
 
+There is no need to use semicolons in 11l to terminate statements {semicolons can be used to place multiple statements in [[[a single]]]one line, though this is not recommended}. Statements are always terminated by a newline character [[[if the next line has the same indent as a current one, and ]]]if there is no implied line joining occured (see below).
+
+
 H‘‘Implied’[‘Implied but not implicit, because in 11l there is no explicit line joining, like in Python’] line joining’
 
 
@@ -24,9 +27,9 @@ return
 ’
 just returns nothing/null (because semicolon is automatically inserted after `return`), but it is a compile-time error in 11l.’
 }), 11l uses in general just 3 simple rules, which are both easy to understand for a human [[[as well as]]]and to implement in a lexical analyser:
-1.‘Every line of code which ends with any binary operator [[[should/]]]will be joined with the following line of code:
+1.‘Every line of code which ends with any binary operator [[[should/]]]will be joined with the following/next line of code:
 #(11l)‘
-I condition1 | //  this line will be joined with the following line because it ends with a binary operator `|`
+I condition1 | //  this line will be joined with the following/next line because it ends with a binary operator `|`
   condition2
    some_func()
 ’

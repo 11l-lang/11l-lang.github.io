@@ -100,7 +100,7 @@ pre.inline_code {
 ]]]--><h3>Semicolon free grammar</h3>
 <br />
 <br />
-There is no need to use semicolons in 11l to terminate statements <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">semicolons can be used to place multiple statements in <!--[[[a single]]]-->one line, though this is not recommended</span><span class="cu_brackets_b">}</span></span>. Statements are always terminated by a newline character <!--[[[if the next line has the same indent as a current one, and ]]]-->if there is no implied line joining occured (see below).<br />
+There is no need to use semicolons in 11l to terminate statements<!--[[[phrase ‘terminate statements’ is taken from [https://golang.org/doc/effective_go.html#semicolons]]]]--> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">semicolons can be used to place multiple statements in <!--[[[a single]]]-->one line, though this is not recommended</span><span class="cu_brackets_b">}</span></span>. Statements are always terminated by a newline character <!--[[[if the next line has the same indent as a current one, and ]]]-->if there is no implied line joining occured (see below).<br />
 <br />
 <br />
 <h3><abbr title="Implied but not implicit, because in 11l there is no explicit line joining, like in Python">Implied</abbr> line joining</h3>
@@ -121,9 +121,9 @@ a = b + c[d, e] = [e, d]
 <pre class="code_block">
 return
   "something";
-</pre>just returns nothing/null (because semicolon is automatically inserted after <pre class="inline_code">return</pre>), but it is a compile-time error in 11l.</li>
+</pre>just returns <!--[[[nothing/null]]]-->undefined (because semicolon is automatically inserted after <pre class="inline_code">return</pre>), but it is a compile-time error in 11l.</li>
 </ol>
-</span><span class="cu_brackets_b">}</span></span>), 11l uses in general just 3 simple rules, which are both easy to understand for a human <!--[[[as well as]]]-->and to implement in a lexical analyser:<br />
+</span><span class="cu_brackets_b">}</span></span>)<!--[[[,]]]--> 11l uses in general just 3 simple rules, which are both easy to understand for a human <!--[[[as well as]]]-->and to implement in a lexical analyser:<br />
 <ol>
 <li>Every line of code which ends with any binary operator <!--[[[should/]]]-->will be joined with the following/next line of code:<br />
 <style>
@@ -134,7 +134,7 @@ span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
-<span class="keyword">I</span> <span class="identifier">condition1</span> | <span class="comment">//  this line will be joined with the following/next line because it ends with a binary operator `|`</span>
+<span class="keyword">I</span> <span class="identifier">condition1</span> | <span class="comment">// this line will be joined with the following/next line because it ends with a binary operator `|`</span>
   <span class="identifier">condition2</span>
    <span class="identifier">some_func</span>()
 </pre></li>

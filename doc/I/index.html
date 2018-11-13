@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>I/if и E/else</title>
+<title>I/if and E/else</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -96,8 +96,8 @@ pre.inline_code {
 </head>
 <body>
 <table width="55%" align="center"><tr><td>
-<!--[[[Н‘I/if и E/else’
-]]]--><h3>Ключевые слова I/if и E/else</h3>
+<!--[[[H‘I/if and E/else’
+]]]--><h3>Keywords I/if and E/else</h3>
 <br />
 <br />
 <table>
@@ -109,58 +109,58 @@ span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">условие</span>>
+<span class="keyword">I</span> &lt;<span class="identifier">condition</span>>
    ...
 
 
 
 
 </pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">условие</span>>
+<span class="keyword">I</span> &lt;<span class="identifier">condition</span>>
    ...
 <span class="keyword">E</span>
    ...
 
 
 </pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">условие1</span>>
+<span class="keyword">I</span> &lt;<span class="identifier">condition1</span>>
    ...
-<span class="keyword">E</span> <span class="keyword">I</span> &lt;<span class="identifier">условие2</span>>
+<span class="keyword">E</span> <span class="keyword">I</span> &lt;<span class="identifier">condition2</span>>
    ...
 
 
 </pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">условие1</span>>
+<span class="keyword">I</span> &lt;<span class="identifier">condition1</span>>
    ...
-<span class="keyword">E</span> <span class="keyword">I</span> &lt;<span class="identifier">условие2</span>>
+<span class="keyword">E</span> <span class="keyword">I</span> &lt;<span class="identifier">condition2</span>>
    ...
 <span class="keyword">E</span>
    ...
 </pre></td></tr>
 </table>
 <br />
-Два ключевых слова E/else и I/if идущие подряд трактуются специальным образом в 11l, благодаря чему отпадает необходимость в специальном/отдельном ключевом слове (как elif в Python или elsif в Ruby).<br />
+Two consecutive keywords E/else and I/if are treated especially, so there is no need for a separate/additional keyword like elif in Python or elsif in Ruby.<br />
 <br />
-Также I/if и E/else можно использовать в выражениях в качестве альтернативы тернарному оператору <pre class="inline_code">?:</pre> из языка Си:<br />
+Also I/if and E/else can be ussed in expressions similarly to ternary operator <pre class="inline_code">?:</pre> from C:<br />
 <pre class="code_block">
 <span class="identifier">sign</span> = <span class="keyword">I</span> <span class="identifier">x</span> &lt; <span class="numeric-literal">0</span> {-<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">x</span> > <span class="numeric-literal">0</span> {<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="numeric-literal">0</span>
 </pre><br />
 <br />
-<h3>Ключевые подслова I/if</h3>
+<h3>I/if subkeywords</h3>
 <br />
 <br />
 <pre class="code_block">
-<span class="keyword">I.likely</span> &lt;<span class="identifier">условие</span>>
+<span class="keyword">I.likely</span> &lt;<span class="identifier">condition</span>>
    ...
-</pre>используется, чтобы указать компилятору, что условие в подавляющем большинстве случаев будет выполнено.<br />
+</pre>is used as sign to the compiler that condition in most of the cases will be true.<br />
 <br />
-И аналогично:<br />
+And similarly:<br />
 <pre class="code_block">
-<span class="keyword">I.unlikely</span> &lt;<span class="identifier">условие</span>>
+<span class="keyword">I.unlikely</span> &lt;<span class="identifier">condition</span>>
    ...
-</pre>используется, чтобы указать компилятору, что условие в подавляющем большинстве случаев не будет выполнено.<br />
+</pre>is used as sign to the compiler that condition in most of the cases will be false.<br />
 <br />
-<i>Примечание: на данный момент увеличение производительности от использования данных подслов слишком незначительно, поэтому их использовать не рекомендуется.</i><br />
+<i>Notice: at the present moment performance increase when using this subkeywords is negligible, so their usage is not recommended.</i><br />
 
 </td></tr></table>
 </body>

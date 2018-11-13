@@ -104,10 +104,41 @@ pre.inline_code {
 <!--[[[https://metanit.com/cpp/tutorial/2.3.php <- google:‘типы данных’]]]-->Логический тип. Может принимать одно из двух значений: 0В и 1В <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">главная причина отказа от true и false — это то, что эти ключевые слова совсем не ложатся на <!--[[[корневую/основообразующую]/]главную/]-->базовую<!--[[[/основную]]]--> концепцию 11l — все корневые <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">например L\Ц — корневое ключевое слово, а break\прервать — ключевое подслово</span><span class="cu_brackets_b">}</span></span> ключевые слова языка могут быть записаны в одну букву <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">вариант взять например Y в качестве Yes/true и O в качестве nO/false/0 — ещё более уродливый, и к тому же, тогда язык пришлось бы назвать/‘переименовать в’ 13l</span><span class="cu_brackets_b">}</span></span></span><span class="cu_brackets_b">}</span></span>. <span class="sq"><span class="sq_brackets">[</span>По аналогии с <a href="https://ru.wikipedia.org/wiki/Алгебра_логики">алгеброй логики</a>, в которой чаще используются <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">например, в таблицах истинности</span><span class="cu_brackets_b">}</span></span> логический ноль и логическая единица, а не истина/ложь <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">11l — не единственный язык программирования, в котором не используются традиционные true и false — например, в Objective-C используется пара YES/NO, а в Scheme — #t и #f</span><span class="cu_brackets_b">}</span></span>.<span class="sq_brackets">]</span></span><br />
 <br />
 <b>Int</b><br />
-Целочисленный тип (размерностью ‘32 или 64’<span class="sq"><span class="sq_brackets">[</span> ‘голосование: 1. 32, 2. 64, 3. Отказ от типа Int <span class="sq"><span class="sq_brackets">[</span>необходимо явно задавать разрядность: Int32 или Int64<span class="sq_brackets">]</span></span>’<span class="sq_brackets">]</span></span> разряда).<br />
+Целочисленный тип (размерностью ‘32 или 64’<span class="sq"><span class="sq_brackets">[</span> ‘голосование: 1. a. 32, b. 64, c. Отказ от типа Int <span class="sq"><span class="sq_brackets">[</span>необходимо явно задавать разрядность: Int32 или Int64<span class="sq_brackets">]</span></span>’<span class="sq_brackets">]</span></span> разряда).<br />
+<br />
+<b>Int8</b><br />
+<b>Int16</b><br />
+<b>Int32</b><br />
+<b>Int64</b><br />
+или<span class="sq"><span class="sq_brackets">[</span> ‘голосование’<span class="sq_brackets">]</span></span><br />
+<b>Int1</b><br />
+<b>Int2</b><br />
+<b>Int4</b><br />
+<b>Int8</b><br />
 <br />
 <b>Float</b><br />
 Вещественный тип (размерностью ‘32 или 64’<span class="sq"><span class="sq_brackets">[</span> ‘голосование’<span class="sq_brackets">]</span></span> разряда).<br />
+<br />
+<b>Float32</b><br />
+<b>Float64</b><br />
+или<span class="sq"><span class="sq_brackets">[</span> ‘голосование’<span class="sq_brackets">]</span></span><br />
+<b>Float4</b><br />
+<b>Float8</b><br />
+<br />
+<b>Char</b><br />
+Символ. Создать символ с кодом 65 можно так:<br />
+<style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre class="code_block">
+<span class="identifier">Char</span>(<span class="identifier">code'</span> <span class="numeric-literal">65</span>)
+</pre><br />
+<b>String</b><br />
+Строка.<br />
 
 </td></tr></table>
 </body>

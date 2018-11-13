@@ -281,7 +281,7 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
 }
 
 
-Documentation
+Documentation[./doc]
 
 
 [[[Install/]]]Download

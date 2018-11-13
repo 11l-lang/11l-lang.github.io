@@ -100,12 +100,29 @@ pre.inline_code {
 ]]]--><h3>Semicolon free grammar</h3>
 <br />
 <br />
-<h3>Implied line joining</h3>
+<h3><abbr title="Implied but not implicit, because in 11l there is no explicit line joining, like in Python">Implied</abbr> line joining</h3>
 <br />
 <br />
-Instead of clumsy things like <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-rules-of-automatic-semicolon-insertion">Automatic Semicolon Insertion with overly complex rules</a>, 11l uses in general just 3 simple rules, which are both easy to understand for a human <!--[[[as well as]]]-->and to implement in lexical analyser:<br />
+Instead of clumsy things like <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-rules-of-automatic-semicolon-insertion">Automatic Semicolon Insertion with overly complex rules</a> (which also sometimes works incorrectly <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+Examples of incorrect work of Automatic Semicolon Insertion:<br />
 <ol>
-<li>Every line of code which ends with any binary operator should be joined with the following line of code:<br />
+<li>This JavaScript code:<br />
+<pre class="code_block">
+a = b + c
+[d, e] = [e, d]
+</pre>is <i>not</i> transformed by automatic semicolon insertion and so will work like this:<br />
+<pre class="code_block">
+a = b + c[d, e] = [e, d]
+</pre></li>
+<li>This JavaScript code:<br />
+<pre class="code_block">
+return
+  "something";
+</pre>just returns nothing/null (because semicolon is automatically inserted after <pre class="inline_code">return</pre>), but it is a compile-time error in 11l.</li>
+</ol>
+</span><span class="cu_brackets_b">}</span></span>), 11l uses in general just 3 simple rules, which are both easy to understand for a human <!--[[[as well as]]]-->and to implement in a lexical analyser:<br />
+<ol>
+<li>Every line of code which ends with any binary operator <!--[[[should/]]]-->will be joined with the following line of code:<br />
 <style>
 span.keyword {color: #0000FF; font-weight: bold;}
 span.identifier {color: #00009F;}
@@ -118,12 +135,12 @@ span.comment {color: #808080;}
   <span class="identifier">condition2</span>
    <span class="identifier">some_func</span>()
 </pre></li>
-<li>Every line of code which begins with any binary operator should be joined with the previous line of code:<br />
+<li>Every line of code which begins with any binary operator <!--[[[should]]]-->will be joined with the previous line of code:<br />
 <pre class="code_block">
 <span class="identifier">some_variable</span> = <span class="numeric-literal">2</span>
               + <span class="numeric-literal">3</span> <span class="comment">// this line will be joined with the previous line because it begins with a binary operator `+`</span>
 </pre></li>
-<li>And <a href="https://docs.python.org/3/reference/lexical_analysis.html#implicit-line-joining">like in Python</a> expressions in parentheses, square brackets or curly braces can be split over more than one physical line:<br />
+<li>And <a href="https://docs.python.org/3/reference/lexical_analysis.html#implicit-line-joining">like in Python</a> expressions in parentheses and square brackets can be split over more than one physical line:<br />
 <pre class="code_block">
 <span class="identifier">some_func</span>( <span class="comment">// because there is an unclosed parenthesis all following lines will be joined with this one</span>
    <span class="identifier">argument1</span>,                                                            <span class="comment">\\ until parenthesis is closed</span>

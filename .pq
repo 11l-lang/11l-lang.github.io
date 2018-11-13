@@ -262,7 +262,6 @@ A dot_pos = token.value(source). {.find(‘.’) ? .len}
 
 ’’’’
 T‘‘‘Python:
-
 #(Python)‘
 for root, dirs, files in os.walk('.'):
     dirs[:] = [d for d in dirs if d[0] != '.'] # exclude hidden folders (e.g. `.hg`)
@@ -271,15 +270,12 @@ for root, dirs, files in os.walk('.'):
             file_bytes = open(os.path.join(root, name), 'rb').read()
             if b"\r" in file_bytes or b"\t" in file_bytes:
                 print(R"Unallowed character (\r or \t) found in file '" + os.path.join(root, name)[2:] + "'")
-
 ’
 ’’‘‘11l:
-
 #(11l)‘
 L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
    I fname.ends_with((‘.py’, ‘.txt’)) & File(fname).read_bytes().find(("\r".code, "\t".code)) != N
       print(‘Unallowed character (\r or \t) found in file '’fname[2..]‘'’)
-
 ’
 ’’’
 }

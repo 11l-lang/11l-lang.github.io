@@ -83,6 +83,14 @@ div.note {
     padding: 18px 20px;
     background: #ffffd7;
 }
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
 </style>
 </head>
 <body>
@@ -233,7 +241,7 @@ span.string-literal {color: #800000;}
 span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
-</style><pre style="display: inline">
+</style><pre class="code_block">
 <span class="identifier">was_break</span> = <span class="constant">False</span>
 <span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="numeric-literal">1</span>, <span class="identifier">len</span>(<span class="identifier">self</span>.<span class="identifier">children</span>), <span class="numeric-literal">2</span>):
     <span class="keyword">if</span> <span class="identifier">self</span>.<span class="identifier">children</span>[<span class="identifier">i</span>].<span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>) <span class="keyword">in</span> (<span class="string-literal">'E'</span>, <span class="string-literal">'И'</span>, <span class="string-literal">'else'</span>, <span class="string-literal">'иначе'</span>):
@@ -279,7 +287,7 @@ span.comment {color: #808080;}
     <span class="identifier">key</span> = <span class="string-literal">';'</span>
 <span class="keyword">else</span>:
     <span class="identifier">key</span> = <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>)
-</pre></td><td><pre style="display: inline">
+</pre></td><td><pre class="code_block">
 
 <span class="keyword">L</span>(<span class="identifier">i</span>) (<span class="numeric-literal">1</span> .&lt; .<span class="identifier">children</span>.<span class="identifier">len</span>).<span class="identifier">step</span>(<span class="numeric-literal">2</span>)
    <span class="keyword">I</span> .<span class="identifier">children</span>[<span class="identifier">i</span>].<span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>) <span class="keyword">C</span> (<span class="string-literal">‘E’</span>, <span class="string-literal">‘И’</span>, <span class="string-literal">‘else’</span>, <span class="string-literal">‘иначе’</span>)
@@ -328,7 +336,7 @@ span.comment {color: #808080;}
 </pre></td></tr>
 </table>
 <table>
-<tr><td><pre style="display: inline">
+<tr><td><pre class="code_block">
 
 <span class="identifier">main_window</span>.<span class="identifier">pos</span>.<span class="identifier">x</span> = <span class="numeric-literal">10</span>
 <span class="identifier">main_window</span>.<span class="identifier">pos</span>.<span class="identifier">y</span> = <span class="numeric-literal">20</span>
@@ -342,7 +350,7 @@ span.comment {color: #808080;}
 <span class="identifier">dot_pos</span> = <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>).<span class="identifier">find</span>(<span class="string-literal">'.'</span>)
 <span class="keyword">if</span> <span class="identifier">dot_pos</span> == -<span class="numeric-literal">1</span>:
     <span class="identifier">dot_pos</span> = <span class="identifier">len</span>(<span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>))
-</pre></td><td><pre style="display: inline">
+</pre></td><td><pre class="code_block">
 <span class="identifier">main_window</span>.<span class="identifier">pos</span>.
    .<span class="identifier">x</span> = <span class="numeric-literal">10</span>
    .<span class="identifier">y</span> = <span class="numeric-literal">20</span>
@@ -360,8 +368,7 @@ span.comment {color: #808080;}
 </table>
 <table>
 <tr><td>Python:<br />
-<br />
-<pre style="display: inline">
+<pre class="code_block">
 <span class="keyword">for</span> <span class="identifier">root</span>, <span class="identifier">dirs</span>, <span class="identifier">files</span> <span class="keyword">in</span> <span class="identifier">os</span>.<span class="identifier">walk</span>(<span class="string-literal">'.'</span>):
     <span class="identifier">dirs</span>[:] = [<span class="identifier">d</span> <span class="keyword">for</span> <span class="identifier">d</span> <span class="keyword">in</span> <span class="identifier">dirs</span> <span class="keyword">if</span> <span class="identifier">d</span>[<span class="numeric-literal">0</span>] != <span class="string-literal">'.'</span>] <span class="comment"># exclude hidden folders (e.g. `.hg`)</span>
     <span class="keyword">for</span> <span class="identifier">name</span> <span class="keyword">in</span> <span class="identifier">files</span>:
@@ -369,15 +376,12 @@ span.comment {color: #808080;}
             <span class="identifier">file_bytes</span> = <span class="identifier">open</span>(<span class="identifier">os</span>.<span class="identifier">path</span>.<span class="identifier">join</span>(<span class="identifier">root</span>, <span class="identifier">name</span>), <span class="string-literal">'rb'</span>).<span class="identifier">read</span>()
             <span class="keyword">if</span> <span class="string-literal">b"\r"</span> <span class="keyword">in</span> <span class="identifier">file_bytes</span> <span class="keyword">or</span> <span class="string-literal">b"\t"</span> <span class="keyword">in</span> <span class="identifier">file_bytes</span>:
                 <span class="identifier">print</span>(<span class="string-literal">R"Unallowed character (\r or \t) found in file '"</span> + <span class="identifier">os</span>.<span class="identifier">path</span>.<span class="identifier">join</span>(<span class="identifier">root</span>, <span class="identifier">name</span>)[<span class="numeric-literal">2</span>:] + <span class="string-literal">"'"</span>)
-
 </pre></td></tr>
 <tr><td>11l:<br />
-<br />
-<pre style="display: inline">
+<pre class="code_block">
 <span class="keyword">L</span>(<span class="identifier">fname</span>) <span class="identifier">fs</span>:<span class="identifier">walk_dir</span>(<span class="string-literal">‘.’</span>, <span class="identifier">dir_filter'</span> <span class="identifier">d</span> -> <span class="identifier">d</span>[<span class="numeric-literal">0</span>] != <span class="string-literal">‘.’</span>)
    <span class="keyword">I</span> <span class="identifier">fname</span>.<span class="identifier">ends_with</span>((<span class="string-literal">‘.py’</span>, <span class="string-literal">‘.txt’</span>)) &amp; <span class="identifier">File</span>(<span class="identifier">fname</span>).<span class="identifier">read_bytes</span>().<span class="identifier">find</span>((<span class="string-literal">"\r"</span>.<span class="identifier">code</span>, <span class="string-literal">"\t"</span>.<span class="identifier">code</span>)) != <span class="keyword">N</span>
       <span class="identifier">print</span>(<span class="string-literal">‘Unallowed character (\r or \t) found in file '’</span><span class="identifier">fname</span>[<span class="numeric-literal">2</span>..]<span class="string-literal">‘'’</span>)
-
 </pre></td></tr>
 </table>
 </div>

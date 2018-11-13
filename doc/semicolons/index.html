@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>11l Documentation</title>
+<title>Semicolon free grammar and implied line joining</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -96,34 +96,40 @@ pre.inline_code {
 </head>
 <body>
 <table width="55%" align="center"><tr><td>
-<!--[[[H‘11l Documentation’]]]--><br />
-<!--[[[Scoping rules/]]]--><a href="./code-blocks" target="_self">Code blocks</a><br />
+<!--[[[H‘Semicolon free grammar and implied line joining’
+]]]--><h3>Semicolon free grammar</h3>
 <br />
-<a href="./semicolons" target="_self">Semicolon free grammar and implied line joining</a><br />
 <br />
-<a href="./comments" target="_self">Comments</a><br />
+<h3>Implied line joining</h3>
 <br />
-Keywords:<br />
-<a href="./A" target="_self">   A/var</a><br />
-<a href="./I" target="_self">   I/if and E/else</a><br />
-<a href="./C" target="_self">   C/in</a><br />
-<a href="./F" target="_self">   F/fn</a><br />
-<a href="./L" target="_self">   L/loop</a><br />
-<a href="./N" target="_self">   N/null</a><br />
-<a href="./R" target="_self">   R/return</a><br />
-<a href="./S" target="_self">   S/switch</a><br />
-<a href="./T" target="_self">   T/type</a><br />
-<a href="./X" target="_self">   X/exception</a><br />
 <br />
-<a href="./built-in-types" target="_self">Built-in types</a><br />
-<br />
-<a href="./operators" target="_self">Operators</a><br />
-<br />
-<a href="./global-functions" target="_self">Global functions</a><br />
-<br />
-Built-in modules:<br />
-<a href="./modules/os" target="_self">   os</a><br />
-<a href="./modules/fs" target="_self">   fs</a><br />
+Instead of clumsy things like <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-rules-of-automatic-semicolon-insertion">Automatic Semicolon Insertion with overly complex rules</a>, 11l uses in general just 3 simple rules, which are both easy to understand for a human <!--[[[as well as]]]-->and to implement in lexical analyser:<br />
+<ol>
+<li>Every line of code which ends with any binary operator should be joined with the following line of code:<br />
+<style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre class="code_block">
+<span class="keyword">I</span> <span class="identifier">condition1</span> | <span class="comment">//  this line will be joined with the following line because it ends with a binary operator `|`</span>
+  <span class="identifier">condition2</span>
+   <span class="identifier">some_func</span>()
+</pre></li>
+<li>Every line of code which begins with any binary operator should be joined with the previous line of code:<br />
+<pre class="code_block">
+<span class="identifier">some_variable</span> = <span class="numeric-literal">2</span>
+              + <span class="numeric-literal">3</span> <span class="comment">// this line will be joined with the previous line because it begins with a binary operator `+`</span>
+</pre></li>
+<li>And <a href="https://docs.python.org/3/reference/lexical_analysis.html#implicit-line-joining">like in Python</a> expressions in parentheses, square brackets or curly braces can be split over more than one physical line:<br />
+<pre class="code_block">
+<span class="identifier">some_func</span>( <span class="comment">// because there is an unclosed parenthesis all following lines will be joined with this one</span>
+   <span class="identifier">argument1</span>,                                                            <span class="comment">\\ until parenthesis is closed</span>
+   <span class="identifier">argument2</span>)
+</pre></li>
+</ol>
 
 </td></tr></table>
 </body>

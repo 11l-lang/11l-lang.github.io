@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>I/if and E/else</title>
+<title>Comments</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -96,12 +96,19 @@ pre.inline_code {
 </head>
 <body>
 <table width="55%" align="center"><tr><td>
-<!--[[[H‘I/if and E/else’
-]]]--><h3>Keywords I/if and E/else</h3>
+<!--[[[H‘Comments’
+]]]--><h3>Single line comments</h3>
 <br />
 <br />
-<table>
-<tr><td><style>
+<!--[[[http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4750.pdf page 12]]]-->The characters <pre class="inline_code">//</pre> or <pre class="inline_code">\\</pre> start a comment, which terminates immediately before the next new-line character.<br />
+The characters <pre class="inline_code">\\</pre> are intended to continue a comment from the previous line (<a href="https://github.com/alextretyak/CopyEdit/blob/master/cut_copy_paste_tests.py#L283">example</a>).<br />
+<br />
+<br />
+<h3>Multi-line and inline comments</h3>
+<br />
+<br />
+The characters <pre class="inline_code">\(</pre>, <pre class="inline_code">\[</pre>, <pre class="inline_code">\{</pre> or <pre class="inline_code">\‘</pre> start a comment, which terminates with the corresponding character <pre class="inline_code">)</pre>, <pre class="inline_code">]</pre>, <pre class="inline_code">}</pre> or <pre class="inline_code">’</pre>. These comments can be nested.<br />
+<style>
 span.keyword {color: #0000FF; font-weight: bold;}
 span.identifier {color: #00009F;}
 span.string-literal {color: #800000;}
@@ -109,58 +116,19 @@ span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">condition</span>>
-   ...
+<span class="comment">\(
+this_function_call_is_commented_out()
 
-
-
-
-</pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">condition</span>>
+// Nested comment:
+\(
+// Please balance all parentheses in your source code:
+I ch == "(" // )
    ...
-<span class="keyword">E</span>
-   ...
-
-
-</pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">condition1</span>>
-   ...
-<span class="keyword">E</span> <span class="keyword">I</span> &lt;<span class="identifier">condition2</span>>
-   ...
-
-
-</pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">condition1</span>>
-   ...
-<span class="keyword">E</span> <span class="keyword">I</span> &lt;<span class="identifier">condition2</span>>
-   ...
-<span class="keyword">E</span>
-   ...
-</pre></td></tr>
-</table>
-<br />
-Two consecutive keywords E/else and I/if are treated especially, so there is no need for a separate/additional keyword like elif in Python or elsif in Ruby.<br />
-<br />
-Also I/if and E/else can be used in expressions similarly to ternary operator <pre class="inline_code">?:</pre> from C:<br />
-<pre class="code_block">
-<span class="identifier">sign</span> = <span class="keyword">I</span> <span class="identifier">x</span> &lt; <span class="numeric-literal">0</span> {-<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">x</span> > <span class="numeric-literal">0</span> {<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="numeric-literal">0</span>
+) // end of nested comment
+)</span>
+<span class="identifier">this_function_call_is_not_commented_out</span>()
 </pre><br />
-<br />
-<h3>I/if subkeywords</h3>
-<br />
-<br />
-<pre class="code_block">
-<span class="keyword">I.likely</span> &lt;<span class="identifier">condition</span>>
-   ...
-</pre>is used as a sign to the compiler that condition in most of the cases will be true.<br />
-<br />
-And similarly:<br />
-<pre class="code_block">
-<span class="keyword">I.unlikely</span> &lt;<span class="identifier">condition</span>>
-   ...
-</pre>is used as a sign to the compiler that condition in most of the cases will be false.<br />
-<br />
-<i>Notice: at the present moment performance increase when using this subkeywords is negligible, so their usage is not recommended.</i><br />
+<span class="sq"><span class="sq_brackets">[</span>Balancing of all character pairs <pre class="inline_code">()</pre>, <pre class="inline_code">[]</pre>, <pre class="inline_code">{}</pre> and <pre class="inline_code">‘’</pre> is recommended not only for this 11l-style comments to work correctly, but also for correct highlighting of matching parentheses/brackets/braces in the source code editors.<span class="sq_brackets">]</span></span><br />
 
 </td></tr></table>
 </body>

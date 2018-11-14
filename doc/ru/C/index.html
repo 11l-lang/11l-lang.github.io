@@ -108,8 +108,18 @@ span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre style="display: inline"><span class="identifier">element</span> <span class="keyword">C</span> <span class="identifier">container</span></pre> возвращает истину/1В если <pre class="inline_code">element</pre> <b>с</b>одержится в <pre class="inline_code">container</pre>.<br />
-<pre style="display: inline"><span class="identifier">element</span> !C <span class="identifier">container</span></pre> возвращает ложь/0В если <pre class="inline_code">element</pre> не <b>с</b>одержится в <pre class="inline_code">container</pre>.<br />
-
+<pre style="display: inline"><span class="identifier">element</span> <span class="keyword">!C</span> <span class="identifier">container</span></pre> возвращает ложь/0В если <pre class="inline_code">element</pre> не <b>с</b>одержится в <pre class="inline_code">container</pre>.<br />
+<br />
+Обратите внимание, что такой код:<br />
+<pre class="code_block">
+<span class="keyword">I</span> <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> <span class="string-literal">‘a’</span>..<span class="string-literal">‘z’</span> | <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> <span class="string-literal">‘A’</span>..<span class="string-literal">‘Z’</span> | <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> <span class="string-literal">‘0’</span>..<span class="string-literal">‘9’</span> | <span class="identifier">source</span>[<span class="identifier">i</span>] == <span class="string-literal">‘_’</span>
+   ...
+</pre>
+можно сократить до:<br />
+<pre class="code_block">
+<span class="keyword">I</span> <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> (<span class="string-literal">‘a’</span>..<span class="string-literal">‘z’</span>, <span class="string-literal">‘A’</span>..<span class="string-literal">‘Z’</span>, <span class="string-literal">‘0’</span>..<span class="string-literal">‘9’</span>, <span class="string-literal">‘_’</span>)
+   ...
+</pre>
 </td></tr></table>
 </body>
 </html>

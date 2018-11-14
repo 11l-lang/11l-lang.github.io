@@ -114,11 +114,13 @@ Note that this code:<br />
 <pre class="code_block">
 <span class="keyword">I</span> <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> <span class="string-literal">‘a’</span>..<span class="string-literal">‘z’</span> | <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> <span class="string-literal">‘A’</span>..<span class="string-literal">‘Z’</span> | <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> <span class="string-literal">‘0’</span>..<span class="string-literal">‘9’</span> | <span class="identifier">source</span>[<span class="identifier">i</span>] == <span class="string-literal">‘_’</span>
    ...
-</pre>can be shortened to:<br />
+</pre>
+can be shortened to:<br />
 <pre class="code_block">
 <span class="keyword">I</span> <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> (<span class="string-literal">‘a’</span>..<span class="string-literal">‘z’</span>, <span class="string-literal">‘A’</span>..<span class="string-literal">‘Z’</span>, <span class="string-literal">‘0’</span>..<span class="string-literal">‘9’</span>, <span class="string-literal">‘_’</span>)
    ...
 </pre>
+
 </td></tr></table>
 </body>
 </html>

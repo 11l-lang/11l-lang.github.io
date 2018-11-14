@@ -144,7 +144,8 @@ Two consecutive keywords E/else and I/if are treated especially, so there is no 
 Also I/if and E/else can be used in expressions similarly to ternary operator <pre class="inline_code">?:</pre> from C:<br />
 <pre class="code_block">
 <span class="identifier">sign</span> = <span class="keyword">I</span> <span class="identifier">x</span> &lt; <span class="numeric-literal">0</span> {-<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">x</span> > <span class="numeric-literal">0</span> {<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="numeric-literal">0</span>
-</pre><br />
+</pre>
+<br />
 <br />
 <h3>I/if subkeywords</h3>
 <br />
@@ -152,16 +153,17 @@ Also I/if and E/else can be used in expressions similarly to ternary operator <p
 <pre class="code_block">
 <span class="keyword">I.likely</span> &lt;<span class="identifier">condition</span>>
    ...
-</pre>is used as a sign to the compiler that condition in most of the cases will be true.<br />
+</pre>
+is used as a sign to the compiler that condition in most of the cases will be true.<br />
 <br />
 And similarly:<br />
 <pre class="code_block">
 <span class="keyword">I.unlikely</span> &lt;<span class="identifier">condition</span>>
    ...
-</pre>is used as a sign to the compiler that condition in most of the cases will be false.<br />
+</pre>
+is used as a sign to the compiler that condition in most of the cases will be false.<br />
 <br />
-<i>Note: at the present moment performance increase when using this subkeywords is negligible, so their usage is not recommended.</i><br />
-
+<i>Note: at the present moment performance increase when using this subkeywords is negligible, so their usage is not recommended.</i>
 </td></tr></table>
 </body>
 </html>

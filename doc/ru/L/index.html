@@ -116,14 +116,16 @@ span.comment {color: #808080;}
 <span class="keyword">L</span>
    <span class="identifier">print</span>(<span class="string-literal">"\a"</span>)
    <span class="identifier">sleep</span>(<span class="numeric-literal">1</span>)
-</pre><br />
+</pre>
+<br />
 <br />
 <h4>2. Цикл "while".</h4>
 <br />
 <pre class="code_block">
 <span class="keyword">L</span> &lt;<span class="identifier">выражение</span>>
    ...
-</pre><br />
+</pre>
+<br />
 Тело цикла выполняется/повторяется до тех пор, пока заданное выражение истинно.<br />
 <br />
 <br />
@@ -132,12 +134,14 @@ span.comment {color: #808080;}
 <pre class="code_block">
 <span class="keyword">L</span> &lt;<span class="identifier">число</span>>
    ...
-</pre><br />
+</pre>
+<br />
 Пример:<br />
 <pre class="code_block">
 <span class="keyword">L</span> <span class="numeric-literal">3</span>
    <span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)
-</pre>выведет "ABC" 3 раза.<br />
+</pre>
+выведет "ABC" 3 раза.<br />
 <br />
 <i>Примечание: только числовые константы принимаются в качестве <pre class="inline_code">&lt;число></pre> на данный момент <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">если вам требуется повторять тело цикла произвольное количество раз, тогда используйте диапазон, например: <pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">number</span></pre></span><span class="cu_brackets_b">}</span></span>.</i><br />
 <br />
@@ -147,7 +151,8 @@ span.comment {color: #808080;}
 <pre class="code_block">
 <span class="keyword">L</span>(<span class="identifier">item</span>) &lt;<span class="identifier">итерируемое</span> <span class="identifier">выражение</span>>
    ...
-</pre><br />
+</pre>
+<br />
 Примеры:<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">x</span>) <span class="numeric-literal">1</span>..<span class="numeric-literal">10</span> {<span class="identifier">print</span>(<span class="identifier">x</span>)}</pre> выведет числа от 1 до 10 включительно.<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">c</span>) <span class="string-literal">"str"</span> {<span class="identifier">print</span>(<span class="identifier">c</span>)}</pre> выведет "s", "t" и "r".<br />
@@ -164,7 +169,8 @@ span.comment {color: #808080;}
    <span class="keyword">L</span>(<span class="identifier">x</span>) <span class="numeric-literal">0</span>..<span class="numeric-literal">10</span>
       <span class="keyword">I</span> <span class="identifier">a</span>[<span class="identifier">y</span>][<span class="identifier">x</span>] == <span class="numeric-literal">1</span>
          <span class="keyword">L</span>(<span class="identifier">y</span>).<span class="identifier">break</span>
-</pre>Также можно использовать <pre class="inline_code">^L.break</pre>, <pre class="inline_code">^^L.break</pre> и т.д.<br />
+</pre>
+Также можно использовать <pre class="inline_code">^L.break</pre>, <pre class="inline_code">^^L.break</pre> и т.д.<br />
 <br />
 <br />
 <!--[[[https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/continue]]]-->Инструкция <pre class="inline_code">L.continue</pre>/<pre class="inline_code">loop.continue</pre> прерывает выполнение итерации текущего<!--[[[ или отмеченного]]]--> цикла, и продолжает его выполнение на следующей итерации.<br />
@@ -178,7 +184,8 @@ span.comment {color: #808080;}
 
    <span class="keyword">L.was_no_break</span>
       <span class="identifier">print</span>(<span class="string-literal">‘All tests are ok!’</span>)
-</pre><br />
+</pre>
+<br />
 <br />
 <pre class="inline_code">L.index</pre>/<pre class="inline_code">loop.index</pre> можно использовать для получения индекса (номера начиная с 0) текущей итерации цикла.<br />
 <br />

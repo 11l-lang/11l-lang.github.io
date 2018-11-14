@@ -119,14 +119,16 @@ span.comment {color: #808080;}
 <span class="keyword">L</span>
    <span class="identifier">print</span>(<span class="string-literal">"\a"</span>)
    <span class="identifier">sleep</span>(<span class="numeric-literal">1</span>)
-</pre><br />
+</pre>
+<br />
 <br />
 <h4>2. A "while" loop.</h4>
 <br />
 <pre class="code_block">
 <span class="keyword">L</span> &lt;<span class="identifier">expression</span>>
    ...
-</pre><br />
+</pre>
+<br />
 Keep executing a loop body as long the given expression is true.<br />
 <br />
 <br />
@@ -135,12 +137,14 @@ Keep executing a loop body as long the given expression is true.<br />
 <pre class="code_block">
 <span class="keyword">L</span> &lt;<span class="identifier">number</span>>
    ...
-</pre><br />
+</pre>
+<br />
 Example:<br />
 <pre class="code_block">
 <span class="keyword">L</span> <span class="numeric-literal">3</span>
    <span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)
-</pre>will print "ABC" 3 times.<br />
+</pre>
+will print "ABC" 3 times.<br />
 <br />
 <i>Note: only numeric literals/constants are considered so far as <pre class="inline_code">&lt;number></pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">if you want to iterate <!--[[[from 0 to ]]]-->an arbitrary number of times, you can use ranges, for example: <pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">number</span></pre></span><span class="cu_brackets_b">}</span></span>.</i><br />
 <br />
@@ -150,7 +154,8 @@ Example:<br />
 <pre class="code_block">
 <span class="keyword">L</span>(<span class="identifier">item</span>) &lt;<span class="identifier">iterable</span>>
    ...
-</pre><br />
+</pre>
+<br />
 Examples:<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">x</span>) <span class="numeric-literal">1</span>..<span class="numeric-literal">10</span> {<span class="identifier">print</span>(<span class="identifier">x</span>)}</pre> will print 1 through 10.<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">c</span>) <span class="string-literal">"str"</span> {<span class="identifier">print</span>(<span class="identifier">c</span>)}</pre> will print "s", "t" and "r".<br />
@@ -168,7 +173,8 @@ Like most other languages, by default a <pre class="inline_code">L.break</pre>/<
    <span class="keyword">L</span>(<span class="identifier">x</span>) <span class="numeric-literal">0</span>..<span class="numeric-literal">10</span>
       <span class="keyword">I</span> <span class="identifier">a</span>[<span class="identifier">y</span>][<span class="identifier">x</span>] == <span class="numeric-literal">1</span>
          <span class="keyword">L</span>(<span class="identifier">y</span>).<span class="identifier">break</span>
-</pre>Or you can use <pre class="inline_code">^L.break</pre>, <pre class="inline_code">^^L.break</pre>, etc.<br />
+</pre>
+Or you can use <pre class="inline_code">^L.break</pre>, <pre class="inline_code">^^L.break</pre>, etc.<br />
 <br />
 <br />
 <!--[[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue]]]-->The <pre class="inline_code">L.continue</pre>/<pre class="inline_code">loop.continue</pre> statement terminates execution of the statements in the current iteration of the current<!--[[[ or labeled]]]--> loop, and continues execution of the loop with the next iteration.<br />
@@ -182,7 +188,8 @@ Statements under <pre class="inline_code">L.was_no_break</pre>/<pre class="inlin
 
    <span class="keyword">L.was_no_break</span>
       <span class="identifier">print</span>(<span class="string-literal">‘All tests are ok!’</span>)
-</pre><br />
+</pre>
+<br />
 <br />
 <pre class="inline_code">L.index</pre>/<pre class="inline_code">loop.index</pre> can be used to get<!--[[[/obtain]]]--> the index of the current iteration of loop.<br />
 <br />

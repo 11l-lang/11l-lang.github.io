@@ -144,7 +144,8 @@ span.comment {color: #808080;}
 Также I/if и E/else можно использовать в выражениях в качестве альтернативы тернарному оператору <pre class="inline_code">?:</pre> из языка Си:<br />
 <pre class="code_block">
 <span class="identifier">sign</span> = <span class="keyword">I</span> <span class="identifier">x</span> &lt; <span class="numeric-literal">0</span> {-<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">x</span> > <span class="numeric-literal">0</span> {<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="numeric-literal">0</span>
-</pre><br />
+</pre>
+<br />
 <br />
 <h3>Ключевые подслова I/if</h3>
 <br />
@@ -152,13 +153,15 @@ span.comment {color: #808080;}
 <pre class="code_block">
 <span class="keyword">I.likely</span> &lt;<span class="identifier">условие</span>>
    ...
-</pre>используется, чтобы указать компилятору, что условие в подавляющем большинстве случаев будет выполнено.<br />
+</pre>
+используется, чтобы указать компилятору, что условие в подавляющем большинстве случаев будет выполнено.<br />
 <br />
 И аналогично:<br />
 <pre class="code_block">
 <span class="keyword">I.unlikely</span> &lt;<span class="identifier">условие</span>>
    ...
-</pre>используется, чтобы указать компилятору, что условие в подавляющем большинстве случаев не будет выполнено.<br />
+</pre>
+используется, чтобы указать компилятору, что условие в подавляющем большинстве случаев не будет выполнено.<br />
 <br />
 <i>Примечание: на данный момент увеличение производительности от использования данных подслов слишком незначительно, поэтому их использовать не рекомендуется.</i><br />
 

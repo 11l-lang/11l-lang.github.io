@@ -60,4 +60,4 @@ I.unlikely <condition>
 ’
 is used as a sign to the compiler that condition in most of the cases will be false.
 
-~‘Notice: at the present moment performance increase when using this subkeywords is negligible, so their usage is not recommended.’
+~‘Note: at the present moment performance increase when using this subkeywords is negligible, so their usage is not recommended.’

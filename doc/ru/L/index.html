@@ -155,6 +155,36 @@ span.comment {color: #808080;}
 <br />
 <br />
 <h3><!--[[[Зарезервированные/]]]-->Ключевые подслова L/loop</h3>
+<br />
+<br />
+<!--[[[https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/break]]]-->Инструкция <pre class="inline_code">L.break</pre>/<pre class="inline_code">loop.break</pre> прерывает выполнение текущего цикла.<br />
+У вас может возникнуть потребность имея несколько вложенных циклов указать какой из них следует прервать. Как и в большинстве других языков, по умолчанию <pre class="inline_code">L.break</pre>/<pre class="inline_code">loop.break</pre> в 11l прерывает самый внутренний цикл. Если вам необходимо прер<!--[[[ы]]]-->вать не самый внутренний цикл, тогда просто укажите какой именно цикл необходимо прервать:<br />
+<pre class="code_block">
+<span class="keyword">L</span>(<span class="identifier">y</span>) <span class="numeric-literal">0</span>..<span class="numeric-literal">10</span>
+   <span class="keyword">L</span>(<span class="identifier">x</span>) <span class="numeric-literal">0</span>..<span class="numeric-literal">10</span>
+      <span class="keyword">I</span> <span class="identifier">a</span>[<span class="identifier">y</span>][<span class="identifier">x</span>] == <span class="numeric-literal">1</span>
+         <span class="keyword">L</span>(<span class="identifier">y</span>).<span class="identifier">break</span>
+</pre>Также можно использовать <pre class="inline_code">^L.break</pre>, <pre class="inline_code">^^L.break</pre> и т.д.<br />
+<br />
+<br />
+<!--[[[https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/continue]]]-->Инструкция <pre class="inline_code">L.continue</pre>/<pre class="inline_code">loop.continue</pre> прерывает выполнение итерации текущего<!--[[[ или отмеченного]]]--> цикла, и продолжает его выполнение на следующей итерации.<br />
+<br />
+<br />
+Код под <pre class="inline_code">L.was_no_break</pre>/<pre class="inline_code">loop.was_no_break</pre> выполняется только когда цикл успешно завершился без вызова <pre class="inline_code">L.break</pre>/<pre class="inline_code">loop.break</pre>:<br />
+<pre class="code_block">
+<span class="keyword">L</span>(<span class="identifier">test</span>) <span class="identifier">tests</span>
+   <span class="keyword">I</span> !<span class="identifier">test</span>.<span class="identifier">ok</span>()
+      <span class="keyword">L.break</span>
+
+   <span class="keyword">L.was_no_break</span>
+      <span class="identifier">print</span>(<span class="string-literal">‘All tests are ok!’</span>)
+</pre><br />
+<br />
+<pre class="inline_code">L.index</pre>/<pre class="inline_code">loop.index</pre> можно использовать для получения индекса (номера начиная с 0) текущей итерации цикла.<br />
+<br />
+<br />
+<pre class="inline_code">L.next</pre>/<pre class="inline_code">loop.next</pre> на данный момент является проверкой того, остались ли ещё элементы итерируемого контейнера или же текущий элемент последний.<br />
+<pre class="inline_code">L.prev</pre>/<pre class="inline_code">loop.prev</pre> на данный момент не поддерживается.<br />
 
 </td></tr></table>
 </body>

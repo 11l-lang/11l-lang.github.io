@@ -128,7 +128,22 @@ span.comment {color: #808080;}
 <pre class="inline_code">&lt;аргументы></pre><br />
 Список аргументов, разделённых запятой. Может быть пустым.<br />
 Каждый аргумент определяется как:<br />
-[&lt;тип аргумента>] &lt;имя аргумента> [= &lt;значение по умолчанию>]<br />
+[&lt;тип аргумента>] [&lt;квалификатор>]&lt;имя аргумента> [= &lt;значение по умолчанию>]<br />
+<br />
+Все <!--[[[переданные/]]]-->передаваемые в функцию аргументы по умолчанию константны и не могут <!--[[[быть изменены]/]]--><!--[[[изменяться]]]-->модифицироваться внутри функции, но это <!--[[[воз]]]-->можно изменить посредством квалификаторов.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Квалификаторы<br /></span><div class="spoiler_text" style="display: none"><pre class="inline_code">=</pre><br />
+Квалификатор передачи копии аргумента. Даёт возможность изменять аргумент внутри функции. При этом меняется только локальная копия аргумента.<br />
+<br />
+<pre class="inline_code">&amp;</pre><br />
+Квалификатор передачи аргумента по ссылке. Даёт возможность изменять аргумент внутри функции.<br />
+<br />
+Пример:<br />
+<pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">f</span>(=<span class="identifier">i</span>, <span class="identifier">j</span>)
+   <span class="identifier">i</span> += <span class="numeric-literal">1</span> <span class="comment">// так можно</span>
+   <span class="identifier">j</span> += <span class="numeric-literal">1</span> <span class="comment">// а тут ошибка</span>
+</pre>
+</div>
 <br />
 <br />
 <h4>Именованные аргументы</h4>

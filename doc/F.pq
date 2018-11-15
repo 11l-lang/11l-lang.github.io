@@ -23,7 +23,23 @@ T Person
 `<arguments>`
 Comma-separated list of function's arguments. Can be empty.
 Each argument is defined as:
-0‘[<argument type>] <argument name> [= <default value>]’
+0‘[<argument type>] [<qualifier>]<argument name> [= <default value>]’
+
+By default all arguments passed to a function are constant and can not be changed inside a function, but this behaviour can be altered via qualifiers.
+‘Qualifiers’{
+`=`
+Make a local copy of argument. Make it possible to change an argument inside a function. In this case only local copy of argument will be changed.
+
+`&`
+Pass an argument by reference. Make it possible to change an argument inside a function.
+
+Example:
+#(11l)‘
+F f(=i, j)
+   i += 1 // this is correct
+   j += 1 // but here is an error
+’
+}
 
 
 H(-1)‘Named arguments’

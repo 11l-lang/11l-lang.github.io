@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Operators</title>
+<title>Операторы</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -96,21 +96,11 @@ pre.inline_code {
 </head>
 <body>
 <table width="55%" align="center"><tr><td>
-<!--[[[H‘Operators’
-]]]--><h3>Operators</h3>
+<!--[[[Н‘Операторы’
+]]]--><h3>Операторы</h3>
 <br />
 <br />
-<!--[[[http://web.archive.org/web/20180127115004/http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-334.pdf
-]]]-->The following table summarizes all operators in order of precedence from highest to lowest:<!--[[[
-Credits to:
-. [https://docs.python.org/3/reference/expressions.html#operator-precedence]
-. [http://web.archive.org/web/20180127115004/http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-334.pdf]
-. [https://en.cppreference.com/w/cpp/language/operator_precedence]
-. [https://ru.cppreference.com/w/cpp/language/operator_precedence]
-. [https://msdn.microsoft.com/en-us/library/126fe14k.aspx]
-. [https://msdn.microsoft.com/ru-ru/library/126fe14k.aspx]
-. [https://wiki.dlang.org/Operator_precedence]
-]]]--><br />
+Таблица всех операторов 11l в порядке от наивысшего приоритета к низшему:<br />
 <table>
 <tr><td>x.y<br />
 module:f<br />
@@ -118,73 +108,73 @@ a[x]<br />
 f(x)<br />
 x--<br />
 x++<br />
-</td><td>Member access<br />
-Module function or variable access<br />
-Subscript<br />
-Function call<br />
-Postfix decrement<br />
-Postfix increment</td></tr>
-<tr><td>^</td><td>Power operator (right to left associative)</td></tr>
+</td><td>Доступ к элементу<br />
+Функция или переменная модуля<br />
+Обращение к элементу контейнера<br />
+Вызов функции<br />
+Постфиксный декремент<br />
+Постфиксный инкремент</td></tr>
+<tr><td>^</td><td>Оператор возведения в степень (ассоциативность: справа налево)</td></tr>
 <tr><td>-x<br />
 +x<br />
 !x<br />
 (-)x<br />
 --x<br />
 ++x<br />
-</td><td>Unary minus<br />
-Unary plus<br />
-Logical NOT<br />
-Bitwise NOT (rationale: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+</td><td>Унарный минус<br />
+Унарный плюс<br />
+Логическое НЕ<br />
+Поразрядное НЕ (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <br />
 </span><span class="cu_brackets_b">}</span></span>)<br />
-Prefix decrement<br />
-Prefix increment</td></tr>
+Префиксный декремент<br />
+Префиксный инкремент</td></tr>
 <tr><td>x * y<br />
 x / y<br />
-x I/ y<br />
+x I/ y или x Ц/ y<br />
 x % y<br />
-</td><td>Multiplication<br />
-Division<br />
-Integer division<br />
-Remainder</td></tr>
+</td><td>Умножение<br />
+Деление<br />
+Целочисленное деление<br />
+Остаток от деления</td></tr>
 <tr><td>x + y<br />
-x - y</td><td>Addition<br />
-Subtraction</td></tr>
+x - y</td><td>Сложение<br />
+Вычитание</td></tr>
 <tr><td>x &lt;&lt; y<br />
-x >> y</td><td>Bitwise left shift<br />
-Bitwise right shift</td></tr>
-<tr><td>x [&amp;] y</td><td>Bitwise AND (rationale: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+x >> y</td><td>Поразрядный сдвиг влево<br />
+Поразрядный сдвиг вправо</td></tr>
+<tr><td>x [&amp;] y</td><td>Поразрядное И (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
-<tr><td>x (+) y</td><td>Bitwise XOR (rationale: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<tr><td>x (+) y</td><td>Поразрядное исключающее ИЛИ (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
-<tr><td>x [|] y</td><td>Bitwise OR (rationale: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<tr><td>x [|] y</td><td>Поразрядное ИЛИ (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x &lt; y, x &lt;= y<br />
-x > y, x >= y</td><td>Comparison operators</td></tr>
+x > y, x >= y</td><td>Операции сравнения</td></tr>
 <tr><td>x..y, x.&lt;y<br />
-x&lt;.y, x&lt;.&lt;y</td><td>Ranges</td></tr>
-<tr><td>x""y and x‘’y</td><td>String concatenation</td></tr>
+x&lt;.y, x&lt;.&lt;y</td><td>Диапазоны</td></tr>
+<tr><td>x""y и x‘’y</td><td>Конкатенация строк</td></tr>
 <tr><td>x == y, x != y<br />
 e in c, e !in c<br />
 e C c, e !C c<br />
-</td><td>Comparisons<br />
-Including membership tests</td></tr>
-<tr><td>x &amp; y</td><td>Logical AND</td></tr>
-<tr><td>x | y</td><td>Logical OR</td></tr>
-<tr><td>x ? y</td><td>Null coalescing operator</td></tr>
-<tr><td>() -> expr<br />
-x -> expr<br />
-(x, y) -> expr</td><td>Lambda expression</td></tr>
-<tr><td>arr1 [+] arr2</td><td>Array concatenation</td></tr>
+</td><td>Сравнения<br />
+Элемент e содержится/‘не содержится’ в контейнере c</td></tr>
+<tr><td>x &amp; y</td><td>Логическое И</td></tr>
+<tr><td>x | y</td><td>Логическое ИЛИ</td></tr>
+<tr><td>x ? y</td><td>Вернуть левый операнд если он не нуль, иначе вернуть правый операнд</td></tr>
+<tr><td>() -> выражение<br />
+x -> выражение<br />
+(x, y) -> выражение</td><td>Лямбда выражение</td></tr>
+<tr><td>arr1 [+] arr2</td><td>Конкатенация массивов</td></tr>
 <tr><td>x = ...<br />
 x += ...<br />
--= *= /= I/=<br />
+-= *= /= I/= Ц/=<br />
 %= >>= &lt;&lt;= ^=<br />
 [+]= [&amp;]= [|]=<br />
-(+)= ‘’=</td><td>Assignments (right to left associative)</td></tr>
+(+)= ‘’=</td><td>Присваивания (ассоциативность: справа налево)</td></tr>
 </table>
 
 </td></tr></table>

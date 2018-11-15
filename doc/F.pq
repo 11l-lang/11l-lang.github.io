@@ -22,7 +22,7 @@ T Person
 
 `<arguments>`
 Comma-separated list of function's arguments. Can be empty.
-Each argument defined as:
+Each argument is defined as:
 0‘[<argument type>] <argument name> [= <default value>]’
 
 

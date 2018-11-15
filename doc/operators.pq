@@ -38,7 +38,14 @@ Postfix increment’’
 Unary plus
 Logical NOT
 Bitwise NOT (rationale: {
+Operator (-) complements operator XOR (+) and has the following properties:
+a(-)b = NOT (a XOR b)
+NOT a = 0(-)a = (-)a
+a(-)(-)b = a(+)b
+a(+)(-)b = a(-)b
+(-)(-)a = a
 
+However, binary operator (-) [[[does/]]]is not supported in hardware and used [[[very/]]]extremely rare, [[[so/]]]therefore 11l includes only unary operator (-), which corresponds to bitwise NOT.
 })
 Prefix decrement
 Prefix increment’’

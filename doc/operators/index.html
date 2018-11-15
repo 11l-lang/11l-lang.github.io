@@ -135,7 +135,14 @@ Postfix increment</td></tr>
 Unary plus<br />
 Logical NOT<br />
 Bitwise NOT (rationale: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+Operator (-) complements operator XOR (+) and has the following properties:<br />
+a(-)b = NOT (a XOR b)<br />
+NOT a = 0(-)a = (-)a<br />
+a(-)(-)b = a(+)b<br />
+a(+)(-)b = a(-)b<br />
+(-)(-)a = a<br />
 <br />
+However, binary operator (-) <!--[[[does/]]]-->is not supported in hardware and used <!--[[[very/]]]-->extremely rare, <!--[[[so/]]]-->therefore 11l includes only unary operator (-), which corresponds to bitwise NOT.<br />
 </span><span class="cu_brackets_b">}</span></span>)<br />
 Prefix decrement<br />
 Prefix increment</td></tr>

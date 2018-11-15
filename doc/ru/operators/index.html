@@ -144,31 +144,44 @@ x - y</td><td>Сложение<br />
 x >> y</td><td>Поразрядный сдвиг влево<br />
 Поразрядный сдвиг вправо</td></tr>
 <tr><td>x [&amp;] y</td><td>Поразрядное И (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+[&amp;] выглядит похоже на логический вентиль И:<br />
 <br />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/IEC_AND_label.svg/100px-IEC_AND_label.svg.png" /><br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x (+) y</td><td>Поразрядное исключающее ИЛИ (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
-<br />
+Символы (+) похожи на символ ⊕, который используется в <a href="https://ru.wikipedia.org/wiki/Алгебра_логики">алгебре логики</a>\<a href="https://en.wikipedia.org/wiki/Boolean_algebra">Boolean algebra</a> для обозначения операции ‘исключающего или’/<a href="https://ru.wikipedia.org/wiki/Сложение_по_модулю_2">сложения по модулю 2</a>: <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/18f7d86510aec2e45bb019abacccd2e772790f8f" />.<br />
+И хотя ⊕ используется чаще для <!--[[[однобитовых/]]]-->одноразрядных значений, в Википедии встречается его применение <a href="https://ru.wikipedia.org/wiki/XOR-связный_список" title="<- https://habrahabr.ru/post/183462/#comment_6377452 <- google:‘1с xor’">для указателей</a> и <a href="https://en.wikipedia.org/wiki/Hash-based_message_authentication_code" title="<- google:‘HMAC’ <- https://www.imperialviolet.org/2017/05/31/skipsha3.html ‘key:        Bytes     array of bytes’">для массивов из байт</a>.<br />
+<span class="sq"><span class="sq_brackets">[</span>К тому же, использовать ^ для данной операции я считаю неудачной идеей (ну, во всяком случае новичков в программировании это точно <a href="https://stackoverflow.com/questions/11464905/what-is-used-for-in-ruby">сбивает с толку</a>).<span class="sq_brackets">]</span></span><br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x [|] y</td><td>Поразрядное ИЛИ (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+Символ | похож на 1, а [1] выглядит похоже на логический вентиль ИЛИ:<br />
 <br />
+<a href="https://ru.wikipedia.org/wiki/Логические_элементы#Дизъюнкция_(логическое_сложение)._Операция_ИЛИ"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/OR_gate_RU.svg/100px-OR_gate_RU.svg.png" /></a><br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x &lt; y, x &lt;= y<br />
 x > y, x >= y</td><td>Операции сравнения</td></tr>
 <tr><td>x..y, x.&lt;y<br />
 x&lt;.y, x&lt;.&lt;y</td><td>Диапазоны</td></tr>
-<tr><td>x""y и x‘’y</td><td>Конкатенация строк</td></tr>
+<tr><td>x""y и x‘’y</td><td>Конкатенация строк (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<br />
+</span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x == y, x != y<br />
 e in c, e !in c<br />
 e C c, e !C c<br />
 </td><td>Сравнения<br />
 Элемент e содержится/‘не содержится’ в контейнере c</td></tr>
-<tr><td>x &amp; y</td><td>Логическое И</td></tr>
+<tr><td>x &amp; y</td><td>Логическое И (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+Используется <pre class="inline_code">&amp;</pre> вместо <pre class="inline_code">&amp;&amp;</pre> так как логическое И требуется гораздо чаще, чем поразрядное.<br />
+</span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x | y</td><td>Логическое ИЛИ</td></tr>
 <tr><td>x ? y</td><td>Вернуть левый операнд если он не нуль, иначе вернуть правый операнд</td></tr>
 <tr><td>() -> выражение<br />
 x -> выражение<br />
 (x, y) -> выражение</td><td>Лямбда выражение</td></tr>
-<tr><td>arr1 [+] arr2</td><td>Конкатенация массивов</td></tr>
+<tr><td>arr1 [+] arr2</td><td>Конкатенация массивов (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+Так как массивы задаются с использованием квадратных скобок: <pre class="inline_code">[1, 2, ...]</pre>.<br />
+Так как эта операция достаточно дорогая, ей выделен <!--[[[специальный/]]]-->отдельный оператор.<br />
+</span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x = ...<br />
 x += ...<br />
 -= *= /= I/= Ц/=<br />

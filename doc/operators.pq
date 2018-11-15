@@ -57,31 +57,44 @@ Subtraction’’
 x >> y’ ‘Bitwise left shift
 Bitwise right shift’’
 ‘‘x 0‘[&]’ y’ ‘Bitwise AND (rationale: {
+0‘[&]’ looks similar to AND gate:
 
+P‘https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/IEC_AND_label.svg/100px-IEC_AND_label.svg.png’
 })’’
 ‘‘x (+) y’ ‘Bitwise XOR (rationale: {
-
+Symbols (+) look like symbol ⊕, which is used in ‘Boolean algebra’[https://en.wikipedia.org/wiki/Boolean_algebra] for exclusive or operation: Р‘https://wikimedia.org/api/rest_v1/media/math/render/svg/18f7d86510aec2e45bb019abacccd2e772790f8f’.
+And although ⊕ is used more often for single-bit values, in Wikipedia it [[[occurs/]]]is sometimes used ‘for pointers’[https://en.wikipedia.org/wiki/XOR_linked_list <- https://ru.wikipedia.org/wiki/XOR-связный_список <- https://habrahabr.ru/post/183462/#comment_6377452 <- google:‘1с xor’] and ‘for arrays of bytes’[https://en.wikipedia.org/wiki/Hash-based_message_authentication_code <- google:‘HMAC’ <- https://www.imperialviolet.org/2017/05/31/skipsha3.html ‘key:        Bytes     array of bytes’].
+[Besides, usage of ^ for this operation I think a bad idea (at least this is ‘confusing for novices’[https://stackoverflow.com/questions/11464905/what-is-used-for-in-ruby]).]
 })’’
 ‘‘x 0‘[|]’ y’ ‘Bitwise OR (rationale: {
+Symbol | looks like 1 and 0‘[1]’ looks similar to OR gate:
 
+P‘https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/OR_gate_RU.svg/100px-OR_gate_RU.svg.png’[https://ru.wikipedia.org/wiki/Логические_элементы#Дизъюнкция_(логическое_сложение)._Операция_ИЛИ]
 })’’
 ‘‘x < y, x <= y
 x > y, x >= y’ ‘Comparison operators’’
 ‘‘x..y, x.<y
 x<.y, x<.<y’ ‘Ranges’’
-‘‘x""y and x‘’y’ ‘String concatenation’’
+‘‘x""y and x‘’y’ ‘String concatenation (rationale: {
+
+})’’
 ‘‘x == y, x != y
 e in c, e !in c
 e C c, e !C c
 ’ ‘Comparisons
 Including membership tests’’
-‘‘x & y’ ‘Logical AND’’
+‘‘x & y’ ‘Logical AND (rationale: {
+`&` is used instead of `&&` because logical AND is needed much more often than bitwise AND.
+})’’
 ‘‘x | y’ ‘Logical OR’’
 ‘‘x ? y’ ‘Null coalescing operator’’
 ‘‘() -> expr
 x -> expr
 (x, y) -> expr’ ‘Lambda expression’’
-‘‘arr1 0‘[+]’ arr2’ ‘Array concatenation’’
+‘‘arr1 0‘[+]’ arr2’ ‘Array concatenation (rationale: {
+Because arrays are defined using square brackets: `[1, 2, ...]`.
+As this operation is quite expensive, it has dedicated operator.
+})’’
 ‘‘x = ...
 x += ...
 -= *= /= I/=

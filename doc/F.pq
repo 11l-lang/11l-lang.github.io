@@ -3,7 +3,7 @@
 
 
 #(11l)‘
-F <name>(<arguments>)
+F <name>(<arguments>) [-> <return_type>]
    <body>
 ’
 
@@ -46,3 +46,32 @@ to_html(s, 0B, 1B) // this is wrong
 to_html(s, 0B, habr_html' 1B) // this is correct
 to_html(s, habr_html' 1B) // and this is correct
 ’
+
+
+Н‘F/fn subkeywords’
+
+
+`F.destructor`/`fn.destructor` is used to define a destructor:
+#(11l)‘
+T TypeName
+   F.destructor
+      print(‘TypeName destructor called’)
+’
+
+Subkeywords `virtual.new`, `virtual.override`, `virtual.final` and `virtual.abstract` indicate that this functions is virtual and they specify a "virtual type" of this function.
+`virtual.new` means that this is a new virtual function.
+[[[https://en.cppreference.com/w/cpp/language/override]]]`virtual.override` ensures that the function is virtual and is overriding a virtual function from a base [[[class/]]]type. The program is ill-formed (a compile-time error is generated) if this is not true.
+[[[https://en.cppreference.com/w/cpp/language/final]]]`virtual.final` specifies that a virtual function cannot be overridden in a derived [[[class/]]]type.
+[[[https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members]]]`virtual.abstract` subkeyword enables you to create type functions that are incomplete and must be implemented in a derived [[[class/]]]type.
+Small example:
+#(11l)‘
+T Shape
+   F.virtual.abstract square() -> Float
+
+T Circle(Shape, Object)
+   Float radious
+   F.virtual.override square() -> Float
+      R pi * radious^2
+’
+
+`F.args`/`fn.args` is intended to provide access to the arguments passed to the current function, but it is not implemented yet.

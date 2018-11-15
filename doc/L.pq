@@ -62,8 +62,8 @@ H‘L/loop subkeywords’
 
 [[[[[[https://trizen.gitbooks.io/sidef-lang/content/syntax_and_semantics/constructs/break.html]]]The `L.break`/`loop.break` statement is used to exit early from loops.
 ]]][[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break]]]The `L.break`/`loop.break` statement terminates the current loop.
-[[[https://doc.rust-lang.org/1.7.0/book/loops.html]]]You may also encounter situations where you have nested loops and need to specify which one your break[[[ or continue]]] statement is for.
-Like most other languages, by default a `L.break`/`loop.break`[[[ or continue]]] in 11l will apply to innermost loop. In a situation where you would like to a break[[[ or continue]]] for one of the outer loops, you can specify which loop the break[[[ or continue]]] statement applies to:
+[[[https://doc.rust-lang.org/1.7.0/book/loops.html]]][[[You may also encounter situations where you have nested loops and need to specify which one your break[[[ or continue]]] statement is for.
+Like most other languages, by]]]By default[[[ a]]] `L.break`/`loop.break`[[[ or continue]]][[[ in 11l]]] will apply to innermost loop. In a situation where you would like to a break[[[ or continue]]] for one of the outer loops, you can specify which loop the break[[[ or continue]]] statement applies to:
 #(11l)‘
 L(y) 0..10
    L(x) 0..10

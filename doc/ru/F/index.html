@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>I/if and E/else</title>
+<title>F/fn</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -96,12 +96,11 @@ pre.inline_code {
 </head>
 <body>
 <table width="55%" align="center"><tr><td>
-<!--[[[H‘I/if and E/else’
-]]]--><h3>Keywords I/if and E/else</h3>
+<!--[[[Н‘F/fn’
+]]]--><h3>Ключевое слово F/fn</h3>
 <br />
 <br />
-<table>
-<tr><td><style>
+<style>
 span.keyword {color: #0000FF; font-weight: bold;}
 span.identifier {color: #00009F;}
 span.string-literal {color: #800000;}
@@ -109,61 +108,49 @@ span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">condition</span>>
-   ...
-
-
-
-
-</pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">condition</span>>
-   ...
-<span class="keyword">E</span>
-   ...
-
-
-</pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">condition1</span>>
-   ...
-<span class="keyword">E</span> <span class="keyword">I</span> &lt;<span class="identifier">condition2</span>>
-   ...
-
-
-</pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">condition1</span>>
-   ...
-<span class="keyword">E</span> <span class="keyword">I</span> &lt;<span class="identifier">condition2</span>>
-   ...
-<span class="keyword">E</span>
-   ...
-</pre></td></tr>
-</table>
+<span class="keyword">F</span> &lt;<span class="identifier">имя</span> <span class="identifier">функции</span>>(&lt;<span class="identifier">аргументы</span>>)
+   &lt;<span class="identifier">тело</span> <span class="identifier">функции</span>>
+</pre>
 <br />
-Two consecutive keywords E/else and I/if are treated especially, so there is no need for a separate/additional keyword like elif in Python or elsif in Ruby.<br />
-<br />
-Also I/if and E/else can be used in expressions similarly to ternary operator <pre class="inline_code">?:</pre> from C:<br />
+<pre class="inline_code">&lt;имя функции></pre><br />
+Имя функции. Может быть пустым в случае если это конструктор (когда функция определяется внутри определения типа, пример: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <pre class="code_block">
-<span class="identifier">sign</span> = <span class="keyword">I</span> <span class="identifier">x</span> &lt; <span class="numeric-literal">0</span> {-<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">x</span> > <span class="numeric-literal">0</span> {<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="numeric-literal">0</span>
+<span class="keyword">T</span> <span class="identifier">Person</span>
+   <span class="identifier">String</span> <span class="identifier">name</span>
+   <span class="identifier">Int</span> <span class="identifier">age</span>
+
+   <span class="keyword">F</span> (<span class="identifier">name</span>, <span class="identifier">age</span>)
+      .<span class="identifier">name</span> = <span class="identifier">name</span>
+      .<span class="identifier">age</span>  = <span class="identifier">age</span>
+</pre>
+</span><span class="cu_brackets_b">}</span></span>) или когда это функция-по-умолчанию модуля, например <pre class="inline_code">os:(command_string)</pre> (см. <a href="./modules/os" target="_self">документацию модуля os</a>).<br />
+<br />
+<pre class="inline_code">&lt;аргументы></pre><br />
+Список аргументов, разделённых запятой. Может быть пустым.<br />
+Каждый аргумент определяется как:<br />
+[&lt;тип аргумента>] &lt;имя аргумента> [= &lt;значение по умолчанию>]<br />
+<br />
+<br />
+<h4>Именованные аргументы</h4>
+<br />
+<pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">sqlen</span>(<span class="identifier">x</span> = <span class="numeric-literal">0</span>, <span class="identifier">y</span> = <span class="numeric-literal">0</span>, <span class="identifier">z</span> = <span class="numeric-literal">0</span>)
+   <span class="keyword">R</span> <span class="identifier">x</span>*<span class="identifier">x</span> + <span class="identifier">y</span>*<span class="identifier">y</span> + <span class="identifier">z</span>*<span class="identifier">z</span>
+
+<span class="identifier">print</span>(<span class="identifier">sqlen</span>(<span class="identifier">z'</span> <span class="numeric-literal">3</span>)) <span class="comment">// эквивалентно print(sqlen(0, 0, 3))</span>
 </pre>
 <br />
 <br />
-<h3>I/if subkeywords</h3>
-<br />
+<h4>"Только-именованные" аргументы</h4>
 <br />
 <pre class="code_block">
-<span class="keyword">I.likely</span> &lt;<span class="identifier">condition</span>>
+<span class="keyword">F</span> <span class="identifier">to_html</span>(<span class="identifier">instr</span>, <span class="identifier">ohd</span> = <span class="constant">0B</span>, ', <span class="identifier">habr_html</span> = <span class="constant">0B</span>)
    ...
+
+<span class="identifier">to_html</span>(<span class="identifier">s</span>, <span class="constant">0B</span>, <span class="constant">1B</span>) <span class="comment">// ошибка</span>
+<span class="identifier">to_html</span>(<span class="identifier">s</span>, <span class="constant">0B</span>, <span class="identifier">habr_html'</span> <span class="constant">1B</span>) <span class="comment">// правильно</span>
+<span class="identifier">to_html</span>(<span class="identifier">s</span>, <span class="identifier">habr_html'</span> <span class="constant">1B</span>) <span class="comment">// так тоже правильно</span>
 </pre>
-is used as a sign to the compiler that condition in most of the cases will be true.<br />
-<br />
-And similarly:<br />
-<pre class="code_block">
-<span class="keyword">I.unlikely</span> &lt;<span class="identifier">condition</span>>
-   ...
-</pre>
-is used as a sign to the compiler that condition in most of the cases will be false.<br />
-<br />
-<i>Note: at the present moment performance increase when using this subkeywords is negligible, so their usage is not recommended.</i><br />
 
 </td></tr></table>
 </body>

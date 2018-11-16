@@ -98,9 +98,9 @@ pre.inline_code {
 Я считаю, что оператор <pre class="inline_code">+</pre> для конкатенации строк — неудачное решение, так как:<br />
 <ol>
 <li>Он некоммутативен в отличие от операции сложения, обозначаемой символом <pre class="inline_code">+</pre>. Этот аргумент приводят, в частности, разработчики языка программирования Julia<!--[[[, D]]]-->:<br />
-<blockquote><a href="http://web.archive.org/web/20170716024257/https://docs.julialang.org/en/stable/manual/strings#Concatenation-1" title="<- https://docs.julialang.org/en/stable/manual/strings/#Concatenation-1"><i>http://web.archive.org/web/20170716024257/...</i></a>:<br />
+<blockquote><a href="https://docs.julialang.org/en/latest/manual/strings/#man-concatenation-1"><i>https://docs.julialang.org/en/latest/manual/...</i></a>:<br />
 <br />
-In mathematics, + usually denotes a <i>commutative</i> operation, where the order of the operands does not matter. An example of this is matrix addition, where A + B == B + A for any matrices A and B that have the same shape.</blockquote>
+In mathematics, <pre class="inline_code">+</pre> usually denotes a <i>commutative</i> operation, where the order of the operands does not matter. An example of this is matrix addition, where <pre class="inline_code">A + B == B + A</pre> for any matrices <pre class="inline_code">A</pre> and <pre class="inline_code">B</pre> that have the same shape.</blockquote>
 И я предлагаю сделать оператор <pre class="inline_code">+</pre> строго коммутативным и при наличии <style>
 span.keyword {color: #0000FF; font-weight: bold;}
 span.identifier {color: #00009F;}
@@ -111,7 +111,7 @@ span.comment {color: #808080;}
 </style><pre style="display: inline"><span class="keyword">F</span> +(<span class="identifier">MyType</span>, <span class="identifier">Int</span>)</pre> запретить перегрузку <pre style="display: inline"><span class="keyword">F</span> +(<span class="identifier">Int</span>, <span class="identifier">MyType</span>)</pre>. Это немного уменьшит работу программисту по заданию дополнительных<!--[[[/ненужных/лишних]]]--> перегрузок операторов, и одновременно повысит предсказуемость программ <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">аналогично перегрузку оператора <pre class="inline_code">!=</pre> следует автоматически генерировать на основе перегрузки оператора <pre class="inline_code">==</pre> <a href="https://dlang.org/spec/operatoroverloading.html#equals">как сделано в D</a> и тоже запретить</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span>.</li>
 <li>В некоторых языках (например в PHP и Perl) сложение "5"+5 даёт 10.</li>
 <li>Наткнувшись на<br />
-<blockquote><i><a href="http://web.archive.org/web/20120303225245/http://www.dartlang.org/articles/puzzlers/chapter-2.html" title="<- https://news.dartlang.org/2012/06/vm-to-remove-support-for-string.html <- [https://github.com/JuliaLang/julia/issues/1771]:‘Dart completely removed their string concatenation operator (it was +) some time ago. Rationale is here: http://news.dartlang.org/2012/06/vm-to-remove-support-for-string.html’ <- google:‘julia concatenation’">Dart Puzzlers: Chapter 2</a></i>:<br />
+<blockquote><i><a href="https://web.archive.org/web/20120303225245/http://www.dartlang.org/articles/puzzlers/chapter-2.html#11" title="<- https://news.dartlang.org/2012/06/vm-to-remove-support-for-string.html <- [https://github.com/JuliaLang/julia/issues/1771]:‘Dart completely removed their string concatenation operator (it was +) some time ago. Rationale is here: http://news.dartlang.org/2012/06/vm-to-remove-support-for-string.html’ <- google:‘julia concatenation’">Dart Puzzlers: Chapter 2</a></i>:<br />
 Can you guess what the following statement prints?<br />
 <pre>
 System.out.println("2 + 2 = " + 2+2);
@@ -126,7 +126,7 @@ Both the Java and Dart versions <pre class="inline_code">print 2 + 2 = 22</pre>,
 <span class="identifier">print</span>(<span class="string-literal">"id="</span> + <span class="identifier">id</span>+<span class="numeric-literal">1</span>)
 </pre>
 </li>
-<li><blockquote><i><a href="http://web.archive.org/web/20120303225245/http://www.dartlang.org/articles/puzzlers/chapter-2.html">Dart Puzzlers: Chapter 2</a></i>:<br />
+<li><blockquote><i><a href="https://web.archive.org/web/20120303225245/http://www.dartlang.org/articles/puzzlers/chapter-2.html#13">Dart Puzzlers: Chapter 2</a></i>:<br />
 <pre>
 ...
     System.out.println("Animals are equal: "
@@ -137,7 +137,7 @@ It doesn't print <pre class="inline_code">Animals are equal: true</pre>. It does
 Эту проблему также <span class="sq"><span class="sq_brackets">[</span>как и в пункте 3<span class="sq_brackets">]</span></span> решает отдельный оператор для конкатенации строк, так как приоритет этого оператора можно сделать ниже, чем у оператора сравнения <pre class="inline_code">==</pre>.</li>
 </ol>
 <br />
-По этим <span class="sq"><span class="sq_brackets">[</span>и/или каким-то ещё<span class="sq_brackets">]</span></span> причинам от <pre class="inline_code">+</pre> для конкатенации строк отказались во многих языках (PHP, Perl, D, Lua, Julia, Visual Basic, Nim, Dart), вот только <!--[[[удачного]]]-->однозначного обозначения для этой операции, <!--[[[по моему мнению]]]-->к сожалению, до сих пор так и не <!--[[[нашли]]]-->определили, поэтому я решил попробовать пойти другим путём и вообще отказаться от оператора для конкатенации строк. Для конкатенации <!--[[[строки/]]]-->строкового литерала и переменной в 11l достаточно просто расположить их рядом без пробелов:<br />
+По этим <span class="sq"><span class="sq_brackets">[</span>и/или каким-то ещё<span class="sq_brackets">]</span></span> причинам от <pre class="inline_code">+</pre> для конкатенации строк отказались во многих языках (PHP, Perl, D, Lua, Julia, Visual Basic, Nim, Dart), вот только <!--[[[удачного]]]-->однозначного обозначения для этой операции, <!--[[[по моему мнению]]]-->к сожалению, до сих пор так и не <!--[[[нашли]]]-->определили, поэтому я решил попробовать пойти другим путём и вообще отказаться от оператора <!--[[[для ]]]-->конкатенации строк. Для конкатенации <!--[[[строки/]]]-->строкового литерала и переменной в 11l достаточно просто расположить их рядом без пробелов:<br />
 <pre class="code_block">
 <span class="identifier">print</span>(<span class="string-literal">"id="</span><span class="identifier">id</span>)
 <span class="identifier">print</span>(<span class="string-literal">"id="</span>(<span class="identifier">id</span>+<span class="numeric-literal">1</span>))

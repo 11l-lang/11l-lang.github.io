@@ -1,0 +1,159 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<base target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A' || event.target.parentNode.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+    //[-Чтобы была возможность выделять текст внутри раскрытого ‘скрытого текста’/спойлера, необходимо [скрытие/]закрытие спойлера делать не просто по нажатию левой кнопки мыши, а по отпусканию левой кнопки мыши при условии отсутствия движения курсора [мыши] после того, как была нажата левая кнопка мыши.-]
+}
+function spoiler2(element, event)
+{
+    element.nextSibling.style.display = (element.nextSibling.style.display == "none" ? "" : "none");
+}
+</script>
+<style type="text/css">
+body td {
+    font-size: 14px;
+    font-family: Verdana, sans-serif;
+    line-height: 160%;
+}
+span.cu_brackets_b {
+    font-size: initial;
+    font-family: initial;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: #6da3bd;
+}
+a:hover {
+    text-decoration: underline;
+    color: #4d7285;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 400;
+}
+h1 {font-size: 190%; line-height: 120%;}
+h2 {font-size: 160%;}
+h3 {font-size: 137.5%;}
+h4 {font-size: 120%;}
+h5 {font-size: 110%;}
+h6 {font-size: 100%;}
+td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
+span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+span.sq_brackets {color: #BFBFBF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
+pre, code {font-family: 'Courier New'; line-height: normal}
+ul, ol {margin: 11px 0 7px 0;}
+ul li, ol li {padding: 7px 0;}
+ul li:first-child, ol li:first-child {padding-top   : 0;}
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
+table table {margin: 9px 0; border-collapse: collapse;}
+table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+span.spoiler_title {
+    color: #548eaa;
+    cursor: pointer;
+    border-bottom: 1px dotted;
+}
+div.spoiler_text {
+    /*border: 1px dotted;*/
+    margin: 5px;
+    padding: 3px;
+}
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
+div.note {
+    padding: 18px 20px;
+    background: #ffffd7;
+}
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
+</style>
+</head>
+<body>
+<table width="55%" align="center"><tr><td>
+Я считаю, что оператор <pre class="inline_code">+</pre> для конкатенации строк — неудачное решение, так как:<br />
+<ol>
+<li>Он некоммутативен в отличие от операции сложения, обозначаемой символом <pre class="inline_code">+</pre>. Этот аргумент приводят, в частности, разработчики Julia<!--[[[, D]]]-->:<br />
+<blockquote><a href="http://web.archive.org/web/20170716024257/https://docs.julialang.org/en/stable/manual/strings#Concatenation-1" title="<- https://docs.julialang.org/en/stable/manual/strings/#Concatenation-1"><i>http://web.archive.org/web/20170716024257/...</i></a>:<br />
+<br />
+In mathematics, + usually denotes a <i>commutative</i> operation, where the order of the operands does not matter. An example of this is matrix addition, where A + B == B + A for any matrices A and B that have the same shape.</blockquote>
+И я предлагаю сделать оператор <pre class="inline_code">+</pre> строго коммутативным и при наличии <style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre style="display: inline"><span class="keyword">F</span> +(<span class="identifier">MyType</span>, <span class="identifier">Int</span>)</pre> запретить перегрузку <pre style="display: inline"><span class="keyword">F</span> +(<span class="identifier">Int</span>, <span class="identifier">MyType</span>)</pre>. Это немного уменьшит работу программисту по заданию дополнительных<!--[[[/ненужных/лишних]]]--> перегрузок операторов, и одновременно повысит предсказуемость программ <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">аналогично перегрузку оператора <pre class="inline_code">!=</pre> следует автоматически генерировать на основе перегрузки оператора <pre class="inline_code">==</pre> <a href="https://dlang.org/spec/operatoroverloading.html#equals">как сделано в D</a> и тоже запретить</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span>.</li>
+<li>В некоторых языках (например в PHP и Perl) сложение "5"+5 даёт 10.</li>
+<li>Наткнувшись на<br />
+<blockquote><i><a href="http://web.archive.org/web/20120303225245/http://www.dartlang.org/articles/puzzlers/chapter-2.html" title="<- https://news.dartlang.org/2012/06/vm-to-remove-support-for-string.html <- [https://github.com/JuliaLang/julia/issues/1771]:‘Dart completely removed their string concatenation operator (it was +) some time ago. Rationale is here: http://news.dartlang.org/2012/06/vm-to-remove-support-for-string.html’ <- google:‘julia concatenation’">Dart Puzzlers: Chapter 2</a></i>:<br />
+Can you guess what the following statement prints?<br />
+<pre>
+System.out.println("2 + 2 = " + 2+2);
+</pre>
+Translating this mini-puzzle into Dart, we get:<br />
+<pre>
+print('2 + 2 = ' + 2+2);
+</pre>
+Both the Java and Dart versions <pre class="inline_code">print 2 + 2 = 22</pre>, which may not be what you expected.</blockquote>
+я вспомнил, что удобно иметь возможность конкатенации <!--[[[строки/]]]-->строкового литерала и числа без явного преобразования числа к строке<!--[[[ [что само по себе ставит под вопрос использование символа `+` для этой операции]]]]-->, и у меня родился такой <span class="sq"><span class="sq_brackets">[</span>более жизненный, чем 2+2<span class="sq_brackets">]</span></span> пример:<br />
+<pre class="code_block">
+<span class="identifier">print</span>(<span class="string-literal">"id="</span> + <span class="identifier">id</span>+<span class="numeric-literal">1</span>)
+</pre>
+</li>
+<li><blockquote><i><a href="http://web.archive.org/web/20120303225245/http://www.dartlang.org/articles/puzzlers/chapter-2.html">Dart Puzzlers: Chapter 2</a></i>:<br />
+<pre>
+...
+    System.out.println("Animals are equal: "
+                       + pig == dog);
+...
+</pre>
+It doesn't print <pre class="inline_code">Animals are equal: true</pre>. It doesn't print <pre class="inline_code">Animals are equal: false</pre>, either. It just prints <pre class="inline_code">false</pre>. Why? Because the <pre class="inline_code">+</pre> operator binds tighter than the <pre class="inline_code">==</pre> operator.</blockquote>
+Эту проблему также <span class="sq"><span class="sq_brackets">[</span>как и в пункте 3<span class="sq_brackets">]</span></span> решает отдельный оператор для конкатенации строк, так как приоритет этого оператора можно сделать ниже, чем у оператора сравнения <pre class="inline_code">==</pre>.</li>
+</ol>
+<br />
+По этим <span class="sq"><span class="sq_brackets">[</span>и/или каким-то ещё<span class="sq_brackets">]</span></span> причинам от <pre class="inline_code">+</pre> для конкатенации строк отказались во многих языках (PHP, Perl, D, Lua, Julia, Visual Basic, Nim, Dart), вот только <!--[[[удачного]]]-->однозначного обозначения для этой операции, <!--[[[по моему мнению]]]-->к сожалению, до сих пор так и не <!--[[[нашли]]]-->определили, поэтому я решил попробовать пойти другим путём и вообще отказаться от оператора для конкатенации строк. Для конкатенации <!--[[[строки/]]]-->строкового литерала и переменной в 11l достаточно просто расположить их рядом без пробелов:<br />
+<pre class="code_block">
+<span class="identifier">print</span>(<span class="string-literal">"id="</span><span class="identifier">id</span>)
+<span class="identifier">print</span>(<span class="string-literal">"id="</span>(<span class="identifier">id</span>+<span class="numeric-literal">1</span>))
+</pre>
+Для конкатенации двух переменных используется такая форма записи:<br />
+<pre class="code_block">
+<span class="identifier">print</span>(<span class="identifier">name</span><span class="string-literal">""</span><span class="identifier">value</span>)
+</pre>
+или такая:<br />
+<pre class="code_block">
+<span class="identifier">print</span>(<span class="identifier">name</span>‘’<span class="identifier">value</span>)
+</pre>
+В последнем случае используются "сырые" строки — их необходимо заключать в одиночные парные кавычки — символы <pre class="inline_code">‘</pre> и <pre class="inline_code">’</pre>, и их использование предпочтительно в 11l.<br />
+<br />
+Подряд идущие же строки <span class="sq"><span class="sq_brackets">[</span>одного типа (‘’ или "")<span class="sq_brackets">]</span></span> <b>не</b> склеиваются в одну <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">(как в <abbr title="например Си и Python">некоторых</abbr> языках программирования), так как это чревато пропущенными ошибками (эта проблема также упоминается <a href="https://www.python.org/dev/peps/pep-3126/">здесь</a> и <a href="http://www.viva64.com/ru/d/0273/">здесь</a>): например, возможно была пропущена запятая между строк, и механизм автоматического склеивания/конкатенации строк пропустит такую ошибку</span><span class="cu_brackets_b">}</span></span>, за исключением склеивания переменных: <pre style="display: inline"><span class="string-literal">‘Значение = ’</span><span class="identifier">value</span><span class="string-literal">"\n"</span></pre>, а также разнородных строк: <pre style="display: inline"><span class="string-literal">‘неразрывный’</span><span class="string-literal">"\xA0"</span><span class="string-literal">‘пробел’</span></pre> — при этом между строкой и переменной (или строкой другого типа) <b>не</b> должно быть разделителей.<br />
+
+</td></tr></table>
+</body>
+</html>

@@ -120,7 +120,7 @@ Translating this mini-puzzle into Dart, we get:<br />
 <pre>
 print('2 + 2 = ' + 2+2);
 </pre>
-Both the Java and Dart versions <pre class="inline_code">print 2 + 2 = 22</pre>, which may not be what you expected.</blockquote>
+Both the Java and Dart versions print <pre class="inline_code">2 + 2 = 22</pre>, which may not be what you expected.</blockquote>
 я вспомнил, что удобно иметь возможность конкатенации <!--[[[строки/]]]-->строкового литерала и числа без явного преобразования числа к строке<!--[[[ [что само по себе ставит под вопрос использование символа `+` для этой операции]]]]-->, и у меня родился такой <span class="sq"><span class="sq_brackets">[</span>более жизненный, чем 2+2<span class="sq_brackets">]</span></span> пример:<br />
 <pre class="code_block">
 <span class="identifier">print</span>(<span class="string-literal">"id="</span> + <span class="identifier">id</span>+<span class="numeric-literal">1</span>)

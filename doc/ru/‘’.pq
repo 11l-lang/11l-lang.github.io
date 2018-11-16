@@ -13,7 +13,7 @@ Translating this mini-puzzle into Dart, we get:
 ```
 print('2 + 2 = ' + 2+2);
 ```
-Both the Java and Dart versions `print 2 + 2 = 22`, which may not be what you expected.’
+Both the Java and Dart versions print `2 + 2 = 22`, which may not be what you expected.’
 я вспомнил, что удобно иметь возможность конкатенации [[[строки/]]]строкового литерала и числа без явного преобразования числа к строке[[[ [что само по себе ставит под вопрос использование символа `+` для этой операции]]]], и у меня родился такой [более жизненный, чем 2+2] пример:
 #(11l)‘
 print("id=" + id+1)

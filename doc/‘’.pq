@@ -12,7 +12,7 @@ Translating this mini-puzzle into Dart, we get:
 ```
 print('2 + 2 = ' + 2+2);
 ```
-Both the Java and Dart versions `print 2 + 2 = 22`, which may not be what you expected.’
+Both the Java and Dart versions print `2 + 2 = 22`, which may not be what you expected.’
 Or more vital example:
 #(11l)‘
 print("id=" + id+1)

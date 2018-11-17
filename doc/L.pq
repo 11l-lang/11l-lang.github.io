@@ -91,4 +91,4 @@ L(test) tests
 
 
 `L.next`/`loop.next` support now is limited to check if there is a next element in iterating container or current element is the last one.
-`L.prev`/`loop.prev` are not supported now.
+`L.prev`/`loop.prev` is not supported now.

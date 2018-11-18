@@ -5,6 +5,9 @@
 
 Comments[./comments]
 
+‘String literals’[./string-literals]
+‘Integer literals’[./integer-literals]
+
 Keywords:
    A/var[./A]
 ‘   I/if and E/else’[./I]
@@ -20,6 +23,8 @@ Keywords:
 ‘Built-in types’[./built-in-types]
 
 Operators[./operators]
+
+‘Variables' prefixes’[./prefixes]
 
 ‘Global functions’[./global-functions]
 

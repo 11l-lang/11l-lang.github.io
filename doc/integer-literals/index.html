@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Документация по языку программирования 11l</title>
+<title>Integer literals</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -96,39 +96,34 @@ pre.inline_code {
 </head>
 <body>
 <table width="55%" align="center"><tr><td>
-<!--[[[Н‘Документация по языку программирования 11l’]]]--><br />
-<!--[[[Правила определения областей/]]]--><a href="./code-blocks" target="_self">Блоки кода</a><br />
+<!--[[[H‘Integer literals’
+]]]--><h3>Integer literals</h3>
 <br />
-<a href="./semicolons" target="_self">Точка с запятой и автоматическое склеивание строк</a><br />
+<!--[[[Inspired by ‘this page’[https://trizen.gitbooks.io/sidef-lang/content/programming_tasks/L/Literals/Integer.html]]]]--><br />
+<style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre class="code_block">
+<span class="identifier">print</span>(<span class="numeric-literal">255</span>)        <span class="comment">// decimal literal</span>
+<span class="identifier">print</span>(<span class="numeric-literal">0000'00FF</span>)  <span class="comment">// hexadecimal literal</span>
+<span class="identifier">print</span>(<span class="numeric-literal">00'FF</span>)      <span class="comment">// short hexadecimal literal</span>
+<span class="identifier">print</span>(<span class="numeric-literal">377o</span>)       <span class="comment">// octal literal</span>
+<span class="identifier">print</span>(<span class="numeric-literal">1111'1111b</span>) <span class="comment">// binary literal</span>
+</pre>
+Output:<br />
+<pre>
+255
+255
+255
+255
+255
+</pre>
 <br />
-<a href="./comments" target="_self">Комментарии</a><br />
-<br />
-<a href="./string-literals" target="_self">Строковые литералы</a><br />
-<a href="./integer-literals" target="_self">Целочисленные литералы</a><br />
-<br />
-Зарезервированные/ключевые слова:<br />
-<a href="./A" target="_self">   A/var</a><br />
-<a href="./I" target="_self">   I/if и E/else</a><br />
-<a href="./C" target="_self">   C/in</a><br />
-<a href="./F" target="_self">   F/fn</a><br />
-<a href="./L" target="_self">   L/loop</a><br />
-<a href="./N" target="_self">   N/null</a><br />
-<a href="./R" target="_self">   R/return</a><br />
-<a href="./S" target="_self">   S/switch</a><br />
-<a href="./T" target="_self">   T/type</a><br />
-<a href="./X" target="_self">   X/exception</a><br />
-<br />
-<a href="./built-in-types" target="_self">Встроенные типы данных</a><br />
-<br />
-<a href="./operators" target="_self">Операторы</a><br />
-<br />
-<a href="./prefixes" target="_self">Префиксы переменных</a><br />
-<br />
-<a href="./global-functions" target="_self">Глобальные функции</a><br />
-<br />
-Встроенные модули:<br />
-<a href="./modules/os" target="_self">   os</a><br />
-<a href="./modules/fs" target="_self">   fs</a><br />
+Note that digit separator <pre class="inline_code">'</pre> is necessary <!--[[[only ]]]-->for hexadecimal literals.<br />
 
 </td></tr></table>
 </body>

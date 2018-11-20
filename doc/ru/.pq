@@ -26,8 +26,8 @@
 
 ‘Префиксы переменных’[./prefixes]
 
-‘Глобальные функции’[./global-functions]
+‘[[[Глобальные/]]]Встроенные функции’[./built-in-functions]
 
 Встроенные модули:
-   os[./modules/os]
-   fs[./modules/fs]
+   os[./built-in-modules/os]
+   fs[./built-in-modules/fs]

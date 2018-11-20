@@ -1,0 +1,194 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Встроенные функции</title>
+<base target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A' || event.target.parentNode.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+    //[-Чтобы была возможность выделять текст внутри раскрытого ‘скрытого текста’/спойлера, необходимо [скрытие/]закрытие спойлера делать не просто по нажатию левой кнопки мыши, а по отпусканию левой кнопки мыши при условии отсутствия движения курсора [мыши] после того, как была нажата левая кнопка мыши.-]
+}
+function spoiler2(element, event)
+{
+    element.nextSibling.style.display = (element.nextSibling.style.display == "none" ? "" : "none");
+}
+</script>
+<style type="text/css">
+body td {
+    font-size: 14px;
+    font-family: Verdana, sans-serif;
+    line-height: 160%;
+}
+span.cu_brackets_b {
+    font-size: initial;
+    font-family: initial;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: #6da3bd;
+}
+a:hover {
+    text-decoration: underline;
+    color: #4d7285;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 400;
+}
+h1 {font-size: 190%; line-height: 120%;}
+h2 {font-size: 160%;}
+h3 {font-size: 137.5%;}
+h4 {font-size: 120%;}
+h5 {font-size: 110%;}
+h6 {font-size: 100%;}
+td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
+span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+span.sq_brackets {color: #BFBFBF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
+pre, code {font-family: 'Courier New'; line-height: normal}
+ul, ol {margin: 11px 0 7px 0;}
+ul li, ol li {padding: 7px 0;}
+ul li:first-child, ol li:first-child {padding-top   : 0;}
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
+table table {margin: 9px 0; border-collapse: collapse;}
+table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+span.spoiler_title {
+    color: #548eaa;
+    cursor: pointer;
+    border-bottom: 1px dotted;
+}
+div.spoiler_text {
+    /*border: 1px dotted;*/
+    margin: 5px;
+    padding: 3px;
+}
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
+div.note {
+    padding: 18px 20px;
+    background: #ffffd7;
+}
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
+</style>
+</head>
+<body>
+<table width="55%" align="center"><tr><td>
+<!--[[[H‘Встроенные функции’
+]]]--><h3>Встроенные функции</h3>
+<br />
+<br />
+<b>print</b>(object, end = "\n")<br />
+Выводит <pre class="inline_code">object</pre> и <pre class="inline_code">end</pre> в stdout.<br />
+<br />
+<b>input</b>()<br />
+Читает строку из stdin и возвращает её (без символа новой строки).<br />
+<br />
+<b>assert</b>(expression, message = ‘’)<br />
+Вызывает исключение AssertionError если выражение <pre class="inline_code">expression</pre> ложно.<br />
+<br />
+<b>exit</b>(message = N)<br />
+Завершает текущий процесс. Если задан параметр <pre class="inline_code">message</pre>, он выводится в stderr.<br />
+<br />
+<b>sleep</b>(secs)<br />
+Приостанавливает выполнение текущего потока на заданное количество секунд. Аргумент может быть числом с плавающей точкой для задания более точного времени приостановки.<br />
+<br />
+<b>zip</b>(iterable1, iterable2)<br />
+Объединяет элементы из <pre class="inline_code">iterable1</pre> и <pre class="inline_code">iterable2</pre>.<br />
+<br />
+<b>sum</b>(iterable)<br />
+Суммирует элементы <pre class="inline_code">iterable</pre> и возвращает итог.<br />
+<br />
+<b>min</b>(arg1, arg2)<br />
+Возвращает наименьший из аргументов.<br />
+<br />
+<b>max</b>(arg1, arg2)<br />
+Возвращает наибольший из аргументов.<br />
+<br />
+<b>hex</b>(x)<br />
+Преобразует целое число в шестнадцатеричное в верхнем регистре.<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Математические функции<br /></span><div class="spoiler_text" style="display: none"><b>round</b>(number, ndigits = 0)<br />
+Возвращает <pre class="inline_code">number</pre> округлённое до <pre class="inline_code">ndigits</pre> знаков после точки.<br />
+<br />
+<b>ceil</b>(x)<br />
+Возвращает наименьшее целое, которое больше либо равно <pre class="inline_code">x</pre>.<br />
+<br />
+<b>floor</b>(x)<br />
+Возвращает наибольшее целое, которое меньше либо равно <pre class="inline_code">x</pre>.<br />
+<br />
+<b>trunc</b>(x)<br />
+Возвращает <pre class="inline_code">x</pre> усечённое до целого.<br />
+<br />
+<b>abs</b>(x)<br />
+Возвращает абсолютное значение.<br />
+<br />
+<b>exp</b>(x)<br />
+Возвращает e в степени <pre class="inline_code">x</pre>, где e = 2.718281… это основание натурального логарифма.<br />
+<br />
+<b>log</b>(x<span class="sq"><span class="sq_brackets">[</span>, base<span class="sq_brackets">]</span></span>)<br />
+С одним аргументом возвращает натуральный логарифм <pre class="inline_code">x</pre> (по основанию e).<br />
+С двумя аргументами возвращает логарифм <pre class="inline_code">x</pre> по основанию <pre class="inline_code">base</pre>, вычисляемый как <pre class="inline_code">log(x)/log(base)</pre>.<br />
+<br />
+<b>log2</b>(x)<br />
+Возвращает логарифм <pre class="inline_code">x</pre> по основанию 2.<br />
+<br />
+<b>log10</b>(x)<br />
+Возвращает логарифм <pre class="inline_code">x</pre> по основанию 10.<br />
+<br />
+<b>sqrt</b>(x)<br />
+Возвращает квадратный корень <pre class="inline_code">x</pre>.<br />
+<br />
+<b>acos</b>(x)<br />
+Возвращает арккосинус <pre class="inline_code">x</pre> в радианах.<br />
+<br />
+<b>asin</b>(x)<br />
+Возвращает арксинус <pre class="inline_code">x</pre> в радианах.<br />
+<br />
+<b>atan</b>(x)<br />
+Возвращает арктангенс <pre class="inline_code">x</pre> в радианах.<br />
+<br />
+<b>atan2</b>(x, y)<br />
+Возвращает <pre class="inline_code">atan(y / x)</pre>. Результат находится в интервале от <pre class="inline_code">-pi</pre> до <pre class="inline_code">pi</pre>.<br />
+<br />
+<b>cos</b>(x)<br />
+Возвращает косинус <pre class="inline_code">x</pre> в радианах.<br />
+<br />
+<b>sin</b>(x)<br />
+Возвращает синус <pre class="inline_code">x</pre> в радианах.<br />
+<br />
+<b>tan</b>(x)<br />
+Возвращает тангенс <pre class="inline_code">x</pre> в радианах.<br />
+<br />
+<b>degrees</b>(x)<br />
+Преобразует угол <pre class="inline_code">x</pre> из радиан в градусы.<br />
+<br />
+<b>radians</b>(x)<br />
+Преобразует угол <pre class="inline_code">x</pre> из градусов в радианы.<br />
+</div>
+
+</td></tr></table>
+</body>
+</html>

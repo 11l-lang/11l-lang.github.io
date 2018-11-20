@@ -26,8 +26,8 @@ Operators[./operators]
 
 ‘Variables' prefixes’[./prefixes]
 
-‘Global functions’[./global-functions]
+‘[[[Global/]]]Built-in Functions’[./built-in-functions]
 
 Built-in modules:
-   os[./modules/os]
-   fs[./modules/fs]
+   os[./built-in-modules/os]
+   fs[./built-in-modules/fs]

@@ -43,3 +43,46 @@ F sum(a, b)
    R a + b
 }
 ’
+
+‘Мои мысли на тему ‘whitespace indentation to delimit code blocks’\‘выделение блоков кода с помощью отступов’/‘«Двухмерного» синтаксиса Python-а’’{
+«Двухмерный» синтаксис помимо избавления от [мелкого] синтаксического '‘<s>’'сахара'‘</s>’'мусора даёт нечто большее, но что ещё так и не увидели/не поняли многие разработчики.
+Проиллюстрирую это на примере документации к языку Nemerle:
+>[https://github.com/rsdn/nemerle/wiki/The-basics-(tutorial)#Rewriting_Line_Counter_without_the_loop]:‘
+In Nemerle the if expression always need to have the else clause. It's done this way to avoid stupid bugs with dangling-else:
+#(11l)‘
+// C#, misleading indentation hides real code meaning
+if (foo)
+   if (bar)
+     m1 ();
+else
+   m2 ();
+’
+If you do not want the `else` clause, use `when` expression, as seen in the example.’
+
+Скорее всего, разработчики Nemerle просто ‘скопировали это из Haskell или Standard ML’[https://semitwist.com/articles/article/view/nemerle-s-when-bad-idea-easily-solved ‘The mandatory 'else' is Nemerle's functional language inheritance showing’], не став даже разбираться в причинах указанного "stupid bug with dangling-else". А причина вовсе не в неправильной логике if [допускающем как отсутствие ветви else, так и её наличие], и даже не в забытых фигурных скобочках, а в... расхождении в восприятии данного кода человеком-программистом и компилятором. Человек воспринимает границы блоков визуально, [[[в первую очередь ]]]посредством отступов, а компилятор — посредством [малоприметных для человека] символов, причём компилятор [языков C/C++, C#, Java, Nemerle и др.] объединяет все "пробельные" символы [разделители], и, таким образом, напрочь игнорирует отступы. Вот в этом и заключается '‘<b>’'корень проблемы — компилятор и человек видят [такой] код по-разному'‘</b>’'.
+Поэтому меня удивляют люди, которые ‘‘жалуются на трудность и непривычность чтения такого кода’’, а также возражения, что ‘‘при изменении лишь отступа, меняется логика работы кода’’. Так в этом и состоит весь смысл отступо-зависимой семантики! Ведь такое изменение отступа будет хорошо заметно человеку (особенно привыкшему к такой семантике).
+А для желающих временно добавить if, включающий в себя большой блок кода [который не хочется сдвигать лишний раз], я считаю, что вполне можно оставить поддержку фигурных скобок:
+#(11l)‘
+if foo // временно добавленное условие
+{
+m1() // нет отступа относительно if foo
+...
+if bar
+    m2()
+    ...
+...
+}
+’
+
+>[http://compiler.su/dvukhmernyj-sintaksis-python.php]:‘... заканчиваются двоеточием, без которого можно обойтись.’
+Согласен.
+По сути, это двоеточие не имеет смысла, так как есть операторы (if, switch, for/while, etc.), которые требуют всегда нового scope, и одного признака ‘‘новая строка с отступом’’ вполне достаточно.
+‘Кстати, весьма интересна история появления этого двоеточия.’{
+>[http://python-history.blogspot.com/2011/07/karin-dewar-indentation-and-colon.html ‘Karin Dewar, Indentation and the Colon’]:‘
+In 1978, in a design session in a mansion in Jabłonna (Poland), Robert Dewar, Peter King, Jack Schwartz and Lambert were comparing various alternative proposed syntaxes for B[[[, by comparing (buggy) bubble sort implementations written down in each alternative]]]... Since they couldn't agree, Robert Dewar's wife was called from her room and asked for her opinion[[[, like a modern-day Paris asked to compare the beauty of Hera, Athena, and Aphrodite]]]... But after the first version was explained to her, she remarked: "You mean, in the line where it says: 'FOR i ... ', that it has to be done for the lines that follow; not just for that line?!" And here the scientists realized that the misunderstanding would have been avoided if there had been a colon at the end of that line.
+’
+То есть, scientists, разработчики языка программирования, прислушались к мнению[[[/высказыванию]]] [[[женщины/]]]человека, не имеющего никакого отношения к программированию? Они хотели таким образом упростить понимание языка для новичков? Но новичком программист остаётся только короткое время в начале своего пути, а лишние двоеточия наблюдать и набирать придётся и дальше. Не думаю, что так уж сложно [[[будет ]]]привыкнуть к их отсутствию...
+}
+Единственное полезное применение двоеточия — однострочные if'ы (`if условие: выражение`) и циклы, но [[[это вполне можно разрулить /]]]выйти из положения можно с помощью обозначения scope в фигурных скобках (запись `if условие {выражение}`) как в Rust, либо взяв условие в скобки (`if (условие) выражение`).
+В крайнем случае, я считаю, вполне возможно это двоеточие [[[отображать по настройке в IDE]]]вынести в настройки проекта. И команды разработчиков, которые примут у себя в качестве стандарта [кодирования] запись с двоеточием, будут писать с двоеточием, а кто не хочет [следовать такому стандарту] — пусть пишут без двоеточия. На уровне компилятора реализовать пропуск двоеточия ~‘в конце строки’ для [[[некоторых/]]]нескольких операторов [[[задача элементарная]]]совсем несложно.
+}

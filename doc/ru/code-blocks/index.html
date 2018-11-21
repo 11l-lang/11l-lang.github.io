@@ -148,6 +148,50 @@ span.comment {color: #808080;}
    <span class="keyword">R</span> <span class="identifier">a</span> + <span class="identifier">b</span>
 }
 </pre>
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Мои мысли на тему ‘whitespace indentation to delimit code blocks’\‘выделение блоков кода с помощью отступов’/‘«Двухмерного» синтаксиса Python-а’<br /></span><div class="spoiler_text" style="display: none">«Двухмерный» синтаксис помимо избавления от <span class="sq"><span class="sq_brackets">[</span>мелкого<span class="sq_brackets">]</span></span> синтаксического <s>сахара</s>мусора даёт нечто большее, но что ещё так и не увидели/не поняли многие разработчики.<br />
+Проиллюстрирую это на примере документации к языку Nemerle:<br />
+<blockquote><a href="https://github.com/rsdn/nemerle/wiki/The-basics-(tutorial)#Rewriting_Line_Counter_without_the_loop"><i>https://github.com/rsdn/nemerle/wiki/...</i></a>:<br />
+<br />
+In Nemerle the if expression always need to have the else clause. It's done this way to avoid stupid bugs with dangling-else:<br />
+<pre class="code_block">
+<span class="comment">// C#, misleading indentation hides real code meaning</span>
+<span class="keyword">if</span> (<span class="identifier">foo</span>)
+   <span class="keyword">if</span> (<span class="identifier">bar</span>)
+     <span class="identifier">m1</span> ();
+<span class="keyword">else</span>
+   <span class="identifier">m2</span> ();
+</pre>
+If you do not want the <pre class="inline_code">else</pre> clause, use <pre class="inline_code">when</pre> expression, as seen in the example.</blockquote>
+<br />
+Скорее всего, разработчики Nemerle просто <a href="https://semitwist.com/articles/article/view/nemerle-s-when-bad-idea-easily-solved" title="The mandatory 'else' is Nemerle's functional language inheritance showing">скопировали это из Haskell или Standard ML</a>, не став даже разбираться в причинах указанного "stupid bug with dangling-else". А причина вовсе не в неправильной логике if <span class="sq"><span class="sq_brackets">[</span>допускающем как отсутствие ветви else, так и её наличие<span class="sq_brackets">]</span></span>, и даже не в забытых фигурных скобочках, а в... расхождении в восприятии данного кода человеком-программистом и компилятором. Человек воспринимает границы блоков визуально, <!--[[[в первую очередь ]]]-->посредством отступов, а компилятор — посредством <span class="sq"><span class="sq_brackets">[</span>малоприметных для человека<span class="sq_brackets">]</span></span> символов, причём компилятор <span class="sq"><span class="sq_brackets">[</span>языков C/C++, C#, Java, Nemerle и др.<span class="sq_brackets">]</span></span> объединяет все "пробельные" символы <span class="sq"><span class="sq_brackets">[</span>разделители<span class="sq_brackets">]</span></span>, и, таким образом, напрочь игнорирует отступы. Вот в этом и заключается <b>корень проблемы — компилятор и человек видят <span class="sq"><span class="sq_brackets">[</span>такой<span class="sq_brackets">]</span></span> код по-разному</b>.<br />
+Поэтому меня удивляют люди, которые ‘‘жалуются на трудность и непривычность чтения такого кода’’, а также возражения, что ‘‘при изменении лишь отступа, меняется логика работы кода’’. Так в этом и состоит весь смысл отступо-зависимой семантики! Ведь такое изменение отступа будет хорошо заметно человеку (особенно привыкшему к такой семантике).<br />
+А для желающих временно добавить if, включающий в себя большой блок кода <span class="sq"><span class="sq_brackets">[</span>который не хочется сдвигать лишний раз<span class="sq_brackets">]</span></span>, я считаю, что вполне можно оставить поддержку фигурных скобок:<br />
+<pre class="code_block">
+<span class="keyword">if</span> <span class="identifier">foo</span> <span class="comment">// временно добавленное условие</span>
+{
+<span class="identifier">m1</span>() <span class="comment">// нет отступа относительно if foo</span>
+...
+<span class="keyword">if</span> <span class="identifier">bar</span>
+    <span class="identifier">m2</span>()
+    ...
+...
+}
+</pre>
+<br />
+<blockquote><a href="http://compiler.su/dvukhmernyj-sintaksis-python.php"><i>http://compiler.su/dvukhmernyj-sintaksis-python.php</i></a>:<br />
+... заканчиваются двоеточием, без которого можно обойтись.</blockquote>
+Согласен.<br />
+По сути, это двоеточие не имеет смысла, так как есть операторы (if, switch, for/while, etc.), которые требуют всегда нового scope, и одного признака ‘‘новая строка с отступом’’ вполне достаточно.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Кстати, весьма интересна история появления этого двоеточия.<br /></span><div class="spoiler_text" style="display: none"><blockquote><a href="http://python-history.blogspot.com/2011/07/karin-dewar-indentation-and-colon.html" title="Karin Dewar, Indentation and the Colon"><i>http://python-history.blogspot.com/2011/07/...</i></a>:<br />
+<br />
+In 1978, in a design session in a mansion in Jabłonna (Poland), Robert Dewar, Peter King, Jack Schwartz and Lambert were comparing various alternative proposed syntaxes for B<!--[[[, by comparing (buggy) bubble sort implementations written down in each alternative]]]-->... Since they couldn't agree, Robert Dewar's wife was called from her room and asked for her opinion<!--[[[, like a modern-day Paris asked to compare the beauty of Hera, Athena, and Aphrodite]]]-->... But after the first version was explained to her, she remarked: "You mean, in the line where it says: 'FOR i ... ', that it has to be done for the lines that follow; not just for that line?!" And here the scientists realized that the misunderstanding would have been avoided if there had been a colon at the end of that line.<br />
+</blockquote>
+То есть, scientists, разработчики языка программирования, прислушались к мнению<!--[[[/высказыванию]]]--> <!--[[[женщины/]]]-->человека, не имеющего никакого отношения к программированию? Они хотели таким образом упростить понимание языка для новичков? Но новичком программист остаётся только короткое время в начале своего пути, а лишние двоеточия наблюдать и набирать придётся и дальше. Не думаю, что так уж сложно <!--[[[будет ]]]-->привыкнуть к их отсутствию...<br />
+</div>
+Единственное полезное применение двоеточия — однострочные if'ы (<pre class="inline_code">if условие: выражение</pre>) и циклы, но <!--[[[это вполне можно разрулить /]]]-->выйти из положения можно с помощью обозначения scope в фигурных скобках (запись <pre class="inline_code">if условие {выражение}</pre>) как в Rust, либо взяв условие в скобки (<pre class="inline_code">if (условие) выражение</pre>).<br />
+В крайнем случае, я считаю, вполне возможно это двоеточие <!--[[[отображать по настройке в IDE]]]-->вынести в настройки проекта. И команды разработчиков, которые примут у себя в качестве стандарта <span class="sq"><span class="sq_brackets">[</span>кодирования<span class="sq_brackets">]</span></span> запись с двоеточием, будут писать с двоеточием, а кто не хочет <span class="sq"><span class="sq_brackets">[</span>следовать такому стандарту<span class="sq_brackets">]</span></span> — пусть пишут без двоеточия. На уровне компилятора реализовать пропуск двоеточия <i>в конце строки</i> для <!--[[[некоторых/]]]-->нескольких операторов <!--[[[задача элементарная]]]-->совсем несложно.<br />
+</div>
 
 </td></tr></table>
 </body>

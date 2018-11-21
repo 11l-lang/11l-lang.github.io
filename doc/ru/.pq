@@ -10,8 +10,8 @@
 
 Зарезервированные/ключевые слова:
    A/var[./A]
-‘   I/if и E/else’[./I]
    C/in[./C]
+‘   I/if и E/else’[./I]
    F/fn[./F]
    L/loop[./L]
    N/null[./N]

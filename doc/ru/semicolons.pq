@@ -8,7 +8,7 @@
 Н‘Автоматическое склеивание строк’
 
 
-Вместо непонятных вещей вроде ‘Automatic Semicolon Insertion со сложными правилами’[http://www.ecma-international.org/ecma-262/6.0/index.html#sec-rules-of-automatic-semicolon-insertion] (которое к тому же иногда работает некорректно {
+Вместо непонятных вещей вроде ‘Automatic Semicolon Insertion со сложными правилами’[http://www.ecma-international.org/ecma-262/6.0/index.html#sec-rules-of-automatic-semicolon-insertion] (которое, к тому же, иногда работает некорректно {
 Примеры некорректной работы Automatic Semicolon Insertion:
 1.‘В таком JavaScript коде:
 #(JavaScript)‘

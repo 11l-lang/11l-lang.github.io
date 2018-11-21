@@ -10,8 +10,8 @@ Comments[./comments]
 
 Keywords:
    A/var[./A]
-‘   I/if and E/else’[./I]
    C/in[./C]
+‘   I/if and E/else’[./I]
    F/fn[./F]
    L/loop[./L]
    N/null[./N]

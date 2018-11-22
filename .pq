@@ -266,7 +266,7 @@ T‘‘‘Python:
 for root, dirs, files in os.walk('.'):
     dirs[:] = [d for d in dirs if d[0] != '.'] # exclude hidden folders (e.g. `.hg`)
     for name in files:
-        if name.endswith(".py") or name.endswith(".txt"):
+        if name.endswith(('.py', '.txt')):
             file_bytes = open(os.path.join(root, name), 'rb').read()
             if b"\r" in file_bytes or b"\t" in file_bytes:
                 print(R"Unallowed character (\r or \t) found in file '" + os.path.join(root, name)[2:] + "'")

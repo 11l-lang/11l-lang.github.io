@@ -61,6 +61,10 @@ Return the base-2 logarithm of `x`.
 *‘log10’(x)
 Return the base-10 logarithm of `x`.
 
+*‘pow’(x, y)
+Return `x` raised to the power `y`.
+Using built-in `^` operator is recommended instead of this function.
+
 *‘sqrt’(x)
 Return the square root of `x`.
 

@@ -139,7 +139,73 @@ span.comment {color: #808080;}
 </pre>
 <br />
 <b>String</b><br />
-String type.<br />
+String type. Can be constructed from a <a href="./../string-literals" target="_self">string literal</a>.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none"><b>len</b><br />
+Length of the string in characters.<br />
+</div>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>starts_with</b>(prefix)<br />
+Return true (1B) if the string starts with the <pre class="inline_code">prefix</pre>, otherwise return false (0B). <pre class="inline_code">prefix</pre> can also be a tuple of prefixes to look for.<br />
+<br />
+<b>ends_with</b>(suffix)<br />
+Return true (1B) if the string ends with the specified <pre class="inline_code">suffix</pre>, otherwise return false (0B). <pre class="inline_code">suffix</pre> can also be a tuple of suffixes to look for.<br />
+<br />
+<b>count</b>(sub)<br />
+Return the number of non-overlapping occurrences of substring <pre class="inline_code">sub</pre>.<br />
+<br />
+<b>is_digit</b>()<br />
+Return true (1B) if all characters in the string are digits and there is at least one character, false (0B) otherwise.<br />
+<br />
+<b>find</b>(sub, start = 0)<br />
+Return the lowest index in the string where substring <pre class="inline_code">sub</pre> is found. Search begins at <pre class="inline_code">start</pre>. Return <pre class="inline_code">N</pre>/<pre class="inline_code">null</pre> if <pre class="inline_code">sub</pre> is not found. <pre class="inline_code">sub</pre> can also be a tuple of strings to look for.<br />
+<br />
+<b>findi</b>(sub, start = 0)<br />
+Return the lowest index in the string where substring <pre class="inline_code">sub</pre> is found. Search begins at <pre class="inline_code">start</pre>. Return <pre class="inline_code">-1</pre> if <pre class="inline_code">sub</pre> is not found.<br />
+<br />
+<b>rfind</b>(sub<span class="sq"><span class="sq_brackets">[</span>, start<span class="sq_brackets">]</span></span>)<br />
+Return the highest index in the string where substring <pre class="inline_code">sub</pre> is found. Search begins at <pre class="inline_code">start</pre> (if <pre class="inline_code">start</pre> is not specified, whole string will be searched). Return <pre class="inline_code">N</pre>/<pre class="inline_code">null</pre> if <pre class="inline_code">sub</pre> is not found.<br />
+<br />
+<b>rfindi</b>(sub, start, end)<br />
+Return the highest index in the string where substring <pre class="inline_code">sub</pre> is found, such that <pre class="inline_code">sub</pre> is contained within <pre class="inline_code">s[start.&lt;end]</pre>. Return <pre class="inline_code">-1</pre> if <pre class="inline_code">sub</pre> is not found.<br />
+<br />
+<b>replace</b>(old, new)<br />
+Return a copy of the string with all occurrences of substring <pre class="inline_code">old</pre> replaced by <pre class="inline_code">new</pre>. <pre class="inline_code">old</pre> can be a regular expression.<br />
+<br />
+<b>lowercase</b>()<br />
+Return a copy of the string with all the cased characters converted to lowercase.<br />
+<br />
+<b>uppercase</b>()<br />
+Return a copy of the string with all the cased characters converted to uppercase.<br />
+<br />
+<b>zfill</b>(width)<br />
+Return a copy of the string left filled with ASCII '0' digits to make a string of length <pre class="inline_code">width</pre>.<br />
+<br />
+<b>split</b>(delim<span class="sq"><span class="sq_brackets">[</span>, limit<span class="sq_brackets">]</span></span>)<br />
+Divides string into substrings based on a delimiter, returning an array of these substrings. <pre class="inline_code">delim</pre> can be a regular expression. <pre class="inline_code">delim</pre> can also be a tuple of characters (example: <pre style="display: inline"><span class="identifier">s</span>.<span class="identifier">split</span>((<span class="string-literal">‘ ’</span>, <span class="string-literal">"\t"</span>, <span class="string-literal">"\n"</span>, <span class="string-literal">"\r"</span>))</pre>). If <pre class="inline_code">limit</pre> is given, at most that number of fields will be returned (if <pre class="inline_code">limit</pre> is 1, the entire string is returned as the only entry in an array). <span class="sq"><span class="sq_brackets">[</span><pre class="inline_code">limit</pre> argument in 11l is similar to JavaScript, Ruby and PHP, but not Python.<span class="sq_brackets">]</span></span><br />
+<br />
+<b>ltrim</b>(string<span class="sq"><span class="sq_brackets">[</span>, limit<span class="sq_brackets">]</span></span>)<br />
+Return a copy of the string with leading strings removed. At most <pre class="inline_code">limit</pre> strings are removed.<br />
+<br />
+<b>ltrim</b>(tuple_of_chars<span class="sq"><span class="sq_brackets">[</span>, limit<span class="sq_brackets">]</span></span>)<br />
+Return a copy of the string with leading characters removed. At most <pre class="inline_code">limit</pre> characters are removed.<br />
+<br />
+<b>rtrim</b>(string<span class="sq"><span class="sq_brackets">[</span>, limit<span class="sq_brackets">]</span></span>)<br />
+Return a copy of the string with trailing strings removed. At most <pre class="inline_code">limit</pre> strings are removed.<br />
+Example: <pre style="display: inline"><span class="string-literal">‘1.0.0’</span>.<span class="identifier">rtrim</span>(<span class="string-literal">‘.0’</span>, <span class="numeric-literal">1</span>)</pre> returns <pre style="display: inline"><span class="string-literal">‘1.0’</span></pre>.<br />
+<br />
+<b>rtrim</b>(tuple_of_chars<span class="sq"><span class="sq_brackets">[</span>, limit<span class="sq_brackets">]</span></span>)<br />
+Return a copy of the string with trailing characters removed. At most <pre class="inline_code">limit</pre> characters are removed.<br />
+Example: <pre style="display: inline"><span class="string-literal">‘a.,’</span>.<span class="identifier">rtrim</span>((<span class="string-literal">‘.’</span>, <span class="string-literal">‘,’</span>))</pre> returns <pre style="display: inline"><span class="string-literal">‘a’</span></pre>.<br />
+<br />
+<b>trim</b>(string)<br />
+Return a copy of the string with leading and trailing strings removed.<br />
+<br />
+<b>trim</b>(tuple_of_chars)<br />
+Return a copy of the string with leading and trailing characters removed.<br />
+</div>
+<br />
+<b>Array</b><br />
+Array type.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"></div>
 
 </td></tr></table>
 </body>

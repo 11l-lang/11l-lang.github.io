@@ -76,7 +76,7 @@ if bar
 
 >[http://compiler.su/dvukhmernyj-sintaksis-python.php]:‘... заканчиваются двоеточием, без которого можно обойтись.’
 Согласен.
-По сути, это двоеточие не имеет смысла, так как есть операторы (if, switch, for/while, etc.), которые требуют всегда нового scope, и одного признака ‘‘новая строка с отступом’’ вполне достаточно.
+По сути, это двоеточие в Python не имеет смысла, так как есть операторы (if, [[[switch, ]]]for/while, class, etc.), которые требуют всегда нового scope, и одного признака ‘‘новая строка с отступом’’ вполне достаточно.
 ‘Кстати, весьма интересна история появления этого двоеточия.’{
 >[http://python-history.blogspot.com/2011/07/karin-dewar-indentation-and-colon.html ‘Karin Dewar, Indentation and the Colon’]:‘
 In 1978, in a design session in a mansion in Jabłonna (Poland), Robert Dewar, Peter King, Jack Schwartz and Lambert were comparing various alternative proposed syntaxes for B[[[, by comparing (buggy) bubble sort implementations written down in each alternative]]]... Since they couldn't agree, Robert Dewar's wife was called from her room and asked for her opinion[[[, like a modern-day Paris asked to compare the beauty of Hera, Athena, and Aphrodite]]]... But after the first version was explained to her, she remarked: "You mean, in the line where it says: 'FOR i ... ', that it has to be done for the lines that follow; not just for that line?!" And here the scientists realized that the misunderstanding would have been avoided if there had been a colon at the end of that line.

@@ -32,6 +32,26 @@ Character. For example this code creates a character with code 65:
 #(11l)‘
 Char(code' 65)
 ’
+‘Members’{
+*‘code’
+Code of the character.
+}
+‘Methods’{
+*‘is_digit’()
+Return true (1B) if character is a digit.
+
+*‘is_lowercase’()
+Return true (1B) if character is lowercase.
+
+*‘is_uppercase’()
+Return true (1B) if character is uppercase.
+
+*‘lowercase’()
+Return a copy of the character converted to lowercase.
+
+*‘uppercase’()
+Return a copy of the character converted to uppercase.
+}
 
 *‘String’
 String type. Can be constructed from a ‘string literal’[./../string-literals].

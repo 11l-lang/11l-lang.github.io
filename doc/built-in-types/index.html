@@ -288,7 +288,7 @@ Read a whole file into a string, and return it.<br />
 <i>Note: only UTF-8 encoding <span class="sq"><span class="sq_brackets">[</span>with optional BOM<span class="sq_brackets">]</span></span> is supported at the present moment.</i><br />
 <br />
 <b>read_lines</b>(keep_newline = 0B) -> Array<span class="sq"><span class="sq_brackets">[</span>String<span class="sq_brackets">]</span></span><br />
-Read and return an array of lines from the file. If <pre class="inline_code">keep_newline</pre> argument is true (1B), trailing new-line characters are <!--[[[remained/]]]-->left as is.<br />
+<!--[[[Read and return an array of lines from the file.]]]-->Reads the entire file <!--[[[specified by name]]]--> as individual lines, and returns those lines in an array. If <pre class="inline_code">keep_newline</pre> argument is true (1B), trailing new-line characters are <!--[[[remained/]]]-->left as is.<br />
 <br />
 <b>read_bytes</b>() -> Array<span class="sq"><span class="sq_brackets">[</span>Byte<span class="sq_brackets">]</span></span><br />
 Read a whole file into an array of bytes, and return it.<br />

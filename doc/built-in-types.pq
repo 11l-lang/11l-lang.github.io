@@ -190,7 +190,7 @@ Read a whole file into a string, and return it.
 ~‘Note: only UTF-8 encoding [with optional BOM] is supported at the present moment.’
 
 *‘read_lines’(keep_newline = 0B) -> Array[String]
-Read and return an array of lines from the file. If `keep_newline` argument is true (1B), trailing new-line characters are [[[remained/]]]left as is.
+[[[Read and return an array of lines from the file.]]]Reads the entire file [[[specified by name]]] as individual lines, and returns those lines in an array. If `keep_newline` argument is true (1B), trailing new-line characters are [[[remained/]]]left as is.
 
 *‘read_bytes’() -> Array[Byte]
 Read a whole file into an array of bytes, and return it.

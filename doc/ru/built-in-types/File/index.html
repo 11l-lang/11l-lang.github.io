@@ -1,0 +1,183 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<base target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A' || event.target.parentNode.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+    //[-Чтобы была возможность выделять текст внутри раскрытого ‘скрытого текста’/спойлера, необходимо [скрытие/]закрытие спойлера делать не просто по нажатию левой кнопки мыши, а по отпусканию левой кнопки мыши при условии отсутствия движения курсора [мыши] после того, как была нажата левая кнопка мыши.-]
+}
+function spoiler2(element, event)
+{
+    element.nextSibling.style.display = (element.nextSibling.style.display == "none" ? "" : "none");
+}
+</script>
+<style type="text/css">
+body td {
+    font-size: 14px;
+    font-family: Verdana, sans-serif;
+    line-height: 160%;
+}
+span.cu_brackets_b {
+    font-size: initial;
+    font-family: initial;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: #6da3bd;
+}
+a:hover {
+    text-decoration: underline;
+    color: #4d7285;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 400;
+}
+h1 {font-size: 190%; line-height: 120%;}
+h2 {font-size: 160%;}
+h3 {font-size: 137.5%;}
+h4 {font-size: 120%;}
+h5 {font-size: 110%;}
+h6 {font-size: 100%;}
+td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
+span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+span.sq_brackets {color: #BFBFBF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
+pre, code {font-family: 'Courier New'; line-height: normal}
+ul, ol {margin: 11px 0 7px 0;}
+ul li, ol li {padding: 7px 0;}
+ul li:first-child, ol li:first-child {padding-top   : 0;}
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
+table table {margin: 9px 0; border-collapse: collapse;}
+table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+span.spoiler_title {
+    color: #548eaa;
+    cursor: pointer;
+    border-bottom: 1px dotted;
+}
+div.spoiler_text {
+    /*border: 1px dotted;*/
+    margin: 5px;
+    padding: 3px;
+}
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
+div.note {
+    padding: 18px 20px;
+    background: #ffffd7;
+}
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
+</style>
+</head>
+<body>
+<table width="55%" align="center"><tr><td>
+2017.11.16 17:04:02<br />
+<blockquote><a href="https://msdn.microsoft.com/ru-ru/library/z5hh6ee9.aspx" title="<- google:‘fopen_s’"><i>https://msdn.microsoft.com/ru-ru/library/z5hh6ee9.aspx</i></a>:<br />
+<br />
+<pre class="inline_code">T</pre><br />
+Определяет файл как временный. По возможности он не сбрасывается на диск.</blockquote>
+Это сделано не на том уровне. Зачем вообще указывать тогда имя файла, если он даже на диск не сбросится? Здесь подойдёт отдельная функция, например: <pre class="inline_code">open_temp_memory_file()</pre> или <!--[[[что-то вроде того. Была мысль сделать что-то вроде спец. значения вместо строки имени файла в `open`, например так: `open(TEMP_MEMORY_FILE)`, но потом я подумал, что это вообще ерунда какая-то — зачем такой файл и как его использовать?]]]-->специальное имя файла, например: <pre class="inline_code">open(‘ram:myfile’)</pre>/<pre class="inline_code">open(‘memory:myfile’)</pre> или <pre class="inline_code">open(‘sharedmemory:myfile’)</pre> <span class="sq"><span class="sq_brackets">[</span>в первом случае файл виден только данному приложению и всем приложениям, запущенным из данного, а во втором — файл виден всем сторонним приложениям<!--[[[, запущенным ранее]]]--><span class="sq_brackets">]</span></span>.<br />
+<br />
+2017.11.22 10:03:36<br />
+Насчёт файлов. Открытие в текстовом и в двоичном режиме.<br />
+Предварительные мысли по этому поводу:<br />
+Вообще говоря, текстовых файлов не существует на уровне операционных систем как Unix/Linux (там "rt" и "rb" работают абсолютно одинаково), так и в Windows <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">все вызовы fopen/fread/fwrite являются просто обёртками над системными CreateFile/ReadFile/WriteFile, на уровне которых никакого признака текстовых файлов нет</span><span class="cu_brackets_b">}</span></span>. Это <!--[[[ошибка]]]-->различие между текстовыми и двоичными файлами в Windows <!--[[[в прослойке]]]-->лишь на уровне crt <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">к счастью, crt полностью открыта и в случае необходимости можно спокойно посмотреть её исходный код в <pre class="inline_code">C:\Program Files (x86)\Microsoft Visual Studio ??.0\VC\crt\src\</pre></span><span class="cu_brackets_b">}</span></span>, которую <span class="sq"><span class="sq_brackets">[</span>crt<span class="sq_brackets">]</span></span> я категорически рекомендую не использовать вообще, а работать напрямую с функциями операционной системы (CreateFile, ReadFile и т.д.)<!--[[[, так как никакая прослойка не добавляет понимания, а только скрывает/абстрагирует, а понимание таких вещей нам [разработчикам компилятора] нужно максимально полное]]]-->.<br />
+<br />
+<blockquote><a href="http://php.net/manual/ru/function.fopen.php" title="<- [http://php.net/manual/ru/function.file-put-contents.php]:‘LOCK_EX Получить эксклюзивную блокировку на файл на время записи. Другими словами, между вызовами fopen() и fwrite() произойдет вызов функции flock(). Это не одно и то же, что вызов fopen() с флагом &quot;x&quot;.’ <- [http://php.net/manual/ru/function.flock.php]:‘In fact, i was locking file when writing it (file_put_contents third arg)’ <- google:‘php file locks’ <- пытался/думал сделать check_task_6 по-честному на PHP с flock"><i>http://php.net/manual/ru/function.fopen.php</i></a>:<br />
+<br />
+<table>
+<tr><td><b>Замечание:</b><br />
+Из соображений портируемости, настоятельно рекомендуется всегда использовать флаг 'b' при открытии файлов с помощью <b>fopen()</b>.</td></tr>
+</table>
+<table>
+<tr><td><b>Замечание:</b><br />
+Кроме того, из соображений портируемости, также настойчиво рекомендуется переписать старый код, который полагается на режим <i>'t'</i>, чтобы вместо этого он использовал правильные концы строк и режим <i>'b'</i>.</td></tr>
+</table>
+</blockquote>
+<br />
+<blockquote><i><a href="http://web.archive.org/web/20161130235144/https://stackoverflow.com/questions/7157207/how-can-i-read-a-file-with-ruby" title="<- https://stackoverflow.com/questions/7157207/how-can-i-read-a-file-with-ruby <- google:‘read file ruby’ <- смотрел где у меня в Python-коде используется open(&quot;wb&quot;), а где open(&quot;wt&quot;) и для чего, и решил посмотреть, а что в Ruby с чтением файлов">How can I read a file with Ruby?</a></i>:<br />
+<br />
+<pre>
+contents = File.read('filename')
+</pre>
+...<br />
+I had <b>problems with this method on Windows</b> reading some binary files with Ruby 1.8.7 Seems like it reads file in text mode, so sometimes I received only part of the file as a result. So I decided to use <pre class="inline_code">File.open(path_to_file, 'rb')</pre> as more safe on Windows for reading binary files.</blockquote>
+<br />
+<blockquote><a href="https://ru.wikibooks.org/wiki/Ruby/Работа_с_файлами" title="<- google:‘read file ruby’"><i>https://ru.wikibooks.org/wiki/Ruby/Работа_с_файлами</i></a>:<br />
+<br />
+В своих операционных системах фирма Microsoft ввела понятие «двоичный файл», но оно порождает больше проблем, чем удобств. Особенно при создании кроссплатформенных приложений.</blockquote>
+<br />
+<!--[[[< ]]]-->Видно, что понимание по этому вопросу уже достаточно вызрело, и я считаю, что пришла пора признать, что концепция разделения файлов на текстовые и двоичные оказалась несостоятельной и не имеет смысла. <span class="sq"><span class="sq_brackets">[</span>А Microsoft стоит поправить наконец Notepad, чтобы он нормально читал файлы с \n разделителями строк <!--[[[(:]]]-->:).<span class="sq_brackets">]</span></span><br />
+<br />
+Остаётся проблема/вопрос с кодировками.<br />
+Пока предлагаю такой вариант: если кодировка не указана при открытии файла, то считать её utf-8-without-signature на запись и utf-8-with-signature/utf-8-with-BOM или utf-8-without-signature на чтение <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">думал на тему автоопределения кодировки, или хотя бы для 1251 сделать быстрое определение, но хотя сделать такое может и не сложно, но это только породит проблемы и неоднозначности в дальнейшем — советую переводить все файлы с исходными текстами в utf-8 и не думать об <!--[[[микро-]]]-->экономии места</span><span class="cu_brackets_b">}</span></span>. Кодировку удобнее указывать при открытии файла (<pre class="inline_code">open(...)</pre> или <pre class="inline_code">File(...)</pre>), а не при записи (<pre class="inline_code">write(...)</pre>), так как запись часто удобно делать не одним вызовом <pre class="inline_code">write(...)</pre> в конце, а по мере необходимости. Чтение обычно нужно либо целиком (одним вызовом <pre class="inline_code">read()</pre>), либо посредством <pre class="inline_code">readlines()</pre>, либо двоичное, в котором кодировки роли не играют. Таким образом, получаем:<br />
+<pre class="inline_code">File.read()</pre> читает файл целиком и возвращает текстовую строку в указанной кодировке (указывать размер как в Python смысла не вижу — во-первых, размер в чём? в символах или в байтах? в Python это зависит от способа открытия файла ("b" или "t"), но такого различия файлов (на текстовые и двоичные) я считаю быть не должно; и во-вторых, а как это практически использовать при чтении текста?)<br />
+<pre class="inline_code">File.read(object)</pre> читает из файла объект размером T(object).size байт и возвращает 1B или 0B, а если возвращаемое значение не используется <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">нужна перегрузка по возвращаемому значению, хотя бы по факту используется оно или не используется</span><span class="cu_brackets_b">}</span></span>, то функция бросает исключение.<br />
+<br />
+Хотя, впрочем, разделение на текстовые и двоичные файлы можно оставить, только вынести его <span class="sq"><span class="sq_brackets">[</span>это разделение<span class="sq_brackets">]</span></span> на уровень компиляции:<br />
+Если к файлу было обращение read(), то он помечается как текстовый и дальнейший вызов read(object) порождает ошибку на этапе компиляции и наоборот.<br />
+Если к файлу было обращение write(object), то write(String) также породит ошибку, и если нужно записать строку, тогда нужно писать write(str.encode('utf-8')), а точнее надо думать... так как строки в двоичных файлах могут быть вообще без завершающего нуль-символа, могут быть фиксированного размера и т.д.<br />
+<br />
+Можно заметить, что из-за нечёткости понятия текстовых и двоичных файлов, его используют как хотят <span class="sq"><span class="sq_brackets">[</span>по-разному<span class="sq_brackets">]</span></span>:<br />
+<ul>
+<li>В VC\crt признак текстового файла означает, что \n заменяется на \r\n при записи, а \r\n заменяется на \n при чтении.</li>
+<li>В Python признак двоичного файла ("rb" в функции open()) означает, что функция <pre class="inline_code">read()</pre> вернёт объект типа <pre class="inline_code">bytes</pre>, а не <pre class="inline_code">str</pre>.</li>
+</ul>
+<br />
+Если сомневаетесь, что предложенная мной концепция будет работать, давайте разбирать на конкретных примерах. Если ваши примеры большие, давайте большие, но конкретные примеры. Если это какой-то легаси-код, который всё равно нужно отрефакторить, то такой пример не нужен, так как одна из приоритетных задач при разработке нового языка программировать — стимулирование <span class="sq"><span class="sq_brackets">[</span>новичков<span class="sq_brackets">]</span></span> к написанию хорошего кода, а не поддержка работоспособности плохого кода. Я утверждаю, что в хорошем коде всегда можно определить с каким намерением был открыт файл: для чтения или для записи или для чтения и записи одновременно.<br />
+<br />
+<span class="sq"><span class="sq_brackets">[</span>В некотором роде, то, что я предлагаю <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">речь о том, что флаги открытия файла можно не указывать явно, а выводить из его использования</span><span class="cu_brackets_b">}</span></span>, можно свести к простой проверке на этапе компиляции, то есть оставить при открытии файлов обязательное указание признака ‘для чтения’ или ‘для записи’, но выдавать ошибку компиляции при обращении к методу <pre class="inline_code">read()</pre> для файлов, открытых для записи, и при обращении к методу <pre class="inline_code">write()</pre> для файлов, открытых для чтения. Но я настоятельно рекомендую пропустить этот промежуточный шаг и сделать, таким образом, сразу два шага вперёд, дабы дать программистам возможность хотя бы такого небольшого сокращения кода как опускание указания режима открытия файлов.<span class="sq_brackets">]</span></span><br />
+2017.12.08 10:06:47/<br />
+<span class="sq"><span class="sq_brackets">[</span><span class="sq"><span class="sq_brackets">[</span>"C:\Users\DNS\Downloads\Python-3.6.3\Lib\_pyio.py"<span class="sq_brackets">]</span></span>:‘newline is a string controlling how universal newlines works ...’ &lt;- Find what: newline Look in: C:\Users\DNS\Downloads\Python-3.6.3 &lt;- решил поискать как обрабатывается <pre class="inline_code">;</pre> в Python lexical analyzer<span class="sq_brackets">]</span></span><br />
+Возможно, стоит сделать также при чтении файла в текстовые строки (read()/readlines()).<br />
+<br />
+2018.10.09 08:56:56<br />
+<span class="sq"><span class="sq_brackets">[</span>Мысли по поводу<span class="sq_brackets">]</span></span> "\r\n" vs "\n" and "wt" vs "wb" and "rt" vs "rb"<br />
+Я считаю, что пришла пора подвести некоторые <!--[[[промежуточные]]]--> итоги по данному вопросу и сделать выводы на основе текущего положения вещей в сфере ИТ.<br />
+Приведу такие 4 факта:<br />
+<ol>
+<li>В Windows (как минимум с Windows XP) при выводе в консоль (через printf или std::cout) символ '\r' не требуется для перевода на новую строку (достаточно символа '\n').</li>
+<li>В Windows (как минимум с Windows XP) корректно обрабатываются bat/cmd-файлы с Unix line endings (т.е. только '\n', а не "\r\n").</li>
+<li>В Wordpad на Windows (как минимум с Windows XP) поддерживаются текстовые файлы с Unix line endings, и единственной достаточно популярной программой, которая их не поддерживает, оставался Notepad\Блокнот.</li>
+<li>В Windows 10 начиная с этого года <a href="https://blogs.msdn.microsoft.com/commandline/2018/05/08/extended-eol-in-notepad/">Microsoft наконец-то добавила поддержку Unix line endings в Notepad\Блокнот</a>! <span class="sq"><span class="sq_brackets">[</span>Для полного счастья осталось дождаться, когда наконец в консоли Windows можно будет использовать прямой слэш вместо обратного <span class="sq"><span class="sq_brackets">[</span>речь о поддержке и прямого и обратного слэшей одновременно<span class="sq_brackets">]</span></span> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><a href="https://stackoverflow.com/questions/10523708/why-does-the-cmd-exe-shell-on-windows-fail-with-paths-using-a-forward-slash" title="<- google:‘windows console support forward slashes’">причём</a> некоторые команды (например md) понимают прямой слэш, а некоторые (например type и dir) — не понимают</span><span class="cu_brackets_b">}</span></span>.<span class="sq_brackets">]</span></span></li>
+</ol>
+<br />
+Таким образом, Unix line endings являются более универсальными и перспективными, так как поддерживаются всеми операционными системами. А потому сохранять все текстовые файлы я предлагаю только с разделителями строк в стиле Unix. <span class="sq"><span class="sq_brackets">[</span>Рассматривая эту проблему с другой стороны — <!--[[[очевидно[?]/]]]-->предполагаю, что в отдалённой перспективе (через 100-1000 лет) Unix line endings постепенно вытеснят Windows line endings.<span class="sq_brackets">]</span></span><br />
+Это снимает вопрос "wt" vs "wb", так как "wt" актуально только под Windows и только для старых версий Блокнота.<br />
+<br />
+Теперь к вопросу "rt" vs "rb".<br />
+Так как файлы с Windows line endings пока ещё не вышли из оборота <span class="sq"><span class="sq_brackets">[</span>так как <abbr title="в том числе Microsoft Visual Studio">многие редакторы</abbr> под Windows сохраняют текстовые файлы с Windows line endings по умолчанию<span class="sq_brackets">]</span></span>, я считаю оправданным поддерживать чтение таких файлов. <!--[[[Предлагаю]]]-->Можно использовать способ, который именуется в Python ‘universal newlines’ (при его задействовании пара символов "\r\n" а также '\r' за которым не следует '\n', преобразуется в один символ '\n'), но так как "\r" без "\n" использовался только в старых версиях MacOS и ныне практически не встречается в существующих текстовых файлах, я предлагаю просто вырезать все символы "\r".<br />
+<br />
+2018.10.09 20:42:30<br />
+<blockquote><i><a href="https://docs.python.org/3/library/functions.html#open">Python Documentation</a></i>:<br />
+... the bytes having been first decoded using a platform-dependent encoding or using the specified <i>encoding</i> if given.<br />
+... The default encoding is platform dependent...</blockquote>
+Это ошибка. Выбирать platform-dependent encoding по умолчанию нельзя, так как это помешает копированию файлов между различными операционными системами <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">файл, сгенерированный на одной системе, не будет корректно читаться на другой</span><span class="cu_brackets_b">}</span></span>, а также это плохо дружит с системами контроля/управления версиями <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">при хранении сгенерированных файлов в системе управления версиями будет ошибочно предлагаться закоммитеть файл, сгенерированный и закоммиченный на другой системе</span><span class="cu_brackets_b">}</span></span>. Сгенерированные, используя одинаковый код, на <!--[[[разных/]]]-->различных системах файлы должны быть бинарно одинаковы.<br />
+
+</td></tr></table>
+</body>
+</html>

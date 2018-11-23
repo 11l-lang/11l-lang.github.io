@@ -8,12 +8,12 @@ Boolean type. Bool has two possible values: 0B and 1B {the main reason for rejec
 *‘Int’
 Integral type (‘32 or 64’[ ‘voting: 1. a. 32, b. 64, c. No Int [only Int32 and Int64]’] bits).
 
-*‘Int8’
+*‘Int8/Byte’
 *‘Int16’
 *‘Int32’
 *‘Int64’
 or[ ‘voting’]
-*‘Int1’
+*‘Int1/Byte’
 *‘Int2’
 *‘Int4’
 *‘Int8’
@@ -60,6 +60,9 @@ String type. Can be constructed from a ‘string literal’[./../string-literals
 Length of the string in characters.
 }
 ‘Methods’{
+*‘last’
+A last character of the string. (This method is called without parens.)
+
 *‘starts_with’(prefix)
 Return true (1B) if the string starts with the `prefix`, otherwise return false (0B). `prefix` can also be a tuple of prefixes to look for.
 
@@ -120,7 +123,81 @@ Return a copy of the string with leading and trailing strings removed.
 Return a copy of the string with leading and trailing characters removed.
 }
 
+*‘Tuple’
+A tuple. For example, a tuple with two items: #(11l)‘(1, 2)’.
+
 *‘Array’
-Array type.
+An array. For example, an array with two items: #(11l)‘[1, 2]’.
+‘Members’{
+*‘len’
+Length of an array.
+}
 ‘Methods’{
+*‘last’
+A last element of the array. (This method is called without parens.)
+
+*‘join’(sep)
+Return a string which is the concatenation of the strings in an array. `sep` is the separator between elements.
+
+*‘map’(function)
+Applies `function` to every item of an array and return that new array.
+
+*‘filter’(function)
+Construct a new array from this array from those elements of this array for which `function` returns true (1B).
+
+*‘append’(new_element)
+Appends `new_element` to the end of this array.
+
+*‘append’(arr)
+Appends all elements of `arr` to the end of this array.
+
+*‘append’(range)
+Append all values of `range` to the end of this array. Example: {
+#(11l)‘
+A arr = [-1]
+arr.append(1..2)
+print(arr) // will print [-1, 1, 2]
+’
+}
+
+*‘arr 0‘[+]’= x’
+The same as #(11l)‘arr.append(x)’.
+
+*‘pop’()
+Retrieves the last item of this array and also removes it.
+
+*‘index’(x)
+Return index of the first occurrence of `x` in this array. `ValueError` is raised when `x` is not found in this array.
+
+*‘find’(x, start = 0)
+Return index of the first occurrence of `x` in this array, or `N`/`null` if `x` is not found in this array. `x` can also be a tuple of values to look for.
+}
+
+*‘Dict’
+A dictionary. For example, a dictionary with two items: #(11l)‘[‘key1’ = 1, ‘key2’ = 2]’.
+
+*‘DefaultDict’
+A dictionary, which does not throw an exception when accessing a non-existent key (it inserts a new item with a default value in this case).
+
+*‘File’
+A file object.
+‘Methods’{
+*‘File’(name, mode = ‘r’)
+Open file with the specified name and mode (~‘note: only ‘r’ and ‘w’ are supported at the present moment’).
+
+*‘read’() -> String
+Read a whole file into a string, and return it.
+~‘Note: only UTF-8 encoding [with optional BOM] is supported at the present moment.’
+
+*‘read_lines’(keep_newline = 0B) -> Array[String]
+Read and return an array of lines from the file. If `keep_newline` argument is true (1B), trailing new-line characters are [[[remained/]]]left as is.
+
+*‘read_bytes’() -> Array[Byte]
+Read a whole file into an array of bytes, and return it.
+
+*‘write’(s)
+Write the string `s` to the file.
+
+*‘flush’()
+Flush the write buffers of the file.
 }

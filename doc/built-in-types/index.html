@@ -106,12 +106,12 @@ Boolean type. Bool has two possible values: 0B and 1B <span class="cu_brackets" 
 <b>Int</b><br />
 Integral type (‘32 or 64’<span class="sq"><span class="sq_brackets">[</span> ‘voting: 1. a. 32, b. 64, c. No Int <span class="sq"><span class="sq_brackets">[</span>only Int32 and Int64<span class="sq_brackets">]</span></span>’<span class="sq_brackets">]</span></span> bits).<br />
 <br />
-<b>Int8</b><br />
+<b>Int8/Byte</b><br />
 <b>Int16</b><br />
 <b>Int32</b><br />
 <b>Int64</b><br />
 or<span class="sq"><span class="sq_brackets">[</span> ‘voting’<span class="sq_brackets">]</span></span><br />
-<b>Int1</b><br />
+<b>Int1/Byte</b><br />
 <b>Int2</b><br />
 <b>Int4</b><br />
 <b>Int8</b><br />
@@ -161,7 +161,10 @@ String type. Can be constructed from a <a href="./../string-literals" target="_s
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none"><b>len</b><br />
 Length of the string in characters.<br />
 </div>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>starts_with</b>(prefix)<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>last</b><br />
+A last character of the string. (This method is called without parens.)<br />
+<br />
+<b>starts_with</b>(prefix)<br />
 Return true (1B) if the string starts with the <pre class="inline_code">prefix</pre>, otherwise return false (0B). <pre class="inline_code">prefix</pre> can also be a tuple of prefixes to look for.<br />
 <br />
 <b>ends_with</b>(suffix)<br />
@@ -221,9 +224,81 @@ Return a copy of the string with leading and trailing strings removed.<br />
 Return a copy of the string with leading and trailing characters removed.<br />
 </div>
 <br />
+<b>Tuple</b><br />
+A tuple. For example, a tuple with two items: <pre style="display: inline">(<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>)</pre>.<br />
+<br />
 <b>Array</b><br />
-Array type.<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"></div>
+An array. For example, an array with two items: <pre style="display: inline">[<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>]</pre>.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none"><b>len</b><br />
+Length of an array.<br />
+</div>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>last</b><br />
+A last element of the array. (This method is called without parens.)<br />
+<br />
+<b>join</b>(sep)<br />
+Return a string which is the concatenation of the strings in an array. <pre class="inline_code">sep</pre> is the separator between elements.<br />
+<br />
+<b>map</b>(function)<br />
+Applies <pre class="inline_code">function</pre> to every item of an array and return that new array.<br />
+<br />
+<b>filter</b>(function)<br />
+Construct a new array from this array from those elements of this array for which <pre class="inline_code">function</pre> returns true (1B).<br />
+<br />
+<b>append</b>(new_element)<br />
+Appends <pre class="inline_code">new_element</pre> to the end of this array.<br />
+<br />
+<b>append</b>(arr)<br />
+Appends all elements of <pre class="inline_code">arr</pre> to the end of this array.<br />
+<br />
+<b>append</b>(range)<br />
+Append all values of <pre class="inline_code">range</pre> to the end of this array. Example: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre class="code_block">
+<span class="keyword">A</span> <span class="identifier">arr</span> = [-<span class="numeric-literal">1</span>]
+<span class="identifier">arr</span>.<span class="identifier">append</span>(<span class="numeric-literal">1</span>..<span class="numeric-literal">2</span>)
+<span class="identifier">print</span>(<span class="identifier">arr</span>) <span class="comment">// will print [-1, 1, 2]</span>
+</pre>
+</span><span class="cu_brackets_b">}</span></span><br />
+<br />
+<b>arr [+]= x</b><br />
+The same as <pre style="display: inline"><span class="identifier">arr</span>.<span class="identifier">append</span>(<span class="identifier">x</span>)</pre>.<br />
+<br />
+<b>pop</b>()<br />
+Retrieves the last item of this array and also removes it.<br />
+<br />
+<b>index</b>(x)<br />
+Return index of the first occurrence of <pre class="inline_code">x</pre> in this array. <pre class="inline_code">ValueError</pre> is raised when <pre class="inline_code">x</pre> is not found in this array.<br />
+<br />
+<b>find</b>(x, start = 0)<br />
+Return index of the first occurrence of <pre class="inline_code">x</pre> in this array, or <pre class="inline_code">N</pre>/<pre class="inline_code">null</pre> if <pre class="inline_code">x</pre> is not found in this array. <pre class="inline_code">x</pre> can also be a tuple of values to look for.<br />
+</div>
+<br />
+<b>Dict</b><br />
+A dictionary. For example, a dictionary with two items: <pre style="display: inline">[<span class="string-literal">‘key1’</span> = <span class="numeric-literal">1</span>, <span class="string-literal">‘key2’</span> = <span class="numeric-literal">2</span>]</pre>.<br />
+<br />
+<b>DefaultDict</b><br />
+A dictionary, which does not throw an exception when accessing a non-existent key (it inserts a new item with a default value in this case).<br />
+<br />
+<b>File</b><br />
+A file object.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>File</b>(name, mode = ‘r’)<br />
+Open file with the specified name and mode (<i>note: only ‘r’ and ‘w’ are supported at the present moment</i>).<br />
+<br />
+<b>read</b>() -> String<br />
+Read a whole file into a string, and return it.<br />
+<i>Note: only UTF-8 encoding <span class="sq"><span class="sq_brackets">[</span>with optional BOM<span class="sq_brackets">]</span></span> is supported at the present moment.</i><br />
+<br />
+<b>read_lines</b>(keep_newline = 0B) -> Array<span class="sq"><span class="sq_brackets">[</span>String<span class="sq_brackets">]</span></span><br />
+Read and return an array of lines from the file. If <pre class="inline_code">keep_newline</pre> argument is true (1B), trailing new-line characters are <!--[[[remained/]]]-->left as is.<br />
+<br />
+<b>read_bytes</b>() -> Array<span class="sq"><span class="sq_brackets">[</span>Byte<span class="sq_brackets">]</span></span><br />
+Read a whole file into an array of bytes, and return it.<br />
+<br />
+<b>write</b>(s)<br />
+Write the string <pre class="inline_code">s</pre> to the file.<br />
+<br />
+<b>flush</b>()<br />
+Flush the write buffers of the file.<br />
+</div>
 
 </td></tr></table>
 </body>

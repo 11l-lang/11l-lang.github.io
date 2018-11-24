@@ -10,3 +10,6 @@ Set the environment variable named `name` to the string `value`.
 
 os:*‘environ’
 A mapping object representing the string environment.
+
+os:*‘env_path_sep’
+The character conventionally used by the operating system to separate search path components (as in PATH), such as `:` for POSIX or `;` for Windows.

@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Module os</title>
+<title>Module fs</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -96,21 +96,57 @@ pre.inline_code {
 </head>
 <body>
 <table width="55%" align="center"><tr><td>
-<!--[[[H‘Module os’
-]]]--><h3>Module os</h3>
+<!--[[[H‘Module fs’
+]]]--><h3>Module fs</h3>
 <br />
 <br />
-os:<b>getenv</b>(name, default = ‘’)<br />
-Return the value of the environment variable <pre class="inline_code">name</pre> if it exists, or <pre class="inline_code">default</pre> if it doesn't.<br />
+fs:<b>get_temp_dir</b>()<br />
+Return the name of the directory used for temporary files.<br />
+List of directories is searched to find one which the calling user can create files in. The list is:<br />
+<ol>
+<li>The directory named by the TMPDIR environment variable.</li>
+<li>The directory named by the TEMP environment variable.</li>
+<li>The directory named by the TMP environment variable.</li>
+<li>As a last resort, the current working directory.</li>
+</ol>
 <br />
-os:<b>setenv</b>(name, value)<br />
-Set the environment variable named <pre class="inline_code">name</pre> to the string <pre class="inline_code">value</pre>.<br />
+fs:<b>list_dir</b>(path = ‘.’)<br />
+Return a list containing the names of the entries in the directory given by <pre class="inline_code">path</pre>.<br />
 <br />
-os:<b>environ</b><br />
-A mapping object representing the string environment.<br />
+fs:<b>walk_dir</b>(path = ‘.’, (String -> Bool) dir_filter = N, files_only = 1B)<br />
+Generate the file and directory names in a directory tree under <pre class="inline_code">path</pre>.<br />
+If <pre class="inline_code">files_only</pre> is true (1B), only file names are returned.<br />
+If <pre class="inline_code">dir_filter</pre> is given, then it is called for each directory and if <pre class="inline_code">dir_filter</pre> returns false (0B) for a specific directory, then <pre class="inline_code">walk_dir</pre> will not enter that directory.<br />
 <br />
-os:<b>env_path_sep</b><br />
-The character conventionally used by the operating system to separate search path components (as in PATH), such as <pre class="inline_code">:</pre> for POSIX or <pre class="inline_code">;</pre> for Windows.<br />
+fs:<b>is_directory</b>(path)<br />
+Return true (1B) if <pre class="inline_code">path</pre> is an existing directory (or a symbolic link pointing to a directory).<br />
+<br />
+fs:<b>create_directory</b>(path)<br />
+Create a directory named <pre class="inline_code">path</pre>.<br />
+<br />
+fs:<b>create_directories</b>(path)<br />
+Recursive directory creation function. Like <pre class="inline_code">create_directory()</pre>, but creates all intermediate-level directories needed to contain the leaf directory.<br />
+<br />
+fs:<b>remove(p)</b><br />
+The file or empty directory identified by the path <pre class="inline_code">p</pre> is deleted. Symlinks are not followed (symlink is removed, not its target).<br />
+<br />
+fs:<b>remove_all</b>(p)<br />
+Deletes the contents of <pre class="inline_code">p</pre> (if it is a directory) and the contents of all its subdirectories, recursively, then deletes p itself. Symlinks are not followed (symlink is removed, not its target).<br />
+<br />
+fs:<b>rename</b>(old_p, new_p)<br />
+Moves or renames the filesystem object identified by <pre class="inline_code">old_p</pre> to <pre class="inline_code">new_p</pre>.<br />
+<br />
+fs:path:<b>sep</b><br />
+The character used by the operating system to separate pathname components. This is <pre class="inline_code">/</pre> for POSIX and <pre class="inline_code">\</pre> for Windows.<br />
+<br />
+fs:path:<b>join</b>(path1, path2)<br />
+Join <pre class="inline_code">path1</pre> and <pre class="inline_code">path2</pre>.<br />
+<br />
+fs:path:<b>dir_name</b>(path)<br />
+Return the directory name of pathname <pre class="inline_code">path</pre> (for example: <pre class="inline_code">fs:path:dir_name(‘./a/b’)</pre> = <pre class="inline_code">./a</pre>).<br />
+<br />
+fs:path:<b>base_name</b>(path)<br />
+Return the base name of pathname <pre class="inline_code">path</pre> (for example: <pre class="inline_code">fs:path:base_name(‘./a/b’)</pre> = <pre class="inline_code">b</pre>).<br />
 
 </td></tr></table>
 </body>

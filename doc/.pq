@@ -31,3 +31,4 @@ Operators[./operators]
 Built-in modules:
    os[./built-in-modules/os]
    fs[./built-in-modules/fs]
+   time[./built-in-modules/time]

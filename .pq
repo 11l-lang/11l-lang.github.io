@@ -42,7 +42,7 @@ C(4)‘```
 '‘</table>’'’
 [[[><‘H‘About’’]]]
 
-11l [[[— ]]]is a [[[‘very high-level’[https://en.wikipedia.org/wiki/Very_high-level_programming_language]]this term is unclear]]high-level [[[universal/]]]general-purpose programming language, [[[at the same time providing]]]which provides a simple and direct mapping to hardware and aims to[[[/at]]] follow[[[ing]]] a zero-overhead principle, like C++ (unused language features do not add ‘run-time overhead’[‘excess computation time, oftentimes combined with the additional length of a compiled machine code’]). 11l is statically typed, but [[[smells]]]feels very much like dynamically typed language (e.g. Python)[[[ or even scripting language]]].
+11l [[[— ]]]is a [semi-esoteric] [[[‘very high-level’[https://en.wikipedia.org/wiki/Very_high-level_programming_language]]this term is unclear]]high-level [[[universal/]]]general-purpose programming language, [[[at the same time providing]]]which provides a simple and direct mapping to hardware and aims to[[[/at]]] follow[[[ing]]] a zero-overhead principle, like C++ (unused language features do not add ‘run-time overhead’[‘excess computation time, oftentimes combined with the additional length of a compiled machine code’]). 11l is statically typed, but [[[smells]]]feels very much like dynamically typed language (e.g. Python)[[[ or even scripting language]]].
 The design of 11l is aimed to achive as much conciseness as possible[[[, and to reconsider all programming language elements]]].
 
 The evident distinction of 11l from all other existing programming languages is its keywords are organized in a tree, not just a list.

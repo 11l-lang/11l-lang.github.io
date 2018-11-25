@@ -88,7 +88,7 @@ Return the highest index in the string where substring `sub` is found. Search be
 Return the highest index in the string where substring `sub` is found, such that `sub` is contained within `s[start.<end]`. Return `-1` if `sub` is not found.
 
 *‘replace’(old, new)
-Return a copy of the string with all occurrences of substring `old` replaced by `new`. `old` can be a regular expression.
+Return a copy of the string with all occurrences of [[[substring]]] `old` replaced by `new`. `old` can be a regular expression.
 
 *‘lowercase’()
 Return a copy of the string with all the cased characters converted to lowercase.

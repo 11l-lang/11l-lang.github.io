@@ -1,0 +1,171 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Module time</title>
+<base target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A' || event.target.parentNode.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+    //[-Чтобы была возможность выделять текст внутри раскрытого ‘скрытого текста’/спойлера, необходимо [скрытие/]закрытие спойлера делать не просто по нажатию левой кнопки мыши, а по отпусканию левой кнопки мыши при условии отсутствия движения курсора [мыши] после того, как была нажата левая кнопка мыши.-]
+}
+function spoiler2(element, event)
+{
+    element.nextSibling.style.display = (element.nextSibling.style.display == "none" ? "" : "none");
+}
+</script>
+<style type="text/css">
+body td {
+    font-size: 14px;
+    font-family: Verdana, sans-serif;
+    line-height: 160%;
+}
+span.cu_brackets_b {
+    font-size: initial;
+    font-family: initial;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: #6da3bd;
+}
+a:hover {
+    text-decoration: underline;
+    color: #4d7285;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 400;
+}
+h1 {font-size: 190%; line-height: 120%;}
+h2 {font-size: 160%;}
+h3 {font-size: 137.5%;}
+h4 {font-size: 120%;}
+h5 {font-size: 110%;}
+h6 {font-size: 100%;}
+td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
+span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+span.sq_brackets {color: #BFBFBF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
+pre, code {font-family: 'Courier New'; line-height: normal}
+ul, ol {margin: 11px 0 7px 0;}
+ul li, ol li {padding: 7px 0;}
+ul li:first-child, ol li:first-child {padding-top   : 0;}
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
+table table {margin: 9px 0; border-collapse: collapse;}
+table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+span.spoiler_title {
+    color: #548eaa;
+    cursor: pointer;
+    border-bottom: 1px dotted;
+}
+div.spoiler_text {
+    /*border: 1px dotted;*/
+    margin: 5px;
+    padding: 3px;
+}
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
+div.note {
+    padding: 18px 20px;
+    background: #ffffd7;
+}
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
+</style>
+</head>
+<body>
+<table width="55%" align="center"><tr><td>
+<!--[[[H‘Module time’
+]]]--><h3>Module time</h3>
+<br />
+<br />
+time:()<br />
+Return the current time as Time object.<br />
+<br />
+time:(year, month = 1, day = 1, hour = 0, minute = 0, Float second = 0)<br />
+Constructs a Time object from specified arguments.<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Time Methods<br /></span><div class="spoiler_text" style="display: none"><b>unix_time</b>()<br />
+Return seconds since the epoch as a floating point number.<br />
+<br />
+<b>strftime</b>(format)<br />
+Return a string representing the time, controlled by an explicit format string. For a complete list of formatting directives, see <a href="https://en.cppreference.com/w/c/chrono/strftime">https://en.cppreference.com/w/c/chrono/strftime</a>.<br />
+<br />
+<b>format</b>(fmt)<br />
+Similar to <pre class="inline_code">strftime()</pre>, but format is much simpler:<br />
+<table>
+<tr><td>YYYY</td><td>year<!--[[[ as a decimal number]]]-->, e.g. 2018</td></tr>
+<tr><td>YY</td><td>last 2 digits of year<!--[[[ as a decimal number]]]-->, e.g. 18</td></tr>
+<tr><td>MM</td><td>month<!--[[[ as a decimal number]]]--> (range <span class="sq"><span class="sq_brackets">[</span>01, 12<span class="sq_brackets">]</span></span>)</td></tr>
+<tr><td>DD</td><td>day of the month<!--[[[ as a decimal number]]]--> (range <span class="sq"><span class="sq_brackets">[</span>01, 31<span class="sq_brackets">]</span></span>)</td></tr>
+<tr><td>hh</td><td>hour in 24h format (range <span class="sq"><span class="sq_brackets">[</span>00, 23<span class="sq_brackets">]</span></span>)</td></tr>
+<tr><td>mm</td><td>minute<!--[[[ as a decimal number]]]--> (range <span class="sq"><span class="sq_brackets">[</span>00, 59<span class="sq_brackets">]</span></span>)</td></tr>
+<tr><td>ss</td><td>second<!--[[[ as a decimal number]]]--> (range <span class="sq"><span class="sq_brackets">[</span>00, 60<span class="sq_brackets">]</span></span>)</td></tr>
+</table>
+</div>
+<br />
+time:<b>delta</b>(days, hours = 0, minutes = 0, seconds = 0, milliseconds = 0, microseconds = 0, weeks = 0)<br />
+Return <!--[[[a time ]]]-->Delta object.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Delta Members<br /></span><div class="spoiler_text" style="display: none"><b>seconds</b><br />
+Number of seconds.<br />
+<br />
+<b>days</b>()<br />
+Number of days.<br />
+</div>
+The following operators are supported:<br />
+<pre>
+Time - Time -> Delta
+Time + Delta -> Time
+Time - Delta -> Time
+</pre>
+<br />
+time:<b>today</b>()<br />
+Return the current time as <style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre style="display: inline"><span class="identifier">time</span>:(<span class="identifier">current_year</span>, <span class="identifier">current_month</span>, <span class="identifier">current_day</span>)</pre>.<br />
+<br />
+time:<b>from_unix_time</b>(Float seconds_since_the_epoch)<br />
+Return <!--[[[the time]]]-->a Time object corresponding to the POSIX timestamp (i.e. seconds since the epoch).<br />
+<br />
+time:<b>strptime</b>(string, format) -> Time<br />
+Parse a string representing a time according to a format.<br />
+The <pre class="inline_code">format</pre> parameter uses the same directives as those used by <pre class="inline_code">Time.strftime()</pre>.<br />
+<br />
+time:<b>perf_counter</b>()<br />
+Return the value of a performance counter, i.e. a clock with the highest available resolution to measure a short duration.<br />
+It can be used as follows:<br />
+<pre class="code_block">
+<span class="keyword">A</span> <span class="identifier">start</span> = <span class="identifier">time</span>:<span class="identifier">perf_counter</span>()
+...
+<span class="identifier">print</span>(<span class="string-literal">‘Elapsed: ’</span>(<span class="identifier">time</span>:<span class="identifier">perf_counter</span>() - <span class="identifier">start</span>)<span class="string-literal">‘ seconds’</span>)
+</pre>
+
+</td></tr></table>
+</body>
+</html>

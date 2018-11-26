@@ -284,6 +284,15 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
 Documentation[./doc]
 
 
+‘Benchmark’{
+<>‘11l transpiler can be used to accelerate Python code.
+Here is results for ‘pq markup to HTML converter’[https://bitbucket.org/pqmarkup/pqmarkup] (as an input data the source of ‘this article’[https://habr.ru/post/348218/] is taken):
+P‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/1c5e2435525a5da8221d4337d0ae8fa2ac4d63a4/chart2.png’
+[‘Here is an archive’[https://gist.github.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/e6cb2f07446ef4a19a3d6cdc1f8c483287ef1308/perf_tests.7z] with benchmarking program used (Python 3.6 or higher is required, and following Python packages: pywin32, cython).]
+’
+}
+
+
 [[[Install/]]]Download
 
 

@@ -32,3 +32,5 @@ Built-in modules:
    os[./built-in-modules/os]
    fs[./built-in-modules/fs]
    time[./built-in-modules/time]
+   re[./built-in-modules/re]
+   random[./built-in-modules/random]

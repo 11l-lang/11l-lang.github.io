@@ -293,7 +293,18 @@ P‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b
 }
 
 
-[[[Install/]]]Download
+‘[[[Install/]]]Download’{
+T‘‘‘Here is the latest version of transpiler-pair Python → 11l and 11l → C++: 11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz].
+
+Usage:
+1. Unpack archive to whatever directory you [[[like/]]]want.
+2. Open Terminal/cmd[[[ and change the current directory to the directory where archive was unpacked]]].
+3.‘Run command:
+`<path_to_unpacked_archive_files>\11l <source_python_or_11l_file>` on Windows, or
+`<path_to_unpacked_archive_files>/11l <source_python_or_11l_file>` on Linux.’
+
+[Having problems with compiling your Python or 11l program? ‘Write [[[on/]]]at the forum.’[]]’’’
+}
 
 
 English Forum \ Русскоязычный форум

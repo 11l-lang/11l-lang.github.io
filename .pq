@@ -303,9 +303,9 @@ Usage:
 `<path_to_unpacked_archive_files>\11l <source_python_or_11l_file>` on Windows, or
 `<path_to_unpacked_archive_files>/11l <source_python_or_11l_file>` on Linux.’
 
-[Having problems with compiling your Python or 11l program? ‘Write [[[on/]]]at the forum.’[]]’’’
+[Having problems with compiling your Python or 11l program? ‘Write [[[on/]]]at the forum.’[http://forum.11l-lang.org/forums/help.3/]]’’’
 }
 
 
-English Forum \ Русскоязычный форум
+[[[English Forum \ Русскоязычный форум]]]Forum[http://forum.11l-lang.org]
 ’

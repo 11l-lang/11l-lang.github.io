@@ -3,8 +3,8 @@
 
 
 re:‘pattern’
-re:(‘pattern’, flags)
-Create regular expression.
+re:(pattern, flags)
+Create a regular expression.
 
 
 H(-1)‘Methods’
@@ -25,7 +25,7 @@ Return an iterator yielding match objects over all non-overlapping matches for t
 H(-1)‘Match object methods’
 
 *‘group’(group = 0) -> String
-Returns subgroup of the match. If a `group` argument is zero, the return value is the entire matching string.
+Returns a subgroup of the match. If a `group` argument is zero, the return value is the entire matching string.
 
 *‘start’(group = 0)
 *‘end’(group = 0)

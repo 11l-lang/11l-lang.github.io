@@ -294,7 +294,7 @@ P‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b
 
 
 ‘[[[Install/]]]Download’{
-T‘‘‘Here is the latest version of transpiler-pair Python → 11l and 11l → C++: 11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz].
+T‘‘‘Here is the latest version of transpiler-pair Python → 11l and 11l → C++: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘source code repos’[https://bitbucket.org/11l-lang]].
 
 Usage:
 1. Unpack archive to whatever directory you [[[like/]]]want.

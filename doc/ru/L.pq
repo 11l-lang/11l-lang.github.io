@@ -71,7 +71,7 @@ L(y) 0..10
 [[[https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/continue]]]Инструкция `L.continue`/`loop.continue` прерывает выполнение итерации текущего[[[ или отмеченного]]] цикла, и продолжает его выполнение на следующей итерации.
 
 
-Код под `L.was_no_break`/`loop.was_no_break` выполняется только когда цикл успешно завершился без вызова `L.break`/`loop.break`:
+Код под `L.was_no_break`/`loop.was_no_break` выполняется только когда цикл успешно завершился без вызова `L.break`/`loop.break` (аналогично ‘else в Python’[https://pythonworld.ru/osnovy/cikly-for-i-while-operatory-break-i-continue-volshebnoe-slovo-else.html#else <- google:‘python else for’ <- https://www.rosettacode.org/wiki/ABC_Problem#Python:_Iterative.2C_with_tests]):
 #(11l)‘
 L(test) tests
    I !test.ok()

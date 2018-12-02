@@ -76,7 +76,7 @@ Or you can use `^L.break`, `^^L.break`, etc.
 [[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue]]]The `L.continue`/`loop.continue` statement terminates execution of the statements in the current iteration of the current[[[ or labeled]]] loop, and continues execution of the loop with the next iteration.
 
 
-Statements under `L.was_no_break`/`loop.was_no_break` are executed only when loop was successfully finished without `L.break`/`loop.break`:
+Statements under `L.was_no_break`/`loop.was_no_break` are executed only when loop was successfully finished without `L.break`/`loop.break` (just like ‘else in Python’[http://book.pythontips.com/en/latest/for_-_else.html#else-clause <- google:‘python else for’ <- https://www.rosettacode.org/wiki/ABC_Problem#Python:_Iterative.2C_with_tests]):
 #(11l)‘
 L(test) tests
    I !test.ok()

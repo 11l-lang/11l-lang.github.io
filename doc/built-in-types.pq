@@ -176,6 +176,10 @@ Return index of the first occurrence of `x` in this array, or `N`/`null` if `x` 
 
 *‘Dict’
 A dictionary. For example, a dictionary with two items: #(11l)‘[‘key1’ = 1, ‘key2’ = 2]’.
+‘Methods’{
+*‘values’()
+Return an array of the dictionary's values.
+}
 
 *‘DefaultDict’
 A dictionary, which does not throw an exception when accessing a non-existent key (it inserts a new item with a default value in this case).

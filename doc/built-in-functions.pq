@@ -2,7 +2,7 @@
 ]]]H‘Built-in Functions’
 
 
-*‘print’(object, end = "\n")
+*‘print’(object = ‘’, end = "\n")
 Print `object` to stdout followed by `end`.
 
 *‘input’()
@@ -23,11 +23,18 @@ Aggregates elements from `iterable1` and `iterable2`.
 *‘sum’(iterable)
 Sums the items of an `iterable` and returns the total.
 
+*‘sorted’(iterable)
+Return a new sorted array from the items in `iterable`.
+
 *‘min’(arg1, arg2)
 Return the smallest of two arguments.
+*‘min’(iterable)
+Return the smallest item of `iterable`.
 
 *‘max’(arg1, arg2)
 Return the largest of two arguments.
+*‘max’(iterable)
+Return the largest item of `iterable`.
 
 *‘hex’(x)
 Convert an integer number to an uppercase hexadecimal string.

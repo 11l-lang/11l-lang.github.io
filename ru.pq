@@ -72,7 +72,8 @@
 ── R/return\Р/вернуть
 ── S/switch\В/выбрать ──┬── break\прервать
                         └── fallthrough
-── T/type\Т/тип ──┬── base\базовый
+── T/type\Т/тип ──┬── shared\разд
+                  ├── base\базовый
                   ├── enum\перечисл
                   └── interface\интерфейс
 ── X/exception\Х/исключение ──┬── try\контроль

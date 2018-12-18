@@ -21,6 +21,33 @@ If `dir_filter` is given, then it is called for each directory and if `dir_filte
 fs:*‘is_directory’(path)
 Return true (1B) if `path` is an existing directory (or a symbolic link pointing to a directory).
 
+fs:*‘is_file’(path)
+Return true (1B) if `path` is an existing file (or a symbolic link pointing to a file).
+‘Why there is no fs:exists(path) function?’{
+Because I think [[[you should express your intention]]]the intention should be expressed more clearly.
+Consider this Python code:
+#(Python)‘
+if not os.path.isfile(out_fname) or os.stat(out_fname).st_mtime < os.stat(in_fname).st_mtime:
+    open(out_fname, 'w').write(...)
+’
+If you replace `os.path.isfile` with `os.path.exists` then this code can work[[[s]]] "ok" (i.e. silently works incorrectly) when `out_fname` is a directory, but with `isfile` the PermissionError is raised in line `open(out_fname, 'w').write(...)`.
+
+So if you really want to check like `os.path.exists` in Python, use more verbose code in 11l:
+#(11l)‘
+fs:is_file(path) | fs:is_directory(path)
+’
+or:
+#(11l)‘
+path. {fs:is_file(.) | fs:is_directory(.)}
+’
+}
+
+fs:*‘is_symlink’(path)
+Return true (1B) if path refers to an existing symbolic link.
+
+fs:*‘file_size’(path)
+Return the size of the file, in bytes.
+
 fs:*‘create_directory’(path)
 Create a directory named `path`.
 
@@ -47,3 +74,12 @@ Return the directory name of pathname `path` (for example: `fs:path:dir_name(‘
 
 fs:path:*‘base_name’(path)
 Return the base name of pathname `path` (for example: `fs:path:base_name(‘./a/b’)` = `b`).
+
+fs:path:*‘absolute’(path)
+Return an absolutized version of the pathname `path`.
+
+fs:path:*‘relative’(path, base)
+Return a relative filepath to `path` from a `base` directory.
+
+fs:path:*‘split_ext’(path)
+Split the pathname `path` into a pair `(root, ext)` such that `root‘’ext == path`, and `ext` is empty or begins with a period and contains at most one period.

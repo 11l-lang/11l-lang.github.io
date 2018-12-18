@@ -121,6 +121,39 @@ If <pre class="inline_code">dir_filter</pre> is given, then it is called for eac
 fs:<b>is_directory</b>(path)<br />
 Return true (1B) if <pre class="inline_code">path</pre> is an existing directory (or a symbolic link pointing to a directory).<br />
 <br />
+fs:<b>is_file</b>(path)<br />
+Return true (1B) if <pre class="inline_code">path</pre> is an existing file (or a symbolic link pointing to a file).<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Why there is no fs:exists(path) function?<br /></span><div class="spoiler_text" style="display: none">Because I think <!--[[[you should express your intention]]]-->the intention should be expressed more clearly.<br />
+Consider this Python code:<br />
+<style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre class="code_block">
+<span class="keyword">if</span> <span class="keyword">not</span> <span class="identifier">os</span>.<span class="identifier">path</span>.<span class="identifier">isfile</span>(<span class="identifier">out_fname</span>) <span class="keyword">or</span> <span class="identifier">os</span>.<span class="identifier">stat</span>(<span class="identifier">out_fname</span>).<span class="identifier">st_mtime</span> &lt; <span class="identifier">os</span>.<span class="identifier">stat</span>(<span class="identifier">in_fname</span>).<span class="identifier">st_mtime</span>:
+    <span class="identifier">open</span>(<span class="identifier">out_fname</span>, <span class="string-literal">'w'</span>).<span class="identifier">write</span>(...)
+</pre>
+If you replace <pre class="inline_code">os.path.isfile</pre> with <pre class="inline_code">os.path.exists</pre> then this code can work<!--[[[s]]]--> "ok" (i.e. silently works incorrectly) when <pre class="inline_code">out_fname</pre> is a directory, but with <pre class="inline_code">isfile</pre> the PermissionError is raised in line <pre class="inline_code">open(out_fname, 'w').write(...)</pre>.<br />
+<br />
+So if you really want to check like <pre class="inline_code">os.path.exists</pre> in Python, use more verbose code in 11l:<br />
+<pre class="code_block">
+<span class="identifier">fs</span>:<span class="identifier">is_file</span>(<span class="identifier">path</span>) | <span class="identifier">fs</span>:<span class="identifier">is_directory</span>(<span class="identifier">path</span>)
+</pre>
+or:<br />
+<pre class="code_block">
+<span class="identifier">path</span>. {<span class="identifier">fs</span>:<span class="identifier">is_file</span>(.) | <span class="identifier">fs</span>:<span class="identifier">is_directory</span>(.)}
+</pre>
+</div>
+<br />
+fs:<b>is_symlink</b>(path)<br />
+Return true (1B) if path refers to an existing symbolic link.<br />
+<br />
+fs:<b>file_size</b>(path)<br />
+Return the size of the file, in bytes.<br />
+<br />
 fs:<b>create_directory</b>(path)<br />
 Create a directory named <pre class="inline_code">path</pre>.<br />
 <br />
@@ -147,6 +180,15 @@ Return the directory name of pathname <pre class="inline_code">path</pre> (for e
 <br />
 fs:path:<b>base_name</b>(path)<br />
 Return the base name of pathname <pre class="inline_code">path</pre> (for example: <pre class="inline_code">fs:path:base_name(‘./a/b’)</pre> = <pre class="inline_code">b</pre>).<br />
+<br />
+fs:path:<b>absolute</b>(path)<br />
+Return an absolutized version of the pathname <pre class="inline_code">path</pre>.<br />
+<br />
+fs:path:<b>relative</b>(path, base)<br />
+Return a relative filepath to <pre class="inline_code">path</pre> from a <pre class="inline_code">base</pre> directory.<br />
+<br />
+fs:path:<b>split_ext</b>(path)<br />
+Split the pathname <pre class="inline_code">path</pre> into a pair <pre class="inline_code">(root, ext)</pre> such that <pre class="inline_code">root‘’ext == path</pre>, and <pre class="inline_code">ext</pre> is empty or begins with a period and contains at most one period.<br />
 
 </td></tr></table>
 </body>

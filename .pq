@@ -72,8 +72,7 @@ There are 11 keywords at the root of that tree, and each word can be written as 
 ── R/return
 ── S/switch ──┬── break
               └── fallthrough
-── T/type ──┬── shared
-            ├── base
+── T/type ──┬── base
             ├── enum
             └── interface
 ── X/exception ──┬── try

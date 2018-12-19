@@ -120,31 +120,7 @@ span.comment {color: #808080;}
 <h3>Ключевые подслова T/type</h3>
 <br />
 <br />
-Ключевое подслово <pre class="inline_code">shared</pre> используется для предекларации разделяемых типов:<br />
-<pre class="code_block">
-<span class="keyword">T.shared</span> <span class="identifier">ASTNode</span>
-
-<span class="keyword">T</span> <span class="identifier">Symbol</span>
-   ...
-   (<span class="identifier">ASTNode</span> -> <span class="identifier">ASTNode</span>) <span class="identifier">nud</span>
-
-<span class="keyword">T</span> <span class="identifier">ASTNode</span>
-   ...
-   <span class="identifier">ASTNode?</span> <span class="identifier">first_child</span>
-   <span class="identifier">ASTNode?</span> <span class="identifier">second_child</span>
-</pre>
-При транспиляции Python-кода в 11l необходимо использовать префикс <pre class="inline_code">T_shared_</pre> или <pre class="inline_code">type_shared_</pre>:<br />
-<pre class="code_block">
-<span class="keyword">class</span> <span class="identifier">T_shared_ASTNode</span>:
-    <span class="keyword">pass</span>
-</pre>
-странслируется в:<br />
-<pre class="code_block">
-<span class="keyword">T.shared</span> <span class="identifier">ASTNode</span>
-</pre>
-<span class="sq"><span class="sq_brackets">[</span>Использовать запись <pre class="inline_code">class ASTNode: pass # shared</pre> не получилось, так как mypy выдаёт <pre class="inline_code">error: Name 'ASTNode' already defined</pre>.<span class="sq_brackets">]</span></span><br />
-<br />
-Также у <pre class="inline_code">T</pre>/<pre class="inline_code">type</pre> есть подслова <pre class="inline_code">base</pre>, <pre class="inline_code">enum</pre> и <pre class="inline_code">interface</pre>, но они пока что не поддерживаются.<br />
+У <pre class="inline_code">T</pre>/<pre class="inline_code">type</pre> есть подслова <pre class="inline_code">base</pre>, <pre class="inline_code">enum</pre> и <pre class="inline_code">interface</pre>, но они пока что не поддерживаются.<br />
 
 </td></tr></table>
 </body>

@@ -120,31 +120,7 @@ span.comment {color: #808080;}
 <h3>T/type subkeywords</h3>
 <br />
 <br />
-Subkeyword <pre class="inline_code">shared</pre> is used to predeclare shared types:<br />
-<pre class="code_block">
-<span class="keyword">T.shared</span> <span class="identifier">ASTNode</span>
-
-<span class="keyword">T</span> <span class="identifier">Symbol</span>
-   ...
-   (<span class="identifier">ASTNode</span> -> <span class="identifier">ASTNode</span>) <span class="identifier">nud</span>
-
-<span class="keyword">T</span> <span class="identifier">ASTNode</span>
-   ...
-   <span class="identifier">ASTNode?</span> <span class="identifier">first_child</span>
-   <span class="identifier">ASTNode?</span> <span class="identifier">second_child</span>
-</pre>
-When transpiling Python-code into 11l use prefix <pre class="inline_code">T_shared_</pre> or <pre class="inline_code">type_shared_</pre>:<br />
-<pre class="code_block">
-<span class="keyword">class</span> <span class="identifier">T_shared_ASTNode</span>:
-    <span class="keyword">pass</span>
-</pre>
-will be translated to:<br />
-<pre class="code_block">
-<span class="keyword">T.shared</span> <span class="identifier">ASTNode</span>
-</pre>
-<span class="sq"><span class="sq_brackets">[</span>I rejected to use notation <pre class="inline_code">class ASTNode: pass # shared</pre> because mypy outputs <pre class="inline_code">error: Name 'ASTNode' already defined</pre>.<span class="sq_brackets">]</span></span><br />
-<br />
-<pre class="inline_code">T</pre>/<pre class="inline_code">type</pre> also has subwords <pre class="inline_code">base</pre>, <pre class="inline_code">enum</pre> and <pre class="inline_code">interface</pre>, but they are not supported yet.<br />
+<pre class="inline_code">T</pre>/<pre class="inline_code">type</pre> has subwords <pre class="inline_code">base</pre>, <pre class="inline_code">enum</pre> and <pre class="inline_code">interface</pre>, but they are not supported yet.<br />
 
 </td></tr></table>
 </body>

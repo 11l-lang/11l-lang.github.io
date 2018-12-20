@@ -144,7 +144,7 @@ Return a string which is the concatenation of the strings in an array. `sep` is 
 Applies `function` to every item of an array and return that new array.
 
 *‘filter’(function)
-Construct a new array from this array from those elements of this array for which `function` returns true (1B).
+Return a new array consisting of those elements from this array for which `function` returns true (1B).
 
 *‘append’(new_element)
 Appends `new_element` to the end of this array.
@@ -177,8 +177,14 @@ Return index of the first occurrence of `x` in this array, or `N`/`null` if `x` 
 *‘Dict’
 A dictionary. For example, a dictionary with two items: #(11l)‘[‘key1’ = 1, ‘key2’ = 2]’.
 ‘Methods’{
+*‘keys’()
+Return an array of the dictionary's keys.
+
 *‘values’()
 Return an array of the dictionary's values.
+
+*‘filter’(function)
+Return an array consisting of those elements of dictionary for which `function` returns true (1B).
 }
 
 *‘DefaultDict’

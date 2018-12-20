@@ -243,7 +243,7 @@ Return a string which is the concatenation of the strings in an array. <pre clas
 Applies <pre class="inline_code">function</pre> to every item of an array and return that new array.<br />
 <br />
 <b>filter</b>(function)<br />
-Construct a new array from this array from those elements of this array for which <pre class="inline_code">function</pre> returns true (1B).<br />
+Return a new array consisting of those elements from this array for which <pre class="inline_code">function</pre> returns true (1B).<br />
 <br />
 <b>append</b>(new_element)<br />
 Appends <pre class="inline_code">new_element</pre> to the end of this array.<br />
@@ -275,8 +275,14 @@ Return index of the first occurrence of <pre class="inline_code">x</pre> in this
 <br />
 <b>Dict</b><br />
 A dictionary. For example, a dictionary with two items: <pre style="display: inline">[<span class="string-literal">‘key1’</span> = <span class="numeric-literal">1</span>, <span class="string-literal">‘key2’</span> = <span class="numeric-literal">2</span>]</pre>.<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>values</b>()<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>keys</b>()<br />
+Return an array of the dictionary's keys.<br />
+<br />
+<b>values</b>()<br />
 Return an array of the dictionary's values.<br />
+<br />
+<b>filter</b>(function)<br />
+Return an array consisting of those elements of dictionary for which <pre class="inline_code">function</pre> returns true (1B).<br />
 </div>
 <br />
 <b>DefaultDict</b><br />

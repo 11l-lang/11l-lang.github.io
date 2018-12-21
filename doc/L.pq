@@ -52,9 +52,10 @@ L(item) <iterable>
 ’
 
 Examples:
-#(11l)‘L(x) 1..10 {print(x)}’ will print 1 through 10.
-#(11l)‘L(c) "str" {print(c)}’ will print "s", "t" and "r".
-#(11l)‘L(n) [9,7] {print(n)}’ will print 9 and 7.
+#(11l)‘L(x) 1..10 {print(x)}’ will print `1` through `10`.
+#(11l)‘L(c) "str" {print(c)}’ will print `"s"`, `"t"` and `"r"`.
+#(11l)‘L(n) [9,7] {print(n)}’ will print `9` and `7`.
+#(11l)‘L(k, v) [‘k’ = 1] {print(k‘=’v)}’ will print `k=1`.
 
 
 H‘L/loop subkeywords’

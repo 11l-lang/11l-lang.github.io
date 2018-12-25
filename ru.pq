@@ -278,6 +278,37 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
       print(‘Unallowed character (\r or \t) found in file '’fname[2..]‘'’)
 ’
 ’’’
+‘Rosetta Code’{
+‘Benford's law’[https://www.rosettacode.org/wiki/Benford%27s_law#11l]:
+T‘‘
+‘#(11l)‘
+F get_fibs()
+   A a = 1.0
+   A b = 1.0
+   [Float] r
+   L 1000
+      r [+]= a
+      (a, b) = (b, a + b)
+   R r
+
+F benford(seq)
+   A freqs = [(0.0, 0.0)] * 9
+   A seq_len = 0
+   L(d) seq
+      I d != 0
+         freqs[String(d)[0].code - ‘1’.code][1]++
+         seq_len++
+
+   L(&f) freqs
+      f = (log10(1.0 + 1.0 / (L.index + 1)), f[1] / seq_len)
+   R freqs
+
+print(‘#9 #9 #9’.format(‘Actual’, ‘Expected’, ‘Deviation’))
+
+L(p) benford(get_fibs())
+   print(‘#.: #2.2% | #2.2% | #0.4%’.format(L.index + 1, p[1] * 100, p[0] * 100, abs(p[1] - p[0]) * 100))’
+’’’
+}
 }
 
 

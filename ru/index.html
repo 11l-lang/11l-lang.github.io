@@ -386,6 +386,37 @@ span.comment {color: #808080;}
 </pre>
 </td></tr>
 </table>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Rosetta Code<br /></span><div class="spoiler_text" style="display: none"><a href="https://www.rosettacode.org/wiki/Benford%27s_law#11l">Benford's law</a>:<br />
+<table>
+<tr><td><pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">get_fibs</span>()
+   <span class="keyword">A</span> <span class="identifier">a</span> = <span class="numeric-literal">1.0</span>
+   <span class="keyword">A</span> <span class="identifier">b</span> = <span class="numeric-literal">1.0</span>
+   [<span class="identifier">Float</span>] <span class="identifier">r</span>
+   <span class="keyword">L</span> <span class="numeric-literal">1000</span>
+      <span class="identifier">r</span> [+]= <span class="identifier">a</span>
+      (<span class="identifier">a</span>, <span class="identifier">b</span>) = (<span class="identifier">b</span>, <span class="identifier">a</span> + <span class="identifier">b</span>)
+   <span class="keyword">R</span> <span class="identifier">r</span>
+
+<span class="keyword">F</span> <span class="identifier">benford</span>(<span class="identifier">seq</span>)
+   <span class="keyword">A</span> <span class="identifier">freqs</span> = [(<span class="numeric-literal">0.0</span>, <span class="numeric-literal">0.0</span>)] * <span class="numeric-literal">9</span>
+   <span class="keyword">A</span> <span class="identifier">seq_len</span> = <span class="numeric-literal">0</span>
+   <span class="keyword">L</span>(<span class="identifier">d</span>) <span class="identifier">seq</span>
+      <span class="keyword">I</span> <span class="identifier">d</span> != <span class="numeric-literal">0</span>
+         <span class="identifier">freqs</span>[<span class="identifier">String</span>(<span class="identifier">d</span>)[<span class="numeric-literal">0</span>].<span class="identifier">code</span> - <span class="string-literal">‘1’</span>.<span class="identifier">code</span>][<span class="numeric-literal">1</span>]++
+         <span class="identifier">seq_len</span>++
+
+   <span class="keyword">L</span>(&amp;<span class="identifier">f</span>) <span class="identifier">freqs</span>
+      <span class="identifier">f</span> = (<span class="identifier">log10</span>(<span class="numeric-literal">1.0</span> + <span class="numeric-literal">1.0</span> / (<span class="keyword">L.index</span> + <span class="numeric-literal">1</span>)), <span class="identifier">f</span>[<span class="numeric-literal">1</span>] / <span class="identifier">seq_len</span>)
+   <span class="keyword">R</span> <span class="identifier">freqs</span>
+
+<span class="identifier">print</span>(<span class="string-literal">‘#9 #9 #9’</span>.<span class="identifier">format</span>(<span class="string-literal">‘Actual’</span>, <span class="string-literal">‘Expected’</span>, <span class="string-literal">‘Deviation’</span>))
+
+<span class="keyword">L</span>(<span class="identifier">p</span>) <span class="identifier">benford</span>(<span class="identifier">get_fibs</span>())
+   <span class="identifier">print</span>(<span class="string-literal">‘#.: #2.2% | #2.2% | #0.4%’</span>.<span class="identifier">format</span>(<span class="keyword">L.index</span> + <span class="numeric-literal">1</span>, <span class="identifier">p</span>[<span class="numeric-literal">1</span>] * <span class="numeric-literal">100</span>, <span class="identifier">p</span>[<span class="numeric-literal">0</span>] * <span class="numeric-literal">100</span>, <span class="identifier">abs</span>(<span class="identifier">p</span>[<span class="numeric-literal">1</span>] - <span class="identifier">p</span>[<span class="numeric-literal">0</span>]) * <span class="numeric-literal">100</span>))</pre>
+</td></tr>
+</table>
+</div>
 </div>
 <br />
 <br />

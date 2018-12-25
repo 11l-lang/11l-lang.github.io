@@ -122,6 +122,31 @@ Return a copy of the string with leading and trailing strings removed.
 
 *‘trim’(tuple_of_chars)
 Return a copy of the string with leading and trailing characters removed.
+
+*‘format’(args...)
+Perform a string formatting operation. The string on which this method is called can contain literal text or replacement fields starting with `#`. Returns a copy of the string where each replacement field is replaced with the string value of the corresponding argument.
+‘Format String Syntax’{
+```
+replacement_field ::= "#"(width["."precision] | "."[precision])
+width     ::= digit+
+precision ::= digit+
+```
+
+Examples:
+T‘
+H‘‘Replacement field’ ‘Argument’  ‘Output’      ’
+‘‘#‘#4.’’             ‘#‘40’’     ‘#‘  40.’’    ’
+‘‘#‘#4’’              ‘#‘4’’      ‘#‘   4’’     ’
+‘‘#‘#.’’              ‘#‘1.234’’  ‘#‘1.234’’    ’
+‘‘#‘#.6’’             ‘#‘1.234’’  ‘#‘1.234000’’ ’
+‘‘#‘#2.6’’            ‘#‘1.234’’  ‘#‘ 1.234000’’’
+‘‘#‘#2.2’’            ‘#‘1.234’’  ‘#‘ 1.23’’    ’
+‘‘#‘#2.2’’            ‘#‘-1.234’’ ‘#‘-1.23’’    ’
+‘‘#‘#2’’              ‘#‘1’’      ‘#‘ 1’’       ’
+‘‘#‘#5’’              ‘#‘abc’’    ‘#‘  abc’’    ’
+‘‘#‘#.’’              ‘#‘abc’’    ‘#‘abc’’      ’
+’
+}
 }
 
 *‘Tuple’

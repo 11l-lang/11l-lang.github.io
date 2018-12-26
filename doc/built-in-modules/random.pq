@@ -7,3 +7,6 @@ Return a random number in range [[[(]]]0‘[0, max)’'‘<!--]-->’'.
 
 random:(min, max)
 Return a random number in range [[[(]]]0‘[min, max)’'‘<!--]-->’'.
+
+random.*‘shuffle’(&seq)
+Shuffle the sequence `seq` in place.

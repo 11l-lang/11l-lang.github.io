@@ -279,7 +279,7 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
 ’
 ’’’
 ‘Rosetta Code’{
-‘Benford's law’[https://www.rosettacode.org/wiki/Benford%27s_law#11l]:
+‘Benford's law’[https://www.rosettacode.org/wiki/Benford%27s_law]:
 T‘‘
 ‘#(11l)‘
 F get_fibs()
@@ -308,24 +308,26 @@ print(‘#9 #9 #9’.format(‘Actual’, ‘Expected’, ‘Deviation’))
 L(p) benford(get_fibs())
    print(‘#.: #2.2% | #2.2% | #0.4%’.format(L.index + 1, p[1] * 100, p[0] * 100, abs(p[1] - p[0]) * 100))’
 ’’’
+‘100 doors’[https://www.rosettacode.org/wiki/100_doors#11l] | ‘Visualize a tree’[https://www.rosettacode.org/wiki/Visualize_a_tree#11l] | ‘Execute Brain****’[https://www.rosettacode.org/wiki/Execute_Brain****#11l]
+‘Simple moving average’[https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l] | ‘Align columns’[https://www.rosettacode.org/wiki/Align_columns#11l] | ‘Arithmetic evaluation’[https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l]
 }
 }
 
 
-Документация[./../doc/ru]
+T‘‘‘Документация[./../doc/ru]’’’
 
+T‘‘‘><‘‘Производительность’{
 
-‘Производительность’{
 <>‘Транспайлер 11l можно использовать как ускоритель кода на Python.
 Вот результаты для ‘программы преобразования пк-разметки в HTML’[https://bitbucket.org/pqmarkup/pqmarkup] (в качестве исходных данных был взят исходник ‘статьи по пк-разметке’[https://habr.ru/post/348218/]):
 Р‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/1c5e2435525a5da8221d4337d0ae8fa2ac4d63a4/chart2.png’
 [‘Вот архив’[https://gist.github.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/e6cb2f07446ef4a19a3d6cdc1f8c483287ef1308/perf_tests.7z] с использовавшейся программой для сравнения производительности [под Windows] (требуются установленный Python 3.6 или выше и следующие Python-пакеты: pywin32, cython).]
 ’
-}
+}’’’’
 
+T‘‘‘><‘‘[[[Установка/]]]Скачать’{
 
-‘[[[Установка/]]]Скачать’{
-Т‘‘‘Вот последняя версия пары транспайлеров Python → 11l и 11l → C++: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘репозитории с исходниками’[https://bitbucket.org/11l-lang]].
+<>‘Вот последняя версия пары транспайлеров Python → 11l и 11l → C++: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘репозитории с исходниками’[https://bitbucket.org/11l-lang]].
 
 Использование:
 1. Распакуйте архив в [[[директорию]]/]каталог по вашему выбору.
@@ -334,9 +336,8 @@ L(p) benford(get_fibs())
 `<путь_до_каталога_с_распакованным_архивом>\11l <исходный_файл_на_python_или_11l>` в Windows или
 `<путь_до_каталога_с_распакованным_архивом>/11l <исходный_файл_на_python_или_11l>` в Linux.’
 
-[Возникли [[[трудности/]]]проблемы с компиляцией вашей программы на Python или 11l? ‘Напишите на форуме.’[http://forum.11l-lang.org/forums/Помощь.7/]]’’’
-}
+[Возникли [[[трудности/]]]проблемы с компиляцией вашей программы на Python или 11l? ‘Напишите на форуме.’[http://forum.11l-lang.org/forums/Помощь.7/]]’
+}’’’’
 
-
-[[[Русскоязычный форум \ English Forum]]]Форум[http://forum.11l-lang.org]
+T‘‘‘[[[Русскоязычный форум \ English Forum]]]Форум[http://forum.11l-lang.org]’’’
 ’

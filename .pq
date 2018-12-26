@@ -279,7 +279,7 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
 ’
 ’’’
 ‘Rosetta Code’{
-‘Benford's law’[https://www.rosettacode.org/wiki/Benford%27s_law#11l]:
+‘Benford's law’[https://www.rosettacode.org/wiki/Benford%27s_law]:
 T‘‘
 ‘#(11l)‘
 F get_fibs()
@@ -308,24 +308,26 @@ print(‘#9 #9 #9’.format(‘Actual’, ‘Expected’, ‘Deviation’))
 L(p) benford(get_fibs())
    print(‘#.: #2.2% | #2.2% | #0.4%’.format(L.index + 1, p[1] * 100, p[0] * 100, abs(p[1] - p[0]) * 100))’
 ’’’
+‘100 doors’[https://www.rosettacode.org/wiki/100_doors#11l] | ‘Visualize a tree’[https://www.rosettacode.org/wiki/Visualize_a_tree#11l] | ‘Execute Brain****’[https://www.rosettacode.org/wiki/Execute_Brain****#11l]
+‘Simple moving average’[https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l] | ‘Align columns’[https://www.rosettacode.org/wiki/Align_columns#11l] | ‘Arithmetic evaluation’[https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l]
 }
 }
 
 
-Documentation[./doc]
+T‘‘‘Documentation[./doc]’’’
 
+T‘‘‘><‘‘Benchmark’{
 
-‘Benchmark’{
 <>‘11l transpiler can be used to accelerate Python code.
 Here is results for ‘pq markup to HTML converter’[https://bitbucket.org/pqmarkup/pqmarkup] (as an input data the source of ‘this article’[https://habr.ru/post/348218/] is taken):
 P‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/1c5e2435525a5da8221d4337d0ae8fa2ac4d63a4/chart2.png’
 [‘Here is an archive’[https://gist.github.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/e6cb2f07446ef4a19a3d6cdc1f8c483287ef1308/perf_tests.7z] with benchmarking program used (Python 3.6 or higher is required, and following Python packages: pywin32, cython).]
 ’
-}
+}’’’’
 
+T‘‘‘><‘‘[[[Install/]]]Download’{
 
-‘[[[Install/]]]Download’{
-T‘‘‘Here is the latest version of transpiler-pair Python → 11l and 11l → C++: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘source code repos’[https://bitbucket.org/11l-lang]].
+<>‘Here is the latest version of transpiler-pair Python → 11l and 11l → C++: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘source code repos’[https://bitbucket.org/11l-lang]].
 
 Usage:
 1. Unpack archive to whatever directory you [[[like/]]]want.
@@ -334,9 +336,8 @@ Usage:
 `<path_to_unpacked_archive_files>\11l <source_python_or_11l_file>` on Windows, or
 `<path_to_unpacked_archive_files>/11l <source_python_or_11l_file>` on Linux.’
 
-[Having problems with compiling your Python or 11l program? ‘Write [[[on/]]]at the forum.’[http://forum.11l-lang.org/forums/help.3/]]’’’
-}
+[Having problems with compiling your Python or 11l program? ‘Write [[[on/]]]at the forum.’[http://forum.11l-lang.org/forums/help.3/]]’
+}’’’’
 
-
-[[[English Forum \ Русскоязычный форум]]]Forum[http://forum.11l-lang.org]
+T‘‘‘[[[English Forum \ Русскоязычный форум]]]Forum[http://forum.11l-lang.org]’’’
 ’

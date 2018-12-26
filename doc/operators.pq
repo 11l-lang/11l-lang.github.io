@@ -34,6 +34,7 @@ Postfix increment’’
 (-)x
 --x
 ++x
+&x
 ’ ‘Unary minus
 Unary plus
 Logical NOT
@@ -48,7 +49,8 @@ a(+)(-)b = a(-)b
 However, binary operator (-) [[[does/]]]is not supported in hardware and used [[[very/]]]extremely rare, [[[so/]]]therefore 11l includes only unary operator (-), which corresponds to bitwise NOT.
 })
 Prefix decrement
-Prefix increment’’
+Prefix increment
+Address-of’’
 ‘‘x * y
 x / y
 x I/ y

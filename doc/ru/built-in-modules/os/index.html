@@ -1,6 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
+<title>Модуль os</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -95,6 +96,21 @@ pre.inline_code {
 </head>
 <body>
 <table width="55%" align="center"><tr><td>
+<!--[[[Н‘Модуль os’
+]]]--><h3>Модуль os</h3>
+<br />
+<br />
+os:<b>getenv</b>(name, default = ‘’)<br />
+Возвращает значение переменной окружения <pre class="inline_code">name</pre> если она задана и <pre class="inline_code">default</pre> в противном случае.<br />
+<br />
+os:<b>setenv</b>(name, value)<br />
+Устанавливает значение переменной окружения <pre class="inline_code">name</pre> в значение <pre class="inline_code">value</pre>.<br />
+<br />
+os:<b>environ</b><br />
+Объект отображения переменных окружения.<br />
+<br />
+os:<b>env_path_sep</b><br />
+Символ, используемый операционной системой для разделения компонентов пути (в переменной окружения PATH), в POSIX — <pre class="inline_code">:</pre>, а в Windows — <pre class="inline_code">;</pre>.<br />
 
 </td></tr></table>
 </body>

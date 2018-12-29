@@ -39,6 +39,9 @@ Return the largest item of `iterable`.
 *‘hex’(x)
 Convert an integer number to an uppercase hexadecimal string.
 
+*‘bin’(x)
+Convert an integer number to a binary string.
+
 ‘Mathematical functions’{
 *‘round’(number, ndigits = 0)
 Return `number` rounded to `ndigits` precision after the decimal point.

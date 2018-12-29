@@ -13,7 +13,7 @@ T Error
 
 Префикс `:` используется для глобальных переменных:
 #(11l)‘
-A global_var = 0
+V global_var = 0
 
 F global_func()
    :global_var++
@@ -22,7 +22,7 @@ F global_func()
 Префикс `@` используется для внешних\*‘‘ca’[‘символ @ выглядит похожим на пару символов Ca’]’ptured переменных:
 #(11l)‘
 F global_func()
-   A i = 0
+   V i = 0
 
    F local_func()
       @i++

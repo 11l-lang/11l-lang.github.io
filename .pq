@@ -49,7 +49,6 @@ The evident distinction of 11l from all other existing programming languages is 
 There are 11 keywords at the root of that tree, and each word can be written as [[[its first]]]one letter. [Short one-letter keywords look odd at first sight, but it's just a matter of habit.]
 ‘Tree of all 11l keywords [including few not implemented yet][[[.]]]’{
 ```
-── A/var
 ── C/in
 ── I/if ──┬── likely
           └── unlikely
@@ -75,6 +74,7 @@ There are 11 keywords at the root of that tree, and each word can be written as 
 ── T/type ──┬── base
             ├── enum
             └── interface
+── V/var
 ── X/exception ──┬── try
                  ├── catch
                  └── try_end
@@ -206,7 +206,7 @@ L(child) .children
 ...
 
 L(line) file.read_lines()
-   A line_number = L.index + 1
+   V line_number = L.index + 1
    print(line_number‘. ’line)
 
 ...
@@ -218,7 +218,7 @@ L i < source.len & source[i] C (‘0’..‘9’, ‘a’..‘z’, ‘A’..‘
 
 ...
 
-A key = S token.category
+V key = S token.category
    NUMERIC_LITERAL, STRING_LITERAL
       ‘(literal)’
    NAME
@@ -253,11 +253,11 @@ main_window.pos.
 
 ...
 
-A width = active_window.rect. {.right - .left}
+V width = active_window.rect. {.right - .left}
 
 ...
 
-A dot_pos = token.value(source). {.find(‘.’) ? .len}
+V dot_pos = token.value(source). {.find(‘.’) ? .len}
 
 
 ’’’’
@@ -283,8 +283,8 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
 T‘‘
 ‘#(11l)‘
 F get_fibs()
-   A a = 1.0
-   A b = 1.0
+   V a = 1.0
+   V b = 1.0
    [Float] r
    L 1000
       r [+]= a
@@ -292,8 +292,8 @@ F get_fibs()
    R r
 
 F benford(seq)
-   A freqs = [(0.0, 0.0)] * 9
-   A seq_len = 0
+   V freqs = [(0.0, 0.0)] * 9
+   V seq_len = 0
    L(d) seq
       I d != 0
          freqs[String(d)[0].code - ‘1’.code][1]++

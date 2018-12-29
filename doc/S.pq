@@ -17,7 +17,7 @@ Expression `<expression>` is compared with constant expressions for equality. If
 
 The `S`/`switch` can be used in expressions:
 #(11l)‘
-A tag = S prev_char()
+V tag = S prev_char()
            ‘*’
               ‘b’
            ‘_’
@@ -29,9 +29,9 @@ A tag = S prev_char()
 ’
 Or in one line. So:
 #(11l)‘
-A tag = S prev_char() {‘*’ {‘b’}; ‘_’ {‘u’}; ‘-’ {‘s’}; ‘~’ {‘i’}}
+V tag = S prev_char() {‘*’ {‘b’}; ‘_’ {‘u’}; ‘-’ {‘s’}; ‘~’ {‘i’}}
 ’
 or so:
 #(11l)‘
-A tag = S prev_char() {‘*’ {‘b’} ‘_’ {‘u’} ‘-’ {‘s’} ‘~’ {‘i’}}
+V tag = S prev_char() {‘*’ {‘b’} ‘_’ {‘u’} ‘-’ {‘s’} ‘~’ {‘i’}}
 ’

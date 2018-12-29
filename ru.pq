@@ -49,7 +49,6 @@
 В корне этого дерева располагаются 11 базовых [[[зарезервированных/]]]ключевых слов, которые можно сокращать до [[[их первой]]]одной буквы. [Короткие однобуквенные [[[зарезервированные/]]]ключевые слова выглядят странно на первый взгляд, но это всего лишь дело привычки.]
 ‘Дерево всех [[[зарезервированных/]]]ключевых слов 11l[[[ [включая ещё не реализованные]]]][[[.]]]’{
 ```
-── A/var\А/перем
 ── C/in\С
 ── I/if\Е/если ──┬── likely\часто
                  └── unlikely\редко
@@ -75,6 +74,7 @@
 ── T/type\Т/тип ──┬── base\базовый
                   ├── enum\перечисл
                   └── interface\интерфейс
+── V/var\П/перем
 ── X/exception\Х/исключение ──┬── try\контроль
                               ├── catch\перехват
                               └── try_end
@@ -206,7 +206,7 @@ L(child) .children
 ...
 
 L(line) file.read_lines()
-   A line_number = L.index + 1
+   V line_number = L.index + 1
    print(line_number‘. ’line)
 
 ...
@@ -218,7 +218,7 @@ L i < source.len & source[i] C (‘0’..‘9’, ‘a’..‘z’, ‘A’..‘
 
 ...
 
-A key = S token.category
+V key = S token.category
    NUMERIC_LITERAL, STRING_LITERAL
       ‘(literal)’
    NAME
@@ -253,11 +253,11 @@ main_window.pos.
 
 ...
 
-A width = active_window.rect. {.right - .left}
+V width = active_window.rect. {.right - .left}
 
 ...
 
-A dot_pos = token.value(source). {.find(‘.’) ? .len}
+V dot_pos = token.value(source). {.find(‘.’) ? .len}
 
 
 ’’’’
@@ -283,8 +283,8 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
 T‘‘
 ‘#(11l)‘
 F get_fibs()
-   A a = 1.0
-   A b = 1.0
+   V a = 1.0
+   V b = 1.0
    [Float] r
    L 1000
       r [+]= a
@@ -292,8 +292,8 @@ F get_fibs()
    R r
 
 F benford(seq)
-   A freqs = [(0.0, 0.0)] * 9
-   A seq_len = 0
+   V freqs = [(0.0, 0.0)] * 9
+   V seq_len = 0
    L(d) seq
       I d != 0
          freqs[String(d)[0].code - ‘1’.code][1]++

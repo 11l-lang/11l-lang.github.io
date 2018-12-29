@@ -9,7 +9,6 @@
 ‘Целочисленные литералы’[./integer-literals]
 
 Зарезервированные/ключевые слова:
-   A/var[./A]
    C/in[./C]
 ‘   I/if и E/else’[./I]
    F/fn[./F]
@@ -18,6 +17,7 @@
    R/return[./R]
    S/switch[./S]
    T/type[./T]
+   V/var[./V]
    X/exception[./X]
 
 ‘Встроенные типы данных’[./built-in-types]

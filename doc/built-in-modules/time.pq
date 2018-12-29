@@ -58,7 +58,7 @@ time:*‘perf_counter’()
 Return the value of a performance counter, i.e. a clock with the highest available resolution to measure a short duration.
 It can be used as follows:
 #(11l)‘
-A start = time:perf_counter()
+V start = time:perf_counter()
 ...
 print(‘Elapsed: ’(time:perf_counter() - start)‘ seconds’)
 ’

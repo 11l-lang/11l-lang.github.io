@@ -9,7 +9,6 @@ Comments[./comments]
 ‘Integer literals’[./integer-literals]
 
 Keywords:
-   A/var[./A]
    C/in[./C]
 ‘   I/if and E/else’[./I]
    F/fn[./F]
@@ -18,6 +17,7 @@ Keywords:
    R/return[./R]
    S/switch[./S]
    T/type[./T]
+   V/var[./V]
    X/exception[./X]
 
 ‘Built-in types’[./built-in-types]

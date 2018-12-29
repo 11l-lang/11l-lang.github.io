@@ -13,7 +13,7 @@ T Error
 
 Prefix `:` is used for global variables:
 #(11l)‘
-A global_var = 0
+V global_var = 0
 
 F global_func()
    :global_var++
@@ -22,7 +22,7 @@ F global_func()
 Prefix `@` is used for *‘‘ca’[‘symbol @ looks similar to characters Ca’]’ptured variables:
 #(11l)‘
 F global_func()
-   A i = 0
+   V i = 0
 
    F local_func()
       @i++

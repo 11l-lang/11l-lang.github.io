@@ -42,6 +42,12 @@ Convert an integer number to an uppercase hexadecimal string.
 *‘bin’(x)
 Convert an integer number to a binary string.
 
+*‘rotl’(value, shift)
+Rotate the `value` left by `shift` bits.
+
+*‘rotr’(value, shift)
+Rotate the `value` right by `shift` bits.
+
 ‘Mathematical functions’{
 *‘round’(number, ndigits = 0)
 Return `number` rounded to `ndigits` precision after the decimal point.

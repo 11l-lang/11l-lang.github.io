@@ -127,7 +127,7 @@ Return a copy of the string with leading and trailing characters removed.
 Perform a string formatting operation. The string on which this method is called can contain literal text or replacement fields starting with `#`. Returns a copy of the string where each replacement field is replaced with the string value of the corresponding argument.
 ‘Format String Syntax’{
 ```
-replacement_field ::= "#"(width["."precision] | "."[precision])
+replacement_field ::= "#"["<"](width["."precision] | "."[precision])
 width     ::= digit+
 precision ::= digit+
 ```
@@ -145,6 +145,7 @@ H‘‘Replacement field’ ‘Argument’  ‘Output’      ’
 ‘‘#‘#2’’              ‘#‘1’’      ‘#‘ 1’’       ’
 ‘‘#‘#5’’              ‘#‘abc’’    ‘#‘  abc’’    ’
 ‘‘#‘#.’’              ‘#‘abc’’    ‘#‘abc’’      ’
+‘‘#‘#<5.’’            ‘#‘abc’’    ‘#‘abc  .’’   ’
 ’
 }
 }

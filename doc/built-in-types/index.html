@@ -227,7 +227,7 @@ Return a copy of the string with leading and trailing characters removed.<br />
 <b>format</b>(args...)<br />
 Perform a string formatting operation. The string on which this method is called can contain literal text or replacement fields starting with <pre class="inline_code">#</pre>. Returns a copy of the string where each replacement field is replaced with the string value of the corresponding argument.<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Format String Syntax<br /></span><div class="spoiler_text" style="display: none"><pre>
-replacement_field ::= "#"(width["."precision] | "."[precision])
+replacement_field ::= "#"["&lt;"](width["."precision] | "."[precision])
 width     ::= digit+
 precision ::= digit+
 </pre>
@@ -245,6 +245,7 @@ Examples:<br />
 <tr><td><pre style="display: inline">#2</pre></td><td><pre style="display: inline">1</pre></td><td><pre style="display: inline"> 1</pre></td></tr>
 <tr><td><pre style="display: inline">#5</pre></td><td><pre style="display: inline">abc</pre></td><td><pre style="display: inline">  abc</pre></td></tr>
 <tr><td><pre style="display: inline">#.</pre></td><td><pre style="display: inline">abc</pre></td><td><pre style="display: inline">abc</pre></td></tr>
+<tr><td><pre style="display: inline">#&lt;5.</pre></td><td><pre style="display: inline">abc</pre></td><td><pre style="display: inline">abc  .</pre></td></tr>
 </table>
 </div>
 </div>

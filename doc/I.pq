@@ -36,9 +36,9 @@ E
 ’’
 ’’
 
-Two consecutive keywords E/else and I/if are treated especially, so there is no need for a separate/additional keyword like elif in Python or elsif in Ruby.
+Two consecutive keywords `E`/`else` and `I`/`if` are treated especially, so there is no need for a separate/additional keyword like `elif` in Python or `elsif` in Ruby.
 
-Also I/if and E/else can be used in expressions similarly to ternary operator `?:` from C:
+Also `I`/`if` and `E`/`else` can be used in expressions similarly to ternary operator `?:` from C:
 #(11l)‘
 sign = I x < 0 {-1} E I x > 0 {1} E 0
 ’

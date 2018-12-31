@@ -139,9 +139,9 @@ span.comment {color: #808080;}
 </pre></td></tr>
 </table>
 <br />
-Два ключевых слова E/else и I/if идущие подряд трактуются специальным образом в 11l, благодаря чему отпадает необходимость в специальном/отдельном ключевом слове (как elif в Python или elsif в Ruby).<br />
+Два ключевых слова <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre> и <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> идущие подряд трактуются специальным образом в 11l, благодаря чему отпадает необходимость в специальном/отдельном ключевом слове (как <pre class="inline_code">elif</pre> в Python или <pre class="inline_code">elsif</pre> в Ruby).<br />
 <br />
-Также I/if и E/else можно использовать в выражениях в качестве альтернативы тернарному оператору <pre class="inline_code">?:</pre> из языка Си:<br />
+Также <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> и <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre> можно использовать в выражениях в качестве альтернативы тернарному оператору <pre class="inline_code">?:</pre> из языка Си:<br />
 <pre class="code_block">
 <span class="identifier">sign</span> = <span class="keyword">I</span> <span class="identifier">x</span> &lt; <span class="numeric-literal">0</span> {-<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">x</span> > <span class="numeric-literal">0</span> {<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="numeric-literal">0</span>
 </pre>

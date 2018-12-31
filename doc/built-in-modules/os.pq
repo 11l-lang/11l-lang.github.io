@@ -2,6 +2,9 @@
 ]]]H‘Module os’
 
 
+os:(command)
+Execute the command (a string) in a subshell. This is implemented by calling the Standard C function `system()`.
+
 os:*‘getenv’(name, default = ‘’)
 Return the value of the environment variable `name` if it exists, or `default` if it doesn't.
 

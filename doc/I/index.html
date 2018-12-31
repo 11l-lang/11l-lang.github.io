@@ -139,11 +139,14 @@ span.comment {color: #808080;}
 </pre></td></tr>
 </table>
 <br />
-Two consecutive keywords <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre> and <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> are treated especially, so there is no need for a separate/additional keyword like <pre class="inline_code">elif</pre> in Python or <pre class="inline_code">elsif</pre> in Ruby.<br />
+Two consecutive keywords <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre> and <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> are treated especially<!--[[[like in CoffeeScript and Genie]]]-->, so there is no need for a separate/additional keyword like <pre class="inline_code">elif</pre> in Python or <pre class="inline_code">elsif</pre> in Ruby.<br />
 <br />
 Also <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> and <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre> can be used in expressions similarly to ternary operator <pre class="inline_code">?:</pre> from C:<br />
 <pre class="code_block">
-<span class="identifier">sign</span> = <span class="keyword">I</span> <span class="identifier">x</span> &lt; <span class="numeric-literal">0</span> {-<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">x</span> > <span class="numeric-literal">0</span> {<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="numeric-literal">0</span>
+<span class="identifier">sign</span> = <span class="keyword">I</span> <span class="identifier">x</span> &lt; <span class="numeric-literal">0</span> {-<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">x</span> > <span class="numeric-literal">0</span> {<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="numeric-literal">0</span> <span class="comment">// 11l</span>
+</pre>
+<pre class="code_block">
+sign =  x &lt; 0 ? -1  :  x > 0 ? 1 : 0  // C
 </pre>
 <br />
 <br />

@@ -308,6 +308,24 @@ print(‘#9 #9 #9’.format(‘Actual’, ‘Expected’, ‘Deviation’))
 L(p) benford(get_fibs())
    print(‘#.: #2.2% | #2.2% | #0.4%’.format(L.index + 1, p[1] * 100, p[0] * 100, abs(p[1] - p[0]) * 100))’
 ’’’
+‘Caesar cipher’[https://www.rosettacode.org/wiki/Caesar_cipher]:
+T‘‘
+‘#(11l)‘
+F caesar(string, =key, decode = 0B)
+   I decode
+      key = 26 - key
+
+   V r = ‘ ’ * string.len
+   L(c) string
+      r[L.index] = S c
+                      ‘a’..‘z’
+                         Char(code' (c.code - ‘a’.code + key) % 26 + ‘a’.code)
+                      ‘A’..‘Z’
+                         Char(code' (c.code - ‘A’.code + key) % 26 + ‘A’.code)
+                      E
+                         c
+   R r’
+’’’
 ‘100 doors’[https://www.rosettacode.org/wiki/100_doors#11l] | ‘Visualize a tree’[https://www.rosettacode.org/wiki/Visualize_a_tree#11l] | ‘Execute Brain****’[https://www.rosettacode.org/wiki/Execute_Brain****#11l]
 ‘Simple moving average’[https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l] | ‘Align columns’[https://www.rosettacode.org/wiki/Align_columns#11l] | ‘Arithmetic evaluation’[https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l]
 [‘Все примеры на Rosetta Code’[https://www.rosettacode.org/wiki/Category:11l]]

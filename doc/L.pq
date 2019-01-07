@@ -41,7 +41,7 @@ L 3
 ’
 will print "ABC" 3 times.
 
-~‘Note: only numeric literals/constants are considered so far as `<number>` {if you want to iterate [[[from 0 to ]]]an arbitrary number of times, you can use ranges, for example: #(11l)‘L 1..number’}.’
+~‘Note: only [[[numeric]]]integer literals/constants are considered so far as `<number>` {if you want to iterate [[[from 0 to ]]]an arbitrary number of times, you can use ranges, for example: #(11l)‘L 1..number’}.’
 
 
 H(-1)‘4. A "for in" loop.’

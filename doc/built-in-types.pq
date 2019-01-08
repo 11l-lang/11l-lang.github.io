@@ -96,6 +96,9 @@ Return a copy of the string with all the cased characters converted to lowercase
 *‘uppercase’()
 Return a copy of the string with all the cased characters converted to uppercase.
 
+*‘capitalize’()
+Return a copy of the string with its first character capitalized.
+
 *‘zfill’(width)
 Return a copy of the string left filled with ASCII '0' digits to make a string of length `width`.
 

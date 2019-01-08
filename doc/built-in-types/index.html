@@ -92,6 +92,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -270,6 +271,9 @@ Applies <pre class="inline_code">function</pre> to every item of an array and re
 <br />
 <b>filter</b>(function)<br />
 Return a new array consisting of those elements from this array for which <pre class="inline_code">function</pre> returns true (1B).<br />
+<br />
+<b>reduce</b>(<span class="sq"><span class="sq_brackets">[</span>initial,<span class="sq_brackets">]</span></span> function)<br />
+Apply <pre class="inline_code">function</pre> of two arguments cumulatively to the items of the array, from left to right, so as to reduce the array to a single value. For example, <pre class="inline_code">[1, 2, 3].reduce((x, y) -> x + y)</pre> calculates <pre class="inline_code">((1+2)+3)</pre>. If the optional <pre class="inline_code">initial</pre> is present, it is placed before the items of the array in the calculation, and serves as a default when the array is empty.<br />
 <br />
 <b>append</b>(new_element)<br />
 Appends <pre class="inline_code">new_element</pre> to the end of this array.<br />

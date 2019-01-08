@@ -173,6 +173,9 @@ Applies `function` to every item of an array and return that new array.
 *‘filter’(function)
 Return a new array consisting of those elements from this array for which `function` returns true (1B).
 
+*‘reduce’([initial,] function)
+Apply `function` of two arguments cumulatively to the items of the array, from left to right, so as to reduce the array to a single value. For example, `[1, 2, 3].reduce((x, y) -> x + y)` calculates `((1+2)+3)`. If the optional `initial` is present, it is placed before the items of the array in the calculation, and serves as a default when the array is empty.
+
 *‘append’(new_element)
 Appends `new_element` to the end of this array.
 

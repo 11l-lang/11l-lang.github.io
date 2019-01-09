@@ -20,6 +20,29 @@
 *‘zip’(iterable1, iterable2)
 Объединяет элементы из `iterable1` и `iterable2`.
 
+*‘multiloop’(iterable1, iterable2 [,iterable3], function)
+Эта функция практически эквивалентна следующему коду: {
+#(11l)‘
+F multiloop(iterable1, iterable2, function)
+   V r = []
+   L(el1) iterable1
+      L(el2) iterable2
+         r [+]= function(el1, el2)
+   R r
+’}
+
+*‘multiloop_filtered’(iterable1, iterable2 [,iterable3], filter_function, function)
+Эта функция практически эквивалентна следующему коду: {
+#(11l)‘
+F multiloop_filtered(iterable1, iterable2, filter_function, function)
+   V r = []
+   L(el1) iterable1
+      L(el2) iterable2
+         I filter_function(el1, el2)
+            r [+]= function(el1, el2)
+   R r
+’}
+
 *‘sum’(iterable)
 Суммирует элементы `iterable` и возвращает итог.
 

@@ -92,6 +92,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -117,6 +118,36 @@ pre.inline_code {
 <br />
 <b>zip</b>(iterable1, iterable2)<br />
 Объединяет элементы из <pre class="inline_code">iterable1</pre> и <pre class="inline_code">iterable2</pre>.<br />
+<br />
+<b>multiloop</b>(iterable1, iterable2 <span class="sq"><span class="sq_brackets">[</span>,iterable3<span class="sq_brackets">]</span></span>, function)<br />
+Эта функция практически эквивалентна следующему коду: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">multiloop</span>(<span class="identifier">iterable1</span>, <span class="identifier">iterable2</span>, <span class="identifier">function</span>)
+   <span class="keyword">V</span> <span class="identifier">r</span> = []
+   <span class="keyword">L</span>(<span class="identifier">el1</span>) <span class="identifier">iterable1</span>
+      <span class="keyword">L</span>(<span class="identifier">el2</span>) <span class="identifier">iterable2</span>
+         <span class="identifier">r</span> [+]= <span class="identifier">function</span>(<span class="identifier">el1</span>, <span class="identifier">el2</span>)
+   <span class="keyword">R</span> <span class="identifier">r</span>
+</pre></span><span class="cu_brackets_b">}</span></span><br />
+<br />
+<b>multiloop_filtered</b>(iterable1, iterable2 <span class="sq"><span class="sq_brackets">[</span>,iterable3<span class="sq_brackets">]</span></span>, filter_function, function)<br />
+Эта функция практически эквивалентна следующему коду: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">multiloop_filtered</span>(<span class="identifier">iterable1</span>, <span class="identifier">iterable2</span>, <span class="identifier">filter_function</span>, <span class="identifier">function</span>)
+   <span class="keyword">V</span> <span class="identifier">r</span> = []
+   <span class="keyword">L</span>(<span class="identifier">el1</span>) <span class="identifier">iterable1</span>
+      <span class="keyword">L</span>(<span class="identifier">el2</span>) <span class="identifier">iterable2</span>
+         <span class="keyword">I</span> <span class="identifier">filter_function</span>(<span class="identifier">el1</span>, <span class="identifier">el2</span>)
+            <span class="identifier">r</span> [+]= <span class="identifier">function</span>(<span class="identifier">el1</span>, <span class="identifier">el2</span>)
+   <span class="keyword">R</span> <span class="identifier">r</span>
+</pre></span><span class="cu_brackets_b">}</span></span><br />
 <br />
 <b>sum</b>(iterable)<br />
 Суммирует элементы <pre class="inline_code">iterable</pre> и возвращает итог.<br />

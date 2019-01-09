@@ -20,6 +20,29 @@ Suspend execution of the calling thread for the given number of seconds. The arg
 *‘zip’(iterable1, iterable2)
 Aggregates elements from `iterable1` and `iterable2`.
 
+*‘multiloop’(iterable1, iterable2 [,iterable3], function)
+This function is roughly equivalent to the following code: {
+#(11l)‘
+F multiloop(iterable1, iterable2, function)
+   V r = []
+   L(el1) iterable1
+      L(el2) iterable2
+         r [+]= function(el1, el2)
+   R r
+’}
+
+*‘multiloop_filtered’(iterable1, iterable2 [,iterable3], filter_function, function)
+This function is roughly equivalent to the following code: {
+#(11l)‘
+F multiloop_filtered(iterable1, iterable2, filter_function, function)
+   V r = []
+   L(el1) iterable1
+      L(el2) iterable2
+         I filter_function(el1, el2)
+            r [+]= function(el1, el2)
+   R r
+’}
+
 *‘sum’(iterable)
 Sums the items of an `iterable` and returns the total.
 

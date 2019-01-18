@@ -92,6 +92,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -120,7 +121,17 @@ span.comment {color: #808080;}
 <h3>Ключевые подслова T/type</h3>
 <br />
 <br />
-У <pre class="inline_code">T</pre>/<pre class="inline_code">type</pre> есть подслова <pre class="inline_code">base</pre>, <pre class="inline_code">enum</pre> и <pre class="inline_code">interface</pre>, но они пока что не поддерживаются.<br />
+<pre class="inline_code">T.enum</pre>/<pre class="inline_code">type.enum</pre> используется для объявления перечислений:<br />
+<pre class="code_block">
+<span class="keyword">T.enum</span> <span class="identifier">TokenCategory</span>
+   <span class="identifier">NAME</span>
+   <span class="identifier">KEYWORD</span>
+   <span class="identifier">CONSTANT</span>
+   <span class="identifier">TEST_CATEGORY</span> = <span class="numeric-literal">10</span>
+</pre>
+<span class="sq"><span class="sq_brackets">[</span>Перечисления <pre class="inline_code">NAME</pre>, <pre class="inline_code">KEYWORD</pre> и <pre class="inline_code">CONSTANT</pre> получат значения 0, 1 и 2 соответственно.<span class="sq_brackets">]</span></span><br />
+<br />
+У <pre class="inline_code">T</pre>/<pre class="inline_code">type</pre> также есть подслова <pre class="inline_code">base</pre> и <pre class="inline_code">interface</pre>, но они пока что не поддерживаются.<br />
 
 </td></tr></table>
 </body>

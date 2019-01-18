@@ -15,4 +15,14 @@ T <имя типа>
 Н‘Ключевые подслова T/type’
 
 
-У `T`/`type` есть подслова `base`, `enum` и `interface`, но они пока что не поддерживаются.
+`T.enum`/`type.enum` используется для объявления перечислений:
+#(11l)‘
+T.enum TokenCategory
+   NAME
+   KEYWORD
+   CONSTANT
+   TEST_CATEGORY = 10
+’
+[Перечисления `NAME`, `KEYWORD` и `CONSTANT` получат значения 0, 1 и 2 соответственно.]
+
+У `T`/`type` также есть подслова `base` и `interface`, но они пока что не поддерживаются.

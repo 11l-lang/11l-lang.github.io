@@ -15,4 +15,14 @@ T <type name>
 H‘T/type subkeywords’
 
 
-`T`/`type` has subwords `base`, `enum` and `interface`, but they are not supported yet.
+`T.enum`/`type.enum` is used [[[for enumeration declaration]]][[[https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/enum:]]]to declare an enumeration, a distinct type that consists of a set of named constants called the enumerator list.
+#(11l)‘
+T.enum TokenCategory
+   NAME
+   KEYWORD
+   CONSTANT
+   TEST_CATEGORY = 10
+’
+[Enumerators `NAME`, `KEYWORD` and `CONSTANT` have values 0, 1 and 2 respectively.]
+
+`T`/`type` also[[[>[https://context.reverso.net/перевод/английский-русский/also+has]:‘also has...также имеет’]]] has subkeywords `base` and `interface`, but they are not supported yet.

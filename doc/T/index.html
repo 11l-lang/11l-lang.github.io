@@ -92,6 +92,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -120,7 +121,17 @@ span.comment {color: #808080;}
 <h3>T/type subkeywords</h3>
 <br />
 <br />
-<pre class="inline_code">T</pre>/<pre class="inline_code">type</pre> has subwords <pre class="inline_code">base</pre>, <pre class="inline_code">enum</pre> and <pre class="inline_code">interface</pre>, but they are not supported yet.<br />
+<pre class="inline_code">T.enum</pre>/<pre class="inline_code">type.enum</pre> is used <!--[[[for enumeration declaration]]]--><!--[[[https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/enum:]]]-->to declare an enumeration, a distinct type that consists of a set of named constants called the enumerator list.<br />
+<pre class="code_block">
+<span class="keyword">T.enum</span> <span class="identifier">TokenCategory</span>
+   <span class="identifier">NAME</span>
+   <span class="identifier">KEYWORD</span>
+   <span class="identifier">CONSTANT</span>
+   <span class="identifier">TEST_CATEGORY</span> = <span class="numeric-literal">10</span>
+</pre>
+<span class="sq"><span class="sq_brackets">[</span>Enumerators <pre class="inline_code">NAME</pre>, <pre class="inline_code">KEYWORD</pre> and <pre class="inline_code">CONSTANT</pre> have values 0, 1 and 2 respectively.<span class="sq_brackets">]</span></span><br />
+<br />
+<pre class="inline_code">T</pre>/<pre class="inline_code">type</pre> also<!--[[[>[https://context.reverso.net/перевод/английский-русский/also+has]:‘also has...также имеет’]]]--> has subkeywords <pre class="inline_code">base</pre> and <pre class="inline_code">interface</pre>, but they are not supported yet.<br />
 
 </td></tr></table>
 </body>

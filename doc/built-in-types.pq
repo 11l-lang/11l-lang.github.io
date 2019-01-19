@@ -190,8 +190,8 @@ Appends all elements of `arr` to the end of this array.
 Append all values of `range` to the end of this array. Example: {
 #(11l)‘
 V arr = [-1]
-arr.append(1..2)
-print(arr) // will print [-1, 1, 2]
+arr.append(1..3)
+print(arr) // will print [-1, 1, 2, 3]
 ’
 }
 

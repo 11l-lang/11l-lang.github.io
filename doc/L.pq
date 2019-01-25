@@ -24,7 +24,9 @@ L <expression>
    ...
 ’
 
-Keep executing a loop body as long the given expression is true.
+Keep executing a loop body as long the given expression is true (1B).
+
+~‘Note: [[[the <expression> can not be]]]if ’`<expression>`~‘ is just a single identifier, like ’#(11l)‘L ok {...}’~‘[[[. In that case you should write]]], then please write this: ’#(11l)‘L ok == 1B {...}’~‘.’
 
 
 H(-1)‘3. Loop a particular number of times.’
@@ -41,13 +43,13 @@ L 3
 ’
 will print "ABC" 3 times.
 
-~‘Note: only [[[numeric]]]integer literals/constants are considered so far as `<number>` {if you want to iterate [[[from 0 to ]]]an arbitrary number of times, you can use ranges, for example: #(11l)‘L 1..number’}.’
+~‘Note: only [[[numeric]]]integer literals/constants are considered so far as ’`<number>` {~‘if you want to iterate [[[from 0 to ]]]an arbitrary number of times, you can use ranges, for example: ’#(11l)‘L 1..number’}.
 
 
 H(-1)‘4. A "for in" loop.’
 
 #(11l)‘
-L(item) <iterable>
+L(variable) <iterable>
    ...
 ’
 

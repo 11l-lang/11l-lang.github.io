@@ -130,7 +130,9 @@ span.comment {color: #808080;}
    ...
 </pre>
 <br />
-Keep executing a loop body as long the given expression is true.<br />
+Keep executing a loop body as long the given expression is true (1B).<br />
+<br />
+<i>Note: <!--[[[the <expression> can not be]]]-->if </i><pre class="inline_code">&lt;expression></pre><i> is just a single identifier, like </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> {...}</pre><i><!--[[[. In that case you should write]]]-->, then please write this: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> == <span class="constant">1B</span> {...}</pre><i>.</i><br />
 <br />
 <br />
 <h4>3. Loop a particular number of times.</h4>
@@ -147,13 +149,13 @@ Example:<br />
 </pre>
 will print "ABC" 3 times.<br />
 <br />
-<i>Note: only <!--[[[numeric]]]-->integer literals/constants are considered so far as <pre class="inline_code">&lt;number></pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">if you want to iterate <!--[[[from 0 to ]]]-->an arbitrary number of times, you can use ranges, for example: <pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">number</span></pre></span><span class="cu_brackets_b">}</span></span>.</i><br />
+<i>Note: only <!--[[[numeric]]]-->integer literals/constants are considered so far as </i><pre class="inline_code">&lt;number></pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><i>if you want to iterate <!--[[[from 0 to ]]]-->an arbitrary number of times, you can use ranges, for example: </i><pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">number</span></pre></span><span class="cu_brackets_b">}</span></span>.<br />
 <br />
 <br />
 <h4>4. A "for in" loop.</h4>
 <br />
 <pre class="code_block">
-<span class="keyword">L</span>(<span class="identifier">item</span>) &lt;<span class="identifier">iterable</span>>
+<span class="keyword">L</span>(<span class="identifier">variable</span>) &lt;<span class="identifier">iterable</span>>
    ...
 </pre>
 <br />

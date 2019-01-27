@@ -144,6 +144,9 @@ Code of the character.<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>is_digit</b>()<br />
 Return true (1B) if character is a digit.<br />
 <br />
+<b>is_alpha</b>()<br />
+Return true (1B) if character is an alphabetic.<br />
+<br />
 <b>is_lowercase</b>()<br />
 Return true (1B) if character is lowercase.<br />
 <br />
@@ -176,6 +179,9 @@ Return the number of non-overlapping occurrences of substring <pre class="inline
 <br />
 <b>is_digit</b>()<br />
 Return true (1B) if all characters in the string are digits and there is at least one character, false (0B) otherwise.<br />
+<br />
+<b>is_alpha</b>()<br />
+Return true (1B) if all characters in the string are alphabetic and there is at least one character, false (0B) otherwise.<br />
 <br />
 <b>find</b>(sub, start = 0)<br />
 Return the lowest index in the string where substring <pre class="inline_code">sub</pre> is found. Search begins at <pre class="inline_code">start</pre>. Return <pre class="inline_code">N</pre>/<pre class="inline_code">null</pre> if <pre class="inline_code">sub</pre> is not found. <pre class="inline_code">sub</pre> can also be a tuple of strings to look for.<br />

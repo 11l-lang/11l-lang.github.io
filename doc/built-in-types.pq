@@ -40,6 +40,9 @@ Code of the character.
 *‘is_digit’()
 Return true (1B) if character is a digit.
 
+*‘is_alpha’()
+Return true (1B) if character is an alphabetic.
+
 *‘is_lowercase’()
 Return true (1B) if character is lowercase.
 
@@ -74,6 +77,9 @@ Return the number of non-overlapping occurrences of substring `sub`.
 
 *‘is_digit’()
 Return true (1B) if all characters in the string are digits and there is at least one character, false (0B) otherwise.
+
+*‘is_alpha’()
+Return true (1B) if all characters in the string are alphabetic and there is at least one character, false (0B) otherwise.
 
 *‘find’(sub, start = 0)
 Return the lowest index in the string where substring `sub` is found. Search begins at `start`. Return `N`/`null` if `sub` is not found. `sub` can also be a tuple of strings to look for.

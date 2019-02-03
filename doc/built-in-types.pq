@@ -184,7 +184,7 @@ Return a new array consisting of those elements from this array for which `funct
 
 *‘reduce’([initial,] function)
 Apply `function` of two arguments cumulatively to the items of the array, from left to right, so as to reduce the array to a single value. For example, `[1, 2, 3].reduce((x, y) -> x + y)` calculates `((1+2)+3)`. If the optional `initial` is present, it is placed before the items of the array in the calculation, and serves as a default when the array is empty.
-[Note that order of the arguments is the same as ‘in Swift’[https://developer.apple.com/documentation/swift/array/2298686-reduce] and ‘in Rust’[https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.fold], but not in Python.]
+[Note that order of the arguments is the same as ‘in Java’[https://docs.oracle.com/javase/tutorial/collections/streams/reduction.html#reduce], ‘in Swift’[https://developer.apple.com/documentation/swift/array/2298686-reduce] and ‘in Rust’[https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.fold], but not in Python.]
 
 *‘append’(new_element)
 Appends `new_element` to the end of this array.

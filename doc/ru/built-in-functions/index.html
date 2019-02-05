@@ -119,6 +119,12 @@ img {vertical-align: middle;}
 <b>zip</b>(iterable1, iterable2)<br />
 Объединяет элементы из <pre class="inline_code">iterable1</pre> и <pre class="inline_code">iterable2</pre>.<br />
 <br />
+<b>all</b>(iterable)<br />
+Возвращает истину (1B) если все элементы <pre class="inline_code">iterable</pre> истинны (или если <pre class="inline_code">iterable</pre> пуста).<br />
+<br />
+<b>any</b>(iterable)<br />
+Возвращает истину (1B) если хотя бы один элемент <pre class="inline_code">iterable</pre> истинный. Если <pre class="inline_code">iterable</pre> пуста, возвращает ложь (0B).<br />
+<br />
 <b>multiloop</b>(iterable1, iterable2 <span class="sq"><span class="sq_brackets">[</span>,iterable3<span class="sq_brackets">]</span></span>, function)<br />
 Эта функция практически эквивалентна следующему коду: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <style>
@@ -150,10 +156,15 @@ span.comment {color: #808080;}
 </pre></span><span class="cu_brackets_b">}</span></span><br />
 <br />
 <b>sum</b>(iterable)<br />
-Суммирует элементы <pre class="inline_code">iterable</pre> и возвращает итог.<br />
+Суммирует элементы <pre class="inline_code">iterable</pre> и возвращает итоговое значение.<br />
 <br />
-<b>sorted</b>(iterable)<br />
+<b>product</b>(iterable)<br />
+Умножает элементы <pre class="inline_code">iterable</pre> и возвращает итоговое значение.<br />
+<br />
+<b>sorted</b>(iterable, key = N, reverse = 0B)<br />
 Возвращает отсортированный массив из элементов в <pre class="inline_code">iterable</pre>.<br />
+<pre class="inline_code">key</pre> задаёт функцию от одного аргумента, которая используется для извлечения ключа сравнения для каждого из элементов в <pre class="inline_code">iterable</pre>.<br />
+<pre class="inline_code">reverse</pre> — логическое значение. Если установлено в истину (1B), то элементы <pre class="inline_code">iterable</pre> сортируются таким образом, как будто каждое сравнение инвертировано.<br />
 <br />
 <b>min</b>(arg1, arg2)<br />
 Возвращает наименьший из аргументов.<br />

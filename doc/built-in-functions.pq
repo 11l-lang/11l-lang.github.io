@@ -20,6 +20,14 @@ Suspend execution of the calling thread for the given number of seconds. The arg
 *‘zip’(iterable1, iterable2)
 Aggregates elements from `iterable1` and `iterable2`.
 
+*‘all’(iterable)
+Return true (1B) if all elements of the `iterable` are true (or if the `iterable` is empty).
+
+*‘any’(iterable)
+Return true (1B) if any element of the `iterable` is true. If the `iterable` is empty, return false (0B).[[[
+Why `sum(arr)`, `product(arr)`, `all(arr)`, `any(arr)` etc., but `arr.filter(...)`, `arr.map(...)`, `arr.reduce(...)`?
+Because I dislike empty parentheses [e.g. `arr.sum()`].]]]
+
 *‘multiloop’(iterable1, iterable2 [,iterable3], function)
 This function is roughly equivalent to the following code: {
 #(11l)‘
@@ -46,8 +54,13 @@ F multiloop_filtered(iterable1, iterable2, filter_function, function)
 *‘sum’(iterable)
 Sums the items of an `iterable` and returns the total.
 
-*‘sorted’(iterable)
+*‘product’(iterable)
+Multiplies the items of an `iterable` and returns the total.
+
+*‘sorted’(iterable, key = N, reverse = 0B)
 Return a new sorted array from the items in `iterable`.
+`key` specifies a function of one argument that is used to extract a comparison key from each element of `iterable`.
+`reverse` is a boolean value. If set to true (1B), then the elements of `iterable` are sorted as if each comparison were reversed.
 
 *‘min’(arg1, arg2)
 Return the smallest of two arguments.

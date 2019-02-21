@@ -47,3 +47,9 @@ some_func( // because there is an unclosed parenthesis all following lines will 
    argument2)
 ’
 ’
+
+!‘Note: dot (`.`) is not considered as a binary operator because it is also used as a variables' prefix (see ‘Variables' prefixes’[./../prefixes]), and if you want to split member function call over multiple lines, then prepend dot with backslash:
+#(11l)‘
+result = obj.method1()
+           \.method2()
+’’

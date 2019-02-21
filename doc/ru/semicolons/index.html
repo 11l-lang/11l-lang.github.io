@@ -92,6 +92,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -156,6 +157,12 @@ span.comment {color: #808080;}
 </pre>
 </li>
 </ol>
+<br />
+<div class="note">Примечание: точка (<pre class="inline_code">.</pre>) не считается бинарным оператором, так как она также используется в качестве префикса переменных (смотри <a href="./../prefixes" target="_self">Префиксы переменных</a>), и если требуется перенести вызов метода на следующую строку, тогда добавьте перед точкой обратный слэш:<br />
+<pre class="code_block">
+<span class="identifier">result</span> = <span class="identifier">obj</span>.<span class="identifier">method1</span>()
+           \.<span class="identifier">method2</span>()
+</pre></div>
 
 </td></tr></table>
 </body>

@@ -92,6 +92,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -156,6 +157,12 @@ span.comment {color: #808080;}
 </pre>
 </li>
 </ol>
+<br />
+<div class="note">Note: dot (<pre class="inline_code">.</pre>) is not considered as a binary operator because it is also used as a variables' prefix (see <a href="./../prefixes" target="_self">Variables' prefixes</a>), and if you want to split member function call over multiple lines, then prepend dot with backslash:<br />
+<pre class="code_block">
+<span class="identifier">result</span> = <span class="identifier">obj</span>.<span class="identifier">method1</span>()
+           \.<span class="identifier">method2</span>()
+</pre></div>
 
 </td></tr></table>
 </body>

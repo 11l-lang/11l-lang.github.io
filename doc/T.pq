@@ -11,6 +11,12 @@ T <type name>
       R .s.len
 ’
 
+H(-1)‘Type aliases’
+
+#(11l)‘
+T Tuple2[T Ty] = Tuple[Ty, Ty]
+’
+
 
 H‘T/type subkeywords’
 

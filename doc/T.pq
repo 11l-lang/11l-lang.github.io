@@ -5,6 +5,7 @@
 #(11l)‘
 T <type name>
    String s // type variable
+   . String ps // private variable [rationale: dot is used for hidden files and folders in Unix]
    F (s) // constructor
       .s = s
    F get_s_len() // type function

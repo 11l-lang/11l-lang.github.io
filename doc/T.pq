@@ -12,6 +12,9 @@ T <type name>
       R .s.len
 ’
 
+[Because `T` and `type` are keywords in 11l, use can use `Ty` and `type_name` instead.]
+
+
 H(-1)‘Type aliases’
 
 #(11l)‘

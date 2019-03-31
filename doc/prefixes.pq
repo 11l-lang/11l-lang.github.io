@@ -7,7 +7,7 @@ Prefix `.` is used for type variables:
 T Error
    String message
 
-   F Error(message)
+   F (message)
       .message = message
 ’
 

@@ -7,7 +7,7 @@
 T Error
    String message
 
-   F Error(message)
+   F (message)
       .message = message
 ’
 

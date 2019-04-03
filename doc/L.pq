@@ -29,7 +29,7 @@ Keep executing a loop body as long the given expression is true (1B).
 ~‘Note: [[[the <expression> can not be]]]if ’`<expression>`~‘ is just a single identifier, like ’#(11l)‘L ok {...}’~‘[[[. In that case you should write]]], then please write this: ’#(11l)‘L ok == 1B {...}’~‘.’
 
 
-H(-1)‘3. Loop a particular number of times.’
+H(-1)‘3. Loop a specified number of times.’
 
 #(11l)‘
 L <number>

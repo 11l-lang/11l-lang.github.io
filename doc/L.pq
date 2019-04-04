@@ -20,11 +20,11 @@ L
 H(-1)‘2. A "while" loop.’
 
 #(11l)‘
-L <expression>
+L <condition>
    ...
 ’
 
-Keep executing a loop body as long the given expression is true (1B).
+Keep executing a loop body as long the given [[[expression is]]]condition evaluates to true (1B).
 
 ~‘Note: [[[the <expression> can not be]]]if ’`<expression>`~‘ is just a single identifier, like ’#(11l)‘L ok {...}’~‘[[[. In that case you should write]]], then please write this: ’#(11l)‘L ok == 1B {...}’~‘.’
 

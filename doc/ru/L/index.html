@@ -129,7 +129,7 @@ span.comment {color: #808080;}
 <br />
 Тело цикла выполняется/повторяется до тех пор, пока заданное <!--[[[выражение]]]-->условие истинно (равно 1В).<br />
 <br />
-<i>Примечание: если </i><pre class="inline_code">&lt;выражение></pre><i> представлено единственным идентификатором, например: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> {...}</pre><i>, тогда соблаговолите писать так: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> == <span class="constant">1B</span> {...}</pre><i>.</i><br />
+<i>Примечание: если </i><pre class="inline_code">&lt;условие></pre><i> представлено единственным идентификатором, например: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> {...}</pre><i>, тогда соблаговолите писать так: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> == <span class="constant">1B</span> {...}</pre><i>.</i><br />
 <br />
 <br />
 <h4>3. Повтор тела цикла заданное количество раз.</h4>
@@ -144,7 +144,7 @@ span.comment {color: #808080;}
 <span class="keyword">L</span> <span class="numeric-literal">3</span>
    <span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)
 </pre>
-выведет "ABC" 3 раза.<br />
+выведет <pre class="inline_code">"ABC"</pre> 3 раза.<br />
 <br />
 <i>Примечание: только <!--[[[числовые]]]-->целочисленные константы принимаются в качестве </i><pre class="inline_code">&lt;число></pre><i> на данный момент</i> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><i>если вам требуется повторять тело цикла произвольное количество раз, тогда используйте диапазон, например: </i><pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">number</span></pre></span><span class="cu_brackets_b">}</span></span>.<br />
 <br />
@@ -152,7 +152,7 @@ span.comment {color: #808080;}
 <h4>4. Цикл "for in".</h4>
 <br />
 <pre class="code_block">
-<span class="keyword">L</span>(<span class="identifier">переменная</span>) &lt;<span class="identifier">итерируемое</span> <span class="identifier">выражение</span>>
+<span class="keyword">L</span>(&lt;<span class="identifier">переменная</span>>) &lt;<span class="identifier">итерируемое</span> <span class="identifier">выражение</span>>
    ...
 </pre>
 <br />

@@ -45,8 +45,7 @@ F sum(a, b)
 ’
 
 ‘My thoughts on whitespace indentation to delimit code blocks’{
-Whitespace indentation to delimit code blocks gives[[[/delivers]]] much more than just [[[deliverance from/]]]getting rid of small syntactic -‘sugar’[[[rubbish/]]][[[verbalism/]]]noise [in the form of
-begin/end keywords or curly [[[braces]]]brackets]. But many developers [[[are]]] still do not get it.
+Whitespace indentation to delimit code blocks gives[[[/delivers]]] much more than just [[[deliverance from/]]]getting rid of small syntactic -‘sugar’[[[rubbish/]]][[[verbalism/]]]noise [in the form of semicolons, and begin/end keywords or curly [[[braces]]]brackets]. But many [[[developers/]]]programmers [[[are]]] still do not get it.
 Consider this sample from Nemerle programming language documentation:
 >[https://github.com/rsdn/nemerle/wiki/The-basics-(tutorial)#Rewriting_Line_Counter_without_the_loop]:‘
 In Nemerle the if expression always need to have the else clause. It's done this way to avoid stupid bugs with dangling-else:

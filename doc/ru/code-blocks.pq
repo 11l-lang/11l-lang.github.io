@@ -45,7 +45,7 @@ F sum(a, b)
 ’
 
 ‘Мои мысли на тему ‘whitespace indentation to delimit code blocks’\‘выделение блоков кода с помощью отступов’/‘«Двухмерного» синтаксиса Python-а’’{
-«Двухмерный» синтаксис помимо избавления от [мелкого] синтаксического '‘<s>’'сахара'‘</s>’'мусора даёт нечто большее, но что ещё так и не увидели/не поняли многие разработчики.
+«Двухмерный» синтаксис помимо избавления от [мелкого] синтаксического '‘<s>’'сахара'‘</s>’'мусора {в форме точек с запятой, а также ключевых слов begin/end или фигурных скобок} даёт нечто большее, но что ещё так и не увидели/не поняли многие разработчики.
 Проиллюстрирую это на примере документации к языку Nemerle:
 >[https://github.com/rsdn/nemerle/wiki/The-basics-(tutorial)#Rewriting_Line_Counter_without_the_loop]:‘
 In Nemerle the if expression always need to have the else clause. It's done this way to avoid stupid bugs with dangling-else:

@@ -150,8 +150,8 @@ span.comment {color: #808080;}
 }
 </pre>
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Мои мысли на тему ‘whitespace indentation to delimit code blocks’\‘выделение блоков кода с помощью отступов’/‘«Двухмерного» синтаксиса Python-а’<br /></span><div class="spoiler_text" style="display: none">
-«Двухмерный» синтаксис помимо избавления от <span class="sq"><span class="sq_brackets">[</span>мелкого<span class="sq_brackets">]</span></span> синтаксического <s>сахара</s>мусора <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">в форме точек с запятой, а также ключевых слов begin/end или фигурных скобок</span><span class="cu_brackets_b">}</span></span> даёт нечто большее, но что ещё так и не увидели/не поняли многие разработчики.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Мои мысли на тему ‘whitespace indentation to delimit code blocks’\‘выделение блоков кода с помощью отступов’/‘«двухмерного» синтаксиса Python-а’<br /></span><div class="spoiler_text" style="display: none">
+«Двухмерный» синтаксис помимо избавления от <span class="sq"><span class="sq_brackets">[</span>мелкого<span class="sq_brackets">]</span></span> синтаксического <s>сахара</s>мусора <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">в форме <!--[[[точек с запятой, а также ]]точки с запятой не имеют отношения к «двухмерному» синтаксису (существует множество языков программирования с необязательными точками с запятой, но без выделения блоков кода с помощью отступов: JavaScript, Go, Swift, Scala, Groovy, Kotlin)]-->ключевых слов begin/end или фигурных скобок</span><span class="cu_brackets_b">}</span></span> даёт нечто большее, но что ещё так и не увидели/не поняли многие разработчики.<br />
 Проиллюстрирую это на примере документации к языку Nemerle:<br />
 <blockquote><a href="https://github.com/rsdn/nemerle/wiki/The-basics-(tutorial)#Rewriting_Line_Counter_without_the_loop"><i>https://github.com/rsdn/nemerle/wiki/...</i></a>:<br />
 <br />
@@ -184,7 +184,7 @@ If you do not want the <pre class="inline_code">else</pre> clause, use <pre clas
 <blockquote><a href="http://compiler.su/dvukhmernyj-sintaksis-python.php"><i>http://compiler.su/dvukhmernyj-sintaksis-python.php</i></a>:<br />
 ... заканчиваются двоеточием, без которого можно обойтись.</blockquote>
 Согласен.<br />
-По сути, это двоеточие в Python не имеет смысла, так как есть операторы (if, <!--[[[switch, ]]]-->for/while, class, etc.), которые требуют всегда нового scope, и одного признака ‘‘новая строка с отступом’’ вполне достаточно.<br />
+По сути, это двоеточие в Python не имеет смысла, так как есть операторы (if, <!--[[[switch, ]]]-->for/while, def, class и т.д.), которые требуют всегда нового scope, и одного признака ‘‘новая строка с отступом’’ вполне достаточно.<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Кстати, весьма интересна история появления этого двоеточия.<br /></span><div class="spoiler_text" style="display: none">
 <blockquote><a href="http://python-history.blogspot.com/2011/07/karin-dewar-indentation-and-colon.html" title="Karin Dewar, Indentation and the Colon"><i>http://python-history.blogspot.com/2011/07/...</i></a>:<br />
 <br />

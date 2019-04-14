@@ -45,7 +45,7 @@ F sum(a, b)
 ’
 
 ‘My thoughts on whitespace indentation to delimit code blocks’{
-Whitespace indentation to delimit code blocks gives[[[/delivers]]] much more than just [[[deliverance from/]]]getting rid of small syntactic -‘sugar’[[[rubbish/]]][[[verbalism/]]]noise [in the form of semicolons, and begin/end keywords or curly [[[braces]]]brackets]. But many [[[developers/]]]programmers [[[are]]] still do not get it.
+Whitespace indentation to delimit code blocks gives[[[/delivers]]] much more than just [[[deliverance from/]]]getting rid of small syntactic -‘sugar’[[[rubbish/]]][[[verbalism/]]]noise [in the form of [[[semicolons, and ]]semicolons are not related to whitespace indentation (there are many programming languages with optional semicolons, but without whitespace indentation: JavaScript, Go, Swift, Scala, Groovy, Kotlin)]begin/end keywords or curly [[[braces]]]brackets]. But many [[[developers/]]]programmers [[[are]]] still do not get it.
 Consider this sample from Nemerle programming language documentation:
 >[https://github.com/rsdn/nemerle/wiki/The-basics-(tutorial)#Rewriting_Line_Counter_without_the_loop]:‘
 In Nemerle the if expression always need to have the else clause. It's done this way to avoid stupid bugs with dangling-else:
@@ -66,7 +66,7 @@ And the solution to this problem is [[[the]]] delimiting code blocks via whitesp
 >[http://compiler.su/dvukhmernyj-sintaksis-python.php]:‘выражения `for операторы цикла :`, `if условное выражение :`, `else :` заканчиваются двоеточием, без которого можно обойтись.
 (statements `for ... :`, `if condition :`, `else :` ends with a colon, which is not very necessary.)’
 I agree.
-Essentially, this colon in Python has no purpose because there are statements (if, [[[switch, ]]]for/while, class, etc.), which always require a new scope block, and a new line with a larger indentation level is quite sufficient.
+Essentially, this colon in Python has no purpose because there are statements (if, [[[switch, ]]]for/while, def, class, etc.), which always require a new scope block, and a new line with a larger indentation level is quite sufficient.
 ‘By the way, the history of the [[[emergence/]]]appearance of this colon is quite interesting.’{
 >[http://python-history.blogspot.com/2011/07/karin-dewar-indentation-and-colon.html ‘Karin Dewar, Indentation and the Colon’]:‘
 In 1978, in a design session in a mansion in Jabłonna (Poland), Robert Dewar, Peter King, Jack Schwartz and Lambert were comparing various alternative proposed syntaxes for B[[[, by comparing (buggy) bubble sort implementations written down in each alternative]]]... Since they couldn't agree, Robert Dewar's wife was called from her room and asked for her opinion[[[, like a modern-day Paris asked to compare the beauty of Hera, Athena, and Aphrodite]]]... But after the first version was explained to her, she remarked: "You mean, in the line where it says: 'FOR i ... ', that it has to be done for the lines that follow; not just for that line?!" And here the scientists realized that the misunderstanding would have been avoided if there had been a colon at the end of that line.

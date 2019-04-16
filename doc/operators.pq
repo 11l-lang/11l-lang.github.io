@@ -3,7 +3,7 @@
 
 
 [[[http://web.archive.org/web/20180127115004/http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-334.pdf
-]]]The following table summarizes all operators in order of precedence from highest to lowest:[[[
+]]]The following table summarizes all 11l operators in order of precedence from highest to lowest:[[[
 Credits to:
 . [https://docs.python.org/3/reference/expressions.html#operator-precedence]
 . [http://web.archive.org/web/20180127115004/http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-334.pdf]
@@ -91,7 +91,51 @@ e C c, e !C c
 ’ ‘Comparisons
 Including membership tests’’
 ‘‘x & y’ ‘Logical AND (rationale: {
-`&` is used instead of `&&` because logical AND is needed much more often than bitwise AND.
+`&` is used instead of `&&` because:
+1. Logical AND is needed much more often than bitwise AND.
+2.‘Bitwise AND is almost always used just for [[[flags' set checking]]]check if flag is set, but this is error-prone {
+Consider following C++ code:
+#(C++)‘
+class Render
+{
+public:
+    static const unsigned F_CAST_SHADOWS = 1 << ...;
+};
+
+class Control
+{
+public:
+    unsigned flags;
+    static const unsigned F_DISABLED = 1 << ...;
+};
+
+void some_func(Control *c)
+{
+    if (c->flags & Control::F_DISABLED) {
+        ...
+    }
+    if (c->flags & Render::F_CAST_SHADOWS) { // this is wrong, but will be correctly compiled in C++!
+        ...
+    }
+}
+’
+
+11l solution:
+#(11l)‘
+T Control
+   T.flags flags
+      DISABLED
+or:
+T Control
+   T Flags
+      Bool DISABLED
+   Flags flags
+
+F some_func(Control c)
+   I c.flags.DISABLED
+      ...
+’
+}, [[[and/]]]so [[[I wanted]]]the decision was made to discourage from such usage of bitwise AND operator at all.’
 })’’
 ‘‘x | y’ ‘Logical OR’’
 ‘‘x ? y’ ‘Null coalescing operator’’

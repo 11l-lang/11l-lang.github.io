@@ -92,6 +92,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -101,7 +102,7 @@ pre.inline_code {
 <br />
 <br />
 <!--[[[http://web.archive.org/web/20180127115004/http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-334.pdf
-]]]-->The following table summarizes all operators in order of precedence from highest to lowest:<!--[[[
+]]]-->The following table summarizes all 11l operators in order of precedence from highest to lowest:<!--[[[
 Credits to:
 . [https://docs.python.org/3/reference/expressions.html#operator-precedence]
 . [http://web.archive.org/web/20180127115004/http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-334.pdf]
@@ -188,7 +189,60 @@ e C c, e !C c<br />
 </td><td>Comparisons<br />
 Including membership tests</td></tr>
 <tr><td>x &amp; y</td><td>Logical AND (rationale: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
-<pre class="inline_code">&amp;</pre> is used instead of <pre class="inline_code">&amp;&amp;</pre> because logical AND is needed much more often than bitwise AND.<br />
+<pre class="inline_code">&amp;</pre> is used instead of <pre class="inline_code">&amp;&amp;</pre> because:<br />
+<ol>
+<li>Logical AND is needed much more often than bitwise AND.</li>
+<li>Bitwise AND is almost always used just for <!--[[[flags' set checking]]]-->check if flag is set, but this is error-prone <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+Consider following C++ code:<br />
+<pre class="code_block">
+class Render
+{
+public:
+    static const unsigned F_CAST_SHADOWS = 1 &lt;&lt; ...;
+};
+
+class Control
+{
+public:
+    unsigned flags;
+    static const unsigned F_DISABLED = 1 &lt;&lt; ...;
+};
+
+void some_func(Control *c)
+{
+    if (c->flags &amp; Control::F_DISABLED) {
+        ...
+    }
+    if (c->flags &amp; Render::F_CAST_SHADOWS) { // this is wrong, but will be correctly compiled in C++!
+        ...
+    }
+}
+</pre>
+<br />
+11l solution:<br />
+<style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre class="code_block">
+<span class="keyword">T</span> <span class="identifier">Control</span>
+   <span class="keyword">T.flags</span> <span class="identifier">flags</span>
+      <span class="identifier">DISABLED</span>
+<span class="identifier">or</span>:
+<span class="keyword">T</span> <span class="identifier">Control</span>
+   <span class="keyword">T</span> <span class="identifier">Flags</span>
+      <span class="identifier">Bool</span> <span class="identifier">DISABLED</span>
+   <span class="identifier">Flags</span> <span class="identifier">flags</span>
+
+<span class="keyword">F</span> <span class="identifier">some_func</span>(<span class="identifier">Control</span> <span class="identifier">c</span>)
+   <span class="keyword">I</span> <span class="identifier">c</span>.<span class="identifier">flags</span>.<span class="identifier">DISABLED</span>
+      ...
+</pre>
+</span><span class="cu_brackets_b">}</span></span>, <!--[[[and/]]]-->so <!--[[[I wanted]]]-->the decision was made to discourage from such usage of bitwise AND operator at all.</li>
+</ol>
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x | y</td><td>Logical OR</td></tr>
 <tr><td>x ? y</td><td>Null coalescing operator</td></tr>

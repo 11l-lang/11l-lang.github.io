@@ -171,11 +171,7 @@ x >> y</td><td>Поразрядный сдвиг влево<br />
 <tr><td>x &lt; y, x &lt;= y<br />
 x > y, x >= y</td><td>Операции сравнения</td></tr>
 <tr><td>x..y, x.&lt;y<br />
-x&lt;.y, x&lt;.&lt;y</td><td>Диапазоны<!--[[[
-a..b соответствует [a, b] в языках программирования: Ruby[‘TIOBE Rating: 1.109%’], Groovy[‘1.016%’], Kotlin[‘0.253%’], CoffeeScript, Perl[‘1.013%’], F#[‘0.227%’], Ada[‘0.283%’], Nim
-a...b соответствует [a, b] в языках программирования: Swift[‘1.220%’][[[(]]]
-a..b соответствует [a, b) в языках программирования: D[‘0.511%’], Rust[‘0.297%’], C#[‘3.455%’]'‘<!--]-->’'
-]]]--></td></tr>
+x&lt;.y, x&lt;.&lt;y</td><td>Диапазоны</td></tr>
 <tr><td>x""y и x‘’y</td><td>Конкатенация строк (<a href="./../‘’" target="_self">обоснование выбора</a>)</td></tr>
 <tr><td>x == y, x != y<br />
 e in c, e !in c<br />
@@ -183,7 +179,60 @@ e C c, e !C c<br />
 </td><td>Сравнения<br />
 Элемент e содержится/‘не содержится’ в контейнере c</td></tr>
 <tr><td>x &amp; y</td><td>Логическое И (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
-Используется <pre class="inline_code">&amp;</pre> вместо <pre class="inline_code">&amp;&amp;</pre> так как логическое И требуется гораздо<!--[[[/намного]]]--> чаще, чем поразрядное.<br />
+Используется <pre class="inline_code">&amp;</pre> вместо <pre class="inline_code">&amp;&amp;</pre> так как:<br />
+<ol>
+<li>Логическое И требуется гораздо<!--[[[/намного]]]--> чаще, чем поразрядное.</li>
+<li>Поразрядное И практически всегда используется только для проверки установленных флагов, но это чревато ошибками <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+Рассмотрим следующий код на C++:<br />
+<pre class="code_block">
+class Render
+{
+public:
+    static const unsigned F_CAST_SHADOWS = 1 &lt;&lt; ...;
+};
+
+class Control
+{
+public:
+    unsigned flags;
+    static const unsigned F_DISABLED = 1 &lt;&lt; ...;
+};
+
+void some_func(Control *c)
+{
+    if (c->flags &amp; Control::F_DISABLED) {
+        ...
+    }
+    if (c->flags &amp; Render::F_CAST_SHADOWS) { // это неверно, но будет корректно скомпилировано!
+        ...
+    }
+}
+</pre>
+<br />
+Решение 11l:<br />
+<style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre class="code_block">
+<span class="keyword">T</span> <span class="identifier">Control</span>
+   <span class="keyword">T.flags</span> <span class="identifier">flags</span>
+      <span class="identifier">DISABLED</span>
+<span class="identifier">или</span>:
+<span class="keyword">T</span> <span class="identifier">Control</span>
+   <span class="keyword">T</span> <span class="identifier">Flags</span>
+      <span class="identifier">Bool</span> <span class="identifier">DISABLED</span>
+   <span class="identifier">Flags</span> <span class="identifier">flags</span>
+
+<span class="keyword">F</span> <span class="identifier">some_func</span>(<span class="identifier">Control</span> <span class="identifier">c</span>)
+   <span class="keyword">I</span> <span class="identifier">c</span>.<span class="identifier">flags</span>.<span class="identifier">DISABLED</span>
+      ...
+</pre>
+</span><span class="cu_brackets_b">}</span></span>, поэтому было принято такое решение, чтобы <!--[[[отговорить/]]]-->сподвигнуть отказаться от такого использования поразрядного И вообще<!--[[[ другими словами, если оставить/исключить из рассмотрения использование `&` для флагов, то что останется вообще?]не очень удачно сформулированное замечание]]-->.</li>
+</ol>
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x | y</td><td>Логическое ИЛИ</td></tr>
 <tr><td>x ? y</td><td>Вернуть левый операнд если он не нуль, иначе вернуть правый операнд</td></tr>

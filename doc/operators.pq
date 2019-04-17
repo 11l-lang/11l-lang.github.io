@@ -93,7 +93,7 @@ Including membership tests’’
 ‘‘x & y’ ‘Logical AND (rationale: {
 `&` is used instead of `&&` because:
 1. Logical AND is needed much more often than bitwise AND.
-2.‘Bitwise AND is almost always used just for [[[flags' set checking]]]check if flag is set, but this is error-prone {
+2.‘Bitwise AND is almost always used just for [[[flags' set checking]]]check if some flag is set, but this is error-prone {
 Consider following C++ code:
 #(C++)‘
 class Render

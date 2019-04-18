@@ -135,7 +135,7 @@ F some_func(Control c)
    I c.flags.DISABLED
       ...
 ’
-}, [[[and/]]]so [[[I wanted]]]the decision was made to discourage from[[[avoid]]] such usage of bitwise AND operator at all.’
+}, [[[and/]]]so [[[I wanted]]]the decision was made to discourage[[[чтобы в сознании стёрлось такое использование `&`]]] from[[[avoid]]] such usage of bitwise AND operator at all.’
 })’’
 ‘‘x | y’ ‘Logical OR’’
 ‘‘x ? y’ ‘Null coalescing operator’’

@@ -243,6 +243,7 @@ span.comment {color: #808080;}
 </pre>
 </span><span class="cu_brackets_b">}</span></span>, <!--[[[and/]]]-->so <!--[[[I wanted]]]-->the decision was made to discourage<!--[[[чтобы в сознании стёрлось такое использование `&`]]]--> from<!--[[[avoid]]]--> such usage of bitwise AND operator at all.</li>
 </ol>
+Sometimes bitwise AND is used as a modulo (<pre class="inline_code">%</pre>) operation of powers of 2, but if the <!--[[[divisor]]]-->second operand is constant, then operator <pre class="inline_code">%</pre> should be used instead (<pre class="inline_code">x [&amp;] y = x % (y + 1)</pre>). If operator <pre class="inline_code">%</pre> works for negative numbers like in Python (i.e. e.g. <pre class="inline_code">-1 % 4 = 3</pre>), then <!--[[[it]]]-->expression <pre class="inline_code">x % (y + 1)</pre> will be compiled to bitwise AND.<br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x | y</td><td>Logical OR</td></tr>
 <tr><td>x ? y</td><td>Null coalescing operator</td></tr>

@@ -92,6 +92,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -118,12 +119,13 @@ Generate the file and directory names in a directory tree under <pre class="inli
 If <pre class="inline_code">files_only</pre> is true (1B), only file names are returned.<br />
 If <pre class="inline_code">dir_filter</pre> is given, then it is called for each directory and if <pre class="inline_code">dir_filter</pre> returns false (0B) for a specific directory, then <pre class="inline_code">walk_dir</pre> will not enter that directory.<br />
 <br />
-fs:<b>is_directory</b>(path)<br />
+fs:<b>is_dir</b>(path)<br />
 Return true (1B) if <pre class="inline_code">path</pre> is an existing directory (or a symbolic link pointing to a directory).<br />
 <br />
 fs:<b>is_file</b>(path)<br />
 Return true (1B) if <pre class="inline_code">path</pre> is an existing file (or a symbolic link pointing to a file).<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Why there is no fs:exists(path) function?<br /></span><div class="spoiler_text" style="display: none">Because I think <!--[[[you should express your intention]]]-->the intention should be expressed more clearly.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Why there is no fs:exists(path) function?<br /></span><div class="spoiler_text" style="display: none">
+Because I think <!--[[[you should express your intention]]]-->the intention should be expressed more clearly.<br />
 Consider this Python code:<br />
 <style>
 span.keyword {color: #0000FF; font-weight: bold;}
@@ -140,11 +142,11 @@ If you replace <pre class="inline_code">os.path.isfile</pre> with <pre class="in
 <br />
 So if you really want to check like <pre class="inline_code">os.path.exists</pre> in Python, use more verbose code in 11l:<br />
 <pre class="code_block">
-<span class="identifier">fs</span>:<span class="identifier">is_file</span>(<span class="identifier">path</span>) | <span class="identifier">fs</span>:<span class="identifier">is_directory</span>(<span class="identifier">path</span>)
+<span class="identifier">fs</span>:<span class="identifier">is_file</span>(<span class="identifier">path</span>) | <span class="identifier">fs</span>:<span class="identifier">is_dir</span>(<span class="identifier">path</span>)
 </pre>
 or:<br />
 <pre class="code_block">
-<span class="identifier">path</span>. {<span class="identifier">fs</span>:<span class="identifier">is_file</span>(.) | <span class="identifier">fs</span>:<span class="identifier">is_directory</span>(.)}
+<span class="identifier">path</span>. {<span class="identifier">fs</span>:<span class="identifier">is_file</span>(.) | <span class="identifier">fs</span>:<span class="identifier">is_dir</span>(.)}
 </pre>
 </div>
 <br />
@@ -154,11 +156,11 @@ Return true (1B) if path refers to an existing symbolic link.<br />
 fs:<b>file_size</b>(path)<br />
 Return the size of the file, in bytes.<br />
 <br />
-fs:<b>create_directory</b>(path)<br />
+fs:<b>create_dir</b>(path)<br />
 Create a directory named <pre class="inline_code">path</pre>.<br />
 <br />
-fs:<b>create_directories</b>(path)<br />
-Recursive directory creation function. Like <pre class="inline_code">create_directory()</pre>, but creates all intermediate-level directories needed to contain the leaf directory.<br />
+fs:<b>create_dirs</b>(path)<br />
+Recursive directory creation function. Like <pre class="inline_code">create_dir()</pre>, but creates all intermediate-level directories needed to contain the leaf directory.<br />
 <br />
 fs:<b>remove(p)</b><br />
 The file or empty directory identified by the path <pre class="inline_code">p</pre> is deleted. Symlinks are not followed (symlink is removed, not its target).<br />

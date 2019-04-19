@@ -18,7 +18,7 @@ Generate the file and directory names in a directory tree under `path`.
 If `files_only` is true (1B), only file names are returned.
 If `dir_filter` is given, then it is called for each directory and if `dir_filter` returns false (0B) for a specific directory, then `walk_dir` will not enter that directory.
 
-fs:*‘is_directory’(path)
+fs:*‘is_dir’(path)
 Return true (1B) if `path` is an existing directory (or a symbolic link pointing to a directory).
 
 fs:*‘is_file’(path)
@@ -34,11 +34,11 @@ If you replace `os.path.isfile` with `os.path.exists` then this code can work[[[
 
 So if you really want to check like `os.path.exists` in Python, use more verbose code in 11l:
 #(11l)‘
-fs:is_file(path) | fs:is_directory(path)
+fs:is_file(path) | fs:is_dir(path)
 ’
 or:
 #(11l)‘
-path. {fs:is_file(.) | fs:is_directory(.)}
+path. {fs:is_file(.) | fs:is_dir(.)}
 ’
 }
 
@@ -48,11 +48,11 @@ Return true (1B) if path refers to an existing symbolic link.
 fs:*‘file_size’(path)
 Return the size of the file, in bytes.
 
-fs:*‘create_directory’(path)
+fs:*‘create_dir’(path)
 Create a directory named `path`.
 
-fs:*‘create_directories’(path)
-Recursive directory creation function. Like `create_directory()`, but creates all intermediate-level directories needed to contain the leaf directory.
+fs:*‘create_dirs’(path)
+Recursive directory creation function. Like `create_dir()`, but creates all intermediate-level directories needed to contain the leaf directory.
 
 fs:*‘remove(p)’
 The file or empty directory identified by the path `p` is deleted. Symlinks are not followed (symlink is removed, not its target).

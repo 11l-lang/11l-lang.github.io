@@ -162,8 +162,11 @@ Create a directory named <pre class="inline_code">path</pre>.<br />
 fs:<b>create_dirs</b>(path)<br />
 Recursive directory creation function. Like <pre class="inline_code">create_dir()</pre>, but creates all intermediate-level directories needed to contain the leaf directory.<br />
 <br />
-fs:<b>remove(p)</b><br />
-The file or empty directory identified by the path <pre class="inline_code">p</pre> is deleted. Symlinks are not followed (symlink is removed, not its target).<br />
+fs:<b>remove_file</b>(path)<br />
+Remove (delete) the file <pre class="inline_code">path</pre>.<br />
+<br />
+fs:<b>remove_dir</b>(path)<br />
+Remove (delete) the directory <pre class="inline_code">path</pre>. Only works when the directory is empty.<br />
 <br />
 fs:<b>remove_all</b>(p)<br />
 Deletes the contents of <pre class="inline_code">p</pre> (if it is a directory) and the contents of all its subdirectories, recursively, then deletes p itself. Symlinks are not followed (symlink is removed, not its target).<br />

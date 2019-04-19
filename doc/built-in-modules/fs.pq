@@ -54,8 +54,11 @@ Create a directory named `path`.
 fs:*‘create_dirs’(path)
 Recursive directory creation function. Like `create_dir()`, but creates all intermediate-level directories needed to contain the leaf directory.
 
-fs:*‘remove(p)’
-The file or empty directory identified by the path `p` is deleted. Symlinks are not followed (symlink is removed, not its target).
+fs:*‘remove_file’(path)
+Remove (delete) the file `path`.
+
+fs:*‘remove_dir’(path)
+Remove (delete) the directory `path`. Only works when the directory is empty.
 
 fs:*‘remove_all’(p)
 Deletes the contents of `p` (if it is a directory) and the contents of all its subdirectories, recursively, then deletes p itself. Symlinks are not followed (symlink is removed, not its target).

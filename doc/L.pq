@@ -26,7 +26,7 @@ L <condition>
 
 Keep executing a loop body as long the given [[[expression is]]]condition evaluates to true (1B).
 
-~‘Note: [[[the <condition> can not be]]]if ’`<condition>`~‘ is just a single identifier, like ’#(11l)‘L ok {...}’~‘[[[. In that case you should write]]], then please write this: ’#(11l)‘L ok == 1B {...}’~‘.’
+~‘Note: [[[the <condition> can not be]]]if ’`<condition>`~‘ is just a single identifier, like in ’#(11l)‘L ok {...}’~‘[[[. In that case you should write]]], then please write this: ’#(11l)‘L ok == 1B {...}’~‘.’
 
 
 H(-1)‘3. Loop a specified number of times.’

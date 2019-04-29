@@ -63,7 +63,7 @@ x >> y’ ‘Поразрядный сдвиг влево
 ‘‘x (+) y’ ‘Поразрядное исключающее ИЛИ (обоснование выбора: {
 Символы (+) похожи на символ ⊕, который используется в ‘алгебре логики’[https://ru.wikipedia.org/wiki/Алгебра_логики]\‘Boolean algebra’[https://en.wikipedia.org/wiki/Boolean_algebra] для обозначения операции ‘исключающего или’/‘сложения по модулю 2’[https://ru.wikipedia.org/wiki/Сложение_по_модулю_2]: Р‘https://wikimedia.org/api/rest_v1/media/math/render/svg/18f7d86510aec2e45bb019abacccd2e772790f8f’.
 И хотя ⊕ используется чаще для [[[однобитовых/]]]одноразрядных значений, в Википедии встречается его применение ‘для указателей’[https://ru.wikipedia.org/wiki/XOR-связный_список <- https://habrahabr.ru/post/183462/#comment_6377452 <- google:‘1с xor’] и ‘для массивов из байт’[https://en.wikipedia.org/wiki/Hash-based_message_authentication_code <- google:‘HMAC’ <- https://www.imperialviolet.org/2017/05/31/skipsha3.html ‘key:        Bytes     array of bytes’].
-[К тому же, использовать ^ для данной операции я считаю неудачной идеей (ну, во всяком случае новичков в программировании это точно ‘сбивает с толку’[https://stackoverflow.com/questions/11464905/what-is-used-for-in-ruby]).]
+[К тому же, использовать ^ для данной операции я считаю неудачной идеей (ну, во всяком случае, новичков в программировании это точно ‘сбивает с толку’[https://stackoverflow.com/questions/11464905/what-is-used-for-in-ruby]).]
 })’’
 ‘‘x 0‘[|]’ y’ ‘Поразрядное ИЛИ (обоснование выбора: {
 Символ | похож на 1, а 0‘[1]’ выглядит похоже на логический вентиль ИЛИ:

@@ -73,7 +73,7 @@ P‘https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/IEC_AND_label.svg/
 ‘‘x (+) y’ ‘Bitwise XOR (rationale: {
 Symbols (+) look like symbol ⊕, which is used in ‘Boolean algebra’[https://en.wikipedia.org/wiki/Boolean_algebra] for exclusive or operation: Р‘https://wikimedia.org/api/rest_v1/media/math/render/svg/18f7d86510aec2e45bb019abacccd2e772790f8f’.
 And although ⊕ is used more often for single-bit values, in Wikipedia it [[[occurs/]]]is sometimes used ‘for pointers’[https://en.wikipedia.org/wiki/XOR_linked_list <- https://ru.wikipedia.org/wiki/XOR-связный_список <- https://habrahabr.ru/post/183462/#comment_6377452 <- google:‘1с xor’] and ‘for arrays of bytes’[https://en.wikipedia.org/wiki/Hash-based_message_authentication_code <- google:‘HMAC’ <- https://www.imperialviolet.org/2017/05/31/skipsha3.html ‘key:        Bytes     array of bytes’].
-[Besides, usage of ^ for this operation I think a bad idea (at least this is ‘confusing for novices’[https://stackoverflow.com/questions/11464905/what-is-used-for-in-ruby]).]
+[Besides, usage of ^ for this operation I [[[think/]]]consider a bad idea (at least this is ‘confusing for novices’[https://stackoverflow.com/questions/11464905/what-is-used-for-in-ruby]).]
 })’’
 ‘‘x 0‘[|]’ y’ ‘Bitwise OR (rationale: {
 Symbol | looks like 1 and 0‘[1]’ looks similar to OR gate:

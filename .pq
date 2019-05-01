@@ -66,6 +66,8 @@ There are 11 keywords at the root of that tree, and each word can be written as 
                         └── abstract
 ── L/loop ──┬── continue
             ├── break
+            ├── remove_current_element_and_continue
+            ├── remove_current_element_and_break
             ├── on_continue
             ├── on_break
             ├── was_no_break

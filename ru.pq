@@ -61,6 +61,8 @@
                                      └── abstract\абстракт
 ── L/loop\Ц/цикл ──┬── continue\продолжить
                    ├── break\прервать
+                   ├── remove_current_element_and_continue\удалить_текущий_элемент_и_продолжить
+                   ├── remove_current_element_and_break\удалить_текущий_элемент_и_прервать
                    ├── on_continue\при_продолжении
                    ├── on_break\при_прерывании
                    ├── was_no_break\не_был_прерван

@@ -21,7 +21,7 @@ T Person
 }) or this is a module-default-function, e.g. `os:(command_string)` (see ‘module os documentation’[./../built-in-modules/os]).
 
 `<arguments>`
-Comma-separated list of function's arguments. Can be empty.
+Comma- or semicolon-separated list of function[[['s]]] arguments. Can be empty.
 Each argument is defined as:
 0‘[<argument type>] [<qualifier>]<argument name> [= <default value>]’
 
@@ -84,10 +84,10 @@ Small example:
 T Shape
    F.virtual.abstract square() -> Float
 
-T Circle(Shape, Object)
+T Circle(Shape)
    Float radious
    F.virtual.override square() -> Float
-      R pi * radious^2
+      R math:pi * .radious^2
 ’
 
 `F.args`/`fn.args` is intended to provide access to the arguments passed to the current function, but it is not implemented yet.

@@ -92,6 +92,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -126,12 +127,13 @@ Name of the function. Can be empty if it is a constructor (when <!--[[[new ]]]--
 </span><span class="cu_brackets_b">}</span></span>) or this is a module-default-function, e.g. <pre class="inline_code">os:(command_string)</pre> (see <a href="./../built-in-modules/os" target="_self">module os documentation</a>).<br />
 <br />
 <pre class="inline_code">&lt;arguments></pre><br />
-Comma-separated list of function's arguments. Can be empty.<br />
+Comma- or semicolon-separated list of function<!--[[['s]]]--> arguments. Can be empty.<br />
 Each argument is defined as:<br />
 [&lt;argument type>] [&lt;qualifier>]&lt;argument name> [= &lt;default value>]<br />
 <br />
 By default all arguments passed to a function are constant and can not be changed inside a function, but this behaviour can be altered via qualifiers.<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Qualifiers<br /></span><div class="spoiler_text" style="display: none"><pre class="inline_code">=</pre><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Qualifiers<br /></span><div class="spoiler_text" style="display: none">
+<pre class="inline_code">=</pre><br />
 Make a local copy of argument. Make it possible to change an argument inside a function. In this case only local copy of argument will be changed.<br />
 <br />
 <pre class="inline_code">&amp;</pre><br />
@@ -188,10 +190,10 @@ Small example:<br />
 <span class="keyword">T</span> <span class="identifier">Shape</span>
    <span class="keyword">F.virtual.abstract</span> <span class="identifier">square</span>() -> <span class="identifier">Float</span>
 
-<span class="keyword">T</span> <span class="identifier">Circle</span>(<span class="identifier">Shape</span>, <span class="identifier">Object</span>)
+<span class="keyword">T</span> <span class="identifier">Circle</span>(<span class="identifier">Shape</span>)
    <span class="identifier">Float</span> <span class="identifier">radious</span>
    <span class="keyword">F.virtual.override</span> <span class="identifier">square</span>() -> <span class="identifier">Float</span>
-      <span class="keyword">R</span> <span class="identifier">pi</span> * <span class="identifier">radious</span>^<span class="numeric-literal">2</span>
+      <span class="keyword">R</span> <span class="identifier">math</span>:<span class="identifier">pi</span> * .<span class="identifier">radious</span>^<span class="numeric-literal">2</span>
 </pre>
 <br />
 <pre class="inline_code">F.args</pre>/<pre class="inline_code">fn.args</pre> is intended to provide access to the arguments passed to the current function, but it is not implemented yet.<br />

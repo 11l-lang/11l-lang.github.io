@@ -162,6 +162,8 @@ H‘‘Replacement field’ ‘Argument’  ‘Output’      ’
 
 *‘Tuple’
 A tuple. For example, a tuple with two items: #(11l)‘(1, 2)’.
+~‘Note 1: like ‘in mypy’[https://stackoverflow.com/a/52559625/2692494 <- google:‘mypy list any’], tuples in 11l are heterogeneous, but arrays (analogue of Python's lists) are homogeneous.
+Note 2: in contrast to Python, tuples in 11l are mutable (like in C++).’
 
 *‘Array’
 An array. For example, an array with two items: #(11l)‘[1, 2]’.

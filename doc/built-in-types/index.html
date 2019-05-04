@@ -138,10 +138,12 @@ span.comment {color: #808080;}
 </style><pre class="code_block">
 <span class="identifier">Char</span>(<span class="identifier">code'</span> <span class="numeric-literal">65</span>)
 </pre>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none"><b>code</b><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none">
+<b>code</b><br />
 Code of the character.<br />
 </div>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>is_digit</b>()<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
+<b>is_digit</b>()<br />
 Return true (1B) if character is a digit.<br />
 <br />
 <b>is_alpha</b>()<br />
@@ -162,10 +164,12 @@ Return a copy of the character converted to uppercase.<br />
 <br />
 <b>String</b><br />
 String type. Can be constructed from a <a href="./../string-literals" target="_self">string literal</a>.<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none"><b>len</b><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none">
+<b>len</b><br />
 Length of the string in characters.<br />
 </div>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>last</b><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
+<b>last</b><br />
 A last character of the string. (This method is called without parens.)<br />
 <br />
 <b>starts_with</b>(prefix)<br />
@@ -236,7 +240,8 @@ Return a copy of the string with leading and trailing characters removed.<br />
 <br />
 <b>format</b>(args...)<br />
 Perform a string formatting operation. The string on which this method is called can contain literal text or replacement fields starting with <pre class="inline_code">#</pre>. Returns a copy of the string where each replacement field is replaced with the string value of the corresponding argument.<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Format String Syntax<br /></span><div class="spoiler_text" style="display: none"><pre>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Format String Syntax<br /></span><div class="spoiler_text" style="display: none">
+<pre>
 replacement_field ::= "#"["&lt;"](width["."precision] | "."[precision])
 width     ::= digit+
 precision ::= digit+
@@ -263,13 +268,17 @@ Examples:<br />
 <br />
 <b>Tuple</b><br />
 A tuple. For example, a tuple with two items: <pre style="display: inline">(<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>)</pre>.<br />
+<i>Note 1: like <a href="https://stackoverflow.com/a/52559625/2692494" title="<- google:‘mypy list any’">in mypy</a>, tuples in 11l are heterogeneous, but arrays (analogue of Python's lists) are homogeneous.<br />
+Note 2: in contrast to Python, tuples in 11l are mutable (like in C++).</i><br />
 <br />
 <b>Array</b><br />
 An array. For example, an array with two items: <pre style="display: inline">[<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>]</pre>.<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none"><b>len</b><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none">
+<b>len</b><br />
 Length of an array.<br />
 </div>
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>last</b><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
+<b>last</b><br />
 A last element of the array. (This method is called without parens.)<br />
 <br />
 <b>join</b>(sep)<br />
@@ -315,7 +324,8 @@ Return index of the first occurrence of <pre class="inline_code">x</pre> in this
 <br />
 <b>Dict</b><br />
 A dictionary. For example, a dictionary with two items: <pre style="display: inline">[<span class="string-literal">‘key1’</span> = <span class="numeric-literal">1</span>, <span class="string-literal">‘key2’</span> = <span class="numeric-literal">2</span>]</pre>.<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>keys</b>()<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
+<b>keys</b>()<br />
 Return an array of the dictionary's keys.<br />
 <br />
 <b>values</b>()<br />
@@ -330,7 +340,8 @@ A dictionary, which does not throw an exception when accessing a non-existent ke
 <br />
 <b>File</b><br />
 A file object.<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none"><b>File</b>(name, mode = ‘r’)<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
+<b>File</b>(name, mode = ‘r’)<br />
 Open file with the specified name and mode (<i>note: only ‘r’ and ‘w’ are supported at the present moment</i>).<br />
 <br />
 <b>read</b>() -> String<br />

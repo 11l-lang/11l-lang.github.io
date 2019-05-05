@@ -58,6 +58,7 @@ Return a copy of the character converted to uppercase.
 
 *‘String’
 String type. Can be constructed from a ‘string literal’[./../string-literals].
+~‘Note: in contrast to Python, strings in 11l are mutable (like in C++).’
 ‘Members’{
 *‘len’
 Length of the string in characters.

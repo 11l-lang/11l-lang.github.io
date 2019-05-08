@@ -35,3 +35,17 @@ or so:
 #(11l)‘
 V tag = S prev_char() {‘*’ {‘b’} ‘_’ {‘u’} ‘-’ {‘s’} ‘~’ {‘i’}}
 ’
+
+If you have a very long switch, which does not fit on the screen, you can add comment[[[s]]] for each "case":
+#(11l)‘
+S message
+   WM_CREATE // case
+      ...
+   WM_DESTROY // case
+      ...
+   WM_KEYDOWN // case
+      ...
+   ...
+   E // case
+      ...
+’

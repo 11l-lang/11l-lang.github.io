@@ -92,6 +92,7 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -139,6 +140,20 @@ span.comment {color: #808080;}
 или так:<br />
 <pre class="code_block">
 <span class="keyword">V</span> <span class="identifier">tag</span> = <span class="keyword">S</span> <span class="identifier">prev_char</span>() {<span class="string-literal">‘*’</span> {<span class="string-literal">‘b’</span>} <span class="string-literal">‘_’</span> {<span class="string-literal">‘u’</span>} <span class="string-literal">‘-’</span> {<span class="string-literal">‘s’</span>} <span class="string-literal">‘~’</span> {<span class="string-literal">‘i’</span>}}
+</pre>
+<br />
+Если ваш switch получился слишком большим и он не помещается на экран, тогда вы можете добавить комментарий к каждому "case":<br />
+<pre class="code_block">
+<span class="keyword">S</span> <span class="identifier">message</span>
+   <span class="identifier">WM_CREATE</span> <span class="comment">// case</span>
+      ...
+   <span class="identifier">WM_DESTROY</span> <span class="comment">// case</span>
+      ...
+   <span class="identifier">WM_KEYDOWN</span> <span class="comment">// case</span>
+      ...
+   ...
+   <span class="keyword">E</span> <span class="comment">// case</span>
+      ...
 </pre>
 
 </td></tr></table>

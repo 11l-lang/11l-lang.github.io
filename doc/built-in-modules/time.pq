@@ -2,13 +2,14 @@
 ]]]H‘Module time’
 
 
-time:()
-Return the current time as Time object.
+H(-1)‘Time methods’
 
-time:(year, month = 1, day = 1, hour = 0, minute = 0, Float second = 0)
+*‘Time’()
+Return the current time.
+
+*‘Time’(year, month = 1, day = 1, hour = 0, minute = 0, Float second = 0)
 Constructs a Time object from specified arguments.
 
-‘Time Methods’{
 *‘unix_time’()
 Return seconds since the epoch as a floating point number.
 
@@ -26,26 +27,31 @@ T‘
 ‘‘mm’   ‘minute[[[ as a decimal number]]] (range [00, 59])’’
 ‘‘ss’   ‘second[[[ as a decimal number]]] (range [00, 60])’’
 ’
-}
 
-time:*‘delta’(days, hours = 0, minutes = 0, seconds = 0, milliseconds = 0, microseconds = 0, weeks = 0)
-Return [[[a time ]]]Delta object.
-‘Delta Members’{
+
+H(-1)‘TimeDelta methods and members’
+
+*‘TimeDelta’(', days = 0, hours = 0, minutes = 0, seconds = 0, milliseconds = 0, microseconds = 0, weeks = 0)
+Constructor.
+
 *‘seconds’
 Number of seconds.
 
 *‘days’()
 Number of days.
-}
+
 The following operators are supported:
 ```
-Time - Time -> Delta
-Time + Delta -> Time
-Time - Delta -> Time
+Time - Time -> TimeDelta
+Time + TimeDelta -> Time
+Time - TimeDelta -> Time
 ```
 
+
+H(-1)‘time functions’
+
 time:*‘today’()
-Return the current time as #(11l)‘time:(current_year, current_month, current_day)’.
+Return the current time as #(11l)‘Time(current_year, current_month, current_day)’.
 
 time:*‘from_unix_time’(Float seconds_since_the_epoch)
 Return [[[the time]]]a Time object corresponding to the POSIX timestamp (i.e. seconds since the epoch).

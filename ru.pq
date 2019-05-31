@@ -44,6 +44,7 @@
 
 11l — это [[[‘сверхвысокоуровневый язык программирования’[https://ru.wikipedia.org/wiki/Сверхвысокоуровневый_язык_программирования]]термин не устоявшийся, и не стоит выпендриваться :)(:]]высокоуровневый язык программирования [[[универсальный/]]]общего назначения, [[[в то же время ]]]обеспечивающий простое и прямое отображение программы на аппаратную часть и стремящийся следовать принципу нулевых накладных расходов[[[конкретно речь о L.index, исключениях и виртуальных функциях]]] как C++ (неиспользуемые возможности языка не добавляют ‘накладных расходов времени выполнения[[[ программы]]]’[‘лишнее время выполнения/вычисления, часто сопровождающееся увеличением размера/длины скомпилированного/получаемого машинного кода’]). 11l — статически типизированный, но [[[даёт ощущение]]]ощущается как динамически типизируемый язык (как например Python)[[[ или даже скриптовый]]].
 Дизайн 11l направлен на максимальную краткость и лаконичность.
+Также 11l пытается совместить хорошую читаемость и выразительность кода (как в Python) с производительностью C++.
 
 Явное отличие 11l от всех других языков программирования заключается в том, что его [[[зарезервированные/]]]ключевые слова организованы в виде дерева, а не просто списка.
 В корне этого дерева располагаются 11 базовых [[[зарезервированных/]]]ключевых слов, которые можно сокращать до [[[их первой]]]одной буквы. [Короткие однобуквенные [[[зарезервированные/]]]ключевые слова выглядят странно на первый взгляд, но это всего лишь дело привычки.]
@@ -331,6 +332,7 @@ F caesar(string, =key, decode = 0B)
 ‘100 doors’[https://www.rosettacode.org/wiki/100_doors#11l] | ‘Visualize a tree’[https://www.rosettacode.org/wiki/Visualize_a_tree#11l] | ‘Execute Brain****’[https://www.rosettacode.org/wiki/Execute_Brain****#11l]
 ‘Simple moving average’[https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l] | ‘Align columns’[https://www.rosettacode.org/wiki/Align_columns#11l] | ‘Arithmetic evaluation’[https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l]
 ‘Comma quibbling’[https://www.rosettacode.org/wiki/Comma_quibbling#11l] | ‘Constrained random points on a circle’[https://www.rosettacode.org/wiki/Constrained_random_points_on_a_circle#11l] | CRC-32[https://www.rosettacode.org/wiki/CRC-32#11l]
+‘Diversity prediction theorem’[https://www.rosettacode.org/wiki/Diversity_prediction_theorem#11l]
 [‘Все примеры на Rosetta Code’[https://www.rosettacode.org/wiki/Category:11l]]
 }
 }

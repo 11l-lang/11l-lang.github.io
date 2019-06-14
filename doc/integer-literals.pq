@@ -6,12 +6,14 @@
 print(255)        // decimal literal
 print(0000'00FF)  // hexadecimal literal
 print(00'FF)      // short hexadecimal literal
+print(F'F)        // ultrashort hexadecimal literal
 print(377o)       // octal literal
 print(1111'1111b) // binary literal
 print(255'000)    // decimal literal
 ’
 Output:
 `
+255
 255
 255
 255

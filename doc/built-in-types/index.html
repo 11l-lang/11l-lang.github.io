@@ -96,7 +96,7 @@ img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[H‘Built-in types’
 ]]]--><h3>Built-in types</h3>
 <br />
@@ -268,12 +268,12 @@ Examples:<br />
 </div>
 <br />
 <b>Tuple</b><br />
-A tuple. For example, a tuple with two items: <pre style="display: inline">(<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>)</pre>.<br />
+A tuple. For example, a tuple with two items: <pre style="display: inline">(<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>)</pre>. <span class="sq"><span class="sq_brackets">[</span>Type of this tuple is <pre class="inline_code">(Int, Int)</pre>.<span class="sq_brackets">]</span></span><br />
 <i>Note 1: like <a href="https://stackoverflow.com/a/52559625/2692494" title="<- google:‘mypy list any’">in mypy</a>, tuples in 11l are heterogeneous, but arrays (analogue of Python's lists) are homogeneous.<br />
 Note 2: in contrast to Python, tuples in 11l are mutable (like in C++).</i><br />
 <br />
 <b>Array</b><br />
-An array. For example, an array with two items: <pre style="display: inline">[<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>]</pre>.<br />
+An array. For example, an array with two items: <pre style="display: inline">[<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>]</pre>. <span class="sq"><span class="sq_brackets">[</span>Type of this array is <pre class="inline_code">[Int]</pre><!--[[[ {Why `[Int]` like in Swift, but not `Int[]` like in D: in some cases this is more beautiful, e.g.: #(11l)‘[(Int, Int)]’ vs #(11l)‘(Int, Int)[]’}]controversial statement]]-->.<span class="sq_brackets">]</span></span><br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none">
 <b>len</b><br />
 Length of an array.<br />
@@ -324,7 +324,7 @@ Return index of the first occurrence of <pre class="inline_code">x</pre> in this
 </div>
 <br />
 <b>Dict</b><br />
-A dictionary. For example, a dictionary with two items: <pre style="display: inline">[<span class="string-literal">‘key1’</span> = <span class="numeric-literal">1</span>, <span class="string-literal">‘key2’</span> = <span class="numeric-literal">2</span>]</pre>.<br />
+A dictionary. For example, a dictionary with two items: <pre style="display: inline">[<span class="string-literal">‘key1’</span> = <span class="numeric-literal">1</span>, <span class="string-literal">‘key2’</span> = <span class="numeric-literal">2</span>]</pre>. <span class="sq"><span class="sq_brackets">[</span>Type of this dictionary is <pre class="inline_code">[String = Int]</pre>.<span class="sq_brackets">]</span></span><br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
 <b>keys</b>()<br />
 Return an array of the dictionary's keys.<br />

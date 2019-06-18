@@ -162,12 +162,12 @@ H‘‘Replacement field’ ‘Argument’  ‘Output’      ’
 }
 
 *‘Tuple’
-A tuple. For example, a tuple with two items: #(11l)‘(1, 2)’.
+A tuple. For example, a tuple with two items: #(11l)‘(1, 2)’. [Type of this tuple is `(Int, Int)`.]
 ~‘Note 1: like ‘in mypy’[https://stackoverflow.com/a/52559625/2692494 <- google:‘mypy list any’], tuples in 11l are heterogeneous, but arrays (analogue of Python's lists) are homogeneous.
 Note 2: in contrast to Python, tuples in 11l are mutable (like in C++).’
 
 *‘Array’
-An array. For example, an array with two items: #(11l)‘[1, 2]’.
+An array. For example, an array with two items: #(11l)‘[1, 2]’. [Type of this array is `[Int]`[[[ {Why `[Int]` like in Swift, but not `Int[]` like in D: in some cases this is more beautiful, e.g.: #(11l)‘[(Int, Int)]’ vs #(11l)‘(Int, Int)[]’}]controversial statement]].]
 ‘Members’{
 *‘len’
 Length of an array.
@@ -218,7 +218,7 @@ Return index of the first occurrence of `x` in this array, or `N`/`null` if `x` 
 }
 
 *‘Dict’
-A dictionary. For example, a dictionary with two items: #(11l)‘[‘key1’ = 1, ‘key2’ = 2]’.
+A dictionary. For example, a dictionary with two items: #(11l)‘[‘key1’ = 1, ‘key2’ = 2]’. [Type of this dictionary is `[String = Int]`.]
 ‘Methods’{
 *‘keys’()
 Return an array of the dictionary's keys.

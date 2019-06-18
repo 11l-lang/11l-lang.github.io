@@ -96,7 +96,7 @@ img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[Н‘Встроенные типы данных’
 ]]]--><h3>Встроенные типы данных</h3>
 <br />
@@ -144,15 +144,15 @@ span.comment {color: #808080;}
 <i>Примечание: в отличие от Python строки в 11l являются изменяемыми (также как в C++).</i><br />
 <br />
 <b>Tuple</b><br />
-Кортеж. Например, кортеж из двух элементов: <pre style="display: inline">(<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>)</pre>.<br />
+Кортеж. Например, кортеж из двух элементов: <pre style="display: inline">(<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>)</pre>. <span class="sq"><span class="sq_brackets">[</span>Тип такого кортежа — <pre class="inline_code">(Int, Int)</pre>.<span class="sq_brackets">]</span></span><br />
 <i>Примечание 1: также как и <a href="https://stackoverflow.com/a/52559625/2692494" title="<- google:‘mypy list any’">в mypy</a>, кортежи в 11l могут содержать элементы различных типов, но массивы (аналог списков в Python) могут содержать элементы только одного типа.<br />
 Примечание 2: в отличие от Python кортежи в 11l являются изменяемыми (также как в C++).</i><br />
 <br />
 <b>Array</b><br />
-Массив. Например, массив из двух элементов: <pre style="display: inline">[<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>]</pre>.<br />
+Массив. Например, массив из двух элементов: <pre style="display: inline">[<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>]</pre>. <span class="sq"><span class="sq_brackets">[</span>Тип такого массива — <pre class="inline_code">[Int]</pre>.<span class="sq_brackets">]</span></span><br />
 <br />
 <b>Dict</b><br />
-Словарь. Например, словарь из двух элементов: <pre style="display: inline">[<span class="string-literal">‘key1’</span> = <span class="numeric-literal">1</span>, <span class="string-literal">‘key2’</span> = <span class="numeric-literal">2</span>]</pre>.<br />
+Словарь. Например, словарь из двух элементов: <pre style="display: inline">[<span class="string-literal">‘key1’</span> = <span class="numeric-literal">1</span>, <span class="string-literal">‘key2’</span> = <span class="numeric-literal">2</span>]</pre>. <span class="sq"><span class="sq_brackets">[</span>Тип такого словаря — <pre class="inline_code">[String = Int]</pre>.<span class="sq_brackets">]</span></span><br />
 <br />
 <b>DefaultDict</b><br />
 Словарь, не бросающий исключение при обращении к несуществующему элементу, а вставляющий новый элемент со значением по умолчанию в таком случае.<br />

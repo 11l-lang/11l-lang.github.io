@@ -97,6 +97,9 @@ Return the floor of `x`, the largest integer less than or equal to `x`.
 *‘trunc’(x)
 Return value `x` truncated to an integer.
 
+*‘wrap’(x, min_val, max_val)
+[[[(]]]Wraps x at range '‘[’'min_val, max_val)'‘<!--]-->’'. Returns `mod(x - min_val, max_val - min_val) + min_val`.
+
 *‘abs’(x)
 Return the absolute value of a number.
 

@@ -96,7 +96,7 @@ img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[H‘Встроенные функции’
 ]]]--><h3>Встроенные функции</h3>
 <br />
@@ -188,7 +188,8 @@ span.comment {color: #808080;}
 <b>rotr</b>(value, shift)<br />
 Циклически сдвигает <pre class="inline_code">value</pre> вправо на <pre class="inline_code">shift</pre> разрядов.<br />
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Математические функции<br /></span><div class="spoiler_text" style="display: none"><b>round</b>(number, ndigits = 0)<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Математические функции<br /></span><div class="spoiler_text" style="display: none">
+<b>round</b>(number, ndigits = 0)<br />
 Возвращает <pre class="inline_code">number</pre> округлённое до <pre class="inline_code">ndigits</pre> знаков после точки.<br />
 <br />
 <b>ceil</b>(x)<br />
@@ -199,6 +200,9 @@ span.comment {color: #808080;}
 <br />
 <b>trunc</b>(x)<br />
 Возвращает <pre class="inline_code">x</pre> усечённое до целого.<br />
+<br />
+<b>wrap</b>(x, min_val, max_val)<br />
+<!--[[[(]]]-->Сворачивает x в интервале [min_val, max_val)<!--]-->. Возвращает <pre class="inline_code">mod(x - min_val, max_val - min_val) + min_val</pre>.<br />
 <br />
 <b>abs</b>(x)<br />
 Возвращает абсолютное значение.<br />

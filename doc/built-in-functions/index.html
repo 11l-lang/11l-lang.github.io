@@ -96,7 +96,7 @@ img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[H‘Built-in Functions’
 ]]]--><h3>Built-in Functions</h3>
 <br />
@@ -190,7 +190,8 @@ Rotate the <pre class="inline_code">value</pre> left by <pre class="inline_code"
 <b>rotr</b>(value, shift)<br />
 Rotate the <pre class="inline_code">value</pre> right by <pre class="inline_code">shift</pre> bits.<br />
 <br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Mathematical functions<br /></span><div class="spoiler_text" style="display: none"><b>round</b>(number, ndigits = 0)<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Mathematical functions<br /></span><div class="spoiler_text" style="display: none">
+<b>round</b>(number, ndigits = 0)<br />
 Return <pre class="inline_code">number</pre> rounded to <pre class="inline_code">ndigits</pre> precision after the decimal point.<br />
 <br />
 <b>ceil</b>(x)<br />
@@ -201,6 +202,9 @@ Return the floor of <pre class="inline_code">x</pre>, the largest integer less t
 <br />
 <b>trunc</b>(x)<br />
 Return value <pre class="inline_code">x</pre> truncated to an integer.<br />
+<br />
+<b>wrap</b>(x, min_val, max_val)<br />
+<!--[[[(]]]-->Wraps x at range [min_val, max_val)<!--]-->. Returns <pre class="inline_code">mod(x - min_val, max_val - min_val) + min_val</pre>.<br />
 <br />
 <b>abs</b>(x)<br />
 Return the absolute value of a number.<br />

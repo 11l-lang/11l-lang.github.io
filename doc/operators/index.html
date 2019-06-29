@@ -96,7 +96,7 @@ img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[H‘Operators’
 ]]]--><h3>Operators</h3>
 <br />
@@ -155,7 +155,7 @@ x I/ y<br />
 x % y<br />
 </td><td>Multiplication<br />
 Division<br />
-Integer division<br />
+Integer division <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">note that <pre class="inline_code">-5 // 2 = -3</pre> in Python whereas <pre class="inline_code">-5 I/ 2 = -2</pre> in 11l, but this is merely because of performance considerations, and if you know efficient implementation of Python integer division, please write at the <a href="http://forum.11l-lang.org/forums/development.2/">forum</a></span><span class="cu_brackets_b">}</span></span><br />
 Remainder</td></tr>
 <tr><td>x + y<br />
 x - y</td><td>Addition<br />

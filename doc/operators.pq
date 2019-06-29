@@ -57,7 +57,7 @@ x I/ y
 x % y
 ’ ‘Multiplication
 Division
-Integer division
+Integer division {note that `-5 // 2 = -3` in Python whereas `-5 I/ 2 = -2` in 11l, but this is merely because of performance considerations, and if you know efficient implementation of Python integer division, please write at the forum[http://forum.11l-lang.org/forums/development.2/]}
 Remainder’’
 ‘‘x + y
 x - y’ ‘Addition

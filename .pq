@@ -72,6 +72,7 @@ There are 11 keywords at the root of that tree, and each word can be written as 
             ├── on_break
             ├── was_no_break
             ├── index
+            ├── last_iteration
             ├── next
             └── prev
 ── N/null
@@ -207,7 +208,7 @@ L(i) (1 .< .children.len).step(2)
 
 L(child) .children
    res ‘’= child.to_str()
-   I L.next
+   I !L.last_iteration
       res ‘’= ‘, ’
 
 ...

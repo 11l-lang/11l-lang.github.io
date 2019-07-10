@@ -166,6 +166,7 @@ img {vertical-align: middle;}
                    ├── on_break\при_прерывании
                    ├── was_no_break\не_был_прерван
                    ├── index\индекс
+                   ├── last_iteration\последняя_итерация
                    ├── next\след
                    └── prev\пред
 ── N/null\Н/нуль
@@ -309,7 +310,7 @@ span.comment {color: #808080;}
 
 <span class="keyword">L</span>(<span class="identifier">child</span>) .<span class="identifier">children</span>
    <span class="identifier">res</span> ‘’= <span class="identifier">child</span>.<span class="identifier">to_str</span>()
-   <span class="keyword">I</span> <span class="keyword">L.next</span>
+   <span class="keyword">I</span> !<span class="keyword">L.last_iteration</span>
       <span class="identifier">res</span> ‘’= <span class="string-literal">‘, ’</span>
 
 ...

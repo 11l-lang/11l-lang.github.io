@@ -101,5 +101,7 @@ L(test) tests
 `L.index`/`loop.index` can be used to get[[[/obtain]]] the index of the current iteration of loop.
 
 
-`L.next`/`loop.next` support now is limited to check if there is a next element in iterating container or current element is the last one.
-`L.prev`/`loop.prev` is not supported now.
+`L.last_iteration`/`loop.last_iteration`[[[Why not `L.last_element`? `L.last_element` means access to the last element of the iterating container (`container.last`).]]] [[[is used to check]]]evaluates to true (1B) if current element of the iterating container is the last one.
+
+
+`L.prev`/`loop.prev` and `L.next`/`loop.next` are not supported now.

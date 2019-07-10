@@ -68,6 +68,7 @@
                    ├── on_break\при_прерывании
                    ├── was_no_break\не_был_прерван
                    ├── index\индекс
+                   ├── last_iteration\последняя_итерация
                    ├── next\след
                    └── prev\пред
 ── N/null\Н/нуль
@@ -203,7 +204,7 @@ L(i) (1 .< .children.len).step(2)
 
 L(child) .children
    res ‘’= child.to_str()
-   I L.next
+   I !L.last_iteration
       res ‘’= ‘, ’
 
 ...

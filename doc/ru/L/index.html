@@ -96,7 +96,7 @@ img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[Н‘L/loop’
 ]]]--><h3><!--[[[Зарезервированное/]]]-->Ключевое слово L/loop</h3>
 <br />
@@ -202,8 +202,10 @@ span.comment {color: #808080;}
 <pre class="inline_code">L.index</pre>/<pre class="inline_code">loop.index</pre> можно использовать для получения индекса (номера начиная с 0) текущей итерации цикла.<br />
 <br />
 <br />
-<pre class="inline_code">L.next</pre>/<pre class="inline_code">loop.next</pre> на данный момент является проверкой того, остались ли ещё элементы итерируемого контейнера или же текущий элемент последний.<br />
-<pre class="inline_code">L.prev</pre>/<pre class="inline_code">loop.prev</pre> на данный момент не поддерживается.<br />
+<pre class="inline_code">L.last_iteration</pre>/<pre class="inline_code">loop.last_iteration</pre> является истиной (1B), если текущий элемент итерируемого контейнера последний.<br />
+<br />
+<br />
+<pre class="inline_code">L.prev</pre>/<pre class="inline_code">loop.prev</pre> и <pre class="inline_code">L.next</pre>/<pre class="inline_code">loop.next</pre> на данный момент не поддерживаются.<br />
 
 </td></tr></table>
 </body>

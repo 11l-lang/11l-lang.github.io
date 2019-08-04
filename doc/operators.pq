@@ -139,7 +139,7 @@ F some_func(Control c)
 Sometimes bitwise AND is used as a modulo (`%`) operation of powers of 2, but if the [[[divisor]]]second operand is constant, then operator `%` should be used instead (`x [&] y = x % (y + 1)`). If operator `%` works for negative numbers like in Python (i.e. e.g. `-1 % 4 = 3`), then [[[it]]]expression `x % (y + 1)` will be compiled to bitwise AND.
 })’’
 ‘‘x | y’ ‘Logical OR’’
-‘‘x ? y’ ‘Null coalescing operator’’
+‘‘x ? y’ ‘Null coalescing’’
 ‘‘() -> expr
 x -> expr
 (x, y) -> expr’ ‘Lambda expression’’

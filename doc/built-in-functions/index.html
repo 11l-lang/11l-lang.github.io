@@ -104,8 +104,8 @@ img {vertical-align: middle;}
 <b>print</b>(object = ‘’, end = "\n")<br />
 Print <pre class="inline_code">object</pre> to stdout followed by <pre class="inline_code">end</pre>.<br />
 <br />
-<b>input</b>()<br />
-The function reads a line from input, converts it to a string (stripping a trailing newline), and returns that.<br />
+<b>input</b>(<span class="sq"><span class="sq_brackets">[</span>prompt<span class="sq_brackets">]</span></span>)<br />
+If the <pre class="inline_code">prompt</pre> argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string (stripping a trailing newline), and returns that.<br />
 <br />
 <b>assert</b>(expression, message = ‘’)<br />
 Raise AssertionError if <pre class="inline_code">expression</pre> evaluates to false.<br />

@@ -102,10 +102,10 @@ img {vertical-align: middle;}
 <br />
 <br />
 <b>print</b>(object = ‘’, end = "\n")<br />
-Выводит <pre class="inline_code">object</pre> и <pre class="inline_code">end</pre> в stdout.<br />
+Выводит <pre class="inline_code">object</pre> и <pre class="inline_code">end</pre> в поток стандартного вывода (stdout).<br />
 <br />
-<b>input</b>()<br />
-Читает строку из stdin и возвращает её (без символа новой строки).<br />
+<b>input</b>(<span class="sq"><span class="sq_brackets">[</span>prompt<span class="sq_brackets">]</span></span>)<br />
+В случае наличия аргумента <pre class="inline_code">prompt</pre>, он выводится в поток стандартного вывода (stdout). Затем производится чтение строки из потока стандартного ввода (stdin), которую и возвращает данная функция (без символа новой строки).<br />
 <br />
 <b>assert</b>(expression, message = ‘’)<br />
 Вызывает исключение AssertionError если выражение <pre class="inline_code">expression</pre> ложно.<br />

@@ -96,7 +96,7 @@ img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[H‘F/fn’
 ]]]--><h3>F/fn keyword</h3>
 <br />
@@ -180,11 +180,11 @@ Example:<br />
       <span class="identifier">print</span>(<span class="string-literal">‘TypeName destructor called’</span>)
 </pre>
 <br />
-Subkeywords <pre class="inline_code">virtual.new</pre>, <pre class="inline_code">virtual.override</pre>, <pre class="inline_code">virtual.final</pre> and <pre class="inline_code">virtual.abstract</pre> indicate that this functions is virtual and they specify a "virtual type" of this function.<br />
+Subkeywords <pre class="inline_code">virtual.new</pre>, <pre class="inline_code">virtual.override</pre>, <pre class="inline_code">virtual.final</pre>, <pre class="inline_code">virtual.abstract</pre> and <pre class="inline_code">virtual.assign</pre><!--[[[impl, implement, set, define, determine и designate, new‘a’[‘abstract’], non_abstract, specific, specify, concrete]]]--> indicate that this functions is virtual and they specify a "type of virtuality" of this function.<br />
 <pre class="inline_code">virtual.new</pre> means that this is a new virtual function.<br />
 <!--[[[https://en.cppreference.com/w/cpp/language/override]]]--><pre class="inline_code">virtual.override</pre> ensures that the function is virtual and is overriding a virtual function from a base <!--[[[class/]]]-->type. The program is ill-formed (a compile-time error is generated) if this is not true.<br />
 <!--[[[https://en.cppreference.com/w/cpp/language/final]]]--><pre class="inline_code">virtual.final</pre> specifies that a virtual function cannot be overridden in a derived <!--[[[class/]]]-->type.<br />
-<!--[[[https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members]]]--><pre class="inline_code">virtual.abstract</pre> subkeyword enables you to create type functions that are incomplete and must be implemented in a derived <!--[[[class/]]]-->type.<br />
+<!--[[[https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members]]]--><pre class="inline_code">virtual.abstract</pre> subkeyword enables you to create type functions that are incomplete and must be implemented in a derived <!--[[[class/]]]-->type (this implementation should be marked with <pre class="inline_code">virtual.assign</pre>).<br />
 Small example:<br />
 <pre class="code_block">
 <span class="keyword">T</span> <span class="identifier">Shape</span>
@@ -192,7 +192,7 @@ Small example:<br />
 
 <span class="keyword">T</span> <span class="identifier">Circle</span>(<span class="identifier">Shape</span>)
    <span class="identifier">Float</span> <span class="identifier">radious</span>
-   <span class="keyword">F.virtual.override</span> <span class="identifier">square</span>() -> <span class="identifier">Float</span>
+   <span class="keyword">F.virtual.assign</span> <span class="identifier">square</span>() -> <span class="identifier">Float</span>
       <span class="keyword">R</span> <span class="identifier">math</span>:<span class="identifier">pi</span> * .<span class="identifier">radious</span>^<span class="numeric-literal">2</span>
 </pre>
 <br />

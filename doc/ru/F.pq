@@ -74,11 +74,11 @@ T TypeName
       print(‘TypeName destructor called’)
 ’
 
-Подслова `virtual.new`, `virtual.override`, `virtual.final` и `virtual.abstract` означают что эта функция виртуальная и они задают "тип виртуальности" этой функции.
-`virtual.new` обозначает что это новая виртуальная функция.
-`virtual.override` используется для указания того, что данная функция переопределяет виртуальную функцию из базового типа.
-[[[https://en.cppreference.com/w/cpp/language/final]]]`virtual.final` определяет, что виртуальная функция не может быть переопределена в производном типе.
-[[[https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members]]]Подслово `virtual.abstract` предоставляет возможность создавать функции типов, которые должны быть реализованы в производном типе.
+Подслова `virtual.new`, `virtual.override`, `virtual.final`, `virtual.abstract` и `virtual.assign`[[[рассматривал ещё варианты: set, define, determine, designate, new‘a’[‘abstract’], non_abstract, specific, concrete на основе google-перевода слов ‘определять’ и ‘конкретный’]]] означают, что эта функция виртуальная, и они задают "тип виртуальности" этой функции.
+`virtual.new` обозначает, что это новая виртуальная функция (наличие виртуальной функции с этим же именем в базовом типе является ошибкой компиляции).
+`virtual.override` используется для указания того, что данная функция переопределяет виртуальную функцию из базового типа (отсутствие виртуальной функции с этим же именем в базовом типе является ошибкой компиляции).
+[[[https://en.cppreference.com/w/cpp/language/final]]]`virtual.final` [[[определяет/]]]указывает, что виртуальная функция не может быть переопределена в производном типе.
+[[[https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members]]]Подслово `virtual.abstract` предоставляет возможность создавать функции типов, которые должны быть реализованы в производном типе (при этом реализация должна быть помечена[[[ как]]] `virtual.assign`).
 Небольшой пример:
 #(11l)‘
 T Shape
@@ -86,7 +86,7 @@ T Shape
 
 T Circle(Shape)
    Float radious
-   F.virtual.override square() -> Float
+   F.virtual.assign square() -> Float
       R math:pi * .radious^2
 ’
 

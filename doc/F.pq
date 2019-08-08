@@ -74,11 +74,11 @@ T TypeName
       print(‘TypeName destructor called’)
 ’
 
-Subkeywords `virtual.new`, `virtual.override`, `virtual.final` and `virtual.abstract` indicate that this functions is virtual and they specify a "virtual type" of this function.
+Subkeywords `virtual.new`, `virtual.override`, `virtual.final`, `virtual.abstract` and `virtual.assign`[[[impl, implement, set, define, determine и designate, new‘a’[‘abstract’], non_abstract, specific, specify, concrete]]] indicate that this functions is virtual and they specify a "type of virtuality" of this function.
 `virtual.new` means that this is a new virtual function.
 [[[https://en.cppreference.com/w/cpp/language/override]]]`virtual.override` ensures that the function is virtual and is overriding a virtual function from a base [[[class/]]]type. The program is ill-formed (a compile-time error is generated) if this is not true.
 [[[https://en.cppreference.com/w/cpp/language/final]]]`virtual.final` specifies that a virtual function cannot be overridden in a derived [[[class/]]]type.
-[[[https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members]]]`virtual.abstract` subkeyword enables you to create type functions that are incomplete and must be implemented in a derived [[[class/]]]type.
+[[[https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members]]]`virtual.abstract` subkeyword enables you to create type functions that are incomplete and must be implemented in a derived [[[class/]]]type (this implementation should be marked with `virtual.assign`).
 Small example:
 #(11l)‘
 T Shape
@@ -86,7 +86,7 @@ T Shape
 
 T Circle(Shape)
    Float radious
-   F.virtual.override square() -> Float
+   F.virtual.assign square() -> Float
       R math:pi * .radious^2
 ’
 

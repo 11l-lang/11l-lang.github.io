@@ -71,7 +71,7 @@ Like most other languages, by]]]By default[[[ a]]] `L.break`/`loop.break`[[[ or 
 L(y) 0..10
    L(x) 0..10
       I a[y][x] == 1
-         L(y).break
+         L(y).break // breaks out of outer loop on `y`
 ’
 Or you can use `^L.break`, `^^L.break`, etc.
 

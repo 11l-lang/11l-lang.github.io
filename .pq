@@ -113,10 +113,8 @@ while True:
 </pre>’'’
 ‘Р‘https://raw.githubusercontent.com/alextretyak/3/master/codesample.png’’
 ‘[[[
-while (true)
-{
-    switch (instr[i])
-    {
+while (true) {
+    switch (instr[i]) {
     case '[':
         nesting_level++;
         break;
@@ -129,10 +127,8 @@ while (true)
     ...
 }
 break_:
-]]]'‘<pre style='color:#000000;background:#ffffff;'><span style='color:#0000FF'>while</span> <span style='color:#808030; '>(</span><span style='color:#0000FF'>true</span><span style='color:#808030; '>)</span>
-<span style='color:#800080; '>{</span>
-    <span style='color:#0000FF'>switch</span> <span style='color:#808030; '>(</span>instr<span style='color:#808030; '>[</span>i<span style='color:#808030; '>]</span><span style='color:#808030; '>)</span>
-    <span style='color:#800080; '>{</span>
+]]]'‘<pre style='color:#000000;background:#ffffff;'><span style='color:#0000FF'>while</span> <span style='color:#808030; '>(</span><span style='color:#0000FF'>true</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+    <span style='color:#0000FF'>switch</span> <span style='color:#808030; '>(</span>instr<span style='color:#808030; '>[</span>i<span style='color:#808030; '>]</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
     <span style='color:#0000FF'>case </span><span style='color:#800000; '>'['</span><span style='color:#e34adc; '>:</span>
         nesting_level<span style='color:#808030; '>+</span><span style='color:#808030; '>+</span><span style='color:#800080; '>;</span>
         <span style='color:#0000FF'>break</span><span style='color:#800080; '>;</span>

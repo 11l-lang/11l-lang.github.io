@@ -27,7 +27,7 @@ print("id=" + id+1)
 It doesn't print `Animals are equal: true`. It doesn't print `Animals are equal: false`, either. It just prints `false`. Why? Because the `+` operator binds tighter than the `==` operator.’
 This [as in 3] problem is solved with a separate string concatenation operator, because its priority may[[[will]]] be lower than of operator `==`.’
 
-For this [and/or some other] reasons operator `+` is not used for string concatenation in many languages (PHP, Perl, D, Lua, Julia, Visual Basic, Nim, Dart), but definitive designation for this operation is still not found, therefore I decided to go another way and reject a dedicated operator for string concatenation. To concat string literal and variable in 11l just place it next to each other without spaces:
+For this [and/or some other] reasons operator `+` is not used for string concatenation in many languages (PHP, Perl, D, Lua, Julia, Visual Basic, Nim, Dart), but definitive designation for this operation is still not found [{most appropriate designation [in my opinion] have chosen in languages D and Perl 6: tilde (`~`) symbol}], therefore I decided to go another way and reject a dedicated operator for string concatenation. To concat string literal and variable in 11l just place it next to each other without spaces:
 #(11l)‘
 print("id="id)
 print("id="(id+1))

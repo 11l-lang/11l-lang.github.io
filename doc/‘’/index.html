@@ -91,10 +91,11 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 I think that operator <pre class="inline_code">+</pre> for string concatenation is an unfortunate decision, because:<br />
 <ol>
 <li>String concatenation is noncommutative unlike addition operator <pre class="inline_code">+</pre>. This argument mentions the developers of Julia programming language<!--[[[, D]]]-->:<br />
@@ -136,7 +137,7 @@ It doesn't print <pre class="inline_code">Animals are equal: true</pre>. It does
 This <span class="sq"><span class="sq_brackets">[</span>as in 3<span class="sq_brackets">]</span></span> problem is solved with a separate string concatenation operator, because its priority may<!--[[[will]]]--> be lower than of operator <pre class="inline_code">==</pre>.</li>
 </ol>
 <br />
-For this <span class="sq"><span class="sq_brackets">[</span>and/or some other<span class="sq_brackets">]</span></span> reasons operator <pre class="inline_code">+</pre> is not used for string concatenation in many languages (PHP, Perl, D, Lua, Julia, Visual Basic, Nim, Dart), but definitive designation for this operation is still not found, therefore I decided to go another way and reject a dedicated operator for string concatenation. To concat string literal and variable in 11l just place it next to each other without spaces:<br />
+For this <span class="sq"><span class="sq_brackets">[</span>and/or some other<span class="sq_brackets">]</span></span> reasons operator <pre class="inline_code">+</pre> is not used for string concatenation in many languages (PHP, Perl, D, Lua, Julia, Visual Basic, Nim, Dart), but definitive designation for this operation is still not found <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">most appropriate designation <span class="sq"><span class="sq_brackets">[</span>in my opinion<span class="sq_brackets">]</span></span> have chosen in languages D and Perl 6: tilde (<pre class="inline_code">~</pre>) symbol</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span>, therefore I decided to go another way and reject a dedicated operator for string concatenation. To concat string literal and variable in 11l just place it next to each other without spaces:<br />
 <pre class="code_block">
 <span class="identifier">print</span>(<span class="string-literal">"id="</span><span class="identifier">id</span>)
 <span class="identifier">print</span>(<span class="string-literal">"id="</span>(<span class="identifier">id</span>+<span class="numeric-literal">1</span>))

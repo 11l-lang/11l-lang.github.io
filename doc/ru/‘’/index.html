@@ -91,10 +91,11 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 Я считаю, что оператор <pre class="inline_code">+</pre> для конкатенации строк — неудачное решение, так как:<br />
 <ol>
 <li>Он некоммутативен в отличие от операции сложения, обозначаемой символом <pre class="inline_code">+</pre>. Этот аргумент приводят, в частности, разработчики языка программирования Julia<!--[[[, D]]]-->:<br />
@@ -137,7 +138,7 @@ It doesn't print <pre class="inline_code">Animals are equal: true</pre>. It does
 Эту проблему также <span class="sq"><span class="sq_brackets">[</span>как и в пункте 3<span class="sq_brackets">]</span></span> решает отдельный оператор для конкатенации строк, так как приоритет этого оператора можно сделать ниже, чем у оператора сравнения <pre class="inline_code">==</pre>.</li>
 </ol>
 <br />
-По этим <span class="sq"><span class="sq_brackets">[</span>и/или каким-то ещё<span class="sq_brackets">]</span></span> причинам от <pre class="inline_code">+</pre> для конкатенации строк отказались во многих языках (PHP, Perl, D, Lua, Julia, Visual Basic, Nim, Dart), вот только <!--[[[удачного]]]-->однозначного обозначения для этой операции, <!--[[[по моему мнению]]]-->к сожалению, до сих пор так и не <!--[[[нашли]]]-->определили, поэтому я решил попробовать пойти другим путём и вообще отказаться от оператора <!--[[[для ]]]-->конкатенации строк. Для конкатенации <!--[[[строки/]]]-->строкового литерала и переменной в 11l достаточно просто расположить их рядом без пробелов:<br />
+По этим <span class="sq"><span class="sq_brackets">[</span>и/или каким-то ещё<span class="sq_brackets">]</span></span> причинам от <pre class="inline_code">+</pre> для конкатенации строк отказались во многих языках (PHP, Perl, D, Lua, Julia, Visual Basic, Nim, Dart), вот только <!--[[[удачного]]]-->однозначного обозначения для этой операции, <!--[[[по моему мнению]]]-->к сожалению, до сих пор так и не <!--[[[нашли]]]-->определили <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">наиболее удачным можно считать принятое в языках D и Perl 6 обозначение — символ тильда (<pre class="inline_code">~</pre>)</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span>, поэтому я решил попробовать пойти другим путём и вообще отказаться от оператора <!--[[[для ]]]-->конкатенации строк. Для конкатенации <!--[[[строки/]]]-->строкового литерала и переменной в 11l достаточно просто расположить их рядом без пробелов:<br />
 <pre class="code_block">
 <span class="identifier">print</span>(<span class="string-literal">"id="</span><span class="identifier">id</span>)
 <span class="identifier">print</span>(<span class="string-literal">"id="</span>(<span class="identifier">id</span>+<span class="numeric-literal">1</span>))

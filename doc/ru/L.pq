@@ -74,7 +74,7 @@ L(y) 0..10
 [[[https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/continue]]]Инструкция `L.continue`/`loop.continue` прерывает выполнение текущей итерации текущего[[[ или отмеченного]]] цикла, и продолжает его выполнение на следующей итерации.
 
 
-Инструкция `L.remove_current_element_and_continue` удаляет текущий элемент итерируемого объекта. Например, этот код удаляет все чётные числа в `array`:
+Инструкция `L.remove_current_element_and_continue` удаляет текущий элемент итерируемого [[[объекта/]]]контейнера. Например, этот код удаляет все чётные числа в `array`:
 #(11l)‘
 L(i) array
    I i % 2 == 0

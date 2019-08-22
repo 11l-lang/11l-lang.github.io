@@ -341,7 +341,7 @@ T‘‘‘Документация[./../doc/ru]’’’
 T‘‘‘><‘‘Производительность’{
 
 <>‘Транспайлер 11l можно использовать как ускоритель кода на Python.
-Вот результаты для ‘программы преобразования пк-разметки в HTML’[https://bitbucket.org/pqmarkup/pqmarkup] (в качестве исходных данных был взят исходник ‘статьи по пк-разметке’[https://habr.ru/post/348218/]):
+Вот результаты для ‘программы преобразования пк-разметки в HTML’[https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup] (в качестве исходных данных был взят исходник ‘статьи по пк-разметке’[https://habr.ru/post/348218/]):
 Р‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/1c5e2435525a5da8221d4337d0ae8fa2ac4d63a4/chart2.png’
 [‘Вот архив’[https://gist.github.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/e6cb2f07446ef4a19a3d6cdc1f8c483287ef1308/perf_tests.7z] с использовавшейся программой для сравнения производительности [под Windows] (требуются установленный Python 3.6 или выше и следующие Python-пакеты: pywin32, cython).]
 ’
@@ -349,7 +349,7 @@ T‘‘‘><‘‘Производительность’{
 
 T‘‘‘><‘‘[[[Установка/]]]Скачать’{
 
-<>‘Вот последняя версия пары транспайлеров Python → 11l и 11l → C++: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘репозитории с исходниками’[https://bitbucket.org/11l-lang]].
+<>‘Вот последняя версия пары транспайлеров Python → 11l и 11l → C++: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘репозитории с исходниками’[https://github.com/11l-lang]].
 
 Использование:
 1. Распакуйте архив в [[[директорию]]/]каталог по вашему выбору.

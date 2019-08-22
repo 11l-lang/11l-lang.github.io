@@ -345,7 +345,7 @@ T‘‘‘Documentation[./doc]’’’
 T‘‘‘><‘‘Benchmark’{
 
 <>‘11l transpiler can be used to accelerate Python code.
-Here is results for ‘pq markup to HTML converter’[https://bitbucket.org/pqmarkup/pqmarkup] (as an input data the source of ‘this article’[https://habr.ru/post/348218/] is taken):
+Here is results for ‘pq markup to HTML converter’[https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup] (as an input data the source of ‘this article’[https://habr.ru/post/348218/] is taken):
 P‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/1c5e2435525a5da8221d4337d0ae8fa2ac4d63a4/chart2.png’
 [‘Here is an archive’[https://gist.github.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/e6cb2f07446ef4a19a3d6cdc1f8c483287ef1308/perf_tests.7z] with benchmarking program used (Python 3.6 or higher is required, and following Python packages: pywin32, cython).]
 ’
@@ -353,7 +353,7 @@ P‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b
 
 T‘‘‘><‘‘[[[Install/]]]Download’{
 
-<>‘Here is the latest version of transpiler-pair Python → 11l and 11l → C++: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘source code repos’[https://bitbucket.org/11l-lang]].
+<>‘Here is the latest version of transpiler-pair Python → 11l and 11l → C++: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘source code repos’[https://github.com/11l-lang]].
 
 Usage:
 1. Unpack archive to whatever directory you [[[like/]]]want.

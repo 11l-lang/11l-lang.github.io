@@ -28,6 +28,9 @@ Return true (1B) if any element of the `iterable` is true. If the `iterable` is 
 Why `sum(arr)`, `product(arr)`, `all(arr)`, `any(arr)` etc., but `arr.filter(...)`, `arr.map(...)`, `arr.reduce(...)`?
 Because I dislike empty parentheses [e.g. `arr.sum()`].]]]
 
+*‘cart_product’(iterable1, iterable2)
+Cartesian product of input iterables.
+
 *‘multiloop’(iterable1, iterable2 [,iterable3], function)
 This function is roughly equivalent to the following code: {
 #(11l)‘

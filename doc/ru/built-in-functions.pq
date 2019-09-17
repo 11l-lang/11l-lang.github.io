@@ -26,6 +26,9 @@
 *‘any’(iterable)
 Возвращает истину (1B) если хотя бы один элемент `iterable` истинный. Если `iterable` пуста, возвращает ложь (0B).
 
+*‘cart_product’(iterable1, iterable2)
+Декартово произведение двух последовательностей.
+
 *‘multiloop’(iterable1, iterable2 [,iterable3], function)
 Эта функция практически эквивалентна следующему коду: {
 #(11l)‘

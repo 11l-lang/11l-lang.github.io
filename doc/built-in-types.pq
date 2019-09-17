@@ -215,6 +215,15 @@ Return index of the first occurrence of `x` in this array. `ValueError` is raise
 
 *‘find’(x, start = 0)
 Return index of the first occurrence of `x` in this array, or `N`/`null` if `x` is not found in this array. `x` can also be a tuple of values to look for.
+
+*‘count’(x)
+Return total number of occurrences of `x` in this array.
+
+*‘sort’()
+This method sorts the array in place, using only `<` comparisons between items.
+
+*‘reverse’()
+Reverses the items of array in place.
 }
 
 *‘Dict’

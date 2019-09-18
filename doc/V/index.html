@@ -92,10 +92,11 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[H‘V/var’
 ]]]--><h3>V/var keyword</h3>
 <br />
@@ -110,6 +111,24 @@ span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
 <span class="keyword">V</span> <span class="identifier">variable_name</span> = <span class="identifier">value</span>
+</pre>
+<br />
+You can declare more than one variable at a time with a tuple assignment:<br />
+<pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">get_row_column</span>() <span class="comment">// this is a function returning a tuple</span>
+   ...
+   <span class="keyword">R</span> (<span class="identifier">row</span>, <span class="identifier">col</span>)
+...
+<span class="keyword">V</span> (<span class="identifier">row</span>, <span class="identifier">col</span>) = <span class="identifier">get_row_column</span>() <span class="comment">// analogous code: `V rc = get_row_column(); V row = rc[0]; V col = rc[1]`</span>
+</pre>
+<br />
+Partial declaration is also <!--[[[acceptable/]]]-->possible:<br />
+<pre class="code_block">
+(<span class="keyword">V</span> <span class="identifier">row2</span>, <span class="identifier">col</span>) = <span class="identifier">get_row_column</span>() <span class="comment">// `col` has already been declared, `row2` is declared here</span>
+</pre>
+or:<br />
+<pre class="code_block">
+(<span class="identifier">row</span>, <span class="keyword">V</span> <span class="identifier">col2</span>) = <span class="identifier">get_row_column</span>() <span class="comment">// `row` has already been declared, `col2` is declared here</span>
 </pre>
 
 </td></tr></table>

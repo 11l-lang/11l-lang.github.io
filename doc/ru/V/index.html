@@ -92,15 +92,16 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[H‘V/var’
 ]]]--><h3>Ключевое слово V/var</h3>
 <br />
 <br />
-Данное ключевое слово используется чтобы <!--[[[добавить/]]]-->объявить переменную в текущем блоке кода<!--[[[ области видимости]]]-->:<br />
+Данное ключевое слово используется для того, чтобы <!--[[[добавить/]]]-->объявить переменную в текущем блоке кода<!--[[[ области видимости]]]-->:<br />
 <style>
 span.keyword {color: #0000FF; font-weight: bold;}
 span.identifier {color: #00009F;}
@@ -110,6 +111,24 @@ span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
 <span class="keyword">V</span> <span class="identifier">variable_name</span> = <span class="identifier">value</span>
+</pre>
+<br />
+Можно объявить группу переменных, инициализированных кортежем:<br />
+<pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">get_row_column</span>() <span class="comment">// функция, возвращающая кортеж</span>
+   ...
+   <span class="keyword">R</span> (<span class="identifier">row</span>, <span class="identifier">col</span>)
+...
+<span class="keyword">V</span> (<span class="identifier">row</span>, <span class="identifier">col</span>) = <span class="identifier">get_row_column</span>() <span class="comment">// аналогично такой записи: `V rc = get_row_column(); V row = rc[0]; V col = rc[1]`</span>
+</pre>
+<br />
+Также допустимо частичное объявление:<br />
+<pre class="code_block">
+(<span class="keyword">V</span> <span class="identifier">row2</span>, <span class="identifier">col</span>) = <span class="identifier">get_row_column</span>() <span class="comment">// `col` уже объявлена выше, `row2` создаётся/объявляется в этой строке</span>
+</pre>
+или:<br />
+<pre class="code_block">
+(<span class="identifier">row</span>, <span class="keyword">V</span> <span class="identifier">col2</span>) = <span class="identifier">get_row_column</span>() <span class="comment">// `row` уже объявлена выше, `col2` создаётся/объявляется в этой строке</span>
 </pre>
 
 </td></tr></table>

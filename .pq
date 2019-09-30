@@ -268,6 +268,8 @@ V dot_pos = token.value(source). {.find(‘.’) ? .len}
 ’’’’
 T‘‘‘Python:
 #(Python)‘
+import os
+
 for root, dirs, files in os.walk('.'):
     dirs[:] = [d for d in dirs if d[0] != '.'] # exclude hidden folders (e.g. `.hg`)
     for name in files:

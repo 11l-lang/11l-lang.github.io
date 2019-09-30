@@ -373,6 +373,8 @@ span.comment {color: #808080;}
 <table>
 <tr><td>Python:<br />
 <pre class="code_block">
+<span class="keyword">import</span> <span class="identifier">os</span>
+
 <span class="keyword">for</span> <span class="identifier">root</span>, <span class="identifier">dirs</span>, <span class="identifier">files</span> <span class="keyword">in</span> <span class="identifier">os</span>.<span class="identifier">walk</span>(<span class="string-literal">'.'</span>):
     <span class="identifier">dirs</span>[:] = [<span class="identifier">d</span> <span class="keyword">for</span> <span class="identifier">d</span> <span class="keyword">in</span> <span class="identifier">dirs</span> <span class="keyword">if</span> <span class="identifier">d</span>[<span class="numeric-literal">0</span>] != <span class="string-literal">'.'</span>] <span class="comment"># exclude hidden folders (e.g. `.hg`)</span>
     <span class="keyword">for</span> <span class="identifier">name</span> <span class="keyword">in</span> <span class="identifier">files</span>:

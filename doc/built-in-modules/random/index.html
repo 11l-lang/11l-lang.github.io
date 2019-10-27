@@ -92,10 +92,11 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[H‘Module random’
 ]]]--><h3>Module random</h3>
 <br />
@@ -108,6 +109,9 @@ Return a random number in range <!--[[[(]]]-->[min, max)<!--]-->.<br />
 <br />
 random.<b>shuffle</b>(&amp;seq)<br />
 Shuffle the sequence <pre class="inline_code">seq</pre> in place.<br />
+<br />
+random.<b>choice</b>(seq)<br />
+Return a random element from the non-empty sequence <pre class="inline_code">seq</pre>.<br />
 
 </td></tr></table>
 </body>

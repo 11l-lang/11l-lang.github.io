@@ -13,7 +13,7 @@ S <expression>
       <default statements>]
 ’
 
-Expression `<expression>` is compared with constant expressions for equality. If a matching expression is found, then corresponding statements are executed. If no matching expression is found, `<default statements>` [if present] are executed.
+Expression `<expression>` is compared with constant expressions for equality. If a matching expression is found, then corresponding statements are executed. If no matching expression is found, `<default statements>` [if present] are executed.[[[Keyword `else` is also used in Basic, Ruby and Nim.]]]
 
 The `S`/`switch` can be used in expressions:
 #(11l)‘

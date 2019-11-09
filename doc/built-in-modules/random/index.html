@@ -101,11 +101,14 @@ img {vertical-align: middle;}
 ]]]--><h3>Module random</h3>
 <br />
 <br />
-random:(max = 1)<br />
-Return a random number in range <!--[[[(]]]-->[0, max)<!--]-->.<br />
+random:(stop = 1)<br />
+Return a random number in range <!--[[[(]]]-->[0, stop)<!--]-->.<br />
 <br />
-random:(min, max)<br />
-Return a random number in range <!--[[[(]]]-->[min, max)<!--]-->.<br />
+random:(start .&lt; stop)<br />
+Return a random number in range <!--[[[(]]]-->[start, stop)<!--]-->.<br />
+<br />
+random:(min .. max)<br />
+Return a random number in range [min, max].<br />
 <br />
 random.<b>shuffle</b>(&amp;seq)<br />
 Shuffle the sequence <pre class="inline_code">seq</pre> in place.<br />

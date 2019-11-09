@@ -2,11 +2,14 @@
 ]]]H‘Module random’
 
 
-random:(max = 1)
-Return a random number in range [[[(]]]0‘[0, max)’'‘<!--]-->’'.
+random:(stop = 1)
+Return a random number in range [[[(]]]0‘[0, stop)’'‘<!--]-->’'.
 
-random:(min, max)
-Return a random number in range [[[(]]]0‘[min, max)’'‘<!--]-->’'.
+random:(start .< stop)
+Return a random number in range [[[(]]]0‘[start, stop)’'‘<!--]-->’'.
+
+random:(min .. max)
+Return a random number in range 0‘[min, max]’.
 
 random.*‘shuffle’(&seq)
 Shuffle the sequence `seq` in place.

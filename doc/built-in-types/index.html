@@ -215,6 +215,15 @@ Return a copy of the string with its first character capitalized.<br />
 <b>zfill</b>(width)<br />
 Return a copy of the string left filled with ASCII '0' digits to make a string of length <pre class="inline_code">width</pre>.<br />
 <br />
+<b>center</b>(width, fillchar = ‘ ’)<br />
+Return centered in a string of length <pre class="inline_code">width</pre>. Padding is done using the specified <pre class="inline_code">fillchar</pre>.<br />
+<br />
+<b>ljust</b>(width, fillchar = ‘ ’)<br />
+Return the string left justified in a string of length <pre class="inline_code">width</pre>. Padding is done using the specified <pre class="inline_code">fillchar</pre>.<br />
+<br />
+<b>rjust</b>(width, fillchar = ‘ ’)<br />
+Return the string right justified in a string of length <pre class="inline_code">width</pre>. Padding is done using the specified <pre class="inline_code">fillchar</pre>.<br />
+<br />
 <b>split</b>(delim, limit = N, group_delimiters = 0B)<br />
 Divides string into substrings based on a delimiter, returning an array of these substrings. <pre class="inline_code">delim</pre> can be a regular expression. <pre class="inline_code">delim</pre> can also be a tuple of characters (example: <pre style="display: inline"><span class="identifier">s</span>.<span class="identifier">split</span>((<span class="string-literal">‘ ’</span>, <span class="string-literal">"\t"</span>, <span class="string-literal">"\n"</span>, <span class="string-literal">"\r"</span>))</pre>). If <pre class="inline_code">limit</pre> is given, at most that number of fields will be returned (if <pre class="inline_code">limit</pre> is 1, the entire string is returned as the only entry in an array). <span class="sq"><span class="sq_brackets">[</span><pre class="inline_code">limit</pre> argument in 11l is similar to JavaScript, Ruby and PHP, but not Python.<span class="sq_brackets">]</span></span><br />
 If <pre class="inline_code">group_delimiters</pre> is <pre class="inline_code">0B</pre>, consecutive delimiters are not grouped together and are deemed to delimit empty strings (for example, <pre class="inline_code">‘1,,2’.split(‘,’)</pre> returns <pre class="inline_code">[‘1’, ‘’, ‘2’]</pre>).<br />

@@ -109,6 +109,15 @@ Return a copy of the string with its first character capitalized.
 *‘zfill’(width)
 Return a copy of the string left filled with ASCII '0' digits to make a string of length `width`.
 
+*‘center’(width, fillchar = ‘ ’)
+Return centered in a string of length `width`. Padding is done using the specified `fillchar`.
+
+*‘ljust’(width, fillchar = ‘ ’)
+Return the string left justified in a string of length `width`. Padding is done using the specified `fillchar`.
+
+*‘rjust’(width, fillchar = ‘ ’)
+Return the string right justified in a string of length `width`. Padding is done using the specified `fillchar`.
+
 *‘split’(delim, limit = N, group_delimiters = 0B)
 Divides string into substrings based on a delimiter, returning an array of these substrings. `delim` can be a regular expression. `delim` can also be a tuple of characters (example: #(11l)‘s.split((‘ ’, "\t", "\n", "\r"))’). If `limit` is given, at most that number of fields will be returned (if `limit` is 1, the entire string is returned as the only entry in an array). [`limit` argument in 11l is similar to JavaScript, Ruby and PHP, but not Python.]
 If `group_delimiters` is `0B`, consecutive delimiters are not grouped together and are deemed to delimit empty strings (for example, `‘1,,2’.split(‘,’)` returns `[‘1’, ‘’, ‘2’]`).

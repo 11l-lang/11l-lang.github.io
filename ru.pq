@@ -309,7 +309,7 @@ F benford(seq)
 print(‘#9 #9 #9’.format(‘Actual’, ‘Expected’, ‘Deviation’))
 
 L(p) benford(get_fibs())
-   print(‘#.: #2.2% | #2.2% | #0.4%’.format(L.index + 1, p[1] * 100, p[0] * 100, abs(p[1] - p[0]) * 100))’
+   print(‘#.: #2.2% | #2.2% | #.4%’.format(L.index + 1, p[1] * 100, p[0] * 100, abs(p[1] - p[0]) * 100))’
 ’’’
 ‘Caesar cipher’[https://www.rosettacode.org/wiki/Caesar_cipher]:
 T‘‘

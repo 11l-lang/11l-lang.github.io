@@ -84,7 +84,7 @@ P‘https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/OR_gate_RU.svg/100
 })’’
 ‘‘x < y, x <= y
 x > y, x >= y’ ‘Comparison operators’’
-‘‘x..y, x.<y
+‘‘x..y, x.<y, x.+len
 x<.y, x<.<y’ ‘Ranges’’
 ‘‘x""y and x‘’y’ ‘String concatenation (rationale[./../‘’])’’
 ‘‘x == y, x != y

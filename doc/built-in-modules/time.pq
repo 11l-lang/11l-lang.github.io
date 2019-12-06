@@ -21,7 +21,8 @@ Similar to `strftime()`, but format is much simpler:
 T‘
 ‘‘YYYY’ ‘year[[[ as a decimal number]]], e.g. 2018’’
 ‘‘YY’   ‘last 2 digits of year[[[ as a decimal number]]], e.g. 18’’
-‘‘MM’   ‘month[[[ as a decimal number]]] (range [01, 12])’’
+‘‘MMM’  ‘month as abbreviated name, e.g. Oct’’
+‘‘MM’   ‘month as a decimal number (range [01, 12])’’
 ‘‘DD’   ‘day of the month[[[ as a decimal number]]] (range [01, 31])’’
 ‘‘hh’   ‘hour in 24h format (range [00, 23])’’
 ‘‘mm’   ‘minute[[[ as a decimal number]]] (range [00, 59])’’

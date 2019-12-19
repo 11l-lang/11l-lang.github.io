@@ -338,6 +338,7 @@ F caesar(string, =key, decode = 0B)
 ‘Comma quibbling’[https://www.rosettacode.org/wiki/Comma_quibbling#11l] | ‘Constrained random points on a circle’[https://www.rosettacode.org/wiki/Constrained_random_points_on_a_circle#11l] | CRC-32[https://www.rosettacode.org/wiki/CRC-32#11l]
 ‘Diversity prediction theorem’[https://www.rosettacode.org/wiki/Diversity_prediction_theorem#11l] | ‘Equilibrium index’[https://www.rosettacode.org/wiki/Equilibrium_index#11l] | ‘Fibonacci n-step number sequences’[https://www.rosettacode.org/wiki/Fibonacci_n-step_number_sequences#11l]
 ‘Find the intersection of a line with a plane’[https://www.rosettacode.org/wiki/Find_the_intersection_of_a_line_with_a_plane#11l] | ‘Find the last Sunday of each month’[https://www.rosettacode.org/wiki/Find_the_last_Sunday_of_each_month#11l]
+‘Find the missing permutation’[https://www.rosettacode.org/wiki/Find_the_missing_permutation#11l]
 [‘All examples at Rosetta Code’[https://www.rosettacode.org/wiki/Category:11l]]
 }
 }

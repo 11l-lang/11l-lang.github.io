@@ -92,10 +92,11 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[Н‘Комментарии’
 ]]]--><h3>Однострочные комментарии</h3>
 <br />
@@ -130,6 +131,13 @@ I ch == "(" // )
 </pre>
 <br />
 <span class="sq"><span class="sq_brackets">[</span>Поддерж<!--[[[ив]]]-->ание баланса парных символов <pre class="inline_code">()</pre>, <pre class="inline_code">[]</pre>, <pre class="inline_code">{}</pre> и <pre class="inline_code">‘’</pre> рекомендуется не только для корректной работы многострочных комментариев в 11l, но и для корректной подсветки соответствующих скобок в редакторах исходного кода.<span class="sq_brackets">]</span></span><br />
+<br />
+При комментировании большого куска кода можно использовать дополнительные скобки для большей заметности <!--[[[окончания/]]]-->границ комментария:<br />
+<pre class="code_block">
+<span class="comment">\[[[
+... большой кусок кода ...
+]]]</span>
+</pre>
 
 </td></tr></table>
 </body>

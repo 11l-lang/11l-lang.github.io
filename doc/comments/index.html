@@ -92,10 +92,11 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<table style="max-width: 1024px" align="center"><tr><td>
 <!--[[[H‘Comments’
 ]]]--><h3>Single line comments</h3>
 <br />
@@ -130,6 +131,22 @@ I ch == "(" // )
 </pre>
 <br />
 <span class="sq"><span class="sq_brackets">[</span>Balancing of all character pairs <pre class="inline_code">()</pre>, <pre class="inline_code">[]</pre>, <pre class="inline_code">{}</pre> and <pre class="inline_code">‘’</pre> is recommended not only for this 11l-style comments to work correctly, but also for correct highlighting of matching parentheses/brackets/braces in the source code editors.<span class="sq_brackets">]</span></span><br />
+<br />
+When commenting a lot of code, you can<!--[[[#red# should do this automatically]]]--> use extra brackets to <!--[[[view/]]]-->notice end of comment better:<br />
+<pre class="code_block">
+<span class="comment">\[[[
+... a lot of code ...
+]]]</span>
+</pre>
+<!--[[[This idea came to me when I noticed that end of multi-line comment is very hard/difficult to notice:
+L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
+   I fname != ‘.\bc_files_recursively.exe’
+      print(fname)
+      \(V bs = File(fname).read_bytes()
+      L(&b) bs
+         b = (-)b
+      File(fname, ‘w’).write_bytes(bs))
+]]]--><br />
 
 </td></tr></table>
 </body>

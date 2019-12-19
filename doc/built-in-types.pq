@@ -265,11 +265,14 @@ Read a whole file into a string, and return it.
 *‘read_lines’(keep_newline = 0B) -> Array[String]
 [[[Read and return an array of lines from the file.]]]Reads the entire file [[[specified by name]]] as individual lines, and returns those lines in an array. If `keep_newline` argument is true (1B), trailing new-line characters are [[[remained/]]]left as is.
 
-*‘read_bytes’() -> Array[Byte]
+*‘read_bytes’() -> Array0‘[Byte]’
 Read a whole file into an array of bytes, and return it.
 
 *‘write’(s)
 Write the string `s` to the file.
+
+*‘write_bytes’(Array0‘[Byte]’ bytes)
+Write bytes to the file.
 
 *‘flush’()
 Flush the write buffers of the file.

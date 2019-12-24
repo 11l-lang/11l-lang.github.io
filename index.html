@@ -448,6 +448,43 @@ span.comment {color: #808080;}
    <span class="keyword">R</span> <span class="identifier">r</span></pre>
 </td></tr>
 </table>
+<a href="https://www.rosettacode.org/wiki/Gaussian_elimination">Gaussian elimination</a>:<br />
+<table>
+<tr><td style="text-align: center">C</td><td style="text-align: center">11l</td></tr>
+<tr><td><pre class="code_block">
+void swap_row(double *a, double *b, int r1, int r2, int n)
+{
+    double tmp, *p1, *p2;
+    int i;
+
+    if (r1 == r2) return;
+    for (i = 0; i &lt; n; i++) {
+        p1 = mat_elem(a, r1, i, n);
+        p2 = mat_elem(a, r2, i, n);
+        tmp = *p1, *p1 = *p2, *p2 = tmp;
+    }
+    tmp = b[r1], b[r1] = b[r2], b[r2] = tmp;
+}
+
+...
+</pre></td><td><pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">swap_row</span>(&amp;<span class="identifier">a</span>, &amp;<span class="identifier">b</span>, <span class="identifier">r1</span>, <span class="identifier">r2</span>)
+   <span class="keyword">I</span> <span class="identifier">r1</span> != <span class="identifier">r2</span>
+      <span class="identifier">swap</span>(&amp;<span class="identifier">a</span>[<span class="identifier">r1</span>], &amp;<span class="identifier">a</span>[<span class="identifier">r2</span>])
+      <span class="identifier">swap</span>(&amp;<span class="identifier">b</span>[<span class="identifier">r1</span>], &amp;<span class="identifier">b</span>[<span class="identifier">r2</span>])
+
+
+
+
+
+
+
+
+
+
+...
+</pre></td></tr>
+</table>
 <a href="https://www.rosettacode.org/wiki/100_doors#11l">100 doors</a> | <a href="https://www.rosettacode.org/wiki/Visualize_a_tree#11l">Visualize a tree</a> | <a href="https://www.rosettacode.org/wiki/Execute_Brain****#11l">Execute Brain****</a><br />
 <a href="https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l">Simple moving average</a> | <a href="https://www.rosettacode.org/wiki/Align_columns#11l">Align columns</a> | <a href="https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l">Arithmetic evaluation</a><br />
 <a href="https://www.rosettacode.org/wiki/Comma_quibbling#11l">Comma quibbling</a> | <a href="https://www.rosettacode.org/wiki/Constrained_random_points_on_a_circle#11l">Constrained random points on a circle</a> | <a href="https://www.rosettacode.org/wiki/CRC-32#11l">CRC-32</a><br />

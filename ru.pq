@@ -329,6 +329,43 @@ F caesar(string, =key, decode = 0B)
                          c
    R r’
 ’’’
+‘Gaussian elimination’[https://www.rosettacode.org/wiki/Gaussian_elimination]:
+T‘
+><‘‘C’ ‘11l’’
+‘‘#(C)‘
+void swap_row(double *a, double *b, int r1, int r2, int n)
+{
+    double tmp, *p1, *p2;
+    int i;
+
+    if (r1 == r2) return;
+    for (i = 0; i < n; i++) {
+        p1 = mat_elem(a, r1, i, n);
+        p2 = mat_elem(a, r2, i, n);
+        tmp = *p1, *p1 = *p2, *p2 = tmp;
+    }
+    tmp = b[r1], b[r1] = b[r2], b[r2] = tmp;
+}
+
+...
+’’ ‘#(11l)‘
+F swap_row(&a, &b, r1, r2)
+   I r1 != r2
+      swap(&a[r1], &a[r2])
+      swap(&b[r1], &b[r2])
+
+
+
+
+
+
+
+
+
+
+...
+’’’
+’
 ‘100 doors’[https://www.rosettacode.org/wiki/100_doors#11l] | ‘Visualize a tree’[https://www.rosettacode.org/wiki/Visualize_a_tree#11l] | ‘Execute Brain****’[https://www.rosettacode.org/wiki/Execute_Brain****#11l]
 ‘Simple moving average’[https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l] | ‘Align columns’[https://www.rosettacode.org/wiki/Align_columns#11l] | ‘Arithmetic evaluation’[https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l]
 ‘Comma quibbling’[https://www.rosettacode.org/wiki/Comma_quibbling#11l] | ‘Constrained random points on a circle’[https://www.rosettacode.org/wiki/Constrained_random_points_on_a_circle#11l] | CRC-32[https://www.rosettacode.org/wiki/CRC-32#11l]

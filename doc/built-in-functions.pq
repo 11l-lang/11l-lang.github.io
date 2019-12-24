@@ -17,6 +17,9 @@ Terminates the calling process. When `message` is specified it is printed to std
 *‘sleep’(secs)
 Suspend execution of the calling thread for the given number of seconds. The argument may be a floating point number to indicate a more precise sleep time.
 
+*‘swap’(&a, &b)
+Exchanges the values of the two arguments. Equivalent to `(a, b) = (b, a)`.
+
 *‘zip’(iterable1, iterable2)
 Aggregates elements from `iterable1` and `iterable2`.
 

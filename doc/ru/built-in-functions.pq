@@ -101,6 +101,9 @@ F multiloop_filtered(iterable1, iterable2, filter_function, function)
 *‘trunc’(x)
 Возвращает `x` усечённое до целого.
 
+*‘fract’(x)
+Возвращает дробную часть числа `x`.
+
 *‘wrap’(x, min_val, max_val)
 [[[(]]]Сворачивает x в интервале '‘[’'min_val, max_val)'‘<!--]-->’'. Возвращает `mod(x - min_val, max_val - min_val) + min_val`.
 

@@ -2,7 +2,7 @@
 ]]]H‘Module random’
 
 
-random:(stop = 1)
+random:(stop = 1.0)
 Return a random number in range [[[(]]]0‘[0, stop)’'‘<!--]-->’'.
 
 random:(start .< stop)

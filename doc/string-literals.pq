@@ -17,5 +17,5 @@ For example, there is a string [[[‘]]]`don’t`.
 It contains unpaired closing single quotation mark. Let's add a balancing opening single quotation mark at the beginning of the string: С(080)‘‘[[[’]]]’[[[‘]]]don’t.
 Enclose that balanced string in single quotation marks: С(080)‘‘[[[’]]]’‘don’tС(080)‘[[[‘]]]’’.
 Now we need to somehow show to the parser that single quotation mark at the beginning of the string is not a part of the raw string [it is needed only for balancing]. For this purpose typewriter apostrophe `'` is used: one apostrophe absorbs one single quotation mark. In our case one apostrophe should be added at the beginning of the string: #‘'‘‘don’t’’.
-This balanced string can be put inside another raw strings as is:
+[[[This/]]]Any balanced string (e.g. #(11l)‘'‘‘don’t’’) can be put inside another raw strings as is:
 #‘‘text = '‘‘don’t’’’.

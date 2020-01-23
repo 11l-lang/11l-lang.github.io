@@ -22,10 +22,11 @@ function spoiler2(element, event)
 }
 </script>
 <style type="text/css">
-body td {
+div#main, td {
     font-size: 14px;
     font-family: Verdana, sans-serif;
     line-height: 160%;
+    text-align: justify;
 }
 span.cu_brackets_b {
     font-size: initial;
@@ -50,7 +51,6 @@ h3 {font-size: 137.5%;}
 h4 {font-size: 120%;}
 h5 {font-size: 110%;}
 h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -62,8 +62,8 @@ ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -92,10 +92,16 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<div id="main" style="margin: 0 auto">
 <!--[[[Н‘Строковые литералы’
 ]]]--><h3>Обычные строковые литералы</h3>
 <br />
@@ -115,9 +121,15 @@ pre.inline_code {
 Так как в ней присутствует несбалансированная закрывающая кавычка, добавим балансирующую открывающую кавычку в самое начало строки: <span style="color: #00FF00">‘<!--[[[’]]]--></span><!--[[[‘]]]-->don’t.<br />
 Сбалансированную строку заключаем в парные кавычки: <span style="color: #00FF00">‘<!--[[[’]]]--></span>‘don’t<span style="color: #00FF00"><!--[[[‘]]]-->’</span>.<br />
 Теперь необходимо как-то показать парсеру, что добавленную слева кавычку не следует включать в строку, так как она нужна только для восстановления баланса. Для этого используется символ машинописного апострофа <pre class="inline_code">'</pre>, который нужно поставить по одной штуке на каждую балансирующую кавычку <span class="sq"><span class="sq_brackets">[</span>таким образом, один машинописный апостроф "съедает" одну парную кавычку<span class="sq_brackets">]</span></span>, в данном случае его необходимо поставить в начало строки: <pre style="display: inline">'‘‘don’t’</pre>.<br />
-Сбалансированную строку можно как есть вставлять в другие строки в парных кавычках:<br />
+Сбалансированную строку (например, <style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre style="display: inline"><span class="string-literal"><span style="opacity: 0.25">'‘</span>‘don’t’</span></pre>) можно как есть вставлять в другие строки в парных кавычках:<br />
 <pre style="display: inline">‘text = '‘‘don’t’’</pre>.<br />
-
-</td></tr></table>
+</div>
 </body>
 </html>

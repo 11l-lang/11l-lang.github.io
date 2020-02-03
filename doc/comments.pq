@@ -3,7 +3,7 @@
 
 
 [[[http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4750.pdf page 12]]]The characters `//` or `\\` start a comment, which terminates immediately before the next new-line character.
-The characters `\\` are intended to continue a comment from the previous line (example[https://github.com/alextretyak/CopyEdit/blob/master/cut_copy_paste_tests.py#L283]).
+The characters `\\` are intended to continue a comment from the previous line (example[https://github.com/11l-lang/_11l_to_cpp/blob/ca1377e93795d07827b20c32719141d7c225cb43/tokenizer.py#L505][[[https://github.com/alextretyak/CopyEdit/blob/master/cut_copy_paste_tests.py#L283]]]).
 
 
 H‘Multi-line and inline comments’

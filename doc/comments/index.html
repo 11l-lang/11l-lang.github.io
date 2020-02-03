@@ -22,10 +22,11 @@ function spoiler2(element, event)
 }
 </script>
 <style type="text/css">
-body td {
+div#main, td {
     font-size: 14px;
     font-family: Verdana, sans-serif;
     line-height: 160%;
+    text-align: justify;
 }
 span.cu_brackets_b {
     font-size: initial;
@@ -50,7 +51,6 @@ h3 {font-size: 137.5%;}
 h4 {font-size: 120%;}
 h5 {font-size: 110%;}
 h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -62,8 +62,8 @@ ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -93,16 +93,21 @@ pre.inline_code {
     border-radius: 3px;
 }
 img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
 </style>
 </head>
 <body>
-<table style="max-width: 1024px" align="center"><tr><td>
+<div id="main" style="margin: 0 auto">
 <!--[[[H‘Comments’
 ]]]--><h3>Single line comments</h3>
 <br />
 <br />
 <!--[[[http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/n4750.pdf page 12]]]-->The characters <pre class="inline_code">//</pre> or <pre class="inline_code">\\</pre> start a comment, which terminates immediately before the next new-line character.<br />
-The characters <pre class="inline_code">\\</pre> are intended to continue a comment from the previous line (<a href="https://github.com/alextretyak/CopyEdit/blob/master/cut_copy_paste_tests.py#L283">example</a>).<br />
+The characters <pre class="inline_code">\\</pre> are intended to continue a comment from the previous line (<a href="https://github.com/11l-lang/_11l_to_cpp/blob/ca1377e93795d07827b20c32719141d7c225cb43/tokenizer.py#L505">example</a><!--[[[https://github.com/alextretyak/CopyEdit/blob/master/cut_copy_paste_tests.py#L283]]]-->).<br />
 <br />
 <br />
 <h3>Multi-line and inline comments</h3>
@@ -147,7 +152,6 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
          b = (-)b
       File(fname, ‘w’).write_bytes(bs))
 ]]]--><br />
-
-</td></tr></table>
+</div>
 </body>
 </html>

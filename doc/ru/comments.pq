@@ -3,7 +3,7 @@
 
 
 Символы `//` или `\\` обозначают начало комментария, который оканчивается символом новой строки.
-Символы `\\` предназначены для обозначения того, что данный комментарий продолжает комментарий из предыдущей строки (пример[https://github.com/11l-lang/_11l_to_cpp/blob/ca1377e93795d07827b20c32719141d7c225cb43/tokenizer.py#L505][[[https://github.com/alextretyak/CopyEdit/blob/master/cut_copy_paste_tests.py#L283]]]).
+Символы `\\` предназначены для обозначения того, что данный комментарий продолжает комментарий из предыдущей строки (пример[https://github.com/11l-lang/_11l_to_cpp/blob/e1009187effb2aa7fa08bf14f8b6a8c4a9314e47/tokenizer.py#L505][[[https://github.com/alextretyak/CopyEdit/blob/master/cut_copy_paste_tests.py#L283]]]).
 
 
 Н‘Многострочные и внутристрочные комментарии’

@@ -73,10 +73,10 @@ fs:path:*‘join’(path1, path2)
 Join `path1` and `path2`.
 
 fs:path:*‘dir_name’(path)
-Return the directory name of pathname `path` (for example: `fs:path:dir_name(‘./a/b’)` = `./a`).
+Return the directory name of pathname `path` (for example: `fs:path:dir_name(‘./a/b’)` = `‘./a’`).
 
 fs:path:*‘base_name’(path)
-Return the base name of pathname `path` (for example: `fs:path:base_name(‘./a/b’)` = `b`).
+Return the base name of pathname `path` (for example: `fs:path:base_name(‘./a/b’)` = `‘b’`).
 
 fs:path:*‘absolute’(path)
 Return an absolutized version of the pathname `path`.

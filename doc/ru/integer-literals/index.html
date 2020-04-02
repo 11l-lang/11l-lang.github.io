@@ -22,10 +22,11 @@ function spoiler2(element, event)
 }
 </script>
 <style type="text/css">
-body td {
+div#main, td {
     font-size: 14px;
     font-family: Verdana, sans-serif;
     line-height: 160%;
+    text-align: justify;
 }
 span.cu_brackets_b {
     font-size: initial;
@@ -50,7 +51,6 @@ h3 {font-size: 137.5%;}
 h4 {font-size: 120%;}
 h5 {font-size: 110%;}
 h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -62,8 +62,8 @@ ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -93,10 +93,15 @@ pre.inline_code {
     border-radius: 3px;
 }
 img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
 </style>
 </head>
 <body>
-<table style="max-width: 1024px" align="center"><tr><td>
+<div id="main" style="margin: 0 auto">
 <!--[[[Н‘Целочисленные литералы’
 ]]]--><h3>Целочисленные литералы</h3>
 <br />
@@ -132,10 +137,10 @@ span.comment {color: #808080;}
 <span class="sq"><span class="sq_brackets">[</span><abbr title=""></abbr><!--[[[https://youtu.be/I9YB4qrYGDc?t=1270 ‘Алгоритмы на Python 3. Лекция №14’]]]-->Кто-то может захотеть вставить в код номер кредитной карты (например 1234'5678'9012'3456, что является шестнадцатеричным (а не десятичным!) числом в 11l), но насколько часто это требуется на практике?<!--[[[В крайнем случае можно разрешить использовать разделитель `_` для десятичных чисел/литералов.]]]--><br />
 <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">Признаю, что такая форма записи шестнадцатеричных чисел/литералов/констант немного непривычна.<br />
 Но оттого и интересно, сможет ли мозг адаптироваться к такой записи. Можно считать, что это эксперимент такой.<br />
-Также<!--[[[,]]]--> такая запись поощряет красиво писать шестнадцатеричные числа (<!--[[[на/]]]-->в C++14 можно писать и <pre style="display: inline">0xFFFF'FFFF</pre> и <pre style="display: inline">0xFFFFFFFF</pre>, <!--[[[а/]]]-->но последнюю запись можно спутать с <pre style="display: inline">0xFFFFFFF</pre> или <pre style="display: inline">0xFFFFFFFFF</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">а с <pre style="display: inline">0xFFFFFFFFFFFFFFFF</pre> <!--[[[— ]]]-->совсем плохо без разделителей</span><span class="cu_brackets_b">}</span></span>).</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><span class="sq_brackets">]</span></span><br />
+Также<!--[[[,]]]--> такая запись поощряет красиво писать шестнадцатеричные числа (<!--[[[на/]]]-->в C++14 можно писать и <pre style="display: inline">0xFFFF'FFFF</pre> и <pre style="display: inline">0xFFFFFFFF</pre>, <!--[[[а/]]]-->но последнюю запись можно спутать с <pre style="display: inline">0xFFFFFFF</pre> или <pre style="display: inline">0xFFFFFFFFF</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">а с <pre style="display: inline">0xFFFFFFFFFFFFFFFF</pre> <!--[[[— ]]]-->совсем плохо без разделителей</span><span class="cu_brackets_b">}</span></span>).<br />
+В крайнем случае можно добавить суффикс <pre class="inline_code">h</pre>\<pre class="inline_code">ш</pre> для обозначения шестнадцатеричных чисел (сохранив при этом обязательные разделители).</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><span class="sq_brackets">]</span></span><br />
 <br />
 Почему <pre class="inline_code">'</pre>, а не <pre class="inline_code">_</pre> — может быть действительное имя переменной (например, <pre class="inline_code">FFFF_FFFF</pre> или <pre class="inline_code">C0_DE</pre>).<br />
-
-</td></tr></table>
+</div>
 </body>
 </html>

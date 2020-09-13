@@ -22,10 +22,11 @@ function spoiler2(element, event)
 }
 </script>
 <style type="text/css">
-body td {
+div#main, td {
     font-size: 14px;
     font-family: Verdana, sans-serif;
     line-height: 160%;
+    text-align: justify;
 }
 span.cu_brackets_b {
     font-size: initial;
@@ -50,7 +51,6 @@ h3 {font-size: 137.5%;}
 h4 {font-size: 120%;}
 h5 {font-size: 110%;}
 h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -62,8 +62,8 @@ ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -93,10 +93,15 @@ pre.inline_code {
     border-radius: 3px;
 }
 img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
 </style>
 </head>
 <body>
-<table style="max-width: 1024px" align="center"><tr><td>
+<div id="main" style="margin: 0 auto">
 <!--[[[Н‘F/fn’
 ]]]--><h3>Ключевое слово F/fn</h3>
 <br />
@@ -180,7 +185,7 @@ span.comment {color: #808080;}
       <span class="identifier">print</span>(<span class="string-literal">‘TypeName destructor called’</span>)
 </pre>
 <br />
-Подслова <pre class="inline_code">virtual.new</pre>, <pre class="inline_code">virtual.override</pre>, <pre class="inline_code">virtual.final</pre>, <pre class="inline_code">virtual.abstract</pre> и <pre class="inline_code">virtual.assign</pre><!--[[[рассматривал ещё варианты: set, define, determine, designate, new‘a’[‘abstract’], non_abstract, specific, concrete на основе google-перевода слов ‘определять’ и ‘конкретный’]]]--> означают, что эта функция виртуальная, и они задают "тип виртуальности" этой функции.<br />
+Подслова <pre class="inline_code">virtual.new</pre>, <pre class="inline_code">virtual.override</pre>, <pre class="inline_code">virtual.final</pre>, <pre class="inline_code">virtual.abstract</pre> и <pre class="inline_code">virtual.assign</pre><!--[[[рассматривал ещё варианты: set, define, determine, designate, new‘a’[‘abstract’], non_abstract, specific, concrete на основе google-перевода слов ‘определять’ и ‘конкретный’]]]--> означают, что эта функция виртуальная, и они задают "тип виртуальности" этой функции.<!--[[[>[https://habr.com/ru/post/465553/ <- google:‘Ü habr’ <- http://compiler.su/entuziasty-razrabotchiki-kompilyatorov-i-ikh-proekty.php#33]:‘Для виртуальных функций требуется явно указывать вид виртуальности.’]]]--><br />
 <pre class="inline_code">virtual.new</pre> обозначает, что это новая виртуальная функция (наличие виртуальной функции с этим же именем в базовом типе является ошибкой компиляции).<br />
 <pre class="inline_code">virtual.override</pre> используется для указания того, что данная функция переопределяет виртуальную функцию из базового типа (отсутствие виртуальной функции с этим же именем в базовом типе является ошибкой компиляции).<br />
 <!--[[[https://en.cppreference.com/w/cpp/language/final]]]--><pre class="inline_code">virtual.final</pre> <!--[[[определяет/]]]-->указывает, что виртуальная функция не может быть переопределена в производном типе.<br />
@@ -197,7 +202,6 @@ span.comment {color: #808080;}
 </pre>
 <br />
 Подслово <pre class="inline_code">F.args</pre>/<pre class="inline_code">fn.args</pre> предназначено для обеспечения доступа к аргументам, переданным в текущую функцию, но на данный момент оно не реализовано.<br />
-
-</td></tr></table>
+</div>
 </body>
 </html>

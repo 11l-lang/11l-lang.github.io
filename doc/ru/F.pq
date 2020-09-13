@@ -74,7 +74,7 @@ T TypeName
       print(‘TypeName destructor called’)
 ’
 
-Подслова `virtual.new`, `virtual.override`, `virtual.final`, `virtual.abstract` и `virtual.assign`[[[рассматривал ещё варианты: set, define, determine, designate, new‘a’[‘abstract’], non_abstract, specific, concrete на основе google-перевода слов ‘определять’ и ‘конкретный’]]] означают, что эта функция виртуальная, и они задают "тип виртуальности" этой функции.
+Подслова `virtual.new`, `virtual.override`, `virtual.final`, `virtual.abstract` и `virtual.assign`[[[рассматривал ещё варианты: set, define, determine, designate, new‘a’[‘abstract’], non_abstract, specific, concrete на основе google-перевода слов ‘определять’ и ‘конкретный’]]] означают, что эта функция виртуальная, и они задают "тип виртуальности" этой функции.[[[>[https://habr.com/ru/post/465553/ <- google:‘Ü habr’ <- http://compiler.su/entuziasty-razrabotchiki-kompilyatorov-i-ikh-proekty.php#33]:‘Для виртуальных функций требуется явно указывать вид виртуальности.’]]]
 `virtual.new` обозначает, что это новая виртуальная функция (наличие виртуальной функции с этим же именем в базовом типе является ошибкой компиляции).
 `virtual.override` используется для указания того, что данная функция переопределяет виртуальную функцию из базового типа (отсутствие виртуальной функции с этим же именем в базовом типе является ошибкой компиляции).
 [[[https://en.cppreference.com/w/cpp/language/final]]]`virtual.final` [[[определяет/]]]указывает, что виртуальная функция не может быть переопределена в производном типе.

@@ -21,10 +21,11 @@ function spoiler2(element, event)
 }
 </script>
 <style type="text/css">
-body td {
+div#main, td {
     font-size: 14px;
     font-family: Verdana, sans-serif;
     line-height: 160%;
+    text-align: justify;
 }
 span.cu_brackets_b {
     font-size: initial;
@@ -49,7 +50,6 @@ h3 {font-size: 137.5%;}
 h4 {font-size: 120%;}
 h5 {font-size: 110%;}
 h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -61,8 +61,8 @@ ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -92,10 +92,15 @@ pre.inline_code {
     border-radius: 3px;
 }
 img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
 </style>
 </head>
 <body>
-<table style="max-width: 1024px" align="center"><tr><td>
+<div id="main" style="margin: 0 auto">
 <div align="right"><sub><a href="./ru" target="_self">(Эта страница на русском\This page in Russian)</a></sub></div>
 <br />
 <div align="center"><table><tr><td style="border: 0; padding: 0"><br />
@@ -140,7 +145,7 @@ img {vertical-align: middle;}
 </table></div>
 <!--[[[><‘H‘About’’]]]--><br />
 <br />
-11<abbr title="‘l’ stands for ‘litterae’ in Latin, ‘logos’ in Greek [meaning ‘word’], or ‘letters’ in English">l</abbr> <!--[[[— ]]]-->is a <span class="sq"><span class="sq_brackets">[</span>semi-esoteric<span class="sq_brackets">]</span></span> <!--[[[‘very high-level’[https://en.wikipedia.org/wiki/Very_high-level_programming_language]]this term is unclear]]-->high-level <!--[[[universal/]]]-->general-purpose programming language, <!--[[[at the same time providing]]]-->which provides a simple and direct mapping to hardware and aims to<!--[[[/at]]]--> follow<!--[[[ing]]]--> a zero-overhead principle, like C++ (unused language features do not add <abbr title="excess computation time, oftentimes combined with the additional length of a compiled machine code">run-time overhead</abbr>). 11l is statically typed, but <!--[[[smells]]]-->feels very much like a dynamically typed language (e.g. Python)<!--[[[ or even scripting language]]]-->.<br />
+11<abbr title="‘l’ stands for ‘litterae’ in Latin, ‘logos’ in Greek [meaning ‘word’], or ‘letters’ in English">l</abbr> <!--[[[— ]]]-->is a <span class="sq"><span class="sq_brackets">[</span>semi-esoteric<span class="sq_brackets">]</span></span> <!--[[[‘very high-level’[https://en.wikipedia.org/wiki/Very_high-level_programming_language]]this term is unclear]]--><!--[[[high-level/]]]-->compiled <!--[[[universal/]]]-->general-purpose programming language, <!--[[[at the same time providing]]]-->which provides a simple and direct mapping to hardware and aims to<!--[[[/at]]]--> follow<!--[[[ing]]]--> a zero-overhead principle, like C++ (unused language features do not add <abbr title="excess computation time, oftentimes combined with the additional length of a compiled machine code">run-time overhead</abbr>). 11l is statically typed, but <!--[[[smells]]]-->feels very much like a dynamically typed language (e.g. Python)<!--[[[ or even scripting language]]]-->.<br />
 The design of 11l is aimed to achieve as much conciseness as possible<!--[[[, and to reconsider all programming language elements]]]-->.<br />
 Also 11l tries to combine <!--[[[expressiveness/]]]-->a good code readability of Python <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">and <a href="https://stackoverflow.com/a/3965129/2692494">as Python</a>: good 11l is often close to good pseudocode</span><span class="cu_brackets_b">}</span></span> <!--[[[and/]]]-->with speed/performance of C++ <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <blockquote><a href="http://www.stroustrup.com/bs_faq.html#really-say-that" title="<- https://en.wikipedia.org/wiki/C++">[1]<i>http://www.stroustrup.com/bs_faq.html#really-say-that</i></a>:<br />
@@ -527,7 +532,7 @@ Usage:<br />
 <pre class="inline_code">&lt;path_to_unpacked_archive_files>/11l &lt;source_python_or_11l_file></pre> on Linux.</li>
 </ol>
 <br />
-<span class="sq"><span class="sq_brackets">[</span>Having problems with compiling your Python or 11l program? <a href="http://forum.11l-lang.org/forums/help.3/">Write at the forum.</a><span class="sq_brackets">]</span></span></div>
+<span class="sq"><span class="sq_brackets">[</span>Having problems with compiling your Python or 11l program? <a href="http://forum.11l-lang.org/forums/help.3/">Write <!--[[[on/]]]-->at the forum.</a><span class="sq_brackets">]</span></span></div>
 </div>
 </div>
 </td></tr>
@@ -537,7 +542,6 @@ Usage:<br />
 <tr><td><!--[[[English Forum \ Русскоязычный форум]]]--><a href="http://forum.11l-lang.org">Forum</a></td></tr>
 </table>
 </div>
-
-</td></tr></table>
+</div>
 </body>
 </html>

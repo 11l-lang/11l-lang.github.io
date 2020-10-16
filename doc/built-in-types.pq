@@ -167,6 +167,7 @@ H‘‘Replacement field’ ‘Argument’  ‘Output’      ’
 ‘‘#‘#5’’              ‘#‘abc’’    ‘#‘  abc’’    ’
 ‘‘#‘#.’’              ‘#‘abc’’    ‘#‘abc’’      ’
 ‘‘#‘#<5.’’            ‘#‘abc’’    ‘#‘abc  .’’   ’
+‘‘#‘That's like rule ###..’’ ‘#‘1’’ ‘#‘That's like rule #1.’’’
 ’
 }
 }

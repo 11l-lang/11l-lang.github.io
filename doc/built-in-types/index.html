@@ -332,11 +332,11 @@ The same as <pre style="display: inline"><span class="identifier">arr</span>.<sp
 <b>pop</b>()<br />
 Retrieves the last item of this array and also removes it.<br />
 <br />
-<b>index</b>(x)<br />
-Return index of the first occurrence of <pre class="inline_code">x</pre> in this array. <pre class="inline_code">ValueError</pre> is raised when <pre class="inline_code">x</pre> is not found in this array.<br />
+<b>index</b>(x, start = 0)<br />
+Return index of the first occurrence of <pre class="inline_code">x</pre> in this array (at or after index <pre class="inline_code">start</pre>). <pre class="inline_code">ValueError</pre> is raised when <pre class="inline_code">x</pre> is not found in this array.<br />
 <br />
 <b>find</b>(x, start = 0)<br />
-Return index of the first occurrence of <pre class="inline_code">x</pre> in this array, or <pre class="inline_code">N</pre>/<pre class="inline_code">null</pre> if <pre class="inline_code">x</pre> is not found in this array. <pre class="inline_code">x</pre> can also be a tuple of values to look for.<br />
+Return index of the first occurrence of <pre class="inline_code">x</pre> in this array (at or after index <pre class="inline_code">start</pre>), or <pre class="inline_code">N</pre>/<pre class="inline_code">null</pre> if <pre class="inline_code">x</pre> is not found in this array. <pre class="inline_code">x</pre> can also be a tuple of values to look for.<br />
 <br />
 <b>count</b>(x)<br />
 Return total number of occurrences of <pre class="inline_code">x</pre> in this array.<br />
@@ -363,6 +363,50 @@ Return an array consisting of those elements of dictionary for which <pre class=
 <br />
 <b>DefaultDict</b><br />
 A dictionary, which does not throw an exception when accessing a non-existent key (it inserts a new item with a default value in this case).<br />
+<br />
+<b>Set</b><br />
+A set.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
+<b>add</b>(elem)<br />
+Add element <pre class="inline_code">elem</pre> to the set.<br />
+<br />
+<b>difference</b>(other)<br />
+Return a new set with elements in the set that are not in the <pre class="inline_code">other</pre>.<br />
+</div>
+<br />
+<b>Deque</b><br />
+A double-ended queue.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
+<b>append</b>(x)<br />
+Add <pre class="inline_code">x</pre> to the right side of the deque.<br />
+<br />
+<b>append_left</b>(x)<br />
+Add <pre class="inline_code">x</pre> to the left side of the deque.<br />
+<br />
+<b>clear</b>()<br />
+Remove all elements from the deque leaving it with length 0.<br />
+<br />
+<b>extend</b>(iterable)<br />
+Extend the right side of the deque by appending elements from the iterable argument.<br />
+<br />
+<b>extend_left</b>(iterable)<br />
+Extend the left side of the deque by appending elements from <pre class="inline_code">iterable</pre>.<br />
+<br />
+<b>index</b>(x, start = 0)<br />
+Return the position of <pre class="inline_code">x</pre> in the deque (at or after index <pre class="inline_code">start</pre>). Returns the first match or raises <pre class="inline_code">ValueError</pre> if not found.<br />
+<br />
+<b>insert</b>(i, x)<br />
+Insert <pre class="inline_code">x</pre> into the deque at position <pre class="inline_code">i</pre>.<br />
+<br />
+<b>pop</b>()<br />
+Remove and return an element from the right side of the deque. If no elements are present, raises an <pre class="inline_code">IndexError</pre>.<br />
+<br />
+<b>pop_left</b>()<br />
+Remove and return an element from the left side of the deque. If no elements are present, raises an <pre class="inline_code">IndexError</pre>.<br />
+<br />
+<b>remove</b>(value)<br />
+Remove the first occurrence of <pre class="inline_code">value</pre>. If not found, raises a <pre class="inline_code">ValueError</pre>.<br />
+</div>
 <br />
 <b>File</b><br />
 A file object.<br />

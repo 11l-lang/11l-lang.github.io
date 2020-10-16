@@ -221,11 +221,11 @@ The same as #(11l)‘arr.append(x)’.
 *‘pop’()
 Retrieves the last item of this array and also removes it.
 
-*‘index’(x)
-Return index of the first occurrence of `x` in this array. `ValueError` is raised when `x` is not found in this array.
+*‘index’(x, start = 0)
+Return index of the first occurrence of `x` in this array (at or after index `start`). `ValueError` is raised when `x` is not found in this array.
 
 *‘find’(x, start = 0)
-Return index of the first occurrence of `x` in this array, or `N`/`null` if `x` is not found in this array. `x` can also be a tuple of values to look for.
+Return index of the first occurrence of `x` in this array (at or after index `start`), or `N`/`null` if `x` is not found in this array. `x` can also be a tuple of values to look for.
 
 *‘count’(x)
 Return total number of occurrences of `x` in this array.
@@ -252,6 +252,50 @@ Return an array consisting of those elements of dictionary for which `function` 
 
 *‘DefaultDict’
 A dictionary, which does not throw an exception when accessing a non-existent key (it inserts a new item with a default value in this case).
+
+*‘Set’
+A set.
+‘Methods’{
+*‘add’(elem)
+Add element `elem` to the set.
+
+*‘difference’(other)
+Return a new set with elements in the set that are not in the `other`.
+}
+
+*‘Deque’
+A double-ended queue.
+‘Methods’{
+*‘append’(x)
+Add `x` to the right side of the deque.
+
+*‘append_left’(x)
+Add `x` to the left side of the deque.
+
+*‘clear’()
+Remove all elements from the deque leaving it with length 0.
+
+*‘extend’(iterable)
+Extend the right side of the deque by appending elements from the iterable argument.
+
+*‘extend_left’(iterable)
+Extend the left side of the deque by appending elements from `iterable`.
+
+*‘index’(x, start = 0)
+Return the position of `x` in the deque (at or after index `start`). Returns the first match or raises `ValueError` if not found.
+
+*‘insert’(i, x)
+Insert `x` into the deque at position `i`.
+
+*‘pop’()
+Remove and return an element from the right side of the deque. If no elements are present, raises an `IndexError`.
+
+*‘pop_left’()
+Remove and return an element from the left side of the deque. If no elements are present, raises an `IndexError`.
+
+*‘remove’(value)
+Remove the first occurrence of `value`. If not found, raises a `ValueError`.
+}
 
 *‘File’
 A file object.

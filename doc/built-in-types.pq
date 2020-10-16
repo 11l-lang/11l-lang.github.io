@@ -259,6 +259,9 @@ A set.
 *‘add’(elem)
 Add element `elem` to the set.
 
+*‘clear’()
+Remove all elements from the set.
+
 *‘difference’(other)
 Return a new set with elements in the set that are not in the `other`.
 }
@@ -306,6 +309,9 @@ Open file with the specified name and mode (~‘note: only ‘r’ and ‘w’ a
 *‘read’() -> String
 Read a whole file into a string, and return it.
 ~‘Note: only UTF-8 encoding [with optional BOM] is supported at the present moment.’
+
+*‘read_line’(keep_newline = 0B) -> String
+Read and return one line from the file. If `keep_newline` argument is true (1B), trailing new-line character is [[[remained/]]]left as is.
 
 *‘read_lines’(keep_newline = 0B) -> Array[String]
 [[[Read and return an array of lines from the file.]]]Reads the entire file [[[specified by name]]] as individual lines, and returns those lines in an array. If `keep_newline` argument is true (1B), trailing new-line characters are [[[remained/]]]left as is.

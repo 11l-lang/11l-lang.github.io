@@ -370,6 +370,9 @@ A set.<br />
 <b>add</b>(elem)<br />
 Add element <pre class="inline_code">elem</pre> to the set.<br />
 <br />
+<b>clear</b>()<br />
+Remove all elements from the set.<br />
+<br />
 <b>difference</b>(other)<br />
 Return a new set with elements in the set that are not in the <pre class="inline_code">other</pre>.<br />
 </div>
@@ -417,6 +420,9 @@ Open file with the specified name and mode (<i>note: only ‘r’ and ‘w’ ar
 <b>read</b>() -> String<br />
 Read a whole file into a string, and return it.<br />
 <i>Note: only UTF-8 encoding <span class="sq"><span class="sq_brackets">[</span>with optional BOM<span class="sq_brackets">]</span></span> is supported at the present moment.</i><br />
+<br />
+<b>read_line</b>(keep_newline = 0B) -> String<br />
+Read and return one line from the file. If <pre class="inline_code">keep_newline</pre> argument is true (1B), trailing new-line character is <!--[[[remained/]]]-->left as is.<br />
 <br />
 <b>read_lines</b>(keep_newline = 0B) -> Array<span class="sq"><span class="sq_brackets">[</span>String<span class="sq_brackets">]</span></span><br />
 <!--[[[Read and return an array of lines from the file.]]]-->Reads the entire file <!--[[[specified by name]]]--> as individual lines, and returns those lines in an array. If <pre class="inline_code">keep_newline</pre> argument is true (1B), trailing new-line characters are <!--[[[remained/]]]-->left as is.<br />

@@ -266,6 +266,9 @@ A set.
 *‘add’(elem)
 Add element `elem` to the set.
 
+*‘remove’(elem)
+Remove element `elem` from the set. Raises `KeyError` if `elem` is not contained in the set.
+
 *‘clear’()
 Remove all elements from the set.
 

@@ -352,6 +352,12 @@ Reverses the items of array in place.<br />
 <b>Dict</b><br />
 A dictionary. For example, a dictionary with two items: <pre style="display: inline">[<span class="string-literal">‘key1’</span> = <span class="numeric-literal">1</span>, <span class="string-literal">‘key2’</span> = <span class="numeric-literal">2</span>]</pre>. <span class="sq"><span class="sq_brackets">[</span>Type of this dictionary is <pre class="inline_code">[String = Int]</pre>.<span class="sq_brackets">]</span></span><br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
+<b>find</b>(key) -> ValueType?<br />
+Finds element with specific key. If no such element is found, <pre class="inline_code">null</pre> is returned.<br />
+<br />
+<b>get</b>(key, default) -> ValueType<br />
+Return the value for <pre class="inline_code">key</pre> if <pre class="inline_code">key</pre> is in the dictionary, else <pre class="inline_code">default</pre>.<br />
+<br />
 <b>keys</b>()<br />
 Return an array of the dictionary's keys.<br />
 <br />
@@ -376,6 +382,12 @@ Remove all elements from the set.<br />
 <br />
 <b>difference</b>(other)<br />
 Return a new set with elements in the set that are not in the <pre class="inline_code">other</pre>.<br />
+<br />
+<b>lower_bound</b>(key) -> KeyType?<br />
+Returns the first element which is not less than the given <pre class="inline_code">key</pre>. If no such element is found, <pre class="inline_code">null</pre> is returned.<br />
+<br />
+<b>upper_bound</b>(key) -> KeyType?<br />
+Returns the first element which is greater than the given <pre class="inline_code">key</pre>. If no such element is found, <pre class="inline_code">null</pre> is returned.<br />
 </div>
 <br />
 <b>Deque</b><br />

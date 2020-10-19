@@ -241,6 +241,12 @@ Reverses the items of array in place.
 *‘Dict’
 A dictionary. For example, a dictionary with two items: #(11l)‘[‘key1’ = 1, ‘key2’ = 2]’. [Type of this dictionary is `[String = Int]`.]
 ‘Methods’{
+*‘find’(key) -> ValueType?
+Finds element with specific key. If no such element is found, `null` is returned.
+
+*‘get’(key, default) -> ValueType
+Return the value for `key` if `key` is in the dictionary, else `default`.
+
 *‘keys’()
 Return an array of the dictionary's keys.
 
@@ -265,6 +271,12 @@ Remove all elements from the set.
 
 *‘difference’(other)
 Return a new set with elements in the set that are not in the `other`.
+
+*‘lower_bound’(key) -> KeyType?
+Returns the first element which is not less than the given `key`. If no such element is found, `null` is returned.
+
+*‘upper_bound’(key) -> KeyType?
+Returns the first element which is greater than the given `key`. If no such element is found, `null` is returned.
 }
 
 *‘Deque’

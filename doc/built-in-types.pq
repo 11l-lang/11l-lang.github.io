@@ -175,6 +175,7 @@ H‘‘Replacement field’ ‘Argument’  ‘Output’      ’
 *‘Tuple’
 A tuple. For example, a tuple with two items: #(11l)‘(1, 2)’. [Type of this tuple is `(Int, Int)`.]
 The elements of tuples consisting of from 2 to 4 elements of the same type can be accessed by `x`, `y`, `z`, `w` or `r`, `g`, `b`, `a`.
+Arithmetic operations (`+`, `-`, `*`, `/`) on tuples are performed componentwise {for example, `(x1, y1, z1) + (x2, y2, z2)` will give the following tuple: `(x1 + x2, y1 + y2, z1 + z2)`}.
 ~‘Note 1: like ‘in mypy’[https://stackoverflow.com/a/52559625/2692494 <- google:‘mypy list any’], tuples in 11l are heterogeneous, but arrays (analogue of Python's lists) are homogeneous.
 Note 2: in contrast to Python, tuples in 11l are mutable (like in C++).’
 
@@ -242,7 +243,7 @@ Reverses the items of array in place.
 A dictionary. For example, a dictionary with two items: #(11l)‘[‘key1’ = 1, ‘key2’ = 2]’. [Type of this dictionary is `[String = Int]`.]
 ‘Methods’{
 *‘find’(key) -> ValueType?
-Finds element with specific key. If no such element is found, `null` is returned.
+Finds element with specific key. If no such element is found, `N`/`null` is returned.
 
 *‘get’(key, default) -> ValueType
 Return the value for `key` if `key` is in the dictionary, else `default`.
@@ -276,10 +277,10 @@ Remove all elements from the set.
 Return a new set with elements in the set that are not in the `other`.
 
 *‘lower_bound’(key) -> KeyType?
-Returns the first element which is not less than the given `key`. If no such element is found, `null` is returned.
+Returns the first element which is not less than the given `key`. If no such element is found, `N`/`null` is returned.
 
 *‘upper_bound’(key) -> KeyType?
-Returns the first element which is greater than the given `key`. If no such element is found, `null` is returned.
+Returns the first element which is greater than the given `key`. If no such element is found, `N`/`null` is returned.
 }
 
 *‘Deque’

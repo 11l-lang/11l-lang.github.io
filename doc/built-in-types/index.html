@@ -286,6 +286,7 @@ Examples:<br />
 <b>Tuple</b><br />
 A tuple. For example, a tuple with two items: <pre style="display: inline">(<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>)</pre>. <span class="sq"><span class="sq_brackets">[</span>Type of this tuple is <pre class="inline_code">(Int, Int)</pre>.<span class="sq_brackets">]</span></span><br />
 The elements of tuples consisting of from 2 to 4 elements of the same type can be accessed by <pre class="inline_code">x</pre>, <pre class="inline_code">y</pre>, <pre class="inline_code">z</pre>, <pre class="inline_code">w</pre> or <pre class="inline_code">r</pre>, <pre class="inline_code">g</pre>, <pre class="inline_code">b</pre>, <pre class="inline_code">a</pre>.<br />
+Arithmetic operations (<pre class="inline_code">+</pre>, <pre class="inline_code">-</pre>, <pre class="inline_code">*</pre>, <pre class="inline_code">/</pre>) on tuples are performed componentwise <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">for example, <pre class="inline_code">(x1, y1, z1) + (x2, y2, z2)</pre> will give the following tuple: <pre class="inline_code">(x1 + x2, y1 + y2, z1 + z2)</pre></span><span class="cu_brackets_b">}</span></span>.<br />
 <i>Note 1: like <a href="https://stackoverflow.com/a/52559625/2692494" title="<- google:‘mypy list any’">in mypy</a>, tuples in 11l are heterogeneous, but arrays (analogue of Python's lists) are homogeneous.<br />
 Note 2: in contrast to Python, tuples in 11l are mutable (like in C++).</i><br />
 <br />
@@ -353,7 +354,7 @@ Reverses the items of array in place.<br />
 A dictionary. For example, a dictionary with two items: <pre style="display: inline">[<span class="string-literal">‘key1’</span> = <span class="numeric-literal">1</span>, <span class="string-literal">‘key2’</span> = <span class="numeric-literal">2</span>]</pre>. <span class="sq"><span class="sq_brackets">[</span>Type of this dictionary is <pre class="inline_code">[String = Int]</pre>.<span class="sq_brackets">]</span></span><br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
 <b>find</b>(key) -> ValueType?<br />
-Finds element with specific key. If no such element is found, <pre class="inline_code">null</pre> is returned.<br />
+Finds element with specific key. If no such element is found, <pre class="inline_code">N</pre>/<pre class="inline_code">null</pre> is returned.<br />
 <br />
 <b>get</b>(key, default) -> ValueType<br />
 Return the value for <pre class="inline_code">key</pre> if <pre class="inline_code">key</pre> is in the dictionary, else <pre class="inline_code">default</pre>.<br />
@@ -387,10 +388,10 @@ Remove all elements from the set.<br />
 Return a new set with elements in the set that are not in the <pre class="inline_code">other</pre>.<br />
 <br />
 <b>lower_bound</b>(key) -> KeyType?<br />
-Returns the first element which is not less than the given <pre class="inline_code">key</pre>. If no such element is found, <pre class="inline_code">null</pre> is returned.<br />
+Returns the first element which is not less than the given <pre class="inline_code">key</pre>. If no such element is found, <pre class="inline_code">N</pre>/<pre class="inline_code">null</pre> is returned.<br />
 <br />
 <b>upper_bound</b>(key) -> KeyType?<br />
-Returns the first element which is greater than the given <pre class="inline_code">key</pre>. If no such element is found, <pre class="inline_code">null</pre> is returned.<br />
+Returns the first element which is greater than the given <pre class="inline_code">key</pre>. If no such element is found, <pre class="inline_code">N</pre>/<pre class="inline_code">null</pre> is returned.<br />
 </div>
 <br />
 <b>Deque</b><br />

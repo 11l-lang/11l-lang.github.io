@@ -93,8 +93,8 @@ L(test) tests
    I !test.ok()
       L.break
 
-   L.was_no_break
-      print(‘All tests are ok!’)
+L.was_no_break
+   print(‘All tests are ok!’)
 ’
 
 

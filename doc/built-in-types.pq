@@ -235,6 +235,9 @@ Return total number of occurrences of `x` in this array.
 *‘sort’()
 This method sorts the array in place, using only `<` comparisons between items.
 
+*‘sort_range’(range)
+This method sorts the specified range of an array in place.
+
 *‘reverse’()
 Reverses the items of array in place.
 }

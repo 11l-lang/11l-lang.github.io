@@ -194,8 +194,8 @@ L(i) (1 .< .children.len).step(2)
    res ‘’= ‘a == ’char_or_str(.children[i], char_key)‘ ? ’
                 ‘’char_or_str(.children[i+1], char_val)‘ : ’
 
-   L.was_no_break
-      res ‘’= ‘throw KeyError(a)’
+L.was_no_break
+   res ‘’= ‘throw KeyError(a)’
 
 ...
 

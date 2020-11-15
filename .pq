@@ -285,6 +285,94 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
       print(‘Unallowed character (\r or \t) found in file '’fname[2..]‘'’)
 ’
 ’’’
+‘informatics.msk.ru’{
+‘Intersecting line segments’[https://translate.google.com/translate?hl=&sl=ru&tl=en&u=https://informatics.msk.ru/mod/statements/view.php?chapterid=280]:
+T‘><‘‘Python’ ‘11l’’
+‘‘#(Python)‘
+(p1x, p1y, p2x, p2y) = map(int, input().split())
+(m1x, m1y, m2x, m2y) = map(int, input().split())
+
+def point_belongs_to_segment(px, py, sx, sy, ex, ey):
+    return (ex - sx)*(py - sy) - (ey - sy)*(px - sx) == 0 \
+       and (sx - px)*(ex - px) + (sy - py)*(ey - py) <= 0
+
+def cross(v0x, v0y, v1x, v1y):
+    return v0x * v1y - v0y * v1x
+
+
+if point_belongs_to_segment(p1x, p1y, m1x, m1y, m2x, m2y) or \
+   point_belongs_to_segment(p2x, p2y, m1x, m1y, m2x, m2y) or \
+   point_belongs_to_segment(m1x, m1y, p1x, p1y, p2x, p2y) or \
+   point_belongs_to_segment(m2x, m2y, p1x, p1y, p2x, p2y) or \
+   (cross(p2x - p1x, p2y - p1y, m2x - p1x, m2y - p1y)
+  * cross(p2x - p1x, p2y - p1y, m1x - p1x, m1y - p1y) < 0 and
+    cross(m2x - m1x, m2y - m1y, p1x - m1x, p1y - m1y)
+  * cross(m2x - m1x, m2y - m1y, p2x - m1x, p2y - m1y) < 0):
+    print('YES')
+else:
+    print('NO')
+’’ ‘#(11l)‘
+V (p1x, p1y, p2x, p2y) = input().split(‘ ’).map(Int)
+V (m1x, m1y, m2x, m2y) = input().split(‘ ’).map(Int)
+V p1 = (p1x, p1y)
+V p2 = (p2x, p2y)
+V m1 = (m1x, m1y)
+V m2 = (m2x, m2y)
+
+F point_belongs_to_segment(p, s, e)
+   R cross(e - s, p - s) == 0
+     & dot(s - p, e - p) <= 0
+
+I point_belongs_to_segment(p1, m1, m2) |
+  point_belongs_to_segment(p2, m1, m2) |
+  point_belongs_to_segment(m1, p1, p2) |
+  point_belongs_to_segment(m2, p1, p2) |
+  (cross(p2 - p1, m2 - p1)
+ * cross(p2 - p1, m1 - p1) < 0 &
+   cross(m2 - m1, p1 - m1)
+ * cross(m2 - m1, p2 - m1) < 0)
+   print(‘YES’)
+E
+   print(‘NO’)
+’’’
+’
+‘Build a square’[https://translate.google.com/translate?hl=&sl=ru&tl=en&u=https://informatics.msk.ru/mod/statements/view.php?chapterid=1349]:
+T‘><‘‘Python’ ‘11l’’
+‘‘#(Python)‘
+(ax, ay, bx, by) = map(int, input().split())
+
+abx = bx - ax
+aby = by - ay
+
+perp_abx = -aby
+perp_aby = abx
+
+acx = (abx + perp_abx) / 2
+acy = (aby + perp_aby) / 2
+
+adx = (abx - perp_abx) / 2
+ady = (aby - perp_aby) / 2
+
+print(ax + acx, ay + acy, ax + adx, ay + ady)
+’’ ‘#(11l)‘
+V (ax, ay, bx, by) = input().split(‘ ’).map(Int)
+V a = (ax, ay)
+V b = (bx, by)
+V ab = b - a
+
+V perp_ab = perp(ab)
+
+
+V ac = (ab + perp_ab) / 2
+
+
+V ad = (ab - perp_ab) / 2
+
+print_elements(a + ac, end' ‘ ’)
+print_elements(a + ad)
+’’’
+’
+}
 ‘Rosetta Code’{
 ‘Benford's law’[https://www.rosettacode.org/wiki/Benford%27s_law]:
 T‘‘

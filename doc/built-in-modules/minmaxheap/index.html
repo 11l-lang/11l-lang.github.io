@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>11l Documentation</title>
+<title>Modules minheap and maxheap</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -102,43 +102,22 @@ div#main {width: 100%;}
 </head>
 <body>
 <div id="main" style="margin: 0 auto">
-<!--[[[H‘11l Documentation’]]]--><br />
-<!--[[[Scoping rules/]]]--><a href="./code-blocks" target="_self">Code blocks</a><br />
+<!--[[[H‘Modules minheap and maxheap’
+]]]--><h3>Modules minheap and maxheap</h3>
 <br />
-<a href="./semicolons" target="_self">Semicolon free grammar and implied line joining</a><br />
 <br />
-<a href="./comments" target="_self">Comments</a><br />
+minheap:<b>push</b>(&amp;array, item)<br />
+maxheap:<b>push</b>(&amp;array, item)<br />
+Push the value <pre class="inline_code">item</pre> onto the heap <pre class="inline_code">array</pre>, maintaining the heap invariant.<br />
 <br />
-<a href="./string-literals" target="_self">String literals</a><br />
-<a href="./integer-literals" target="_self">Integer literals</a><br />
+minheap:<b>pop</b>(&amp;array)<br />
+maxheap:<b>pop</b>(&amp;array)<br />
+Pop and return the smallest/largest item from the heap <pre class="inline_code">array</pre>, maintaining the heap invariant.<br />
+To access the smallest/largest item without popping it, use <pre class="inline_code">array[0]</pre>.<br />
 <br />
-Keywords:<br />
-<a href="./C" target="_self">   C/in</a><br />
-<a href="./I" target="_self">   I/if and E/else</a><br />
-<a href="./F" target="_self">   F/fn</a><br />
-<a href="./L" target="_self">   L/loop</a><br />
-<a href="./N" target="_self">   N/null</a><br />
-<a href="./R" target="_self">   R/return</a><br />
-<a href="./S" target="_self">   S/switch</a><br />
-<a href="./T" target="_self">   T/type</a><br />
-<a href="./V" target="_self">   V/var</a><br />
-<a href="./X" target="_self">   X/exception</a><br />
-<br />
-<a href="./built-in-types" target="_self">Built-in types</a><br />
-<br />
-<a href="./operators" target="_self">Operators</a><br />
-<br />
-<a href="./prefixes" target="_self">Variables' prefixes</a><br />
-<br />
-<a href="./built-in-functions" target="_self"><!--[[[Global/]]]-->Built-in Functions</a><br />
-<br />
-Built-in modules:<br />
-<a href="./built-in-modules/os" target="_self">   os</a><br />
-<a href="./built-in-modules/fs" target="_self">   fs</a><br />
-<a href="./built-in-modules/time" target="_self">   time</a><br />
-<a href="./built-in-modules/re" target="_self">   re</a><br />
-<a href="./built-in-modules/random" target="_self">   random</a><br />
-   <a href="./built-in-modules/minmaxheap" target="_self">minheap and maxheap</a><br />
+minheap:<b>heapify</b>(&amp;array)<br />
+maxheap:<b>heapify</b>(&amp;array)<br />
+Transform <pre class="inline_code">array</pre> into a heap, in-place, in linear time.<br />
 </div>
 </body>
 </html>

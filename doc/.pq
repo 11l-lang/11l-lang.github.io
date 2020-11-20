@@ -34,3 +34,4 @@ Built-in modules:
    time[./built-in-modules/time]
    re[./built-in-modules/re]
    random[./built-in-modules/random]
+   ‘minheap and maxheap’[./built-in-modules/minmaxheap]

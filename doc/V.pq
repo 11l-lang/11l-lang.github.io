@@ -24,3 +24,10 @@ or:
 #(11l)‘
 (row, V col2) = get_row_column() // `row` has already been declared, `col2` is declared here
 ’
+
+
+To declare a constant "variable" use `-V`/`-var`:
+#(11l)‘
+-V constant_name = value
+’
+[{On the one hand, `-` means constancy, and on the other hand it means negation[https://en.wikipedia.org/wiki/Additive_inverse ‘This number is also known as the opposite (number), sign change, and negation.’] (<not variable> is <constant>).}]

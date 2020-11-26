@@ -148,13 +148,35 @@ span.comment {color: #808080;}
    <span class="identifier">some_func</span>()
 </pre>
 </li>
-<li>Если строка начинается на бинарный оператор, то она объединяется с предыдущей строкой:<br />
+<li>Если строка начинается на бинарный оператор, то она объединяется с предыдущей строкой: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+При этом необходимо проверить, что это не унарный оператор:<br />
+<pre class="code_block">
+<span class="identifier">a</span> = <span class="identifier">b</span>
+++<span class="identifier">i</span> <span class="comment">// символ плюса в начале этой строки не должен быть принят за бинарный оператор `+`</span>
+</pre>
+</span><span class="cu_brackets_b">}</span></span><br />
 <pre class="code_block">
 <span class="identifier">some_variable</span> = <span class="numeric-literal">2</span>
               + <span class="numeric-literal">3</span> <span class="comment">// эта строка будет склеена с предыдущей, так как она начинается на бинарный оператор `+`</span>
 </pre>
 </li>
-<li>И <a href="https://docs.python.org/3/reference/lexical_analysis.html#implicit-line-joining">также как в Python</a> для выражений в круглых и квадратных скобках символ новой строки игнорируется:<br />
+<li>И <a href="https://docs.python.org/3/reference/lexical_analysis.html#implicit-line-joining">также как в Python</a> для выражений в круглых и квадратных скобках символ новой строки игнорируется: <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+Также рассматривается возможность отказаться от данного правила для поддержки такого кода:<br />
+<pre class="code_block">
+<span class="identifier">set_timeout</span>(
+            <span class="numeric-literal">1.0</span>,
+            <span class="keyword">F</span> ()
+               <span class="identifier">alert</span>(<span class="string-literal">‘!’</span>)
+            ,
+            <span class="numeric-literal">0</span>
+           )
+</pre>
+<!--[[[Тогда]]]-->В этом случае 3-е правило <!--[[[заменяется/]]]-->заменится на следующие 2 правила:<br />
+<ol start="3">
+<li>Если строка оканчивается на открывающую круглую скобку (<pre class="inline_code">(</pre>), квадратную (<pre class="inline_code">[</pre>) или запятую (<pre class="inline_code">,</pre>), то она объединяется со следующей строкой.</li>
+<li>Если строка начинается на закрывающую круглую скобку (<pre class="inline_code">)</pre>) или квадратную (<pre class="inline_code">]</pre>), то она объединяется с предыдущей строкой.</li>
+</ol>
+</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
 <pre class="code_block">
 <span class="identifier">some_func</span>( <span class="comment">// так как в этой строке не закрыта скобка, все последующие строки будут склеиваться до тех пор,</span>
    <span class="identifier">argument1</span>,                                                               <span class="comment">\\ пока скобка не будет закрыта</span>

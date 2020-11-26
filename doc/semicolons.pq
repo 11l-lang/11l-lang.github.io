@@ -34,13 +34,33 @@ I condition1 | // this line will be joined with the following/next line because 
    some_func()
 ’
 ’
-2.‘Every line of code which begins with any binary operator [[[should]]]will be joined with the previous line of code:
+2.‘Every line of code which begins with any binary operator [[[should]]]will be joined with the previous line of code: {
+Also it is necessary to check that this is not an unary operator:
+#(11l)‘
+a = b
+++i // plus symbol at the beginning here should not be treated as binary `+` operator
+’
+}
 #(11l)‘
 some_variable = 2
               + 3 // this line will be joined with the previous line because it begins with a binary operator `+`
 ’
 ’
-3.‘And ‘like in Python’[https://docs.python.org/3/reference/lexical_analysis.html#implicit-line-joining] expressions in parentheses and square brackets[[[[ or curly braces]]]] can be split over more than one physical line:
+3.‘And ‘like in Python’[https://docs.python.org/3/reference/lexical_analysis.html#implicit-line-joining] expressions in parentheses and square brackets[[[[ or curly braces]]]] can be split over more than one physical line: [{
+Perhaps this rule will be abandoned in order to support such code:
+#(11l)‘
+set_timeout(
+            1.0,
+            F ()
+               alert(‘!’)
+            ,
+            0
+           )
+’
+Then 3rd rule will be replaced by the following 2 rules:
+3. Every line of code which ends with opening/left parenthesis (`(`), square bracket (`[`), or comma (`,`) [[[should/]]]will be joined with the following/next line of code.
+4. Every line of code which begins with closing/right parenthesis (`)`) or square bracket (`]`) [[[should]]]will be joined with the previous line of code.
+}]
 #(11l)‘
 some_func( // because there is an unclosed parenthesis all following lines will be joined with this one
    argument1,                                                            \\ until parenthesis is closed

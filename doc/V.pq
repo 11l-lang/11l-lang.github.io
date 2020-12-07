@@ -25,6 +25,10 @@ or:
 (row, V col2) = get_row_column() // `row` has already been declared, `col2` is declared here
 ’
 
+To declare and initialize to some value multiple variables at once use this notation ({however this is not supported now}):
+#(11l)‘
+V a = V b = 0
+’
 
 To declare a constant "variable" use `-V`/`-var`:
 #(11l)‘

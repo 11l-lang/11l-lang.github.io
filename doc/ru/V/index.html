@@ -136,6 +136,10 @@ span.comment {color: #808080;}
 (<span class="identifier">row</span>, <span class="keyword">V</span> <span class="identifier">col2</span>) = <span class="identifier">get_row_column</span>() <span class="comment">// `row` уже объявлена выше, `col2` создаётся/объявляется в этой строке</span>
 </pre>
 <br />
+Чтобы объявить и назначить некоторое значение сразу нескольким переменным <!--[[[одновременно]]]--> используйте такую запись (<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">на данный момент не поддерживается</span><span class="cu_brackets_b">}</span></span>):<br />
+<pre class="code_block">
+<span class="keyword">V</span> <span class="identifier">a</span> = <span class="keyword">V</span> <span class="identifier">b</span> = <span class="numeric-literal">0</span>
+</pre>
 <br />
 Для объявления константы используйте <pre class="inline_code">-V</pre>/<pre class="inline_code">-var</pre>:<br />
 <pre class="code_block">

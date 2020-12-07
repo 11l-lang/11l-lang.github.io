@@ -25,7 +25,7 @@ or:
 (row, V col2) = get_row_column() // `row` has already been declared, `col2` is declared here
 ’
 
-To declare and initialize to some value multiple variables at once use this notation ({however this is not supported now}):
+To declare and initialize to some value multiple variables at once use this notation ({however this is not supported now [{why write about this unsupported feature here in the documentation? because when preparing the implementation of a full-fledged compiler to have an idea of all the required features (including those transpiler 11l → C++ doesn't support)}]}):
 #(11l)‘
 V a = V b = 0
 ’

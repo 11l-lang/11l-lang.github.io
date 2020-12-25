@@ -152,7 +152,7 @@ for i in range(1, len(self.children), 2):
         break
     res += 'a == ' + char_or_str(self.children[i], char_key) \
            + ' ? ' + char_or_str(self.children[i+1], char_val) + ' : '
-if not was_break:
+if not was_break: # or else:
     res += 'throw KeyError(a)'
 
 ...
@@ -174,6 +174,16 @@ while i < len(source) and ('0' <= source[i] <= '9'
                         or 'a' <= source[i] <= 'z'
                         or 'A' <= source[i] <= 'Z' or source[i] == '_'):
     i += 1
+
+...
+
+if source[lexem_start:lexem_start+3] == '(.)':
+    i += 2
+    category = Token.Category.NAME
+
+...
+
+load64(state[8*(x+5*y):8*(x+5*y)+8])
 
 ...
 
@@ -220,6 +230,16 @@ L(line) file.read_lines()
 L i < source.len & source[i] C (‘0’..‘9’, ‘a’..‘z’, ‘A’..‘Z’, ‘_’)
    i++
 
+
+...
+
+I source[lexem_start .+ 3] == ‘(.)’
+   i += 2
+   category = NAME
+
+...
+
+load64(state[8*(x+5*y) .+ 8])
 
 ...
 

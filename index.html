@@ -265,7 +265,7 @@ span.comment {color: #808080;}
         <span class="keyword">break</span>
     <span class="identifier">res</span> += <span class="string-literal">'a == '</span> + <span class="identifier">char_or_str</span>(<span class="identifier">self</span>.<span class="identifier">children</span>[<span class="identifier">i</span>], <span class="identifier">char_key</span>) \
            + <span class="string-literal">' ? '</span> + <span class="identifier">char_or_str</span>(<span class="identifier">self</span>.<span class="identifier">children</span>[<span class="identifier">i</span>+<span class="numeric-literal">1</span>], <span class="identifier">char_val</span>) + <span class="string-literal">' : '</span>
-<span class="keyword">if</span> <span class="keyword">not</span> <span class="identifier">was_break</span>:
+<span class="keyword">if</span> <span class="keyword">not</span> <span class="identifier">was_break</span>: <span class="comment"># or else:</span>
     <span class="identifier">res</span> += <span class="string-literal">'throw KeyError(a)'</span>
 
 ...
@@ -287,6 +287,16 @@ span.comment {color: #808080;}
                         <span class="keyword">or</span> <span class="string-literal">'a'</span> &lt;= <span class="identifier">source</span>[<span class="identifier">i</span>] &lt;= <span class="string-literal">'z'</span>
                         <span class="keyword">or</span> <span class="string-literal">'A'</span> &lt;= <span class="identifier">source</span>[<span class="identifier">i</span>] &lt;= <span class="string-literal">'Z'</span> <span class="keyword">or</span> <span class="identifier">source</span>[<span class="identifier">i</span>] == <span class="string-literal">'_'</span>):
     <span class="identifier">i</span> += <span class="numeric-literal">1</span>
+
+...
+
+<span class="keyword">if</span> <span class="identifier">source</span>[<span class="identifier">lexem_start</span>:<span class="identifier">lexem_start</span>+<span class="numeric-literal">3</span>] == <span class="string-literal">'(.)'</span>:
+    <span class="identifier">i</span> += <span class="numeric-literal">2</span>
+    <span class="identifier">category</span> = <span class="identifier">Token</span>.<span class="identifier">Category</span>.<span class="identifier">NAME</span>
+
+...
+
+<span class="identifier">load64</span>(<span class="identifier">state</span>[<span class="numeric-literal">8</span>*(<span class="identifier">x</span>+<span class="numeric-literal">5</span>*<span class="identifier">y</span>):<span class="numeric-literal">8</span>*(<span class="identifier">x</span>+<span class="numeric-literal">5</span>*<span class="identifier">y</span>)+<span class="numeric-literal">8</span>])
 
 ...
 
@@ -333,6 +343,16 @@ span.comment {color: #808080;}
 <span class="keyword">L</span> <span class="identifier">i</span> &lt; <span class="identifier">source</span>.<span class="identifier">len</span> &amp; <span class="identifier">source</span>[<span class="identifier">i</span>] <span class="keyword">C</span> (<span class="string-literal">‘0’</span>..<span class="string-literal">‘9’</span>, <span class="string-literal">‘a’</span>..<span class="string-literal">‘z’</span>, <span class="string-literal">‘A’</span>..<span class="string-literal">‘Z’</span>, <span class="string-literal">‘_’</span>)
    <span class="identifier">i</span>++
 
+
+...
+
+<span class="keyword">I</span> <span class="identifier">source</span>[<span class="identifier">lexem_start</span> .+ <span class="numeric-literal">3</span>] == <span class="string-literal">‘(.)’</span>
+   <span class="identifier">i</span> += <span class="numeric-literal">2</span>
+   <span class="identifier">category</span> = <span class="identifier">NAME</span>
+
+...
+
+<span class="identifier">load64</span>(<span class="identifier">state</span>[<span class="numeric-literal">8</span>*(<span class="identifier">x</span>+<span class="numeric-literal">5</span>*<span class="identifier">y</span>) .+ <span class="numeric-literal">8</span>])
 
 ...
 

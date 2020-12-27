@@ -600,6 +600,21 @@ void swap_row(double *a, double *b, int r1, int r2, int n)
 ...
 </pre></td></tr>
 </table>
+<a href="https://www.rosettacode.org/wiki/Loops/Nested">Loops/Nested</a>:<br />
+<table>
+<tr><td><pre class="code_block">
+[[<span class="identifier">Int</span>]] <span class="identifier">mat</span>
+<span class="keyword">L</span> <span class="numeric-literal">10</span>
+   <span class="identifier">mat</span> [+]= (<span class="numeric-literal">1</span>..<span class="numeric-literal">10</span>).<span class="identifier">map</span>(<span class="identifier">x</span> -> <span class="identifier">random</span>:(<span class="numeric-literal">1</span>..<span class="numeric-literal">20</span>))
+
+<span class="keyword">L</span>(<span class="identifier">row</span>) <span class="identifier">mat</span>
+   <span class="keyword">L</span>(<span class="identifier">el</span>) <span class="identifier">row</span>
+      <span class="identifier">print</span>(<span class="identifier">el</span>, <span class="identifier">end'</span> <span class="string-literal">‘ ’</span>)
+      <span class="keyword">I</span> <span class="identifier">el</span> == <span class="numeric-literal">20</span>
+         <span class="keyword">L</span>(<span class="identifier">row</span>).<span class="identifier">break</span>
+</pre>
+</td></tr>
+</table>
 <a href="https://www.rosettacode.org/wiki/100_doors#11l">100 doors</a> | <a href="https://www.rosettacode.org/wiki/Visualize_a_tree#11l">Visualize a tree</a> | <a href="https://www.rosettacode.org/wiki/Execute_Brain****#11l">Execute Brain****</a><br />
 <a href="https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l">Simple moving average</a> | <a href="https://www.rosettacode.org/wiki/Align_columns#11l">Align columns</a> | <a href="https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l">Arithmetic evaluation</a><br />
 <a href="https://www.rosettacode.org/wiki/Comma_quibbling#11l">Comma quibbling</a> | <a href="https://www.rosettacode.org/wiki/Constrained_random_points_on_a_circle#11l">Constrained random points on a circle</a> | <a href="https://www.rosettacode.org/wiki/CRC-32#11l">CRC-32</a><br />

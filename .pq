@@ -478,6 +478,20 @@ F swap_row(&a, &b, r1, r2)
 ...
 ’’’
 ’
+‘Loops/Nested’[https://www.rosettacode.org/wiki/Loops/Nested]:
+T‘‘
+‘#(11l)‘
+[[Int]] mat
+L 10
+   mat [+]= (1..10).map(x -> random:(1..20))
+
+L(row) mat
+   L(el) row
+      print(el, end' ‘ ’)
+      I el == 20
+         L(row).break
+’
+’’’
 ‘100 doors’[https://www.rosettacode.org/wiki/100_doors#11l] | ‘Visualize a tree’[https://www.rosettacode.org/wiki/Visualize_a_tree#11l] | ‘Execute Brain****’[https://www.rosettacode.org/wiki/Execute_Brain****#11l]
 ‘Simple moving average’[https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l] | ‘Align columns’[https://www.rosettacode.org/wiki/Align_columns#11l] | ‘Arithmetic evaluation’[https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l]
 ‘Comma quibbling’[https://www.rosettacode.org/wiki/Comma_quibbling#11l] | ‘Constrained random points on a circle’[https://www.rosettacode.org/wiki/Constrained_random_points_on_a_circle#11l] | CRC-32[https://www.rosettacode.org/wiki/CRC-32#11l]

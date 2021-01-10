@@ -61,6 +61,7 @@ Integer division {note that `-5 // 2 = -3` in Python whereas `-5 I/ 2 = -2` in 1
 >[https://stackoverflow.com/questions/3895081/divide-and-get-remainder-at-the-same-time <- google:‘divmod c’]:‘‘this is the code’[http://svn.python.org/projects/python/trunk/Objects/intobject.c] of the Python implementation for integer divmod:...’
 ]]], please write at the forum[http://forum.11l-lang.org/forums/development.2/]}
 Remainder’’
+‘‘x""y and x‘’y’ ‘String concatenation (rationale[./../‘’])’’
 ‘‘x + y
 x - y’ ‘Addition
 Subtraction’’
@@ -86,7 +87,6 @@ P‘https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/OR_gate_RU.svg/100
 x > y, x >= y’ ‘Comparison operators’’
 ‘‘x..y, x.<y, x.+len
 x<.y, x<.<y’ ‘Ranges’’
-‘‘x""y and x‘’y’ ‘String concatenation (rationale[./../‘’])’’
 ‘‘x == y, x != y
 e in c, e !in c
 e C c, e !C c
@@ -147,13 +147,13 @@ The symbol `&` is also used as logical AND in Oberon and ALGOL 68.
 })’’
 ‘‘x | y’ ‘Logical OR’’
 ‘‘x ? y’ ‘Null coalescing’’
-‘‘() -> expr
-x -> expr
-(x, y) -> expr’ ‘Lambda expression’’
 ‘‘arr1 0‘[+]’ arr2’ ‘Array concatenation (rationale: {
 Because arrays are defined using square brackets: `[1, 2, ...]`.
 As this operation is quite expensive, it has dedicated operator.
 })’’
+‘‘() -> expr
+x -> expr
+(x, y) -> expr’ ‘Lambda expression’’
 ‘‘x = ...
 x += ...
 -= *= /= I/=

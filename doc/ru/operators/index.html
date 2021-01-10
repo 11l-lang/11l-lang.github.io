@@ -152,6 +152,7 @@ x % y<br />
 Деление<br />
 Целочисленное деление <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">примите к сведению, что <pre class="inline_code">-5 // 2 = -3</pre> в Python-е, в то время как <pre class="inline_code">-5 I/ 2 = -2</pre> в 11l, но это исключительно из соображений производительности, и если вы знаете эффективную реализацию целочисленного деления в стиле Python, тогда, пожалуйста, напишите об этом на <a href="http://forum.11l-lang.org/forums/Разработка.6/">форуме</a></span><span class="cu_brackets_b">}</span></span><br />
 Остаток от деления</td></tr>
+<tr><td>x""y и x‘’y</td><td>Конкатенация строк (<a href="./../‘’" target="_self">обоснование выбора</a>)</td></tr>
 <tr><td>x + y<br />
 x - y</td><td>Сложение<br />
 Вычитание</td></tr>
@@ -177,7 +178,6 @@ x >> y</td><td>Поразрядный сдвиг влево<br />
 x > y, x >= y</td><td>Операции сравнения</td></tr>
 <tr><td>x..y, x.&lt;y, x.+len<br />
 x&lt;.y, x&lt;.&lt;y</td><td>Диапазоны</td></tr>
-<tr><td>x""y и x‘’y</td><td>Конкатенация строк (<a href="./../‘’" target="_self">обоснование выбора</a>)</td></tr>
 <tr><td>x == y, x != y<br />
 e in c, e !in c<br />
 e C c, e !C c<br />
@@ -247,13 +247,13 @@ span.comment {color: #808080;}
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x | y</td><td>Логическое ИЛИ</td></tr>
 <tr><td>x ? y</td><td>Вернуть левый операнд если он не нуль, иначе вернуть правый операнд</td></tr>
-<tr><td>() -> выражение<br />
-x -> выражение<br />
-(x, y) -> выражение</td><td>Лямбда выражение</td></tr>
 <tr><td>arr1 [+] arr2</td><td>Конкатенация массивов (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 Так как массивы задаются с использованием квадратных скобок: <pre class="inline_code">[1, 2, ...]</pre>.<br />
 Так как эта операция достаточно дорогая, ей выделен <!--[[[специальный/]]]-->отдельный оператор.<br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
+<tr><td>() -> выражение<br />
+x -> выражение<br />
+(x, y) -> выражение</td><td>Лямбда выражение</td></tr>
 <tr><td>x = ...<br />
 x += ...<br />
 -= *= /= I/= Ц/=<br />

@@ -20,8 +20,8 @@
 *‘swap’(&a, &b)
 Меняет значения аргументов. Эквивалентно `(a, b) = (b, a)`.
 
-*‘zip’(iterable1, iterable2)
-Объединяет элементы из `iterable1` и `iterable2`.
+*‘zip’(iterable1, iterable2 [,iterable3])
+Объединяет элементы из заданных последовательностей.
 
 *‘all’(iterable)
 Возвращает истину (1B) если все элементы `iterable` истинны (или если `iterable` пуста).
@@ -29,8 +29,8 @@
 *‘any’(iterable)
 Возвращает истину (1B) если хотя бы один элемент `iterable` истинный. Если `iterable` пуста, возвращает ложь (0B).
 
-*‘cart_product’(iterable1, iterable2)
-Декартово произведение двух последовательностей.
+*‘cart_product’(iterable1, iterable2 [,iterable3])
+Декартово произведение заданных последовательностей.
 
 *‘multiloop’(iterable1, iterable2 [,iterable3], function)
 Эта функция практически эквивалентна следующему коду: {

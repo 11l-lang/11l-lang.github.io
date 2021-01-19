@@ -492,12 +492,36 @@ L(row) mat
          L(row).break
 ’
 ’’’
+‘Knapsack_problem/Bounded’[https://rosettacode.org/wiki/Knapsack_problem/Bounded]:
+T‘
+><‘‘Python’ ‘11l’’
+‘‘#‘...’
+#(Python)‘
+def choose_item(weight, idx):
+    ...
+    if k in cache:
+        return cache[k]
+
+    ...
+’’ ‘#‘...’
+#(11l)‘
+F choose_item(weight, idx)
+   ...
+   V? c = :cache.find(k)
+   I c != N
+      R c
+   ...
+’’’
+‘‘Note that in Python the search in `cache` is performed twice
+(in `k in cache` and in `cache[k]`), but in 11l only once.’ -’
+’
 ‘100 doors’[https://www.rosettacode.org/wiki/100_doors#11l] | ‘Visualize a tree’[https://www.rosettacode.org/wiki/Visualize_a_tree#11l] | ‘Execute Brain****’[https://www.rosettacode.org/wiki/Execute_Brain****#11l]
 ‘Simple moving average’[https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l] | ‘Align columns’[https://www.rosettacode.org/wiki/Align_columns#11l] | ‘Arithmetic evaluation’[https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l]
 ‘Comma quibbling’[https://www.rosettacode.org/wiki/Comma_quibbling#11l] | ‘Constrained random points on a circle’[https://www.rosettacode.org/wiki/Constrained_random_points_on_a_circle#11l] | CRC-32[https://www.rosettacode.org/wiki/CRC-32#11l]
 ‘Diversity prediction theorem’[https://www.rosettacode.org/wiki/Diversity_prediction_theorem#11l] | ‘Equilibrium index’[https://www.rosettacode.org/wiki/Equilibrium_index#11l] | ‘Fibonacci n-step number sequences’[https://www.rosettacode.org/wiki/Fibonacci_n-step_number_sequences#11l]
 ‘Find the intersection of a line with a plane’[https://www.rosettacode.org/wiki/Find_the_intersection_of_a_line_with_a_plane#11l] | ‘Find the last Sunday of each month’[https://www.rosettacode.org/wiki/Find_the_last_Sunday_of_each_month#11l]
 ‘Find the missing permutation’[https://www.rosettacode.org/wiki/Find_the_missing_permutation#11l] | ‘*‘Largest number divisible by its digits’’[https://www.rosettacode.org/wiki/Largest_number_divisible_by_its_digits#11l] | Menu[https://www.rosettacode.org/wiki/Menu#11l] | Modulinos[https://www.rosettacode.org/wiki/Modulinos#11l]
+‘*‘Multifactorial’’[https://www.rosettacode.org/wiki/Multifactorial#11l]
 [‘All examples at Rosetta Code’[https://www.rosettacode.org/wiki/Category:11l]]
 }
 }

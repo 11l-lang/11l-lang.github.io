@@ -488,29 +488,6 @@ L(row) mat
          L(row).break
 ’
 ’’’
-‘Knapsack_problem/Bounded’[https://rosettacode.org/wiki/Knapsack_problem/Bounded]:
-T‘
-><‘‘Python’ ‘11l’’
-‘‘#‘...’
-#(Python)‘
-def choose_item(weight, idx):
-    ...
-    if k in cache:
-        return cache[k]
-
-    ...
-’’ ‘#‘...’
-#(11l)‘
-F choose_item(weight, idx)
-   ...
-   V? c = :cache.find(k)
-   I c != N
-      R c
-   ...
-’’’
-‘‘Обратите внимание, что поиск в `cache` в Python выполняется дважды
-(в `k in cache` и в `cache[k]`), а в 11l — только один раз.’ -’
-’
 ‘100 doors’[https://www.rosettacode.org/wiki/100_doors#11l] | ‘Visualize a tree’[https://www.rosettacode.org/wiki/Visualize_a_tree#11l] | ‘Execute Brain****’[https://www.rosettacode.org/wiki/Execute_Brain****#11l]
 ‘Simple moving average’[https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l] | ‘Align columns’[https://www.rosettacode.org/wiki/Align_columns#11l] | ‘Arithmetic evaluation’[https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l]
 ‘Comma quibbling’[https://www.rosettacode.org/wiki/Comma_quibbling#11l] | ‘Constrained random points on a circle’[https://www.rosettacode.org/wiki/Constrained_random_points_on_a_circle#11l] | CRC-32[https://www.rosettacode.org/wiki/CRC-32#11l]

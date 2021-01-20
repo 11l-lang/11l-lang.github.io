@@ -609,29 +609,6 @@ void swap_row(double *a, double *b, int r1, int r2, int n)
 </pre>
 </td></tr>
 </table>
-<a href="https://rosettacode.org/wiki/Knapsack_problem/Bounded">Knapsack_problem/Bounded</a>:<br />
-<table>
-<tr><td style="text-align: center">Python</td><td style="text-align: center">11l</td></tr>
-<tr><td><pre style="display: inline">...</pre><br />
-<pre class="code_block">
-<span class="keyword">def</span> <span class="identifier">choose_item</span>(<span class="identifier">weight</span>, <span class="identifier">idx</span>):
-    ...
-    <span class="keyword">if</span> <span class="identifier">k</span> <span class="keyword">in</span> <span class="identifier">cache</span>:
-        <span class="keyword">return</span> <span class="identifier">cache</span>[<span class="identifier">k</span>]
-
-    ...
-</pre></td><td><pre style="display: inline">...</pre><br />
-<pre class="code_block">
-<span class="keyword">F</span> <span class="identifier">choose_item</span>(<span class="identifier">weight</span>, <span class="identifier">idx</span>)
-   ...
-   <span class="identifier">V?</span> <span class="identifier">c</span> = :<span class="identifier">cache</span>.<span class="identifier">find</span>(<span class="identifier">k</span>)
-   <span class="keyword">I</span> <span class="identifier">c</span> != <span class="keyword">N</span>
-      <span class="keyword">R</span> <span class="identifier">c</span>
-   ...
-</pre></td></tr>
-<tr><td colspan="2">Обратите внимание, что поиск в <pre class="inline_code">cache</pre> в Python выполняется дважды<br />
-(в <pre class="inline_code">k in cache</pre> и в <pre class="inline_code">cache[k]</pre>), а в 11l — только один раз.</td></tr>
-</table>
 <a href="https://www.rosettacode.org/wiki/100_doors#11l">100 doors</a> | <a href="https://www.rosettacode.org/wiki/Visualize_a_tree#11l">Visualize a tree</a> | <a href="https://www.rosettacode.org/wiki/Execute_Brain****#11l">Execute Brain****</a><br />
 <a href="https://www.rosettacode.org/wiki/Averages/Simple_moving_average#11l">Simple moving average</a> | <a href="https://www.rosettacode.org/wiki/Align_columns#11l">Align columns</a> | <a href="https://www.rosettacode.org/wiki/Arithmetic_evaluation#11l">Arithmetic evaluation</a><br />
 <a href="https://www.rosettacode.org/wiki/Comma_quibbling#11l">Comma quibbling</a> | <a href="https://www.rosettacode.org/wiki/Constrained_random_points_on_a_circle#11l">Constrained random points on a circle</a> | <a href="https://www.rosettacode.org/wiki/CRC-32#11l">CRC-32</a><br />

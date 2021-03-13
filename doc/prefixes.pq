@@ -19,11 +19,16 @@ F global_func()
    :global_var++
 ’
 
-Prefix `@` is used for *‘‘ca’[‘symbol @ looks similar to characters Ca’]’ptured variables:
+Prefixes `@` and `@=` are used for *‘‘ca’[‘symbol @ looks similar to characters Ca’]’ptured variables:
 #(11l)‘
 F global_func()
    V i = 0
 
    F local_func()
-      @i++
+      @i++ // `i` is captured by reference
+
+F get_f(a)
+   F f(b)
+      R @=a + b // `a` is captured by copy
+   R f
 ’

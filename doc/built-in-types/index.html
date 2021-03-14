@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -107,7 +107,7 @@ div#main {width: 100%;}
 <br />
 <br />
 <b>Bool</b><br />
-Boolean type. Bool has two possible values: <pre class="inline_code">0B</pre> and <pre class="inline_code">1B</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">the main reason for rejection of true and false <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">11l is not the only one programming language in which boolean values are not true and false: for example, PL/I uses <pre class="inline_code">'0'B</pre> and <pre class="inline_code">'1'B</pre>, in Objective-C the pair <pre class="inline_code">YES</pre>/<pre class="inline_code">NO</pre> is used, and in Scheme: <pre class="inline_code">#t</pre> and <pre class="inline_code">#f</pre></span><span class="cu_brackets_b">}</span></span> is that keywords do not fit into the base concept of 11l — all root <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">for example, <pre class="inline_code">L</pre> — is a root keyword, and <pre class="inline_code">break</pre> is a subkeyword</span><span class="cu_brackets_b">}</span></span> keywords can be shortened to one letter <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">there is an option to do it with Bool values: take Y as Yes/true and O as nO/false/0, but this is even more ugly than 0B and 1B, and also then language should be renamed to 13l</span><span class="cu_brackets_b">}</span></span></span><span class="cu_brackets_b">}</span></span>. <span class="sq"><span class="sq_brackets">[</span>Like in <a href="https://en.wikipedia.org/wiki/Boolean_algebra">Boolean algebra</a>, in which 0 and 1 are used.<span class="sq_brackets">]</span></span><br />
+Boolean type. Bool has two possible values: <pre class="inline_code">0B</pre> and <pre class="inline_code">1B</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">the main reason for rejection of <pre class="inline_code">true</pre> and <pre class="inline_code">false</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">11l is not the only one programming language in which boolean values are not <pre class="inline_code">true</pre> and <pre class="inline_code">false</pre>: for example, PL/I uses <pre class="inline_code">'0'B</pre> and <pre class="inline_code">'1'B</pre>, in Objective-C the pair <pre class="inline_code">YES</pre>/<pre class="inline_code">NO</pre> is used, and in Scheme: <pre class="inline_code">#t</pre> and <pre class="inline_code">#f</pre></span><span class="cu_brackets_b">}</span></span> is that keywords do not fit into the base concept of 11l — all root <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">for example, <pre class="inline_code">L</pre> — is a root keyword, and <pre class="inline_code">break</pre> is a subkeyword</span><span class="cu_brackets_b">}</span></span> keywords can be shortened to one letter <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">there is an option to do it with Bool values: take Y as Yes/true and O as nO/false/0, but this is even more ugly than 0B and 1B, and also then language should be renamed to 13l</span><span class="cu_brackets_b">}</span></span></span><span class="cu_brackets_b">}</span></span>. <span class="sq"><span class="sq_brackets">[</span>Like in <a href="https://en.wikipedia.org/wiki/Boolean_algebra">Boolean algebra</a>, in which 0 and 1 are used.<span class="sq_brackets">]</span></span><br />
 <br />
 <b>Int</b><br />
 Integral type (<a href="http://forum.11l-lang.org/threads/size-of-int-built-in-type.1/" title="Size of Int built-in type 32 bits 64 bits No Int type (use Int32 or Int64 explicitly) What size of Int you think should be?">32 or 64</a> bits).<br />

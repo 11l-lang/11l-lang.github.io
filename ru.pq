@@ -1,4 +1,5 @@
->>‘\/‘‘(This page in English\Эта страница на английском)’[./..]’’
+[[[Н‘Язык программирования 11l’
+]]]>>‘\/‘‘(This page in English\Эта страница на английском)’[./..]’’
 
 ><‘'‘<table><tr><td style="border: 0; padding: 0">’'
 \/‘\/‘\/‘\/‘\/‘
@@ -496,7 +497,7 @@ L(row) mat
 ‘Find the missing permutation’[https://www.rosettacode.org/wiki/Find_the_missing_permutation#11l] | ‘*‘Largest number divisible by its digits’’[https://www.rosettacode.org/wiki/Largest_number_divisible_by_its_digits#11l] | Menu[https://www.rosettacode.org/wiki/Menu#11l] | Modulinos[https://www.rosettacode.org/wiki/Modulinos#11l]
 ‘*‘Multifactorial’’[https://www.rosettacode.org/wiki/Multifactorial#11l] | JSON[https://www.rosettacode.org/wiki/JSON#11l] | ‘Palindrome dates’[https://www.rosettacode.org/wiki/Palindrome_dates#11l] | ‘Pangram checker’[https://www.rosettacode.org/wiki/Pangram_checker#11l] | ‘Prime conspiracy’[https://www.rosettacode.org/wiki/Prime_conspiracy#11l]
 ‘Pseudo-random numbers/Splitmix64’[https://www.rosettacode.org/wiki/Pseudo-random_numbers/Splitmix64#11l] | ‘*‘Ramer-Douglas-Peucker line simplification’’[https://www.rosettacode.org/wiki/Ramer-Douglas-Peucker_line_simplification#11l]
-‘Resistance calculator’[https://www.rosettacode.org/wiki/Resistance_calculator#11l] | ‘Resistor mesh’[https://www.rosettacode.org/wiki/Resistor_mesh#11l]
+‘Resistance calculator’[https://www.rosettacode.org/wiki/Resistance_calculator#11l] | ‘Resistor mesh’[https://www.rosettacode.org/wiki/Resistor_mesh#11l] | ‘*‘Sort a list of object identifiers’’[https://www.rosettacode.org/wiki/Sort_a_list_of_object_identifiers#11l]
 [‘Все примеры на Rosetta Code’[https://www.rosettacode.org/wiki/Category:11l]]
 }
 }

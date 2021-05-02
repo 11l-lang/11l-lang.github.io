@@ -28,6 +28,8 @@ Operators[./operators]
 
 ‘[[[Global/]]]Built-in Functions’[./built-in-functions]
 
+‘Built-in global variables’[./built-in-global-vars]
+
 Built-in modules:
    os[./built-in-modules/os]
    fs[./built-in-modules/fs]

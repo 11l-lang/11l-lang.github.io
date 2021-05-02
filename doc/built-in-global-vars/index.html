@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Документация по языку программирования 11l</title>
+<title>Built-in global variables</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -102,41 +102,31 @@ div#main {width: 100%;}
 </head>
 <body>
 <div id="main" style="margin: 0 auto">
-<!--[[[Н‘Документация по языку программирования 11l’]]]--><br />
-<!--[[[Правила определения областей/]]]--><a href="./code-blocks" target="_self">Блоки кода</a><br />
+<!--[[[H‘Built-in global variables’
+]]]--><h3>Built-in global variables</h3>
 <br />
-<a href="./semicolons" target="_self"><!--[[[Грамматика без точки]]]-->Точка с запятой и автоматическое склеивание строк</a><br />
 <br />
-<a href="./comments" target="_self">Комментарии</a><br />
+<b>:stdin</b><br />
+<b>:stdout</b><br />
+<b>:stderr</b><br />
+File objects used for standard input, output and errors:<br />
+<ul>
+<li><pre class="inline_code">:stdin</pre> is used for all interactive input (including calls to <pre class="inline_code">input()</pre>);</li>
+<li><pre class="inline_code">:stdout</pre> is used for the output of <pre class="inline_code">print()</pre>;</li>
+<li>error messages go to <pre class="inline_code">:stderr</pre>.</li>
+</ul>
 <br />
-<a href="./string-literals" target="_self">Строковые литералы</a><br />
-<a href="./integer-literals" target="_self">Целочисленные литералы</a><br />
-<br />
-Зарезервированные/ключевые слова:<br />
-<a href="./C" target="_self">   C/in</a><br />
-<a href="./I" target="_self">   I/if и E/else</a><br />
-<a href="./F" target="_self">   F/fn</a><br />
-<a href="./L" target="_self">   L/loop</a><br />
-<a href="./N" target="_self">   N/null</a><br />
-<a href="./R" target="_self">   R/return</a><br />
-<a href="./S" target="_self">   S/switch</a><br />
-<a href="./T" target="_self">   T/type</a><br />
-<a href="./V" target="_self">   V/var</a><br />
-<a href="./X" target="_self">   X/exception</a><br />
-<br />
-<a href="./built-in-types" target="_self">Встроенные типы данных</a><br />
-<br />
-<a href="./operators" target="_self">Операторы</a><br />
-<br />
-<a href="./prefixes" target="_self">Префиксы переменных</a><br />
-<br />
-<a href="./built-in-functions" target="_self"><!--[[[Глобальные/]]]-->Встроенные функции</a><br />
-<br />
-<a href="./built-in-global-vars" target="_self">Встроенные глобальные переменные</a><br />
-<br />
-<span class="spoiler_title" onclick="return spoiler2(this, event)">Встроенные модули<br /></span><div class="spoiler_text" style="display: none">
-<span class="sq"><span class="sq_brackets">[</span>Документация по модулям доступна на данный момент только <a href="./.." target="_self">на английском</a>.<span class="sq_brackets">]</span></span><br />
-</div>
+<b>:argv</b><br />
+The <!--[[[list/]]]-->array of command-line arguments<!--[[[ passed to an executable]]]-->. <pre class="inline_code">:argv[0]</pre> is the executable name.<br />
+It can be accessed only when there is a <pre class="inline_code">:start:</pre> marker present in the source code.<br />
+(<pre class="inline_code">:start:</pre> marker is an analogue of Python's <style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre style="display: inline"><span class="keyword">if</span> <span class="identifier">__name__</span> == <span class="string-literal">'__main__'</span></pre> and is used to denote code which shouldn't be executed when this source file is imported from another source file (see <a href="https://www.rosettacode.org/wiki/Modulinos#11l">this example</a>).)<br />
 </div>
 </body>
 </html>

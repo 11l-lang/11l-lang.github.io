@@ -173,14 +173,14 @@ H‘‘Replacement field’ ‘Argument’  ‘Output’      ’
 }
 
 *‘Tuple’
-A tuple. For example, a tuple with two items: #(11l)‘(1, 2)’. [Type of this tuple is `(Int, Int)`.]
+A tuple. For example, a tuple with two items: #(11l)‘(1, 2)’. [Type of this tuple is `(Int, Int)` or `Tuple[Int, Int]`.]
 The elements of tuples consisting of from 2 to 4 elements of the same type can be accessed by `x`, `y`, `z`, `w` or `r`, `g`, `b`, `a`.
 Arithmetic operations (`+`, `-`, `*`, `/`) on tuples are performed componentwise {for example, `(x1, y1, z1) + (x2, y2, z2)` will give the following tuple: `(x1 + x2, y1 + y2, z1 + z2)` {and `(x, y, z) * 2` will give `(x*2, y*2, z*2)`}}.
 ~‘Note 1: like ‘in mypy’[https://stackoverflow.com/a/52559625/2692494 <- google:‘mypy list any’], tuples in 11l are heterogeneous, but arrays (analogue of Python's lists) are homogeneous.
 Note 2: in contrast to Python, tuples in 11l are mutable (like in C++).’
 
 *‘Array’
-An array. For example, an array with two items: #(11l)‘[1, 2]’. [Type of this array is `[Int]`[[[ {Why `[Int]` like in Swift, but not `Int[]` like in D: in some cases this is more beautiful, e.g.: #(11l)‘[(Int, Int)]’ vs #(11l)‘(Int, Int)[]’}]controversial statement]].]
+An array. For example, an array with two items: #(11l)‘[1, 2]’. [Type of this array is `[Int]`[[[ {Why `[Int]` like in Swift, but not `Int[]` like in D: in some cases this is more beautiful, e.g.: #(11l)‘[(Int, Int)]’ vs #(11l)‘(Int, Int)[]’}]controversial statement]] or `Array[Int]`.]
 ‘Members’{
 *‘len’
 Length of an array.
@@ -243,7 +243,8 @@ Reverses the items of array in place.
 }
 
 *‘Dict’
-A dictionary. For example, a dictionary with two items: #(11l)‘[‘key1’ = 1, ‘key2’ = 2]’. [Type of this dictionary is `[String = Int]`.]
+A dictionary. For example, a dictionary with two items: #(11l)‘[‘key1’ = 1, ‘key2’ = 2]’.
+[Type of this dictionary is `[String = Int]` or `Dict[String, Int]`.]
 ‘Methods’{
 *‘find’(key) -> ValueType?
 Finds element with specific key. If no such element is found, `N`/`null` is returned.
@@ -263,9 +264,11 @@ Return an array consisting of those elements of dictionary for which `function` 
 
 *‘DefaultDict’
 A dictionary, which does not throw an exception when accessing a non-existent key (it inserts a new item with a default value in this case).
+For example, a default dictionary with two items: #(11l)‘DefaultDict([‘key1’ = 1, ‘key2’ = 2])’.
+[Type of this dictionary is `DefaultDict[String, Int]`.]
 
 *‘Set’
-A set.
+A set. For example, a set with two items: #(11l)‘Set([1, 2])’. [Type of this set is `Set[Int]`.]
 ‘Methods’{
 *‘add’(elem)
 Add element `elem` to the set.
@@ -287,7 +290,7 @@ Returns the first element which is greater than the given `key`. If no such elem
 }
 
 *‘Deque’
-A double-ended queue.
+A double-ended queue. For example, a deque with two items: #(11l)‘Deque([1, 2])’. [Type of this deque is `Deque[Int]`.]
 ‘Methods’{
 *‘append’(x)
 Add `x` to the right side of the deque.

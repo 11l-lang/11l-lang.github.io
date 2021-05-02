@@ -502,6 +502,7 @@ L(row) mat
 ‘*‘Multifactorial’’[https://www.rosettacode.org/wiki/Multifactorial#11l] | JSON[https://www.rosettacode.org/wiki/JSON#11l] | ‘Palindrome dates’[https://www.rosettacode.org/wiki/Palindrome_dates#11l] | ‘Pangram checker’[https://www.rosettacode.org/wiki/Pangram_checker#11l] | ‘Prime conspiracy’[https://www.rosettacode.org/wiki/Prime_conspiracy#11l]
 ‘Pseudo-random numbers/Splitmix64’[https://www.rosettacode.org/wiki/Pseudo-random_numbers/Splitmix64#11l] | ‘*‘Ramer-Douglas-Peucker line simplification’’[https://www.rosettacode.org/wiki/Ramer-Douglas-Peucker_line_simplification#11l]
 ‘Resistance calculator’[https://www.rosettacode.org/wiki/Resistance_calculator#11l] | ‘Resistor mesh’[https://www.rosettacode.org/wiki/Resistor_mesh#11l] | ‘*‘Sort a list of object identifiers’’[https://www.rosettacode.org/wiki/Sort_a_list_of_object_identifiers#11l]
+‘URL decoding’[https://www.rosettacode.org/wiki/URL_decoding#11l] | ‘URL encoding’[https://www.rosettacode.org/wiki/URL_encoding#11l] | ‘UTF-8 encode and decode’[https://www.rosettacode.org/wiki/UTF-8_encode_and_decode#11l]
 [‘All examples at Rosetta Code’[https://www.rosettacode.org/wiki/Category:11l]]
 }
 }

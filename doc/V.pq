@@ -35,3 +35,19 @@ To declare a constant "variable" use `-V`/`-var`:
 -V constant_name = value
 ’
 [{On the one hand, `-` means constancy, and on the other hand it means negation[https://en.wikipedia.org/wiki/Additive_inverse ‘This number is also known as the opposite (number), sign change, and negation.’] (<not variable> is <constant>).}]
+
+To reduce the amount of `V`/`var` keywords you can use a new scope. For example, this code:
+#(11l)‘
+-V
+   n_rows = 10
+   n_cols = 10
+   grid_size = n_rows * n_cols
+   min_words = 25
+’
+is equivalent to this:
+#(11l)‘
+-V n_rows = 10
+-V n_cols = 10
+-V grid_size = n_rows * n_cols
+-V min_words = 25
+’

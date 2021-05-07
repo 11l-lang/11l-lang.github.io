@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -146,6 +146,22 @@ To declare a constant "variable" use <pre class="inline_code">-V</pre>/<pre clas
 -<span class="keyword">V</span> <span class="identifier">constant_name</span> = <span class="identifier">value</span>
 </pre>
 <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">On the one hand, <pre class="inline_code">-</pre> means constancy, and on the other hand it means <a href="https://en.wikipedia.org/wiki/Additive_inverse" title="This number is also known as the opposite (number), sign change, and negation.">negation</a> (&lt;not variable> is &lt;constant>).</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
+<br />
+To reduce the amount of <pre class="inline_code">V</pre>/<pre class="inline_code">var</pre> keywords you can use a new scope. For example, this code:<br />
+<pre class="code_block">
+-<span class="keyword">V</span>
+   <span class="identifier">n_rows</span> = <span class="numeric-literal">10</span>
+   <span class="identifier">n_cols</span> = <span class="numeric-literal">10</span>
+   <span class="identifier">grid_size</span> = <span class="identifier">n_rows</span> * <span class="identifier">n_cols</span>
+   <span class="identifier">min_words</span> = <span class="numeric-literal">25</span>
+</pre>
+is equivalent to this:<br />
+<pre class="code_block">
+-<span class="keyword">V</span> <span class="identifier">n_rows</span> = <span class="numeric-literal">10</span>
+-<span class="keyword">V</span> <span class="identifier">n_cols</span> = <span class="numeric-literal">10</span>
+-<span class="keyword">V</span> <span class="identifier">grid_size</span> = <span class="identifier">n_rows</span> * <span class="identifier">n_cols</span>
+-<span class="keyword">V</span> <span class="identifier">min_words</span> = <span class="numeric-literal">25</span>
+</pre>
 </div>
 </body>
 </html>

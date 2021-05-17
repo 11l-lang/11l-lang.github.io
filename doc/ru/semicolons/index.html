@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Точка с запятой и автоматическое склеивание строк</title>
+<title>Точка с запятой и автоматическое объединение строк</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -102,14 +102,14 @@ div#main {width: 100%;}
 </head>
 <body>
 <div id="main" style="margin: 0 auto">
-<!--[[[Н‘Точка с запятой и автоматическое склеивание строк’
+<!--[[[Н‘Точка с запятой и автоматическое объединение строк’
 ]]]--><h3>Точка с запятой</h3>
 <br />
 <br />
-Использовать точку с запятой для обозначения конца утверждений в 11l не требуется <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">точки с запятой могут быть использованы для размещения нескольких утверждений на одной строке, хотя это не рекомендуется</span><span class="cu_brackets_b">}</span></span>. Утверждения всегда завершаются посредством символа новой строки при условии что автоматическое склеивание строк (см. ниже) не сработало.<br />
+Использовать точку с запятой для обозначения конца утверждений в 11l не требуется <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">точки с запятой могут быть использованы для размещения нескольких утверждений на одной строке, хотя это не рекомендуется</span><span class="cu_brackets_b">}</span></span>. Утверждения всегда завершаются посредством символа новой строки при условии что автоматическое объединение строк (см. ниже) не сработало.<br />
 <br />
 <br />
-<h3>Автоматическое склеивание строк</h3>
+<h3>Автоматическое объединение строк</h3>
 <br />
 <br />
 Вместо непонятных вещей вроде <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-rules-of-automatic-semicolon-insertion">Automatic Semicolon Insertion со сложными правилами</a> (которое, к тому же, иногда работает некорректно <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
@@ -143,7 +143,7 @@ span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
-<span class="keyword">I</span> <span class="identifier">условие1</span> | <span class="comment">// эта строка будет склеена со следующей, так как она оканчивается на бинарный оператор `|`</span>
+<span class="keyword">I</span> <span class="identifier">условие1</span> | <span class="comment">// эта строка будет объединена со следующей, так как она оканчивается на бинарный оператор `|`</span>
   <span class="identifier">условие2</span>
    <span class="identifier">some_func</span>()
 </pre>
@@ -157,7 +157,7 @@ span.comment {color: #808080;}
 </span><span class="cu_brackets_b">}</span></span><br />
 <pre class="code_block">
 <span class="identifier">some_variable</span> = <span class="numeric-literal">2</span>
-              + <span class="numeric-literal">3</span> <span class="comment">// эта строка будет склеена с предыдущей, так как она начинается на бинарный оператор `+`</span>
+              + <span class="numeric-literal">3</span> <span class="comment">// эта строка будет объединена с предыдущей, так как она начинается на бинарный оператор `+`</span>
 </pre>
 </li>
 <li>И <a href="https://docs.python.org/3/reference/lexical_analysis.html#implicit-line-joining">также как в Python</a> для выражений в круглых и квадратных скобках символ новой строки игнорируется: <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
@@ -178,8 +178,8 @@ span.comment {color: #808080;}
 </ol>
 </span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
 <pre class="code_block">
-<span class="identifier">some_func</span>( <span class="comment">// так как в этой строке не закрыта скобка, все последующие строки будут склеиваться до тех пор,</span>
-   <span class="identifier">argument1</span>,                                                               <span class="comment">\\ пока скобка не будет закрыта</span>
+<span class="identifier">some_func</span>( <span class="comment">// так как в этой строке не закрыта скобка, все последующие строки будут объединяться до тех пор,</span>
+   <span class="identifier">argument1</span>,                                                                <span class="comment">\\ пока скобка не будет закрыта</span>
    <span class="identifier">argument2</span>)
 </pre>
 </li>

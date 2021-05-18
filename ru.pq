@@ -499,6 +499,7 @@ L(row) mat
 ‘Pseudo-random numbers/Splitmix64’[https://www.rosettacode.org/wiki/Pseudo-random_numbers/Splitmix64#11l] | ‘*‘Ramer-Douglas-Peucker line simplification’’[https://www.rosettacode.org/wiki/Ramer-Douglas-Peucker_line_simplification#11l]
 ‘Resistance calculator’[https://www.rosettacode.org/wiki/Resistance_calculator#11l] | ‘Resistor mesh’[https://www.rosettacode.org/wiki/Resistor_mesh#11l] | ‘*‘Sort a list of object identifiers’’[https://www.rosettacode.org/wiki/Sort_a_list_of_object_identifiers#11l]
 ‘URL decoding’[https://www.rosettacode.org/wiki/URL_decoding#11l] | ‘URL encoding’[https://www.rosettacode.org/wiki/URL_encoding#11l] | ‘UTF-8 encode and decode’[https://www.rosettacode.org/wiki/UTF-8_encode_and_decode#11l]
+‘Word frequency’[https://www.rosettacode.org/wiki/Word_frequency#11l]
 [‘Все примеры на Rosetta Code’[https://www.rosettacode.org/wiki/Category:11l]]
 }
 }

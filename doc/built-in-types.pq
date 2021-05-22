@@ -174,7 +174,7 @@ H‘‘Replacement field’ ‘Argument’  ‘Output’      ’
 
 *‘Tuple’
 A tuple. For example, a tuple with two items: #(11l)‘(1, 2)’. [Type of this tuple is `(Int, Int)` or `Tuple[Int, Int]`.]
-The elements of tuples consisting of from 2 to 4 elements of the same type can be accessed by `x`, `y`, `z`, `w` or `r`, `g`, `b`, `a`.
+The elements of tuples consisting of from 2 to 4 elements of the same arithmetic type can be accessed by `x`, `y`, `z`, `w` or `r`, `g`, `b`, `a`.
 Arithmetic operations (`+`, `-`, `*`, `/`) on tuples are performed componentwise {for example, `(x1, y1, z1) + (x2, y2, z2)` will give the following tuple: `(x1 + x2, y1 + y2, z1 + z2)` {and `(x, y, z) * 2` will give `(x*2, y*2, z*2)`}}.
 ~‘Note 1: like ‘in mypy’[https://stackoverflow.com/a/52559625/2692494 <- google:‘mypy list any’], tuples in 11l are heterogeneous, but arrays (analogue of Python's lists) are homogeneous.
 Note 2: in contrast to Python, tuples in 11l are mutable (like in C++).’

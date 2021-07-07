@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> <html style><!--
+ Page saved with SingleFile 
+ url: http://web.archive.org/web/20160304015821/http://effbot.org/zone/simple-top-down-parsing.htm 
+ saved date: Wed Jul 07 2021 19:13:43 GMT+1000 (Владивосток, стандартное время)
+--><meta charset=utf-8>
+<style>@-moz-keyframes bounce_spinningSquaresG{0%{-moz-transform:scale(1);background-color:#000}100%{-moz-transform:scale(.3) rotate(90deg);background-color:#fff}}@-webkit-keyframes bounce_spinningSquaresG{0%{-webkit-transform:scale(1);background-color:#000}100%{-webkit-transform:scale(.3) rotate(90deg);background-color:#fff}}@-ms-keyframes bounce_spinningSquaresG{0%{-ms-transform:scale(1);background-color:#000}100%{-ms-transform:scale(.3) rotate(90deg);background-color:#fff}}@-o-keyframes bounce_spinningSquaresG{0%{-o-transform:scale(1);background-color:#000}100%{-o-transform:scale(.3) rotate(90deg);background-color:#fff}}@keyframes bounce_spinningSquaresG{0%{transform:scale(1);background-color:#000}100%{transform:scale(.3) rotate(90deg);background-color:#fff}}#wm-ipp-base{min-height:65px;padding:0;margin:0;border:0;background:none transparent}#wm-ipp{z-index:2147483647}#wm-ipp{font-family:Lucida Grande,Helvetica,Arial,sans-serif;font-size:12px;line-height:1.2;letter-spacing:0;width:auto;height:auto;max-width:none;max-height:none;min-width:0!important;min-height:0;outline:0;float:none;text-align:left;border:0;color:#000;text-indent:0;background:0}#donato{transition:height .5s;height:0;margin:0;padding:0}#donato #donato-base{width:100%;height:100%;bottom:0;margin:0;padding:0;position:absolute;z-index:2147483639}</style>
+<link rel=alternate type=application/rss+xml title=RSS href=http://web.archive.org/web/20160304015821/http://effbot.org/zone/rss.xml><style media=screen>body{color:#000}body,div,ul,li,h1,h2,h3,pre,code,p,blockquote{margin:0;padding:0}img{border:0}code,em,strong{font-style:normal;font-weight:normal}body{font:13px/1.22 arial,helvetica,clean,sans-serif}pre,code{font-family:monospace}body{text-align:center}#ft{clear:both}#doc2{margin:auto;text-align:left;min-width:750px}#doc2{width:73.074em}.yui-b{position:relative}#yui-main .yui-b{position:static}#yui-main{width:100%}.yui-t2 #yui-main{float:right;margin-left:-25em}.yui-t2 .yui-b{float:left;width:13.8456em}.yui-t2 #yui-main .yui-b{margin-left:14.8456em}#yui-main .yui-b{float:none;width:auto}.yui-ge .yui-u{float:right;display:inline}.yui-ge div.first{float:left}.yui-ge .yui-u{width:24%}.yui-ge div.first{width:74.2%}#bd:after,.yui-g:after,.yui-gb:after,.yui-gc:after,.yui-gd:after,.yui-ge:after,.yui-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden}#bd,.yui-g,.yui-ge{zoom:1}h2{font-size:123.1%}h3{font-size:108%}h1,h2,h3{margin:1em 0}h1,h2,h3,strong{font-weight:bold}em{font-style:italic}blockquote,ul{margin:1em}ul{margin-left:2em}ul li{list-style:disc outside}p{margin-bottom:1em}#doc2{background:#fff}#menu UL{padding-left:10px;margin:0;width:150px}#menu LI{font-family:Georgia;list-style:none;margin:0;padding:.25em}#menu LI A{text-decoration:none}#hd{font-family:Georgia;font-size:120%}#bd{padding-top:2em}#ft{font-size:100%;color:#ccc;padding-left:10px;padding-top:1em;padding-bottom:.5em}#ft A:link,A:hover{color:#ccc}#ft A:visited{color:#ccc}.content{font-family:Georgia;font-size:120%;line-height:150%;padding-left:0px;padding-right:10px}H1,H2,H3{font-family:Georgia;line-height:120%;color:#084}PRE{font-size:90%;line-height:120%;overflow-x:auto;overflow-y:hidden;width:38em;margin-left:10px;padding-bottom:1em}CODE{font-size:90%;line-height:120%}A:link,A:hover{color:#084}A:visited{color:#444}A.nav:link,A.nav:visited{color:#fff}A.nav:hover{color:#084}.maintitle{font-size:240%;margin-top:0;margin-bottom:.5em}.info{font-size:85%;color:#084;margin-top:0em;margin-bottom:2em}PRE.wide{width:52em}.pyclass{color:#b22222;font-weight:bold}.pycomment{color:#556b2f;font-style:italic}.pydecorator{color:#b22222}.pyfunction{color:#b22222;font-weight:bold}.pykeyword{color:#b22222}.pystring{color:navy}</style><title>Simple Top-Down Parsing in&nbsp;Python</title><link rel="shortcut icon" href=data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACAAAAAgIAAgAAAAIAAgACAgAAAwMDAAICAgAAAAP8AAP8AAAD//wD/AAAA/wD/AP//AAD///8AIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA><style>.sf-hidden{display:none!important}</style><link rel=canonical href=http://web.archive.org/web/20160304015821/http://effbot.org/zone/simple-top-down-parsing.htm><body data-page-id=2021>
+<style class=sf-hidden>body{margin-top:0!important;padding-top:0!important}</style>
+<div id=wm-ipp-base lang=en style=display:block;direction:ltr><template shadowmode=closed><div id=wm-ipp style=position:fixed;left:0px;top:0px;right:0px;display:none>
+</div><style>.__wb_overlay{filter:alpha(opacity=60);opacity:.6;-moz-opacity:.6;opacity:.6;background-color:#000;position:fixed;width:100%;height:100%;top:0px;left:0px;padding:0px!important;border:0px!important;margin:0px!important;border-radius:0px!important;z-index:2147483643!important}#__wb_record_overlay_div{cursor:wait!important}.__wb_record_content{opacity:1;position:fixed;top:50%;left:50%;margin:0px!important;padding:0px!important;background-color:#fff!important;border-radius:8px;z-index:2147483644!important;box-shadow:0 0 30px 5px #000;-moz-box-shadow:0 0 30px 5px #000;-webkit-box-shadow:0 0 30px 5px #000}#__wb_record_content_loader{cursor:wait!important;padding-top:30px!important;margin-left:-287px!important;margin-top:-177px!important;width:574px!important;height:355px!important}#__wb_record_content_done{margin-left:-427px!important;margin-top:-177px!important;width:855px!important;height:355px!important}.__wb_record_content>*{margin:auto!important;display:block!important;text-align:center!important;font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif!important}.__wb_record_content>wb_h1{font-size:36px!important;color:#222!important;margin:0px 0px 0px 0px!important;padding:0px!important;line-height:2em;font-weight:normal!important;width:auto!important;height:auto!important}.__wb_record_content>wb_p{font-size:17px!important;color:#222!important;margin:8px 0px 8px 0px!important;padding:0px!important;line-height:2em}.__wb_record_content>#_wb_logo{margin-bottom:10px!important}.__wb_record_content>#_wb_spinner{margin-top:30px!important;margin-bottom:30px!important}.__wb_record_content>#_wb_curr_url{text-decoration:underline!important;font-weight:bold!important}#__wb_record_content_done>#__wb_link{font-size:20px!important;border:1px!important;border-color:#aaa!important;border-style:solid!important;padding:3px!important;text-align:center!important;width:80%!important;height:auto!important}#__wb_record_content_done>#__wb_link:focus{outline:0px!important;border-color:#428bca!important}#__wb_record_content_done>#__wb_donate_close{font-size:18px!important;width:auto!important;float:right;display:inline-block;margin:0px!important;padding:8px 8px 0px 0px!important}#__wb_donate_close>#__wb_record_done_close{cursor:pointer!important;display:inline-block;vertical-align:bottom!important}#__wb_record_content_done>#__wb_donate_close a{color:#428bca!important}#__wb_record_content_done>#__wb_donate_close a:link{color:#428bca!important;text-decoration:none!important;margin-right:16px!important}#__wb_record_content_done>#__wb_donate_close a:visited{color:#428bca!important}#__wb_record_content_done>#__wb_donate_close a:hover{color:#00b1f7!important}#__wb_spinningSquaresG{position:relative;width:240px;height:20px;padding:0px!important;margin:30px 0px 30px 160px!important;border:0px!important;border-radius:0px!important}.__wb_spinningSquaresG{margin:0px!important;padding:0px!important;border:0px!important;border-radius:0px!important;position:absolute;top:0;background-color:#000;width:22px;height:22px;-moz-animation-name:bounce_spinningSquaresG;-moz-animation-duration:1.9s;-moz-animation-iteration-count:infinite;-moz-animation-direction:linear;-moz-transform:scale(.3);-webkit-animation-name:bounce_spinningSquaresG;-webkit-animation-duration:1.9s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:linear;-webkit-transform:scale(.3);-ms-animation-name:bounce_spinningSquaresG;-ms-animation-duration:1.9s;-ms-animation-iteration-count:infinite;-ms-animation-direction:linear;-ms-transform:scale(.3);-o-animation-name:bounce_spinningSquaresG;-o-animation-duration:1.9s;-o-animation-iteration-count:infinite;-o-animation-direction:linear;-o-transform:scale(.3);animation-name:bounce_spinningSquaresG;animation-duration:1.9s;animation-iteration-count:infinite;animation-direction:linear;transform:scale(.3)}#__wb_spinningSquaresG_1{left:0;-moz-animation-delay:.76s;-webkit-animation-delay:.76s;-ms-animation-delay:.76s;-o-animation-delay:.76s;animation-delay:.76s}#__wb_spinningSquaresG_2{left:30px;-moz-animation-delay:.95s;-webkit-animation-delay:.95s;-ms-animation-delay:.95s;-o-animation-delay:.95s;animation-delay:.95s}#__wb_spinningSquaresG_3{left:60px;-moz-animation-delay:1.14s;-webkit-animation-delay:1.14s;-ms-animation-delay:1.14s;-o-animation-delay:1.14s;animation-delay:1.14s}#__wb_spinningSquaresG_4{left:90px;-moz-animation-delay:1.33s;-webkit-animation-delay:1.33s;-ms-animation-delay:1.33s;-o-animation-delay:1.33s;animation-delay:1.33s}#__wb_spinningSquaresG_5{left:120px;-moz-animation-delay:1.52s;-webkit-animation-delay:1.52s;-ms-animation-delay:1.52s;-o-animation-delay:1.52s;animation-delay:1.52s}#__wb_spinningSquaresG_6{left:150px;-moz-animation-delay:1.71s;-webkit-animation-delay:1.71s;-ms-animation-delay:1.71s;-o-animation-delay:1.71s;animation-delay:1.71s}#__wb_spinningSquaresG_7{left:180px;-moz-animation-delay:1.9s;-webkit-animation-delay:1.9s;-ms-animation-delay:1.9s;-o-animation-delay:1.9s;animation-delay:1.9s}#__wb_spinningSquaresG_8{left:210px;-moz-animation-delay:2.09s;-webkit-animation-delay:2.09s;-ms-animation-delay:2.09s;-o-animation-delay:2.09s;animation-delay:2.09s}@-moz-keyframes bounce_spinningSquaresG{0%{-moz-transform:scale(1);background-color:#000}100%{-moz-transform:scale(.3) rotate(90deg);background-color:#fff}}@-webkit-keyframes bounce_spinningSquaresG{0%{-webkit-transform:scale(1);background-color:#000}100%{-webkit-transform:scale(.3) rotate(90deg);background-color:#fff}}@-ms-keyframes bounce_spinningSquaresG{0%{-ms-transform:scale(1);background-color:#000}100%{-ms-transform:scale(.3) rotate(90deg);background-color:#fff}}@-o-keyframes bounce_spinningSquaresG{0%{-o-transform:scale(1);background-color:#000}100%{-o-transform:scale(.3) rotate(90deg);background-color:#fff}}@keyframes bounce_spinningSquaresG{0%{transform:scale(1);background-color:#000}100%{transform:scale(.3) rotate(90deg);background-color:#fff}}#wm-ipp-base{min-height:65px;padding:0;margin:0;border:0;background:none transparent}#wm-ipp{z-index:2147483647}#wm-ipp,#wm-ipp *{font-family:Lucida Grande,Helvetica,Arial,sans-serif;font-size:12px;line-height:1.2;letter-spacing:0;width:auto;height:auto;max-width:none;max-height:none;min-width:0!important;min-height:0;outline:0;float:none;text-align:left;border:0;color:#000;text-indent:0;position:initial;background:0}#wm-ipp div,#wm-ipp canvas{display:block}#wm-ipp div,#wm-ipp tr,#wm-ipp td,#wm-ipp a,#wm-ipp form{padding:0;margin:0;border:0;border-radius:0;background-color:transparent;background-image:none;height:auto}#wm-ipp table{border:0;border-collapse:collapse;margin:0;padding:0;width:auto;font-size:inherit}#wm-ipp form input{padding:1px!important;height:auto;display:inline;margin:0;color:#000;background:none #fff;border:1px solid #666}#wm-ipp form input[type=submit]{padding:0 8px!important;margin:1px 0 1px 5px!important;width:auto!important;border:1px solid #000!important;background:#fff!important;color:#000!important}#wm-ipp a{display:inline}#wm-ipp a:hover{text-decoration:underline}#wm-ipp a.wm-btn:hover{text-decoration:none;color:#ff0!important}#wm-ipp a.wm-btn:hover span{color:#ff0!important}#wm-ipp #wm-ipp-inside{margin:0 6px;border:5px solid #000;border-top:0;background-color:rgba(255,255,255,0.9);-moz-box-shadow:1px 1px 4px #333;-webkit-box-shadow:1px 1px 4px #333;box-shadow:1px 1px 4px #333;border-radius:0 0 8px 8px}#wm-ipp #wm-logo{padding:0 10px;vertical-align:middle;min-width:110px;width:15%}#wm-ipp table tr::before,#wm-ipp table tr::after{margin:0;height:auto}#wm-ipp table.c{vertical-align:top;margin-left:4px}#wm-ipp table.c td{border:none!important}#wm-ipp .c td.u{padding:3px 0!important;text-align:center}#wm-ipp .c td.n{padding:0 0 0 5px!important;vertical-align:bottom}#wm-ipp .c td.n a{text-decoration:none;color:#33f;font-weight:bold}#wm-ipp .c td.n td.b{padding:0 6px 0 0!important;text-align:right!important;overflow:visible;white-space:nowrap;color:#99a;vertical-align:middle}#wm-ipp .c td.n tr.y td.b{padding:0 6px 2px 0!important}#wm-ipp .c td.n td.c{background:#000;color:#ff0;font-weight:bold;padding:0!important;text-align:center}#wm-ipp.hi .c td.n td.c{color:#ec008c}#wm-ipp .c td.n td.f{padding:0 0 0 6px!important;text-align:left!important;overflow:visible;white-space:nowrap;color:#99a;vertical-align:middle}#wm-ipp .c td.n tr.m td{text-transform:uppercase;white-space:nowrap;padding:2px 0}#wm-ipp .c td.s{padding:0 5px 0 0!important;text-align:center;vertical-align:bottom}#wm-ipp #wm-nav-captures{white-space:nowrap}#wm-ipp .c td.s a.t{color:#33f;font-weight:bold;line-height:1.8}#wm-ipp .c td.s div.r{color:#666;font-size:9px;white-space:nowrap}#wm-ipp .c td.k{vertical-align:bottom;padding-bottom:2px}#wm-ipp .c td.s{padding:0 5px 2px 0!important}#wm-ipp td#displayMonthEl{padding:2px 0!important}#wm-ipp td#displayYearEl{padding:0 0 2px 0!important}div#wm-ipp-sparkline{position:relative;white-space:nowrap;background-color:#fff;cursor:pointer;line-height:.9}#sparklineImgId,#wm-sparkline-canvas{position:relative;z-index:9012;max-width:none}#wm-ipp-sparkline div.yt{position:absolute;z-index:9010!important;background-color:#ff0!important;top:0}#wm-ipp-sparkline div.mt{position:absolute;z-index:9013!important;background-color:#ec008c!important;top:0}#wm-ipp .r{position:relative}#wm-ipp .r a{color:#33f;border:0;position:relative;background-color:transparent;background-repeat:no-repeat!important;background-position:100% 100%!important;text-decoration:none}#wm-ipp #wm-capinfo{border-radius:0 0 4px 4px}#wm-ipp #wm-capinfo .c-logo{display:block;float:left;margin-right:3px;width:90px;min-height:90px;max-height:290px;border-radius:45px;overflow:hidden;background-position:50%;background-size:auto 90px;box-shadow:0 0 2px 2px rgba(208,208,208,128) inset}#wm-ipp #wm-capinfo .c-logo span{display:inline-block}#wm-ipp #wm-capinfo .c-logo img{height:90px;position:relative;left:-50%}#wm-ipp #wm-capinfo .wm-title{font-size:130%}#wm-ipp #wm-capinfo a.wm-selector{display:inline-block;color:#aaa;text-decoration:none!important;padding:2px 8px}#wm-ipp #wm-capinfo a.wm-selector.selected{background-color:#666}#wm-ipp #wm-capinfo a.wm-selector:hover{color:#fff}#wm-ipp #wm-capinfo.notice-only #wm-capinfo-collected-by,#wm-ipp #wm-capinfo.notice-only #wm-capinfo-timestamps{display:none}#wm-ipp #wm-capinfo #wm-capinfo-notice .wm-capinfo-content{background-color:#ff0;padding:5px;font-size:14px;text-align:center}#wm-ipp #wm-capinfo #wm-capinfo-notice .wm-capinfo-content *{font-size:14px;text-align:center}#wm-ipp #wm-expand{right:1px;bottom:-1px;color:#fff;background-color:#666!important;padding:0 5px 0 3px!important;border-radius:3px 3px 0 0!important}#wm-ipp #wm-expand span{color:#fff}#wm-ipp #wm-expand #wm-expand-icon{display:inline-block;transition:transform .5s;transform-origin:50% 45%}#wm-ipp #wm-expand.wm-open #wm-expand-icon{transform:rotate(180deg)}#wm-ipp #wmtb{text-align:right}#wm-ipp #wmtb #wmtbURL{width:calc(100% - 45px)}#wm-ipp #wm-graph-anchor{border-right:1px solid #ccc}html.wb-highlight{box-shadow:inset 0 0 0 3px #a50e3a!important}.wb-highlight{outline:3px solid #a50e3a!important}#wm-ipp-print{display:none!important}@media (min-width:946px){#wm-ipp #wm-graph-anchor{display:block!important}}@media (max-width:945px){#wm-ipp #wm-graph-anchor{display:none!important}#wm-ipp table.c{width:85%;width:calc(100% - 131px)}}@media (max-width:1118px){#wm-logo{display:none!important}}#wm-btns{white-space:nowrap}#wm-btns>#wm-save-snapshot-open{margin-right:7px;top:-6px}#wm-btns>#wm-sign-in{box-sizing:content-box;display:none;margin-right:7px;top:-8px;border:2px #000 solid;border-radius:14px;padding-right:2px;padding-bottom:2px;width:11px;height:11px}#wm-btns>#wm-sign-in>.iconochive-person{font-size:12.5px}#wm-save-snapshot-open>.iconochive-web{color:#000;font-size:160%}#wm-ipp #wm-share{display:flex;align-items:flex-end;justify-content:space-between}#wm-share>#wm-screenshot{display:inline-block;margin-right:3px;visibility:hidden}#wm-screenshot>.iconochive-image{color:#000;font-size:160%}#wm-share>#wm-video{display:inline-block;margin-right:3px;visibility:hidden}#wm-video>.iconochive-movies{color:#000;display:inline-block;font-size:150%;margin-bottom:2px}#wm-btns>#wm-save-snapshot-in-progress{display:none;font-size:160%;opacity:.5;position:relative;margin-right:7px;top:-5px}#wm-btns>#wm-save-snapshot-success{display:none;color:green;position:relative;top:-7px}#wm-btns>#wm-save-snapshot-fail{display:none;color:red;position:relative;top:-7px}.wm-icon-screen-shot{background:url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjQgMjAiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Im0wIDBoMjR2MjBoLTI0eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Im0xOC41NzIxNTI1IDE1Ljg3MzEzMTRoLTIuMjEzNzUxdi0yLjE2MTAwNDNoMi4yMTM3NTF6bS0zLjI2NDc3MDMgMGgtMi4yMTQ5MDI2di0yLjE2MTAwNDNoMi4yMTQ5MDI2em0zLjEyNjU2OTItMTEuNTY5OTY0Mjl2NS44MjU0MDU5OSAxLjUyNTI3OTNoLTE2Ljg2NjI5MDQ1di0xLjUyNTI3OTMtNS44MjU0MDU5OXptLTYuNDc5MDk3MSAxMS41Njk5NjQyOWgtMTAuMzU0NDg1NzZ2LTIuMTE2MDg4OWgxMC4zNTQ0ODU3NnptLTExLjk1NDg1NDMtMTMuMDczMTMxNHY2Ljc0NDIxMjgzIDcuNzIyNDQ2MTdoMjB2LTcuNzIyNDQ2MTctNi43NDQyMTI4M3oiIGZpbGw9IiMzMzMiIGZpbGwtcnVsZT0ibm9uemVybyIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMCAxOC4wNjcpIi8+PHJlY3QgZmlsbD0iIzMzMyIgaGVpZ2h0PSIxMCIgcng9IjEiIHN0cm9rZT0iIzMzMyIgd2lkdGg9IjE0LjkwNiIgeD0iOCIgeT0iOSIvPjxjaXJjbGUgY3g9IjE1LjQ1MyIgY3k9IjE0IiBmaWxsPSIjZmZmIiByPSIzLjQ5MSIvPjxjaXJjbGUgY3g9IjE1LjQ1MyIgY3k9IjE0IiBmaWxsPSIjMzMzIiByPSIxLjYwNCIvPjwvZz48L3N2Zz4=) no-repeat!important;background-size:contain!important;width:22px!important;height:19px!important;display:inline-block}#donato{transition:height .5s;height:0;margin:0;padding:0}body.wm-modal{height:auto!important;overflow:hidden!important}#donato #donato-base{width:100%;height:100%;bottom:0;margin:0;padding:0;position:absolute;z-index:2147483639}body.wm-modal #donato #donato-base{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483640}.wb-autocomplete-suggestions{font-family:Lucida Grande,Helvetica,Arial,sans-serif;font-size:12px;text-align:left;cursor:default;border:1px solid #ccc;border-top:0;background:#fff;box-shadow:-1px 1px 3px rgba(0,0,0,.1);position:absolute;display:none;z-index:2147483647;max-height:254px;overflow:hidden;overflow-y:auto;box-sizing:border-box}.wb-autocomplete-suggestion{position:relative;padding:0 .6em;line-height:23px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:1.02em;color:#333}.wb-autocomplete-suggestion b{font-weight:bold}.wb-autocomplete-suggestion.selected{background:#f0f0f0}</style><style>[class^="iconochive-"],[class*=" iconochive-"]{font-family:'Iconochive-Regular'!important;speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.iconochive-Uplevel:before{content:"\21b5"}.iconochive-exit:before{content:"\1f6a3"}.iconochive-beta:before{content:"\3b2"}.iconochive-logo:before{content:"\1f3db"}.iconochive-audio:before{content:"\1f568"}.iconochive-movies:before{content:"\1f39e"}.iconochive-software:before{content:"\1f4be"}.iconochive-texts:before{content:"\1f56e"}.iconochive-etree:before{content:"\1f3a4"}.iconochive-image:before{content:"\1f5bc"}.iconochive-web:before{content:"\1f5d4"}.iconochive-collection:before{content:"\2211"}.iconochive-folder:before{content:"\1f4c2"}.iconochive-data:before{content:"\1f5c3"}.iconochive-tv:before{content:"\1f4fa"}.iconochive-article:before{content:"\1f5cf"}.iconochive-question:before{content:"\2370"}.iconochive-question-dark:before{content:"\3f"}.iconochive-info:before{content:"\69"}.iconochive-info-small:before{content:"\24d8"}.iconochive-comment:before{content:"\1f5e9"}.iconochive-comments:before{content:"\1f5ea"}.iconochive-person:before{content:"\1f464"}.iconochive-people:before{content:"\1f465"}.iconochive-eye:before{content:"\1f441"}.iconochive-rss:before{content:"\221e"}.iconochive-time:before{content:"\1f551"}.iconochive-quote:before{content:"\275d"}.iconochive-disc:before{content:"\1f4bf"}.iconochive-tv-commercial:before{content:"\1f4b0"}.iconochive-search:before{content:"\1f50d"}.iconochive-search-star:before{content:"\273d"}.iconochive-tiles:before{content:"\229e"}.iconochive-list:before{content:"\21f6"}.iconochive-list-bulleted:before{content:"\2317"}.iconochive-latest:before{content:"\2208"}.iconochive-left:before{content:"\2c2"}.iconochive-right:before{content:"\2c3"}.iconochive-left-solid:before{content:"\25c2"}.iconochive-right-solid:before{content:"\25b8"}.iconochive-up-solid:before{content:"\25b4"}.iconochive-down-solid:before{content:"\25be"}.iconochive-dot:before{content:"\23e4"}.iconochive-dots:before{content:"\25a6"}.iconochive-columns:before{content:"\25af"}.iconochive-sort:before{content:"\21d5"}.iconochive-atoz:before{content:"\1f524"}.iconochive-ztoa:before{content:"\1f525"}.iconochive-upload:before{content:"\1f4e4"}.iconochive-download:before{content:"\1f4e5"}.iconochive-favorite:before{content:"\2605"}.iconochive-heart:before{content:"\2665"}.iconochive-play:before{content:"\25b6"}.iconochive-play-framed:before{content:"\1f3ac"}.iconochive-fullscreen:before{content:"\26f6"}.iconochive-mute:before{content:"\1f507"}.iconochive-unmute:before{content:"\1f50a"}.iconochive-share:before{content:"\1f381"}.iconochive-edit:before{content:"\270e"}.iconochive-reedit:before{content:"\2710"}.iconochive-gear:before{content:"\2699"}.iconochive-remove-circle:before{content:"\274e"}.iconochive-plus-circle:before{content:"\1f5d6"}.iconochive-minus-circle:before{content:"\1f5d5"}.iconochive-x:before{content:"\1f5d9"}.iconochive-fork:before{content:"\22d4"}.iconochive-trash:before{content:"\1f5d1"}.iconochive-warning:before{content:"\26a0"}.iconochive-flash:before{content:"\1f5f2"}.iconochive-world:before{content:"\1f5fa"}.iconochive-lock:before{content:"\1f512"}.iconochive-unlock:before{content:"\1f513"}.iconochive-twitter:before{content:"\1f426"}.iconochive-facebook:before{content:"\66"}.iconochive-googleplus:before{content:"\67"}.iconochive-reddit:before{content:"\1f47d"}.iconochive-tumblr:before{content:"\54"}.iconochive-pinterest:before{content:"\1d4df"}.iconochive-popcorn:before{content:"\1f4a5"}.iconochive-email:before{content:"\1f4e7"}.iconochive-embed:before{content:"\1f517"}.iconochive-gamepad:before{content:"\1f579"}.iconochive-Zoom_In:before{content:"\2b"}.iconochive-Zoom_Out:before{content:"\2d"}.iconochive-RSS:before{content:"\1f4e8"}.iconochive-Light_Bulb:before{content:"\1f4a1"}.iconochive-Add:before{content:"\2295"}.iconochive-Tab_Activity:before{content:"\2318"}.iconochive-Forward:before{content:"\23e9"}.iconochive-Backward:before{content:"\23ea"}.iconochive-No_Audio:before{content:"\1f508"}.iconochive-Pause:before{content:"\23f8"}.iconochive-No_Favorite:before{content:"\2606"}.iconochive-Unike:before{content:"\2661"}.iconochive-Song:before{content:"\266b"}.iconochive-No_Flag:before{content:"\2690"}.iconochive-Flag:before{content:"\2691"}.iconochive-Done:before{content:"\2713"}.iconochive-Check:before{content:"\2714"}.iconochive-Refresh:before{content:"\27f3"}.iconochive-Headphones:before{content:"\1f3a7"}.iconochive-Chart:before{content:"\1f4c8"}.iconochive-Bookmark:before{content:"\1f4d1"}.iconochive-Documents:before{content:"\1f4da"}.iconochive-Newspaper:before{content:"\1f4f0"}.iconochive-Podcast:before{content:"\1f4f6"}.iconochive-Radio:before{content:"\1f4fb"}.iconochive-Cassette:before{content:"\1f4fc"}.iconochive-Shuffle:before{content:"\1f500"}.iconochive-Loop:before{content:"\1f501"}.iconochive-Low_Audio:before{content:"\1f509"}.iconochive-First:before{content:"\1f396"}.iconochive-Invisible:before{content:"\1f576"}.iconochive-Computer:before{content:"\1f5b3"}</style><div class="wb-autocomplete-suggestions sf-hidden" style=left:0px;top:0px;width:0px></div></template>
+</div><div id=wm-ipp-print class=sf-hidden>The Wayback Machine - http://web.archive.org/web/20160304015821/http://effbot.org/zone/simple-top-down-parsing.htm</div>
+<div id=donato style=position:relative;width:100%>
+ <div id=donato-base>
+ 
+ </div>
+</div>
+<div id=doc2 class=yui-t2><div id=hd></div><div id=bd><div id=yui-main><div class=yui-b><div class=content><div class=yui-g><h1 class=maintitle>Simple Top-Down Parsing in&nbsp;Python</h1></div><div class=yui-ge><div class="yui-u first"><p class=info>Fredrik Lundh | July 2008<p>In <a href=http://web.archive.org/web/20160304015821/http://effbot.org/zone/simple-iterator-parser.htm><em>Simple Iterator-based Parsing</em></a>, I described a way to write simple recursive-descent parsers in Python, by passing around the current token and a token generator function.<p>A recursive-descent parser consists of a series of functions, usually one for each grammar rule. Such parsers are easy to write, and are reasonably efficient, as long as the grammar is “prefix-heavy”; that is, that it’s usually sufficient to look at a token at the beginning of a construct to figure out what parser function to call. For example, if you’re parsing Python code, you can identify most statements simply by looking at the first token.<p>However, recursive-descent is less efficient for expression syntaxes, especially for languages with lots of operators at different precedence levels. With one function per rule, you can easily end up with lots of calls even for short, trivial expressions, just to get to the right level in the grammar.<p>For example, here’s an excerpt from Python’s expression grammar. The “test” rule is a basic expression element:</p></div><div class=yui-u>&nbsp;</div></div><div class=yui-g><pre class=wide><code>test: or_test ['if' or_test 'else' test] | lambdef
+or_test: and_test ('or' and_test)*
+and_test: not_test ('and' not_test)*
+not_test: 'not' not_test | comparison
+comparison: expr (comp_op expr)*
+expr: xor_expr ('|' xor_expr)*
+xor_expr: and_expr ('^' and_expr)*
+and_expr: shift_expr ('&amp;' shift_expr)*
+shift_expr: arith_expr (('&lt;&lt;'|'&gt;&gt;') arith_expr)*
+arith_expr: term (('+'|'-') term)*
+term: factor (('*'|'/'|'%'|'//') factor)*
+factor: ('+'|'-'|'~') factor | power
+power: atom trailer* ['**' factor]
+trailer: '(' [arglist] ')' | '[' subscriptlist ']' | '.' NAME
+</code></pre></div><div class=yui-ge><div class="yui-u first"><p>With a naive recursive-descent implementation of this grammar, 
+the parser would have to recurse all the way from “test” down to “trailer” in order to parse a simple function call (of the form “expression(arglist)”).<p>In the early seventies, Vaughan Pratt published an elegant improvement to recursive-descent in his paper <a href=http://web.archive.org/web/20160304015821/http://doi.acm.org/10.1145/512927.512931><em>Top-down Operator Precedence</em></a>. Pratt’s algorithm associates semantics with tokens instead of grammar rules, and uses a simple “binding power” mechanism to handle precedence levels. Traditional recursive-descent parsing is then used to handle odd or irregular portions of the syntax.<p>In an <a href=http://web.archive.org/web/20160304015821/http://javascript.crockford.com/tdop/tdop.html>article</a> (and <a href=http://web.archive.org/web/20160304015821/http://oreilly.com/catalog/9780596510046/>book chapter</a>) with the same name, Douglas Crockford shows how to implement the algorithm in a subset of JavaScript, and uses it to develop a parser that can parse itself in the process.<p>In this article, I’ll be a bit more modest: I’ll briefly explain how the algorithm works, discuss different ways to implement interpreters and translators with it in Python, and finally use it to implement a parser for Python’s expression syntax. And yes, there will be benchmarks too.<h2 id=introducing-the-algorithm>Introducing The Algorithm&nbsp;<a class=nav href=#introducing-the-algorithm title=bookmark!>#</a></h2><p>Like most other parsers, a topdown parser operates on a stream of distinct syntax elements, or tokens. For example, the expression “1 + 2” could correspond to the following tokens:<pre><code>literal with value 1
+add operator
+literal with value 2
+end of program
+</code></pre><p>In the topdown algorithm, each token has two associated functions, called “nud” and “led”, and an integer value called “lbp”.<p>The “nud” function (for null denotation) is used when a token appears at the beginning of a language construct, and the “led” function (left denotation) when it appears inside the construct (to the left of the rest of the construct, that is).<p>The “lbp” value is a binding power, and it controls operator precedence; the higher the value, the tighter a token binds to the tokens that follow.<p>Given this brief introduction, we’re ready to look at the core of Pratt’s algorithm, the expression parser:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>expression</span>(rbp=0):
+    <span class=pykeyword>global</span> token
+    t = token
+    token = next()
+    left = t.nud()
+    <span class=pykeyword>while</span> rbp &lt; token.lbp:
+        t = token
+        token = next()
+        left = t.led(left)
+    <span class=pykeyword>return</span> left</pre><p>(Pratt calls this function “parse”, but we’ll use the name from Crockford’s article instead.)<p>Here, “token” is a global variable that contains the current token, and “next” is a global helper that fetches the next token. The “nud” and “led” functions are represented as methods, and the “lbp” is an attribute. The “left” variable, finally, is used to pass some value that represents the “left” part of the expression through to the “led” method; this can be any object, such as an intermediate result (for an interpreter) or a portion of a parse tree (for a compiler).<p>If applied to the simple expression shown earlier, the parser will start by calling the “nud” method on the first token. In our example, that’s a literal token, which can be represented by something like the following class:<pre class=python><span class=pykeyword>class</span> <span class=pyclass>literal_token</span>:
+    <span class=pykeyword>def</span> <span class=pyfunction>__init__</span>(self, value):
+        self.value = int(value)
+    <span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+        <span class=pykeyword>return</span> self.value</pre><p>Next, the parser checks if the binding power of the next token is at least as large as the given binding power (the “rbp” argument, for “right binding power”). If it is, it calls the “led” method for that token. Here, the right binding power is zero, and the next token is an operator, the implementation of which could look like:<pre class=python><span class=pykeyword>class</span> <span class=pyclass>operator_add_token</span>:
+    lbp = 10
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        right = expression(10)
+        <span class=pykeyword>return</span> left + right</pre><p>The operator has a binding power of 10, and a “led” method that calls the expression parser again, passing in a right binding power that’s the same as the operator’s own power. This causes the expression parser to treat everything with a higher power as a subexpression, and return its result. The method then adds the left value (from the literal, in this case) to the return value from the expression parser, and returns the result.<p>The end of the program is indicated by a special marker token, with binding power zero (lower than any other token). This makes sure that the expression parser stops when it reaches the end of the program.<pre class=python><span class=pykeyword>class</span> <span class=pyclass>end_token</span>:
+    lbp = 0</pre><p>And that’s the entire parser. To use it, we need a tokenizer that can generate the right kind of token objects for a given source program. Here’s a simple regular expression-based version that handles the minimal language we’ve used this far:<pre class=python><span class=pykeyword>import</span> re
+
+token_pat = re.compile(<span class=pystring>"\s*(?:(\d+)|(.))"</span>)
+
+<span class=pykeyword>def</span> <span class=pyfunction>tokenize</span>(program):
+    <span class=pykeyword>for</span> number, operator <span class=pykeyword>in</span> token_pat.findall(program):
+        <span class=pykeyword>if</span> number:
+            <span class=pykeyword>yield</span> literal_token(number)
+        <span class=pykeyword>elif</span> operator == <span class=pystring>"+"</span>:
+            <span class=pykeyword>yield</span> operator_add_token()
+        <span class=pykeyword>else</span>:
+            <span class=pykeyword>raise</span> SyntaxError(<span class=pystring>"unknown operator"</span>)
+    <span class=pykeyword>yield</span> end_token()</pre><p>Now, let’s wire this up and try it out:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>parse</span>(program):
+    <span class=pykeyword>global</span> token, next
+    next = tokenize(program).next
+    token = next()
+    <span class=pykeyword>return</span> expression()
+
+&gt;&gt;&gt; parse(<span class=pystring>"1 + 2"</span>)
+3</pre><p>Not counting the calls to the tokenizer, the parser algorithm will make a total of four calls to parse this expression; one for each token, and one extra for the recursive call to the expression parser in the “led” method.<h3 id=extending-the-parser>Extending the Parser&nbsp;<a class=nav href=#extending-the-parser title=bookmark!>#</a></h3><p>To see how this scales, let’s add support for a few more math operations. We need a few more token classes:<pre class=python><span class=pykeyword>class</span> <span class=pyclass>operator_sub_token</span>:
+    lbp = 10
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        <span class=pykeyword>return</span> left - expression(10)
+
+<span class=pykeyword>class</span> <span class=pyclass>operator_mul_token</span>:
+    lbp = 20
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        <span class=pykeyword>return</span> left * expression(20)
+
+<span class=pykeyword>class</span> <span class=pyclass>operator_div_token</span>:
+    lbp = 20
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        <span class=pykeyword>return</span> left / expression(20)</pre><p>Note that “mul” and “div” uses a higher binding power than the other operators; this guarantees that when the “mul” operator is invoked in the expression “1 * 2 + 3”, it only gets the literal “2”, instead of treating “2 + 3” as a subexpression.<p>We also need to add the classes to the tokenizer:<pre><code>def tokenize(program):
+    for number, operator in token_pat.findall(program):
+        if number:
+            yield literal_token(number)
+        elif operator == "+":
+            yield operator_add_token()
+        elif operator == "-":
+            yield operator_sub_token()
+        elif operator == "*":
+            yield operator_mul_token()
+        elif operator == "/":
+            yield operator_div_token()
+        else:
+            raise SyntaxError("unknown operator)
+    yield end_token()
+</code></pre><p>but that’s it. The parser now understands the four basic math operators, and handles their precedence correctly.<pre class=python>&gt;&gt;&gt; parse(<span class=pystring>"1+2"</span>)
+3
+&gt;&gt;&gt; parse(<span class=pystring>"1+2*3"</span>)
+7
+&gt;&gt;&gt; parse(<span class=pystring>"1+2-3*4/5"</span>)
+1</pre><p>Despite the fact that we’ve added more grammar rules, the parser still makes the same number of calls as before; the expression “1+2” is still handled by four calls inside the parser.<p>However, codewise, this isn’t that different from a recursive-descent parser. We still need to write code for each token class, and while we’ve moved most of the dispatching from individual rules to the expression parser, most of that ended up in a big if/else statement in the tokenizer.<p>Before we look at ways to get rid of some of that code, let’s add two more features to the parser: unary plus and minus operators, and a Python-style exponentiation operator (**).<p>To support the unary operators, all we need to do is to add “nud” implementations to the relevant tokens:<pre class=python><span class=pykeyword>class</span> <span class=pyclass>operator_add_token</span>:
+    lbp = 10
+    <span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+        <span class=pykeyword>return</span> expression(100)
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        <span class=pykeyword>return</span> left + expression(10)
+
+<span class=pykeyword>class</span> <span class=pyclass>operator_sub_token</span>:
+    lbp = 10
+    <span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+        <span class=pykeyword>return</span> -expression(100)
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        <span class=pykeyword>return</span> left - expression(10)</pre><p>Note that the recursive call to expression uses a high binding power, to make sure that the unary operator binds to the token immediately to the right, instead of to the rest of the expression (“(-1)-2” and “-(1-2)” are two different things).<p>Adding exponentiation is a bit trickier; first, we need to tweak the tokenizer to identify the two-character operator:<pre><code>token_pat = re.compile("\s*(?:(\d+)|(\*\*|.))")
+
+...
+
+elif operator == "**":
+    yield operator_pow_token()
+
+...
+</code></pre><p>A bigger problem is that the operator is right-associative (that it, it binds to the right). If you type “2**3**4” into a Python prompt, Python will evaluate the “3**4” part first:<pre class=python>&gt;&gt;&gt; 2**3**4
+2417851639229258349412352L
+&gt;&gt;&gt; (2**3)**4
+4096
+&gt;&gt;&gt; 2**(3**4)
+2417851639229258349412352L
+&gt;&gt;&gt;</pre><p>Luckily, the binding power mechanism makes it easy to implement this; to get right associativity, just subtract one from the operator’s binding power when doing the recursive call:<pre class=python><span class=pykeyword>class</span> <span class=pyclass>operator_pow_token</span>:
+    lbp = 30
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        <span class=pykeyword>return</span> left ** expression(30-1)</pre><p>In this way, the parser will treat subsequent exponentiation operators (with binding power 30) as subexpressions to the current one, which is exactly what we want.<h2 id=building-parse-trees>Building Parse Trees&nbsp;<a class=nav href=#building-parse-trees title=bookmark!>#</a></h2><p>A nice side-effect of the top-down approach is that it’s easy to build parse trees, without much extra overhead; since the tokenizer is creating a new object for each token anyway, we can reuse these objects as nodes in the parse tree.<p>To do this, the “nud” and “led” methods have to add syntax tree information to the objects, and then return the objects themselves. In the following example, the literal leaf nodes has a “value” attribute, and the operator nodes have “first” and “second” attributes. The classes also have __repr__ methods to make it easier to look at the resulting tree:<pre class=python><span class=pykeyword>class</span> <span class=pyclass>literal_token</span>:
+    <span class=pykeyword>def</span> <span class=pyfunction>__init__</span>(self, value):
+        self.value = value
+    <span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+        <span class=pykeyword>return</span> self
+    <span class=pykeyword>def</span> <span class=pyfunction>__repr__</span>(self):
+        <span class=pykeyword>return</span> <span class=pystring>"(literal %s)"</span> % self.value
+
+<span class=pykeyword>class</span> <span class=pyclass>operator_add_token</span>:
+    lbp = 10
+    <span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+        self.first = expression(100)
+        self.second = None
+        <span class=pykeyword>return</span> self
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        self.first = left
+        self.second = expression(10)
+        <span class=pykeyword>return</span> self
+    <span class=pykeyword>def</span> <span class=pyfunction>__repr__</span>(self):
+        <span class=pykeyword>return</span> <span class=pystring>"(add %s %s)"</span> % (self.first, self.second)
+
+<span class=pykeyword>class</span> <span class=pyclass>operator_mul_token</span>:
+    lbp = 20
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        self.first = left
+        self.second = expression(20)
+        <span class=pykeyword>return</span> self
+    <span class=pykeyword>def</span> <span class=pyfunction>__repr__</span>(self):
+        <span class=pykeyword>return</span> <span class=pystring>"(mul %s %s)"</span> % (self.first, self.second)</pre><p>(implementing “sub”, “div”, and “pow” is left as an exercise.)<p>With the new token implementations, the parser will return parse trees:<pre class=python>&gt;&gt;&gt; parse(<span class=pystring>"1"</span>)
+(literal 1)
+&gt;&gt;&gt; parse(<span class=pystring>"+1"</span>)
+(add (literal 1) None)
+&gt;&gt;&gt; parse(<span class=pystring>"1+2+3"</span>)
+(add (add (literal 1) (literal 2)) (literal 3))
+&gt;&gt;&gt; parse(<span class=pystring>"1+2*3"</span>)
+(add (literal 1) (mul (literal 2) (literal 3)))
+&gt;&gt;&gt; parse(<span class=pystring>"1*2+3"</span>)
+(add (mul (literal 1) (literal 2)) (literal 3))</pre><p>The unary plus inserts a “unary add” node in the tree (with the “second” attribute set to None). If you prefer, you can skip the extra node, simply by returning the inner expression from “nud”:<pre class=python><span class=pykeyword>class</span> <span class=pyclass>operator_add_token</span>:
+    lbp = 10
+    <span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+        <span class=pykeyword>return</span> expression(100)
+
+    ...
+
+&gt;&gt;&gt; parse(<span class=pystring>"1"</span>)
+(literal 1)
+&gt;&gt;&gt; parse(<span class=pystring>"+1"</span>)
+(literal 1)</pre><p>Whether this is a good idea or not depends on your language definition (Python, for one, won’t optimize them away in the general case, in case you’re using unary plus on something that’s not a number.)<h2 id=streamlining-token-class-generation>Streamlining Token Class Generation&nbsp;<a class=nav href=#streamlining-token-class-generation title=bookmark!>#</a></h2><p>The simple parsers we’ve used this far all consist of a number of classes, one for each token type, and a tokenizer that knows about them all. Pratt uses associative arrays instead, and associates the operations with their tokens. In Python, it could look something like:<pre class=python>nud = {}; led = {}; lbp = {}
+
+nud[<span class=pystring>"+"</span>] = <span class=pykeyword>lambda</span>: +expression(100)
+led[<span class=pystring>"+"</span>] = <span class=pykeyword>lambda</span> left: left + expression(10)
+lbp[<span class=pystring>"+"</span>] = 10</pre><p>This is a bit unwieldy, and feels somewhat backwards from a Python perspective. Crockford’s JavaScript implementation uses a different approach; he uses a single “token class registry” (which he calls “symbol table”), with a factory function that creates new classes on the fly. JavaScript’s prototype model makes that ludicrously simple, but it’s not that hard to generate classes on the fly in Python either.<p>First, let’s introduce a base class for token types, to get a place to stuff all common behaviour. I’ve added default attributes for storing the token type name (the “id” attribute) and the token value (for literal and name tokens), as well as a few attributes for the syntax tree. This class is also a convenient place to provide default implementations of the “nud” and “led” methods.</p></div><div class=yui-u>&nbsp;</div></div><div class=yui-g><pre class="python wide"><span class=pykeyword>class</span> <span class=pyclass>symbol_base</span>(object):
+
+    id = None <span class=pycomment># node/token type name</span>
+    value = None <span class=pycomment># used by literals</span>
+    first = second = third = None <span class=pycomment># used by tree nodes</span>
+
+    <span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+        <span class=pykeyword>raise</span> SyntaxError(
+            <span class=pystring>"Syntax error (%r)."</span> % self.id
+        )
+
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        <span class=pykeyword>raise</span> SyntaxError(
+            <span class=pystring>"Unknown operator (%r)."</span> % self.id
+        )
+
+    <span class=pykeyword>def</span> <span class=pyfunction>__repr__</span>(self):
+        <span class=pykeyword>if</span> self.id == <span class=pystring>"(name)"</span> <span class=pykeyword>or</span> self.id == <span class=pystring>"(literal)"</span>:
+            <span class=pykeyword>return</span> <span class=pystring>"(%s %s)"</span> % (self.id[1:-1], self.value)
+        out = [self.id, self.first, self.second, self.third]
+        out = map(str, filter(None, out))
+        <span class=pykeyword>return</span> <span class=pystring>"("</span> + <span class=pystring>" "</span>.join(out) + <span class=pystring>")"</span></pre></div><div class=yui-ge><div class="yui-u first"><p>Next, we need a token type factory:<pre class=python>symbol_table = {}
+
+<span class=pykeyword>def</span> <span class=pyfunction>symbol</span>(id, bp=0):
+    <span class=pykeyword>try</span>:
+        s = symbol_table[id]
+    <span class=pykeyword>except</span> KeyError:
+        <span class=pykeyword>class</span> <span class=pyclass>s</span>(symbol_base):
+            <span class=pykeyword>pass</span>
+        s.__name__ = <span class=pystring>"symbol-"</span> + id <span class=pycomment># for debugging</span>
+        s.id = id
+        s.lbp = bp
+        symbol_table[id] = s
+    <span class=pykeyword>else</span>:
+        s.lbp = max(bp, s.lbp)
+    <span class=pykeyword>return</span> s</pre><p>This function takes a token identifier and an optional binding power, and creates a new class if necessary. The identifier and the binding power are inserted as class attributes, and will thus be available in all instances of that class. If the function is called for a symbol that’s already registered, it just updates the binding power; this allows us to define different parts of the symbol’s behaviour in different places, as we’ll see later.<p>We can now populate the registry with the symbols we’re going to use:<pre class=python>symbol(<span class=pystring>"(literal)"</span>)
+symbol(<span class=pystring>"+"</span>, 10); symbol(<span class=pystring>"-"</span>, 10)
+symbol(<span class=pystring>"*"</span>, 20); symbol(<span class=pystring>"/"</span>, 20)
+symbol(<span class=pystring>"**"</span>, 30)
+symbol(<span class=pystring>"(end)"</span>)</pre><p>To simplify dispatching, we’re using the token strings as identifiers; the identifiers for the “(literal)” and “(end)” symbols (which replaces the literal_token and end_token classes used earlier) are strings that won’t appear as ordinary tokens.<p>We also need to update the tokenizer, to make it use classes from the registry:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>tokenize</span>(program):
+    <span class=pykeyword>for</span> number, operator <span class=pykeyword>in</span> token_pat.findall(program):
+        <span class=pykeyword>if</span> number:
+            symbol = symbol_table[<span class=pystring>"(literal)"</span>]
+            s = symbol()
+            s.value = number
+            <span class=pykeyword>yield</span> s
+        <span class=pykeyword>else</span>:
+            symbol = symbol_table.get(operator)
+            <span class=pykeyword>if</span> <span class=pykeyword>not</span> symbol:
+                <span class=pykeyword>raise</span> SyntaxError(<span class=pystring>"Unknown operator"</span>)
+            <span class=pykeyword>yield</span> symbol()
+    symbol = symbol_table[<span class=pystring>"(end)"</span>]
+    <span class=pykeyword>yield</span> symbol()</pre><p>Like before, the literal class is used as a common class for all literal values. All other tokens have their own classes.<p>Now, all that’s left is to define “nud” and “led” methods for the symbols that need additional behavior. To do that, we can define them as ordinary functions, and then simply plug them into the symbol classes, one by one. For example, here’s the “led” method for addition:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+    self.first = left
+    self.second = expression(10)
+    <span class=pykeyword>return</span> self
+symbol(<span class=pystring>"+"</span>).led = led</pre><p>That last line fetches the class from the symbol registry, and adds the function to it. Here are a few more “led” methods:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+    self.first = left
+    self.second = expression(10)
+    <span class=pykeyword>return</span> self
+symbol(<span class=pystring>"-"</span>).led = led
+
+<span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+    self.first = left
+    self.second = expression(20)
+    <span class=pykeyword>return</span> self
+symbol(<span class=pystring>"*"</span>).led = led
+
+<span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+    self.first = left
+    self.second = expression(20)
+    <span class=pykeyword>return</span> self
+symbol(<span class=pystring>"/"</span>).led = led</pre><p>They do look pretty similar, don’t they? The only thing that differs is the binding power, so we can simplify things quite a bit by moving the repeated code into a helper function:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>infix</span>(id, bp):
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        self.first = left
+        self.second = expression(bp)
+        <span class=pykeyword>return</span> self
+    symbol(id, bp).led = led</pre><p>Given this helper, we can now replace the “led” functions above with four simple calls:<pre class=python>infix(<span class=pystring>"+"</span>, 10); infix(<span class=pystring>"-"</span>, 10)
+infix(<span class=pystring>"*"</span>, 20); infix(<span class=pystring>"/"</span>, 20)</pre><p>Likewise, we can provide helper functions for the “nud” methods, and for operators with right associativity:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>prefix</span>(id, bp):
+    <span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+        self.first = expression(bp)
+        self.second = None
+        <span class=pykeyword>return</span> self
+    symbol(id).nud = nud
+
+prefix(<span class=pystring>"+"</span>, 100); prefix(<span class=pystring>"-"</span>, 100)
+
+<span class=pykeyword>def</span> <span class=pyfunction>infix_r</span>(id, bp):
+    <span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+        self.first = left
+        self.second = expression(bp-1)
+        <span class=pykeyword>return</span> self
+    symbol(id, bp).led = led
+
+infix_r(<span class=pystring>"**"</span>, 30)</pre><p>Finally, the literal symbol must be fitted with a “nud” method that returns the symbol itself. We can use a plain lambda for this:<pre class=python>symbol(<span class=pystring>"(literal)"</span>).nud = <span class=pykeyword>lambda</span> self: self</pre><p>Note that most of the above is general-purpose plumbing; given the helper functions, the actual parser definition boils down to the following six lines:<pre class=python>infix(<span class=pystring>"+"</span>, 10); infix(<span class=pystring>"-"</span>, 10)
+infix(<span class=pystring>"*"</span>, 20); infix(<span class=pystring>"/"</span>, 20)
+infix_r(<span class=pystring>"**"</span>, 30)
+prefix(<span class=pystring>"+"</span>, 100); prefix(<span class=pystring>"-"</span>, 100)
+
+symbol(<span class=pystring>"(literal)"</span>).nud = <span class=pykeyword>lambda</span> self: self
+symbol(<span class=pystring>"(end)"</span>)</pre><p>Running this produces the same result as before:<pre class=python>&gt;&gt;&gt; parse(<span class=pystring>"1"</span>)
+(literal 1)
+&gt;&gt;&gt; parse(<span class=pystring>"+1"</span>)
+(+ (literal 1))
+&gt;&gt;&gt; parse(<span class=pystring>"1+2"</span>)
+(+ (literal 1) (literal 2))
+&gt;&gt;&gt; parse(<span class=pystring>"1+2+3"</span>)
+(+ (+ (literal 1) (literal 2)) (literal 3))
+&gt;&gt;&gt; parse(<span class=pystring>"1+2*3"</span>)
+(+ (literal 1) (* (literal 2) (literal 3)))
+&gt;&gt;&gt; parse(<span class=pystring>"1*2+3"</span>)
+(+ (* (literal 1) (literal 2)) (literal 3))</pre><h2 id=parsing-python-expressions>Parsing Python Expressions&nbsp;<a class=nav href=#parsing-python-expressions title=bookmark!>#</a></h2><p>To get a somewhat larger example, let’s tweak the parser so it can parse a subset of the Python expression syntax, similar to the syntax shown in the grammar snippet at the start of this article.<p>To do this, we first need a fancier tokenizer. The obvious choice is to build on Python’s <strong>tokenize</strong> module:</p></div><div class=yui-u>&nbsp;</div></div><div class=yui-g><pre class="python wide"><span class=pykeyword>def</span> <span class=pyfunction>tokenize_python</span>(program):
+    <span class=pykeyword>import</span> tokenize
+    <span class=pykeyword>from</span> cStringIO <span class=pykeyword>import</span> StringIO
+    type_map = {
+        tokenize.NUMBER: <span class=pystring>"(literal)"</span>,
+        tokenize.STRING: <span class=pystring>"(literal)"</span>,
+        tokenize.OP: <span class=pystring>"(operator)"</span>,
+        tokenize.NAME: <span class=pystring>"(name)"</span>,
+        }
+    <span class=pykeyword>for</span> t <span class=pykeyword>in</span> tokenize.generate_tokens(StringIO(program).next):
+        <span class=pykeyword>try</span>:
+            <span class=pykeyword>yield</span> type_map[t[0]], t[1]
+        <span class=pykeyword>except</span> KeyError:
+            <span class=pykeyword>if</span> t[0] == tokenize.ENDMARKER:
+                <span class=pykeyword>break</span>
+            <span class=pykeyword>else</span>:
+                <span class=pykeyword>raise</span> SyntaxError(<span class=pystring>"Syntax error"</span>)
+    <span class=pykeyword>yield</span> <span class=pystring>"(end)"</span>, <span class=pystring>"(end)"</span>
+
+<span class=pykeyword>def</span> <span class=pyfunction>tokenize</span>(program):
+    <span class=pykeyword>for</span> id, value <span class=pykeyword>in</span> tokenize_python(program):
+        <span class=pykeyword>if</span> id == <span class=pystring>"(literal)"</span>:
+            symbol = symbol_table[id]
+            s = symbol()
+            s.value = value
+        <span class=pykeyword>else</span>:
+            <span class=pycomment># name or operator</span>
+            symbol = symbol_table.get(value)
+            <span class=pykeyword>if</span> symbol:
+                s = symbol()
+            <span class=pykeyword>elif</span> id == <span class=pystring>"(name)"</span>:
+                symbol = symbol_table[id]
+                s = symbol()
+                s.value = value
+            <span class=pykeyword>else</span>:
+                <span class=pykeyword>raise</span> SyntaxError(<span class=pystring>"Unknown operator (%r)"</span> % id)
+        <span class=pykeyword>yield</span> s</pre></div><div class=yui-ge><div class="yui-u first"><p>This tokenizer is split into two parts; one language-specific parser that turns the source program into a stream of literals, names, and operators, and a second part that turns those into a token instances. The latter checks both operators and names against the symbol table (to handle keyword operators), and uses a psuedo-symbol (“(name)”) for all other names.<p>You could combine the two tasks into a single function, but the separation makes it a bit easier to test the parser, and also makes it possible to reuse the second part for other syntaxes.<p>We can test the new tokenizer with the old parser definition:<pre><code>&gt;&gt;&gt; parse("1+2")
+(+ (literal 1) (literal 2))
+&gt;&gt;&gt; parse(1+2+3")
+(+ (+ (literal 1) (literal 2)) (literal 3))
+&gt;&gt;&gt; parse(1+2*3")
+(+ (literal 1) (* (literal 2) (literal 3)))
+&gt;&gt;&gt; parse(1.0*2+3")
+(+ (* (literal 1.0) (literal 2)) (literal 3))
+&gt;&gt;&gt; parse("'hello'+'world'")
+(+ (literal 'hello') (literal 'world'))
+</code></pre><p>The new tokenizer supports more literals, so our parser does that too, without any extra work. And we’re still using the 10-line <strong>expression</strong> implementation we introduced at the beginning of this article.<h3 id=the-python-expression-grammar>The Python Expression Grammar&nbsp;<a class=nav href=#the-python-expression-grammar title=bookmark!>#</a></h3><p>So, let’s do something about the grammar. We could figure out the correct expression grammar from the grammar snippet shown earlier, but there’s a more practical description in the section “Evaluation order” in Python’s language reference. The table in that section lists all expression operators in precedence order, from lowest to highest. Here are the corresponding definitions (starting at binding power 20):<pre class=python>symbol(<span class=pystring>"lambda"</span>, 20)
+symbol(<span class=pystring>"if"</span>, 20) <span class=pycomment># ternary form</span>
+
+infix_r(<span class=pystring>"or"</span>, 30); infix_r(<span class=pystring>"and"</span>, 40); prefix(<span class=pystring>"not"</span>, 50)
+
+infix(<span class=pystring>"in"</span>, 60); infix(<span class=pystring>"not"</span>, 60) <span class=pycomment># in, not in</span>
+infix(<span class=pystring>"is"</span>, 60) <span class=pycomment># is, is not</span>
+infix(<span class=pystring>"&lt;"</span>, 60); infix(<span class=pystring>"&lt;="</span>, 60)
+infix(<span class=pystring>"&gt;"</span>, 60); infix(<span class=pystring>"&gt;="</span>, 60)
+infix(<span class=pystring>"&lt;&gt;"</span>, 60); infix(<span class=pystring>"!="</span>, 60); infix(<span class=pystring>"=="</span>, 60)
+
+infix(<span class=pystring>"|"</span>, 70); infix(<span class=pystring>"^"</span>, 80); infix(<span class=pystring>"&amp;"</span>, 90)
+
+infix(<span class=pystring>"&lt;&lt;"</span>, 100); infix(<span class=pystring>"&gt;&gt;"</span>, 100)
+
+infix(<span class=pystring>"+"</span>, 110); infix(<span class=pystring>"-"</span>, 110)
+
+infix(<span class=pystring>"*"</span>, 120); infix(<span class=pystring>"/"</span>, 120); infix(<span class=pystring>"//"</span>, 120)
+infix(<span class=pystring>"%"</span>, 120)
+
+prefix(<span class=pystring>"-"</span>, 130); prefix(<span class=pystring>"+"</span>, 130); prefix(<span class=pystring>"~"</span>, 130)
+
+infix_r(<span class=pystring>"**"</span>, 140)
+
+symbol(<span class=pystring>"."</span>, 150); symbol(<span class=pystring>"["</span>, 150); symbol(<span class=pystring>"("</span>, 150)</pre><p>These 16 lines define the syntax for 35 operators, and also provide behaviour for most of them.<p>However, tokens defined by the <strong>symbol</strong> helper have no intrinsic behaviour; to make them work, additional code is needed. There are also some intricacies caused by limitations in Python’s tokenizer; more about those later.<p>But before we start working on those symbols, we need to add behaviour to the pseudo-tokens too:<pre class=python>symbol(<span class=pystring>"(literal)"</span>).nud = <span class=pykeyword>lambda</span> self: self
+symbol(<span class=pystring>"(name)"</span>).nud = <span class=pykeyword>lambda</span> self: self
+symbol(<span class=pystring>"(end)"</span>)</pre><p>We can now do a quick sanity check:<pre class=python>&gt;&gt;&gt; parse(<span class=pystring>"1+2"</span>)
+(+ (literal 1) (literal 2))
+&gt;&gt;&gt; parse(<span class=pystring>"2&lt;&lt;3"</span>)
+(&lt;&lt; (literal 2) (literal 3))</pre><h3 id=parenthesized-expressions>Parenthesized Expressions&nbsp;<a class=nav href=#parenthesized-expressions title=bookmark!>#</a></h3><p>Let’s turn our focus to the remaining symbols, and start with something simple: parenthesized expressions. They can be implemented by a “nud” method on the “(” token:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+    expr = expression()
+    advance(<span class=pystring>")"</span>)
+    <span class=pykeyword>return</span> expr
+symbol(<span class=pystring>"("</span>).nud = nud</pre><p>The “advance” function used here is a helper function that checks that the current token has a given value, before fetching the next token.<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>advance</span>(id=None):
+    <span class=pykeyword>global</span> token
+    <span class=pykeyword>if</span> id <span class=pykeyword>and</span> token.id != id:
+        <span class=pykeyword>raise</span> SyntaxError(<span class=pystring>"Expected %r"</span> % id)
+    token = next()</pre><p>The “)” token must be registered; if not, the tokenizer will report it as an invalid token. To register it, just call the symbol function:<pre class=python>symbol(<span class=pystring>")"</span>)</pre><p>Let’s try it out:<pre class=python>&gt;&gt;&gt; 1+2*3
+(+ (literal 1) (* (literal 2) (literal 3)))
+&gt;&gt;&gt; (1+2)*3
+(* (+ (literal 1) (literal 2)) (literal 3))</pre><p>Note that the “nud” method returns the inner expression, so the “(” node won’t appear in the resulting syntax tree.<p>Also note that we’re cheating here, for a moment: the “(” prefix has two meanings in Python; it can either be used for grouping, as above, or to create tuples. We’ll fix this below.<h3 id=ternary-operators>Ternary Operators&nbsp;<a class=nav href=#ternary-operators title=bookmark!>#</a></h3><p>Most custom methods look more or less exactly like their recursive-descent counterparts, and the code for inline if-else is no different:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+    self.first = left
+    self.second = expression()
+    advance(<span class=pystring>"else"</span>)
+    self.third = expression()
+    <span class=pykeyword>return</span> self
+symbol(<span class=pystring>"if"</span>).led = led</pre><p>Again, we need to register the extra token before we can try it out:<pre class=python>symbol(<span class=pystring>"else"</span>)
+
+&gt;&gt;&gt; parse(<span class=pystring>"1 if 2 else 3"</span>)
+(<span class=pykeyword>if</span> (literal 1) (literal 2) (literal 3))</pre><h3 id=attribute-and-item-lookups>Attribute and Item Lookups&nbsp;<a class=nav href=#attribute-and-item-lookups title=bookmark!>#</a></h3><p>To handle attribute lookups, the “.” operator needs a “led” method. For convenience, this version verifies that the period is followed by a proper name token (this check could be made at a later stage as well):<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+    <span class=pykeyword>if</span> token.id != <span class=pystring>"(name)"</span>:
+        SyntaxError(<span class=pystring>"Expected an attribute name."</span>)
+    self.first = left
+    self.second = token
+    advance()
+    <span class=pykeyword>return</span> self
+symbol(<span class=pystring>"."</span>).led = led
+
+&gt;&gt;&gt; parse(<span class=pystring>"foo.bar"</span>)
+(. (name foo) (name bar))</pre><p>Item access is similar; just add a “led” method to the “[” operator. And since “]” is part of the syntax, we need to register that symbol as well.<pre class=python><code>symbol("]")
+
+def led(self, left):
+    self.first = left
+    self.second = expression()
+    advance("]")
+    return self
+symbol("[").led = led
+
+&gt;&gt;&gt; parse("'hello'[0]")
+([ (literal 'hello') (literal 0))
+</code></pre><p>Note that we’re ending up with lots of code of the form:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+    ...
+symbol(id).led = led</pre><p>which is a bit inconvenient, if not else because it violates the “don’t repeat yourself” rule (the name of the method appears three times). A simple decorator solves this:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>method</span>(s):
+    <span class=pykeyword>assert</span> issubclass(s, symbol_base)
+    <span class=pykeyword>def</span> <span class=pyfunction>bind</span>(fn):
+        setattr(s, fn.__name__, fn)
+    <span class=pykeyword>return</span> bind</pre><p>This decorator picks up the function name, and attaches that to the given symbol. This puts the symbol name before the method definition, and only requires you to write the method name once.<pre class=python>@<span class=pydecorator>method</span>(symbol(id))
+<span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+    ...</pre><p>We’ll use this in the following examples. The other approach isn’t much longer, so you can still use it if you need to target Python 2.3 or older. Just watch out for typos.<h3 id=function-calls>Function Calls&nbsp;<a class=nav href=#function-calls title=bookmark!>#</a></h3><p>A function call consists of an expression followed by a comma-separated expression list, in parentheses. By treating the left parentesis as a binary operator, parsing this is straight-forward:<pre class=python><code>symbol(")"); symbol(",")
+
+@method(symbol("("))
+def led(self, left):
+    self.first = left
+    self.second = []
+    if token.id != ")":
+        while 1:
+            self.second.append(expression())
+            if token.id != ",":
+                break
+            advance(",")
+    advance(")")
+    return self
+
+&gt;&gt;&gt; parse("hello(1,2,3)")
+(( (name hello) [(literal 1), (literal 2), (literal 3)])
+</code></pre><p>This is a bit simplified; keyword arguments and the “*” and “**” forms are not supported by this version. To handle keyword arguments, look for an “=” after the first expression, and if that’s found, check that the subtree is a plain name, and then call expression again to get the default value. The other forms could be handled by “nud” methods on the corresponding operators, but it’s probably easier to handle these too in this method.<h3 id=lambdas>Lambdas&nbsp;<a class=nav href=#lambdas title=bookmark!>#</a></h3><p>Lambdas are also quite simple. Since the “lambda” keyword is a prefix operator, we’ll implement it using a “nud” method:<pre class=python>symbol(<span class=pystring>":"</span>)
+
+@<span class=pydecorator>method</span>(symbol(<span class=pystring>"lambda"</span>))
+<span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+    self.first = []
+    <span class=pykeyword>if</span> token.id != <span class=pystring>":"</span>:
+        argument_list(self.first)
+    advance(<span class=pystring>":"</span>)
+    self.second = expression()
+    <span class=pykeyword>return</span> self
+
+<span class=pykeyword>def</span> <span class=pyfunction>argument_list</span>(list):
+    <span class=pykeyword>while</span> 1:
+        <span class=pykeyword>if</span> token.id != <span class=pystring>"(name)"</span>:
+            SyntaxError(<span class=pystring>"Expected an argument name."</span>)
+        list.append(token)
+        advance()
+        <span class=pykeyword>if</span> token.id != <span class=pystring>","</span>:
+            <span class=pykeyword>break</span>
+        advance(<span class=pystring>","</span>)
+
+&gt;&gt;&gt; parse(<span class=pystring>"lambda a, b, c: a+b+c"</span>)
+(<span class=pykeyword>lambda</span> [(name a), (name b), (name c)]
+    (+ (+ (name a) (name b)) (name c)))</pre><p>Again, the argument list parsing is a bit simplified; it doesn’t handle default values and the “*” and “**” forms. See above for implementation hints. Also note that there’s no scope handling at the parser level in this implementation. See Crockford’s article for more on that topic.<h3 id=constants>Constants&nbsp;<a class=nav href=#constants title=bookmark!>#</a></h3><p>Constants can be handled as literals; the following “nud” method changes the token instance to a literal node, and inserts the token itself as the literal value:<pre class=python><span class=pykeyword>def</span> <span class=pyfunction>constant</span>(id):
+    @<span class=pydecorator>method</span>(symbol(id))
+    <span class=pykeyword>def</span> <span class=pyfunction>nud</span>(self):
+        self.id = <span class=pystring>"(literal)"</span>
+        self.value = id
+        <span class=pykeyword>return</span> self
+
+constant(<span class=pystring>"None"</span>)
+constant(<span class=pystring>"True"</span>)
+constant(<span class=pystring>"False"</span>)
+
+&gt;&gt;&gt; parse(<span class=pystring>"1 is None"</span>)
+(<span class=pykeyword>is</span> (literal 1) (literal None))
+&gt;&gt;&gt; parse(<span class=pystring>"True or False"</span>)
+(<span class=pykeyword>or</span> (literal True) (literal False))</pre><h3 id=multi-token-operators>Multi-Token Operators&nbsp;<a class=nav href=#multi-token-operators title=bookmark!>#</a></h3><p>Python has two multi-token operators, “is not” and “not in”, but our parser doesn’t quite treat them correctly:<pre class=python>&gt;&gt;&gt; parse(<span class=pystring>"1 is not 2"</span>)
+(<span class=pykeyword>is</span> (literal 1) (<span class=pykeyword>not</span> (literal 2)))</pre><p>The problem is that the standard <strong>tokenize</strong> module doesn’t understand this syntax, so it happily returns these operators as two separate tokens:<pre class=python>&gt;&gt;&gt; list(tokenize(<span class=pystring>"1 is not 2"</span>))
+[(literal 1), (<span class=pykeyword>is</span>), (<span class=pykeyword>not</span>), (literal 2), ((end))]</pre><p>In other words, “1 is not 2” is handled as “1 is (not 2)”, which isn’t the same thing:<pre class=python>&gt;&gt;&gt; 1 <span class=pykeyword>is</span> <span class=pykeyword>not</span> 2
+True
+&gt;&gt;&gt; 1 <span class=pykeyword>is</span> (<span class=pykeyword>not</span> 2)
+False</pre><p>One way to fix this is to tweak the tokenizer (e.g. by inserting a combining filter between the raw Python parser and the token instance factory), but it’s probably easier to fix this with custom “led” methods on the “is” and “not” operators:<pre class=python>@<span class=pydecorator>method</span>(symbol(<span class=pystring>"not"</span>))
+<span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+    <span class=pykeyword>if</span> token.id != <span class=pystring>"in"</span>:
+        <span class=pykeyword>raise</span> SyntaxError(<span class=pystring>"Invalid syntax"</span>)
+    advance()
+    self.id = <span class=pystring>"not in"</span>
+    self.first = left
+    self.second = expression(60)
+    <span class=pykeyword>return</span> self
+
+@<span class=pydecorator>method</span>(symbol(<span class=pystring>"is"</span>))
+<span class=pykeyword>def</span> <span class=pyfunction>led</span>(self, left):
+    <span class=pykeyword>if</span> token.id == <span class=pystring>"not"</span>:
+        advance()
+        self.id = <span class=pystring>"is not"</span>
+    self.first = left
+    self.second = expression(60)
+    <span class=pykeyword>return</span> self
+
+&gt;&gt;&gt; parse(<span class=pystring>"1 in 2"</span>)
+(<span class=pykeyword>in</span> (literal 1) (literal 2))
+&gt;&gt;&gt; parse(<span class=pystring>"1 not in 2"</span>)
+(<span class=pykeyword>not</span> <span class=pykeyword>in</span> (literal 1) (literal 2))
+&gt;&gt;&gt; parse(<span class=pystring>"1 is 2"</span>)
+(<span class=pykeyword>is</span> (literal 1) (literal 2))
+&gt;&gt;&gt; parse(<span class=pystring>"1 is not 2"</span>)
+(<span class=pykeyword>is</span> <span class=pykeyword>not</span> (literal 1) (literal 2))</pre><p>This means that the “not” operator handles both unary “not” and binary “not in”.<h3 id=tuples-lists-and-dictionary-displays>Tuples, Lists, and Dictionary Displays&nbsp;<a class=nav href=#tuples-lists-and-dictionary-displays title=bookmark!>#</a></h3><p>As noted above, the “(” prefix serves two purposes in Python; it’s used for grouping, and to create tuples (it’s also used as a binary operator, for function calls). To handle tuples, we need to replace the “nud” method with a version that can distinguish between tuples and a plain parenthesized expression.<p>Python’s tuple-forming rules are simple; if a pair of parenteses are empty, or contain at least one comma, it’s a tuple. Otherwise, it’s an expression. Or in other words:<ul><li>() is a tuple<li>(1) is a parenthesized expression<li>(1,) is a tuple<li>(1, 2) is a tuple</ul><p>Here’s a “nud” replacement that implements these rules:<pre class=python><code>@method(symbol("("))
+def nud(self):
+    self.first = []
+    comma = False
+    if token.id != ")":
+        while 1:
+            if token.id == ")":
+                break
+            self.first.append(expression())
+            if token.id != ",":
+                break
+            comma = True
+            advance(",")
+    advance(")")
+    if not self.first or comma:
+        return self # tuple
+    else:
+        return self.first[0]
+
+&gt;&gt;&gt; parse("()")
+(()
+&gt;&gt;&gt; parse("(1)")
+(literal 1)
+&gt;&gt;&gt; parse("(1,)")
+(( [(literal 1)])
+&gt;&gt;&gt; parse("(1, 2)")
+(( [(literal 1), (literal 2)])
+</code></pre><p>Lists and dictionaries are a bit simpler; they’re just plain lists of expressions or expression pairs. Don’t forget to register the extra tokens.<pre class=python><code>symbol("]")
+
+@method(symbol("["))
+def nud(self):
+    self.first = []
+    if token.id != "]":
+        while 1:
+            if token.id == "]":
+                break
+            self.first.append(expression())
+            if token.id != ",":
+                break
+            advance(",")
+    advance("]")
+    return self
+
+&gt;&gt;&gt; parse("[1, 2, 3]")
+([ [(literal 1), (literal 2), (literal 3)])
+
+symbol("}"); symbol(":")
+
+@method(symbol("{"))
+def nud(self):
+    self.first = []
+    if token.id != "}":
+        while 1:
+            if token.id == "}":
+                break
+            self.first.append(expression())
+            advance(":")
+            self.first.append(expression())
+            if token.id != ",":
+                break
+            advance(",")
+    advance("}")
+    return self
+
+&gt;&gt;&gt; {1: 'one', 2: 'two'}
+({ [(literal 1), (literal 'one'),
+    (literal 2), (literal 'two')])
+</code></pre><p>Note that Python allows you to use optional trailing commas when creating lists, tuples, and dictionaries; an extra if-statement at the beginning of the collection loop takes care of that case.<h2 id=summary>Summary&nbsp;<a class=nav href=#summary title=bookmark!>#</a></h2><p>At roughly 250 lines of code (including the entire parser machinery), there are still a few things left to add before we can claim to fully support the Python 2.5 expression syntax, but we’ve covered a remarkably large part of the syntax with very little work.<p>And as we’ve seen thoughout this article, parsers using this algorithm and implementation approach are readable, easy to extend, and, as we’ll see in a moment, surprisingly fast. While this article has focussed on expressions, the algorithm can be easily extended for statement-oriented syntaxes. See Crockford’s article for one way to do that.<p>All in all, Pratt’s parsing algorithm is a great addition to the Python parsing toolbox, and the implementation strategy outlined in this article is a simple way to quickly implement such parsers.<h2 id=performance>Performance&nbsp;<a class=nav href=#performance title=bookmark!>#</a></h2><p>As we’ve seen, the parser makes only a few Python calls per token, which means that it should be pretty efficient (or as Pratt put it, “efficient in practice if not in theory”).<p>To test practical performance, I picked a 456 character long Python expression (about 300 tokens) from the Python FAQ, and parsed it with a number of different tools. Here are some typical results under Python 2.5:<ul><li>topdown parse (to abstract syntax tree): 4.0 ms<li>built-in parse (to tuple tree): 0.60 ms<li>built-in compile (to code object): 0.68 ms<li>compiler parse (to abtract syntax tree): 4.8 ms<li>compiler compile (to code object): 18 ms</ul><p>If we tweak the parser to work on a precomputed list of tokens (obtained by running “list(tokenize_python(program))”), the parsing time drops to just under 0.9 ms. In other words, only about one fourth of the time for the full parse is spent on token instance creation, parsing, and tree building. The rest is almost entirely spent in Python’s <strong>tokenize</strong> module. With a faster tokenizer, this algorithm would get within 2x or so from Python’s built-in tokenizer/parser.<p>The built-in parse test is in itself quite interesting; it uses Python’s internal tokenizer and parser module (both of which are written in C), and uses the <strong>parser</strong> module (also written in C) to convert the internal syntax tree object to a tuple tree. This is fast, but results in a remarkably undecipherable low-level tree:<pre class=python>&gt;&gt;&gt; parser.st2tuple(parser.expr(<span class=pystring>"1+2"</span>))
+(258, (326, (303, (304, (305, (306, (307, (309,
+(310, (311, (312, (313, (314, (315, (316, (317,
+(2, <span class=pystring>'1'</span>))))), (14, <span class=pystring>'+'</span>), (314, (315, (316, (317,
+(2, <span class=pystring>'2'</span>)))))))))))))))), (4, <span class=pystring>''</span>), (0, <span class=pystring>''</span>))</pre><p>(In this example, 2 means number, 14 means plus, 4 is newline, and 0 is end of program. The 3-digit numbers represent intermediate rules in the Python grammar.)<p>The compiler parse test uses the parse function from the <strong>compiler</strong> package instead; this function uses Python’s internal tokenizer and parser, and then turns the resulting low-level structure into a much nicer abstract tree:<pre class=python>&gt;&gt;&gt; <span class=pykeyword>import</span> compiler
+&gt;&gt;&gt; compiler.parse(<span class=pystring>"1+2"</span>, <span class=pystring>"eval"</span>)
+Expression(Add((Const(1), Const(2))))</pre><p>This conversion (done in Python) turns out to be more work than parsing the expression with the topdown parser; with the code in this article, we get an abstract tree in about 85% of the time, despite using a really slow tokenizer.<h2 id=code-notes>Code Notes&nbsp;<a class=nav href=#code-notes title=bookmark!>#</a></h2><p>The code in this article uses global variables to hold parser state (the “token” variable and the “next” helper). If you need a thread-safe parser, these should be moved to a context object. This will result in a slight performance hit, but there are some surprising ways to compensate for that, by trading a little memory for performance. More on that in a later article.<p>All code for the interpreters and translators shown in this
+article is included in the article itself. Assorted code samples are also available from:<blockquote><p><a href=./svn>http://svn.effbot.org/public/stuff/sandbox/topdown</a></p></blockquote></div><div class=yui-u>&nbsp;</div></div><div class=yui-g></div></div></div></div><div class=yui-b><div id=menu><ul><li><b><a href=http://web.archive.org/web/20160304015821/http://effbot.org/ title="Go to effbot.org.">::: effbot.org</a></b><li><b><a href=http://web.archive.org/web/20160304015821/http://effbot.org/zone/ title="Go to zone index page.">::: zone :::</a></b></ul><ul><li><b>::: contents</b></ul><ul><li><ul><li><a href=#introducing-the-algorithm>Introducing The Algorithm</a><li><ul><li><a href=#extending-the-parser>Extending the Parser</a></ul><li><a href=#building-parse-trees>Building Parse Trees</a><li><a href=#streamlining-token-class-generation>Streamlining Token Class Generation</a><li><a href=#parsing-python-expressions>Parsing Python Expressions</a><li><ul><li><a href=#the-python-expression-grammar>The Python Expression Grammar</a><li><a href=#parenthesized-expressions>Parenthesized Expressions</a><li><a href=#ternary-operators>Ternary Operators</a><li><a href=#attribute-and-item-lookups>Attribute and Item Lookups</a><li><a href=#function-calls>Function Calls</a><li><a href=#lambdas>Lambdas</a><li><a href=#constants>Constants</a><li><a href=#multi-token-operators>Multi-Token Operators</a><li><a href=#tuples-lists-and-dictionary-displays>Tuples, Lists, and Dictionary Displays</a></ul><li><a href=#summary>Summary</a><li><a href=#performance>Performance</a><li><a href=#code-notes>Code Notes</a></ul></ul></div></div></div><div id=ft><p><a href=http://web.archive.org/web/20160304015821/http://www.djangoproject.com/><img src="data:image/gif;base64,R0lGODlhUAAPAOYZAD1uTTdnRzxtTD5vTkBwUDtrS1eBZVmEZ/P29J21pViCZliDZm6Tes7a0s7b0ubs6Oft6XGVfWqPds/b01mDZzVmRW6SejRkRDZmRgEN/6C4qDVlRdrj3VF8X22SeZ62pp63pmuPd8PSyJevn3CUfGyQeFqEaEp4WZ+3p/L284Wjj3KWfpSvnc3Z0URyU8LRx3OYf2WMcoSijtvk3tDc1GKKb6i+sLPGuWmOdbfKvazBs8LSx1V8YqK6qnCRe5u0o4KhjEh2V5OunGSLcYimkommk1yEaYelkUx5W0RxU5Ktm7bJvF+GbKG5qVR+YnmbhGKJb2iNdI+rmGaNc1R/Yn2eiJy0pKe9rkFxUTpqSv/HVzhpSDdoRzZnRkR1VENzU0JyUi5ePnaagv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABkALAAAAABQAA8AAAf/gBlig4SFhoeIiYqLjI2CXpCRkpMwY2MwNGM9k5ydnp+goWFiX6Wmp6grliuZTaivsLGys7SjYLe4uboRlhFTESa6wsPExcbHo1jKygHLyxETlr06E0UxIghjCCwUOTOWEBrKESIQ4BpV32MiMc5YAfDN8e/x8vPLowT6BAFa+/okpEkjEU2DBoFjAiIcQgThGBYIESDZ10+LxYpaTFjciDHjvlEDQmLQckBLyJA7tNVgYIlBNBQMGNQQ0rLlCUsosk048XKJthMsxxwRSfKA0QEjDxA1mvToyVEAAFTQQiEq1agOxjgAYMGShawgoJiT1nWMBQCWspoFADbrVrRj/0BElbox6tSqdKtOtYg36igBAjZstLgAcIMxEIJ4sOTh8IfDDZ4wZizA0gtLHwQ4vgxBABVLSgADXkBaS2AthU8XFkxaNOBRBQpc0KKgNu3YKiw94GCpxOEEhzkk6N27gKUEDyzxHpMg9xgOycc4iT17o4Lqt2crkD14e+xRWcKLHx8+QTZpIbIlkIEwhKUQWY4ziX48iw1pCGSMN8DfQPj+4vn3H4DijbLFgQgmmGAHEriwhQSWSHGgBBJ0oOCFHXSQnBUHukDhhSCGKOIoXJRo4okolghECmOkkESKMHLxwBU/tGAJDjHmqGOMo3Th449ABuljFC08YISQSPqI0B8NSTbpZJNhZBDGlFRWaeWVWGbpwwhc8pDll2CCmUEgADs=" border=0 alt="A Django site." title="A Django site." style=vertical-align:bottom width=80 height=15></a>
+rendered by a <a href=http://web.archive.org/web/20160304015821/http://www.djangoproject.com/>django</a> application. hosted by <a href="http://web.archive.org/web/20160304015821/http://www.webfaction.com/shared_hosting?affiliate=slab">webfaction</a>.</p></div></div>
+<script data-template-shadow-root>(()=>{document.currentScript.remove();processNode(document);function processNode(node){node.querySelectorAll("template[shadowmode]").forEach(element=>{let shadowRoot = element.parentElement.shadowRoot;if (!shadowRoot) {try {shadowRoot=element.parentElement.attachShadow({mode:element.getAttribute("shadowmode"),delegatesFocus:Boolean(element.getAttribute("delegatesfocus"))});shadowRoot.innerHTML=element.innerHTML;element.remove()} catch (error) {} if (shadowRoot) {processNode(shadowRoot)}}})}})()</script>

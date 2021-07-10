@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -130,6 +130,27 @@ span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre style="display: inline"><span class="string-literal"><span style="opacity: 0.25">'‘</span>‘don’t’</span></pre>) можно как есть вставлять в другие строки в парных кавычках:<br />
 <pre style="display: inline">‘text = '‘‘don’t’’</pre>.<br />
+<br />
+<br />
+<h3>Многострочные строковые литералы с отступом</h3>
+<br />
+<br />
+Также как в языках <a href="https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html">Swift</a> и <a href="https://docs.julialang.org/en/v1/manual/strings/#Triple-Quoted-String-Literals">Julia</a> многострочные строковые литералы в 11l могут содержать отступ, чтобы соответствовать окружающему коду.<br />
+<span class="sq"><span class="sq_brackets">[</span>Заметьте, что в Swift и Julia то, как работают многострочные строковые литералы, немного отличается: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre class="code_block">
+<span class="string-literal">"""
+hello
+"""</span>
+</pre>
+эквивалентно <pre style="display: inline"><span class="string-literal">"hello"</span></pre> в Swift и <pre style="display: inline"><span class="string-literal">"hello\n"</span></pre> в Julia.<br />
+</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
+<br />
+Просто добавьте символ <pre class="inline_code">|</pre> перед строковым литералом:<br />
+<pre class="code_block">
+<span class="keyword">V</span> <span class="identifier">str</span> = |<span class="string-literal">‘First line.
+          Second line.’</span>
+</pre>
+Это эквивалентно <pre style="display: inline"><span class="keyword">V</span> <span class="identifier">str</span> = <span class="string-literal">"First line.\nSecond line."</span></pre><br />
 </div>
 </body>
 </html>

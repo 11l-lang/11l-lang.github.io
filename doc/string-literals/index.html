@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -130,6 +130,27 @@ span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre style="display: inline"><span class="string-literal"><span style="opacity: 0.25">'‘</span>‘don’t’</span></pre>) can be put inside another raw strings as is:<br />
 <pre style="display: inline">‘text = '‘‘don’t’’</pre>.<br />
+<br />
+<br />
+<h3>Indented multiline string literals</h3>
+<br />
+<br />
+Like in such languages as <a href="https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html">Swift</a> and <a href="https://docs.julialang.org/en/v1/manual/strings/#Triple-Quoted-String-Literals">Julia</a> multiline string literals in 11l can be indented to match the surrounding code.<br />
+<span class="sq"><span class="sq_brackets">[</span>Note, that in Swift and Julia they work slightly differently: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre class="code_block">
+<span class="string-literal">"""
+hello
+"""</span>
+</pre>
+is equivalent to <pre style="display: inline"><span class="string-literal">"hello"</span></pre> in Swift and to <pre style="display: inline"><span class="string-literal">"hello\n"</span></pre> in Julia.<br />
+</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
+<br />
+Just prepend string literal with <pre class="inline_code">|</pre>:<br />
+<pre class="code_block">
+<span class="keyword">V</span> <span class="identifier">str</span> = |<span class="string-literal">‘First line.
+          Second line.’</span>
+</pre>
+This is equivalent to <pre style="display: inline"><span class="keyword">V</span> <span class="identifier">str</span> = <span class="string-literal">"First line.\nSecond line."</span></pre><br />
 </div>
 </body>
 </html>

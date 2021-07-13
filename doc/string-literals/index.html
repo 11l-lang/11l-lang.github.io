@@ -132,22 +132,22 @@ span.comment {color: #808080;}
 <pre style="display: inline">‘text = '‘‘don’t’’</pre>.<br />
 <br />
 <br />
-<h3>Indented multiline string literals</h3>
+<h3>Indented multi-line string literals</h3>
 <br />
 <br />
-Like in such languages as <a href="https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html">Swift</a> and <a href="https://docs.julialang.org/en/v1/manual/strings/#Triple-Quoted-String-Literals">Julia</a> multiline string literals in 11l can be indented to match the surrounding code.<br />
+Like in such languages as <a href="https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html">Swift</a> and <a href="https://docs.julialang.org/en/v1/manual/strings/#Triple-Quoted-String-Literals">Julia</a> multi-line string literals in 11l can be indented to match the surrounding code.<br />
 <span class="sq"><span class="sq_brackets">[</span>Note, that in Swift and Julia they work slightly differently: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <pre class="code_block">
 <span class="string-literal">"""
 hello
 """</span>
 </pre>
-is equivalent to <pre style="display: inline"><span class="string-literal">"hello"</span></pre> in Swift and to <pre style="display: inline"><span class="string-literal">"hello\n"</span></pre> in Julia.<br />
+is equivalent to <pre style="display: inline"><span class="string-literal">"hello"</span></pre> in Swift<!--[[[ and]]]-->, but to <pre style="display: inline"><span class="string-literal">"hello\n"</span></pre> in Julia.<br />
 </span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span><br />
 <br />
 Just prepend string literal with <pre class="inline_code">|</pre>:<br />
 <pre class="code_block">
-<span class="keyword">V</span> <span class="identifier">str</span> = |<span class="string-literal">‘First line.
+<span class="keyword">V</span> <span class="identifier">str</span> = <span class="string-literal">|‘First line.
           Second line.’</span>
 </pre>
 This is equivalent to <pre style="display: inline"><span class="keyword">V</span> <span class="identifier">str</span> = <span class="string-literal">"First line.\nSecond line."</span></pre><br />

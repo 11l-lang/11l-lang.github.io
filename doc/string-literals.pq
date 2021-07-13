@@ -21,17 +21,17 @@ Now we need to somehow show to the parser that single quotation mark at the begi
 #‘‘text = '‘‘don’t’’’.
 
 
-H‘Indented[[[[https://github.com/JuliaLang/julia/issues/70 <- google:‘multiline string literals julia’]]]] multiline string literals’
+H‘Indented[[[[https://github.com/JuliaLang/julia/issues/70 <- google:‘multiline string literals julia’]]]] multi-line string literals’
 
 
-Like in such languages as Swift[https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html] and Julia[https://docs.julialang.org/en/v1/manual/strings/#Triple-Quoted-String-Literals] multiline string literals in 11l can be indented to match the surrounding code.
+Like in such languages as Swift[https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html] and Julia[https://docs.julialang.org/en/v1/manual/strings/#Triple-Quoted-String-Literals] multi-line string literals in 11l can be indented to match the surrounding code.
 [Note, that in Swift and Julia they work slightly differently: {
 #(Python)‘
 """
 hello
 """
 ’
-is equivalent to #(Python)‘"hello"’ in Swift and to #(Python)‘"hello\n"’ in Julia.
+is equivalent to #(Python)‘"hello"’ in Swift[[[ and]]], but to #(Python)‘"hello\n"’ in Julia.
 }]
 
 Just prepend string literal with `|`:

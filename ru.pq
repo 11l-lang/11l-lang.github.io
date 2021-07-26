@@ -168,8 +168,8 @@ for line_number, line in enumerate(file.readlines(), 1):
 ...
 
 while i < len(source) and ('0' <= source[i] <= '9'
-                        or 'a' <= source[i] <= 'z'
-                        or 'A' <= source[i] <= 'Z' or source[i] == '_'):
+                        or 'a' <= source[i] <= 'f'
+                        or 'A' <= source[i] <= 'F' or source[i] == '_'):
     i += 1
 
 ...
@@ -224,7 +224,7 @@ L(line) file.read_lines()
 ...
 
 
-L i < source.len & source[i] C (‘0’..‘9’, ‘a’..‘z’, ‘A’..‘Z’, ‘_’)
+L i < source.len & source[i] C (‘0’..‘9’, ‘a’..‘f’, ‘A’..‘F’, ‘_’)
    i++
 
 
@@ -500,7 +500,8 @@ L(row) mat
 ‘Resistance calculator’[https://www.rosettacode.org/wiki/Resistance_calculator#11l] | ‘Resistor mesh’[https://www.rosettacode.org/wiki/Resistor_mesh#11l] | ‘*‘Sort a list of object identifiers’’[https://www.rosettacode.org/wiki/Sort_a_list_of_object_identifiers#11l]
 ‘URL decoding’[https://www.rosettacode.org/wiki/URL_decoding#11l] | ‘URL encoding’[https://www.rosettacode.org/wiki/URL_encoding#11l] | ‘UTF-8 encode and decode’[https://www.rosettacode.org/wiki/UTF-8_encode_and_decode#11l] | ‘*‘Word frequency’’[https://www.rosettacode.org/wiki/Word_frequency#11l]
 ‘Left factorials’[https://www.rosettacode.org/wiki/Left_factorials#11l] | ‘Successive prime differences’[https://www.rosettacode.org/wiki/Successive_prime_differences#11l] | Eertree[https://www.rosettacode.org/wiki/Eertree#11l] | ‘*‘Generator/Exponential’’[https://www.rosettacode.org/wiki/Generator/Exponential#11l]
-‘Huffman coding’[https://www.rosettacode.org/wiki/Huffman_coding#11l] | ‘*‘_‘Inverted index’’’[https://www.rosettacode.org/wiki/Inverted_index#11l ‘`string[][string]`, `canFind`’] | ‘*‘_‘Poker hand analyser’’’[https://www.rosettacode.org/wiki/Poker_hand_analyser#11l ‘`release`, `countUntil`’] | ‘*‘_‘Patience sort’’’[https://www.rosettacode.org/wiki/Sorting_algorithms/Patience_sort#11l ‘`val minPile = ...` -> `V& minPile = ...`, `lastIndex`, `contentToString`, `val` vs `var`’]
+‘Huffman coding’[https://www.rosettacode.org/wiki/Huffman_coding#11l] | ‘*‘_‘Inverted index’’’[https://www.rosettacode.org/wiki/Inverted_index#11l ‘`string[][string]`, `canFind`’] | ‘*‘_‘Poker hand analyser’’’[https://www.rosettacode.org/wiki/Poker_hand_analyser#11l ‘`release`, `countUntil`, `pure nothrow @safe @nogc`’] | ‘*‘_‘Patience sort’’’[https://www.rosettacode.org/wiki/Sorting_algorithms/Patience_sort#11l ‘`val minPile = ...` -> `V& minPile = ...`, `lastIndex`, `contentToString`, `val` vs `var`’] | Sudoku[https://www.rosettacode.org/wiki/Sudoku#11l]
+Tic-tac-toe[https://www.rosettacode.org/wiki/Tic-tac-toe#11l] | Vector[https://www.rosettacode.org/wiki/Vector#11l]
 [‘Все примеры на Rosetta Code’[https://www.rosettacode.org/wiki/Category:11l]]
 }
 }

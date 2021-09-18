@@ -60,7 +60,7 @@ set_timeout(
 Then 3rd rule will be replaced by the following 2 rules:
 3. Every line of code which ends with opening/left parenthesis (`(`), square bracket (`[`), or comma (`,`) [[[should/]]]will be joined with the following/next line of code.
 4. Every line of code which begins with closing/right parenthesis (`)`) or square bracket (`]`) [[[should]]]will be joined with the previous line of code.
-}]
+[[[https://www.rosettacode.org/wiki/Ackermann_function#11l]]]}]
 #(11l)‘
 some_func( // because there is an unclosed parenthesis all following lines will be joined with this one
    argument1,                                                            \\ until parenthesis is closed

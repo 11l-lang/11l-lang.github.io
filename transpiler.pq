@@ -6,7 +6,7 @@ Transpiler Python → 11l → C++ is a union of 2 transpilers:
 1. Python → 11l transpiler, which translates Python code into 11l.
 2. 11l → C++ transpiler, which translates 11l code into C++ [which is then compiled into machine code].
 
-In a sense, the 11l language acts as an intermediate language, but since it is very similar and close to the Python language (albeit semantically, not syntactically), it is generally not required to study it specifically.
+In a sense, the 11l programming language acts as an intermediate language, but since it is very similar and close to the Python language (albeit semantically, not syntactically), it is generally not required to study it specifically.
 
 Also it should be noted that this transpiler generates a human-readable code, which simplifies debugging of the [[[written/]]]generated program.
 

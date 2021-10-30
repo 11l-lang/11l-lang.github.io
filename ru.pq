@@ -29,7 +29,7 @@
 ’’’’’
 '‘<td style="border: 0; padding: 0">’'
 \/‘\/‘\/‘\/‘\/‘
-С(4)‘```
+С(5)‘```
     ████    
       ██    
       ██    
@@ -503,7 +503,7 @@ L(row) mat
 ‘Huffman coding’[https://www.rosettacode.org/wiki/Huffman_coding#11l] | ‘*‘_‘Inverted index’’’[https://www.rosettacode.org/wiki/Inverted_index#11l ‘`string[][string]`, `canFind`’] | ‘*‘_‘Poker hand analyser’’’[https://www.rosettacode.org/wiki/Poker_hand_analyser#11l ‘`release`, `countUntil`, `pure nothrow @safe @nogc`’] | ‘*‘_‘Patience sort’’’[https://www.rosettacode.org/wiki/Sorting_algorithms/Patience_sort#11l ‘`val minPile = ...` -> `V& minPile = ...`, `lastIndex`, `contentToString`, `val` vs `var`’] | Sudoku[https://www.rosettacode.org/wiki/Sudoku#11l]
 Tic-tac-toe[https://www.rosettacode.org/wiki/Tic-tac-toe#11l] | Vector[https://www.rosettacode.org/wiki/Vector#11l] | ‘Calkin-Wilf sequence’[https://www.rosettacode.org/wiki/Calkin-Wilf_sequence#11l] | ‘Canonicalize CIDR’[https://www.rosettacode.org/wiki/Canonicalize_CIDR#11l] | ‘Change e letters to i in words’[https://www.rosettacode.org/wiki/Change_e_letters_to_i_in_words#11l]
 ‘Closures/Value capture’[https://www.rosettacode.org/wiki/Closures/Value_capture#11l] | ‘*‘Combinations with repetitions’’[https://www.rosettacode.org/wiki/Combinations_with_repetitions#11l] | ‘_‘Decision tables’’[https://www.rosettacode.org/wiki/Decision_tables#11l ‘`"  ${conditions[c].first} ? "`’]
-‘Elementary cellular automaton’[https://www.rosettacode.org/wiki/Elementary_cellular_automaton#11l]
+‘Elementary cellular automaton’[https://www.rosettacode.org/wiki/Elementary_cellular_automaton#11l] | ‘Find if a point is within a triangle’[https://www.rosettacode.org/wiki/Find_if_a_point_is_within_a_triangle#11l]
 [‘Все примеры на Rosetta Code’[https://www.rosettacode.org/wiki/Category:11l]]
 }
 }

@@ -69,7 +69,7 @@ Subtraction’’
 x >> y’ ‘Bitwise left shift
 Bitwise right shift’’
 ‘‘x 0‘[&]’ y’ ‘Bitwise AND (rationale: {
-0‘[&]’ looks similar to ‘AND gate’[https://ru.wikipedia.org/wiki/Логические_элементы#Конъюнкция_(логическое_умножение)._Операция_И]:
+0‘[&]’ looks similar to ‘AND gate’[https://ru.wikipedia.org/wiki/Логические_элементы#Конъюнкция_(логическое_умножение)._Операция_«И»]:
 
 P‘https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/IEC_AND_label.svg/100px-IEC_AND_label.svg.png’
 })’’
@@ -79,7 +79,7 @@ And although ⊕ is used more often for single-bit values, in Wikipedia it [[[oc
 [Besides, usage of ^ for this operation I [[[think/]]]consider a bad idea (at least this is ‘confusing for novices’[https://stackoverflow.com/questions/11464905/what-is-used-for-in-ruby]).]
 })’’
 ‘‘x 0‘[|]’ y’ ‘Bitwise OR (rationale: {
-Symbol | looks like 1 and 0‘[1]’ looks similar to ‘OR gate’[https://ru.wikipedia.org/wiki/Логические_элементы#Дизъюнкция_(логическое_сложение)._Операция_ИЛИ]:
+Symbol | looks like 1 and 0‘[1]’ looks similar to ‘OR gate’[https://ru.wikipedia.org/wiki/Логические_элементы#Дизъюнкция_(логическое_сложение)._Операция_«ИЛИ»]:
 
 P‘https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/OR_gate_RU.svg/100px-OR_gate_RU.svg.png’
 })’’

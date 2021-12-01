@@ -67,8 +67,11 @@ String type. Can be constructed from a ‘string literal’[./../string-literals
 Length of the string in characters.
 }
 ‘Methods’{
+*‘empty’
+Returns true (1B) if the string has no characters; otherwise returns false (0B). (This method is called without parentheses.)
+
 *‘last’
-A last character of the string. (This method is called without parens.)
+A last character of the string. (This method is called without parentheses.)
 
 *‘starts_with’(prefix)
 Return true (1B) if the string starts with the `prefix`, otherwise return false (0B). `prefix` can also be a tuple of prefixes to look for.
@@ -189,8 +192,11 @@ An array. For example, an array with two items: #(11l)‘[1, 2]’. [Type of thi
 Length of an array.
 }
 ‘Methods’{
+*‘empty’
+Returns true (1B) if the array has no elements; otherwise returns false (0B). (This method is called without parentheses.)
+
 *‘last’
-A last element of the array. (This method is called without parens.)
+A last element of the array. (This method is called without parentheses.)
 
 *‘join’(sep)
 Return a string which is the concatenation of the strings in an array. `sep` is the separator between elements.
@@ -249,6 +255,9 @@ Reverses the items of array in place.
 A dictionary. For example, a dictionary with two items: #(11l)‘[‘key1’ = 1, ‘key2’ = 2]’.
 [Type of this dictionary is `[String = Int]` or `Dict[String, Int]`.]
 ‘Methods’{
+*‘empty’
+Returns true (1B) if the dictionary has no items; otherwise returns false (0B). (This method is called without parentheses.)
+
 *‘find’(key) -> ValueType?
 Finds element with specific key. If no such element is found, `N`/`null` is returned.
 
@@ -273,6 +282,9 @@ For example, a default dictionary with two items: #(11l)‘DefaultDict([‘key1�
 *‘Set’
 A set. For example, a set with two items: #(11l)‘Set([1, 2])’. [Type of this set is `Set[Int]`.]
 ‘Methods’{
+*‘empty’
+Returns true (1B) if the set has no elements; otherwise returns false (0B). (This method is called without parentheses.)
+
 *‘add’(elem)
 Add element `elem` to the set.
 
@@ -295,6 +307,9 @@ Returns the first element which is greater than the given `key`. If no such elem
 *‘Deque’
 A double-ended queue. For example, a deque with two items: #(11l)‘Deque([1, 2])’. [Type of this deque is `Deque[Int]`.]
 ‘Methods’{
+*‘empty’
+Returns true (1B) if the queue has no items; otherwise returns false (0B). (This method is called without parentheses.)
+
 *‘append’(x)
 Add `x` to the right side of the deque.
 

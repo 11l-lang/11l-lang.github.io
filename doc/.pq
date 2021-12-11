@@ -31,6 +31,7 @@ Operators[./operators]
 ‘Built-in global variables’[./built-in-global-vars]
 
 Built-in modules:
+   f[./built-in-modules/f]
    os[./built-in-modules/os]
    fs[./built-in-modules/fs]
    time[./built-in-modules/time]

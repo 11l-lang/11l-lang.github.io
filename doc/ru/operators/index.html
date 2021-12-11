@@ -176,6 +176,7 @@ x >> y</td><td>Поразрядный сдвиг влево<br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x &lt; y, x &lt;= y<br />
 x > y, x >= y</td><td>Операции сравнения</td></tr>
+<tr><td>x ? y</td><td>Вернуть левый операнд если он не нуль, иначе вернуть правый операнд</td></tr>
 <tr><td>x..y, x.&lt;y, x.+len<br />
 x&lt;.y, x&lt;.&lt;y</td><td>Диапазоны</td></tr>
 <tr><td>x == y, x != y<br />
@@ -246,7 +247,6 @@ span.comment {color: #808080;}
 Символ <pre class="inline_code">&amp;</pre> в качестве логического И используется также в языках Oberon<!--[[[>[https://visual.sfu-kras.ru/model/215 <- https://online.oberon.org <- https://habr.com/ru/company/oleg-bunin/blog/488200/]:‘WHILE (n < maxiterations) & (break = FALSE)  DO’]]]--> и ALGOL 68<!--[[[>[https://rosettacode.org/wiki/Logical_operations#ALGOL_68]:‘printf(($"a and b is "gl$, a & b);’]]]-->.<br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x | y</td><td>Логическое ИЛИ</td></tr>
-<tr><td>x ? y</td><td>Вернуть левый операнд если он не нуль, иначе вернуть правый операнд</td></tr>
 <tr><td>arr1 [+] arr2</td><td>Конкатенация массивов (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 Так как массивы задаются с использованием квадратных скобок: <pre class="inline_code">[1, 2, ...]</pre>.<br />
 Так как эта операция достаточно дорогая, ей выделен <!--[[[специальный/]]]-->отдельный оператор.<br />

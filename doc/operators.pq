@@ -85,6 +85,7 @@ P‘https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/OR_gate_RU.svg/100
 })’’
 ‘‘x < y, x <= y
 x > y, x >= y’ ‘Comparison operators’’
+‘‘x ? y’ ‘Null coalescing’’
 ‘‘x..y, x.<y, x.+len
 x<.y, x<.<y’ ‘Ranges’’
 ‘‘x == y, x != y
@@ -146,7 +147,6 @@ There should not be any problem with converting code from C-like language[[[s]]]
 The symbol `&` is also used as logical AND in Oberon and ALGOL 68.
 })’’
 ‘‘x | y’ ‘Logical OR’’
-‘‘x ? y’ ‘Null coalescing’’
 ‘‘arr1 0‘[+]’ arr2’ ‘Array concatenation (rationale: {
 Because arrays are defined using square brackets: `[1, 2, ...]`.
 As this operation is quite expensive, it has dedicated operator.

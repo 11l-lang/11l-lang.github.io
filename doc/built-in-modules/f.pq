@@ -13,7 +13,7 @@ width       ::= digit+
 precision   ::= digit+
 ```
 
-In 11l all fields by default are right-aligned regardless of their type {in Python only numbers are right-aligned by default}. `<` forces the field to be left-aligned.
+In 11l all fields by default are right-aligned regardless of their type {in Python only numbers are right-aligned by default, and strings are left-aligned (which makes less sense in 11l because e.g. #(Python)‘f'{n:10,}'’ in Python corresponds to #(11l)‘f:‘{commatize(n):10}’’ in 11l, and `commatize()` returns string)}. `<` forces the field to be left-aligned.
 
 Preceding the ~‘width’ field by a zero (`0`) character enables zero-padding.
 

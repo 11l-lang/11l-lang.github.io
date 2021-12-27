@@ -39,4 +39,7 @@ Just prepend string literal with `|`:
 V str = |‘First line.
           Second line.’
 ’
-This is equivalent to #(11l)‘V str = "First line.\nSecond line."’
+This is equivalent to
+#(11l)‘
+V str = "First line.\nSecond line."
+’

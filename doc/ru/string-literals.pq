@@ -39,4 +39,7 @@ hello
 V str = |‘First line.
           Second line.’
 ’
-Это эквивалентно #(11l)‘V str = "First line.\nSecond line."’
+Это эквивалентно
+#(11l)‘
+V str = "First line.\nSecond line."
+’

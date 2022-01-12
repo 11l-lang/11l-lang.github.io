@@ -510,6 +510,7 @@ Tic-tac-toe[https://www.rosettacode.org/wiki/Tic-tac-toe#11l] | Vector[https://w
 ‘Elementary cellular automaton’[https://www.rosettacode.org/wiki/Elementary_cellular_automaton#11l] | ‘Find if a point is within a triangle’[https://www.rosettacode.org/wiki/Find_if_a_point_is_within_a_triangle#11l] | ‘_‘Hilbert curve’’[https://www.rosettacode.org/wiki/Hilbert_curve#11l ‘`row.idup`’]
 ‘_‘Kronecker product based fractals’’[https://www.rosettacode.org/wiki/Kronecker_product_based_fractals#11l ‘`newSeqWith(a.len * b.len, newSeq[T](a[0].len * b[0].len))`, `range[0..1]`, `@[@[...]]`’] | ‘_‘Loops/Wrong ranges’’[https://www.rosettacode.org/wiki/Loops/Wrong_ranges#11l ‘`($toSeq(...))[1..^1]`’] | MD5/Implementation[https://www.rosettacode.org/wiki/MD5/Implementation#11l]
 ‘Modified random distribution’[https://www.rosettacode.org/wiki/Modified_random_distribution#11l] | ‘Simple database’[https://www.rosettacode.org/wiki/Simple_database#11l] | ‘Smallest square that begins with n’[https://www.rosettacode.org/wiki/Smallest_square_that_begins_with_n#11l]
+‘Tree datastructures’[https://www.rosettacode.org/wiki/Tree_datastructures#11l] | ‘Camel case and snake case’[https://www.rosettacode.org/wiki/Camel_case_and_snake_case#11l] | ‘*‘Sierpinski square curve’’[https://www.rosettacode.org/wiki/Sierpinski_square_curve#11l] | Wordiff[https://www.rosettacode.org/wiki/Wordiff#11l]
 [‘All examples at Rosetta Code’[https://www.rosettacode.org/wiki/Category:11l]]
 }
 }

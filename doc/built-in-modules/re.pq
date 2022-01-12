@@ -4,7 +4,7 @@
 
 re:‘pattern’
 re:(pattern, flags)
-Create a regular expression.
+Create a regular expression object.
 
 
 H(-1)‘Methods’

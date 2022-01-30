@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -106,7 +106,7 @@ div#main {width: 100%;}
 ]]]--><h3><!--[[[Зарезервированное/]]]-->Ключевое слово L/loop</h3>
 <br />
 <br />
-11l поддерживает 4 формы циклов.<br />
+11l поддерживает 5 форм циклов.<br />
 <br />
 <br />
 <h4>1. Бесконечный цикл.</h4>
@@ -166,6 +166,18 @@ span.comment {color: #808080;}
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">c</span>) <span class="string-literal">"str"</span> {<span class="identifier">print</span>(<span class="identifier">c</span>)}</pre> выведет <pre class="inline_code">"s"</pre>, <pre class="inline_code">"t"</pre> и <pre class="inline_code">"r"</pre>.<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">n</span>) [<span class="numeric-literal">9</span>,<span class="numeric-literal">7</span>] {<span class="identifier">print</span>(<span class="identifier">n</span>)}</pre> выведет <pre class="inline_code">9</pre> и <pre class="inline_code">7</pre>.<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">k</span>, <span class="identifier">v</span>) [<span class="string-literal">‘k’</span> = <span class="numeric-literal">1</span>] {<span class="identifier">print</span>(<span class="identifier">k</span><span class="string-literal">‘=’</span><span class="identifier">v</span>)}</pre> выведет <pre class="inline_code">k=1</pre>.<br />
+<br />
+<br />
+<h4>5. Цикл по диапазону.</h4>
+<br />
+<pre class="code_block">
+<span class="keyword">L</span> &lt;<span class="identifier">диапазон</span>>
+   ...
+</pre>
+<br />
+Примеры:<br />
+<pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> выведет <pre class="inline_code">"ABC"</pre> n раз.<br />
+<pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">0</span>.&lt;<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> выведет <pre class="inline_code">"ABC"</pre> n раз.<br />
 <br />
 <br />
 <h3><!--[[[Зарезервированные/]]]-->Ключевые подслова L/loop</h3>

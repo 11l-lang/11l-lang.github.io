@@ -5,7 +5,7 @@ Credits/thanks to:
 ]]]H‘L/loop keyword’
 
 
-There are 4 forms of loops in 11l.
+There are 5 forms of loops in 11l.
 
 
 H(-1)‘1. The infinite loop.’
@@ -58,6 +58,18 @@ Examples:
 #(11l)‘L(c) "str" {print(c)}’ will print `"s"`, `"t"` and `"r"`.
 #(11l)‘L(n) [9,7] {print(n)}’ will print `9` and `7`.
 #(11l)‘L(k, v) [‘k’ = 1] {print(k‘=’v)}’ will print `k=1`.
+
+
+H(-1)‘5. A range loop.’
+
+#(11l)‘
+L <range>
+   ...
+’
+
+Examples:
+#(11l)‘L 1..n {print("ABC")}’ will print `"ABC"` n times.
+#(11l)‘L 0.<n {print("ABC")}’ will print `"ABC"` n times.
 
 
 H‘L/loop subkeywords’

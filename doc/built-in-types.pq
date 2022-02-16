@@ -7,6 +7,10 @@ Boolean type. Bool has two possible values: `0B` and `1B` {the main reason for r
 
 *‘Int’
 Integral type (‘32 or 64’[http://forum.11l-lang.org/threads/size-of-int-built-in-type.1/ ‘Size of Int built-in type 32 bits 64 bits No Int type (use Int32 or Int64 explicitly) What size of Int you think should be?’] bits).
+To construct an integer from a string write #(11l)‘Int(s)’.
+To construct an integer from a string in radix `base` write #(11l)‘Int(s, radix' base)’.
+To construct an integer from an array of bytes write #(11l)‘Int(bytes' b)’ for little-endian, and #(11l)‘Int(bytes_be' b)’ for big-endian.
+[For the reverse operation use built-in function `bytes_from_int()`.]
 
 *‘Int8/Byte’
 *‘Int16’
@@ -74,7 +78,7 @@ Return a copy of the character converted to uppercase.
 }
 
 *‘String’
-String type. Can be constructed from a ‘string literal’[./../string-literals].
+String type. Can be constructed from a ‘string literal’[./../string-literals]. To construct a string from an integer in radix `base` write #(11l)‘String(i, radix' base)’.
 ~‘Note: in contrast to Python, strings in 11l are mutable (like in C++).’
 ‘Members’{
 *‘len’

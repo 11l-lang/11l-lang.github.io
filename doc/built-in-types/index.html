@@ -111,6 +111,17 @@ Boolean type. Bool has two possible values: <pre class="inline_code">0B</pre> an
 <br />
 <b>Int</b><br />
 Integral type (<a href="http://forum.11l-lang.org/threads/size-of-int-built-in-type.1/" title="Size of Int built-in type 32 bits 64 bits No Int type (use Int32 or Int64 explicitly) What size of Int you think should be?">32 or 64</a> bits).<br />
+To construct an integer from a string write <style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">s</span>)</pre>.<br />
+To construct an integer from a string in radix <pre class="inline_code">base</pre> write <pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">s</span>, <span class="identifier">radix'</span> <span class="identifier">base</span>)</pre>.<br />
+To construct an integer from an array of bytes write <pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">bytes'</span> <span class="identifier">b</span>)</pre> for little-endian, and <pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">bytes_be'</span> <span class="identifier">b</span>)</pre> for big-endian.<br />
+<span class="sq"><span class="sq_brackets">[</span>For the reverse operation use built-in function <pre class="inline_code">bytes_from_int()</pre>.<span class="sq_brackets">]</span></span><br />
 <br />
 <b>Int8/Byte</b><br />
 <b>Int16</b><br />
@@ -137,14 +148,7 @@ Floating-point type (<a href="http://forum.11l-lang.org/threads/size-of-float-bu
 <b>Char</b><br />
 Character.<br />
 For example, this code creates a character with code 65:<br />
-<style>
-span.keyword {color: #0000FF; font-weight: bold;}
-span.identifier {color: #00009F;}
-span.string-literal {color: #800000;}
-span.numeric-literal {color: #008000;}
-span.constant {color: #008000;}
-span.comment {color: #808080;}
-</style><pre class="code_block">
+<pre class="code_block">
 <span class="identifier">Char</span>(<span class="identifier">code'</span> <span class="numeric-literal">65</span>)
 </pre>
 To create a character from single-digit integer number write this:<br />
@@ -185,7 +189,7 @@ Return a copy of the character converted to uppercase.<br />
 </div>
 <br />
 <b>String</b><br />
-String type. Can be constructed from a <a href="./../string-literals" target="_self">string literal</a>.<br />
+String type. Can be constructed from a <a href="./../string-literals" target="_self">string literal</a>. To construct a string from an integer in radix <pre class="inline_code">base</pre> write <pre style="display: inline"><span class="identifier">String</span>(<span class="identifier">i</span>, <span class="identifier">radix'</span> <span class="identifier">base</span>)</pre>.<br />
 <i>Note: in contrast to Python, strings in 11l are mutable (like in C++).</i><br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none">
 <b>len</b><br />

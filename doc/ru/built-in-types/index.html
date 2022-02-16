@@ -111,6 +111,17 @@ div#main {width: 100%;}
 <br />
 <b>Int</b><br />
 Целочисленный тип (размерностью <a href="http://forum.11l-lang.org/threads/Размер-встроенного-типа-int.4/">32 или 64</a> разряда).<br />
+Для создания целого числа из строки пишите <style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">s</span>)</pre>.<br />
+Для создания целого числа из строки с заданным основанием системы счисления пишите <pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">s</span>, <span class="identifier">radix'</span> <span class="identifier">base</span>)</pre>.<br />
+Для создания целого числа из массива байт пишите <pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">bytes'</span> <span class="identifier">b</span>)</pre> для little-endian и <pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">bytes_be'</span> <span class="identifier">b</span>)</pre> для big-endian.<br />
+<span class="sq"><span class="sq_brackets">[</span>Для обратной операции используйте встроенную функцию <pre class="inline_code">bytes_from_int()</pre>.<span class="sq_brackets">]</span></span><br />
 <br />
 <b>Int8</b><br />
 <b>Int16</b><br />
@@ -137,14 +148,7 @@ div#main {width: 100%;}
 <b>Char</b><br />
 Символ.<br />
 Создать символ с кодом 65 можно так:<br />
-<style>
-span.keyword {color: #0000FF; font-weight: bold;}
-span.identifier {color: #00009F;}
-span.string-literal {color: #800000;}
-span.numeric-literal {color: #008000;}
-span.constant {color: #008000;}
-span.comment {color: #808080;}
-</style><pre class="code_block">
+<pre class="code_block">
 <span class="identifier">Char</span>(<span class="identifier">code'</span> <span class="numeric-literal">65</span>)
 </pre>
 Создать символ из однозначного целого числа можно так:<br />
@@ -162,7 +166,7 @@ span.comment {color: #808080;}
 </pre>
 <br />
 <b>String</b><br />
-Строка. Может быть сконструирована из <a href="./../string-literals" target="_self">строковых литералов</a>.<br />
+Строка. Может быть сконструирована из <a href="./../string-literals" target="_self">строковых литералов</a>. Для создания строки из целого числа с заданным основанием системы счисления пишите <pre style="display: inline"><span class="identifier">String</span>(<span class="identifier">i</span>, <span class="identifier">radix'</span> <span class="identifier">base</span>)</pre>.<br />
 <i>Примечание: в отличие от Python строки в 11l являются изменяемыми (также как в C++).</i><br />
 <br />
 <b>Tuple</b><br />

@@ -31,9 +31,23 @@ or[http://forum.11l-lang.org/threads/int8-int16-int32-int64-vs-int1-int2-int4-in
 *‘Float8’
 
 *‘Char’
-Character. For example this code creates a character with code 65:
+Character.
+For example, this code creates a character with code 65:
 #(11l)‘
 Char(code' 65)
+’
+To create a character from single-digit integer number write this:
+#(11l)‘
+Char(digit' i)
+’
+To create a character from single character string write this:
+#(11l)‘
+Char(string' s)
+’
+(This differs from #(11l)‘s[0]’ by throwing an error if length of `s` is greater than 1.)
+To create a character from single character string literal write this:
+#(11l)‘
+Char("\0")
 ’
 ‘Members’{
 *‘code’

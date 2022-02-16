@@ -135,7 +135,8 @@ Floating-point type (<a href="http://forum.11l-lang.org/threads/size-of-float-bu
 <b>Float8</b><br />
 <br />
 <b>Char</b><br />
-Character. For example this code creates a character with code 65:<br />
+Character.<br />
+For example, this code creates a character with code 65:<br />
 <style>
 span.keyword {color: #0000FF; font-weight: bold;}
 span.identifier {color: #00009F;}
@@ -145,6 +146,19 @@ span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
 <span class="identifier">Char</span>(<span class="identifier">code'</span> <span class="numeric-literal">65</span>)
+</pre>
+To create a character from single-digit integer number write this:<br />
+<pre class="code_block">
+<span class="identifier">Char</span>(<span class="identifier">digit'</span> <span class="identifier">i</span>)
+</pre>
+To create a character from single character string write this:<br />
+<pre class="code_block">
+<span class="identifier">Char</span>(<span class="identifier">string'</span> <span class="identifier">s</span>)
+</pre>
+(This differs from <pre style="display: inline"><span class="identifier">s</span>[<span class="numeric-literal">0</span>]</pre> by throwing an error if length of <pre class="inline_code">s</pre> is greater than 1.)<br />
+To create a character from single character string literal write this:<br />
+<pre class="code_block">
+<span class="identifier">Char</span>(<span class="string-literal">"\0"</span>)
 </pre>
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Members<br /></span><div class="spoiler_text" style="display: none">
 <b>code</b><br />

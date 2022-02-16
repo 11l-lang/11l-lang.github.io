@@ -135,7 +135,8 @@ div#main {width: 100%;}
 <b>Float8</b><br />
 <br />
 <b>Char</b><br />
-Символ. Создать символ с кодом 65 можно так:<br />
+Символ.<br />
+Создать символ с кодом 65 можно так:<br />
 <style>
 span.keyword {color: #0000FF; font-weight: bold;}
 span.identifier {color: #00009F;}
@@ -145,6 +146,19 @@ span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
 <span class="identifier">Char</span>(<span class="identifier">code'</span> <span class="numeric-literal">65</span>)
+</pre>
+Создать символ из однозначного целого числа можно так:<br />
+<pre class="code_block">
+<span class="identifier">Char</span>(<span class="identifier">digit'</span> <span class="identifier">i</span>)
+</pre>
+Создать символ из односимвольной строки можно так:<br />
+<pre class="code_block">
+<span class="identifier">Char</span>(<span class="identifier">string'</span> <span class="identifier">s</span>)
+</pre>
+(Это отличается от <pre style="display: inline"><span class="identifier">s</span>[<span class="numeric-literal">0</span>]</pre> тем, что в случае когда длина строки <pre class="inline_code">s</pre> больше 1, бросается исключение.)<br />
+Создать символ из односимвольного строкового литерала можно так:<br />
+<pre class="code_block">
+<span class="identifier">Char</span>(<span class="string-literal">"\0"</span>)
 </pre>
 <br />
 <b>String</b><br />

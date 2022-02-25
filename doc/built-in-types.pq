@@ -1,5 +1,5 @@
-[[[H‘Built-in types’
-]]]H‘Built-in types’
+[[[H‘Built-in Types’
+]]]H‘Built-in Types’
 
 
 *‘Bool’

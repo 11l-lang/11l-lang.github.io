@@ -20,7 +20,7 @@ Keywords:
    V/var[./V]
    X/exception[./X]
 
-‘Built-in types’[./built-in-types]
+‘Built-in Types’[./built-in-types]
 
 Operators[./operators]
 

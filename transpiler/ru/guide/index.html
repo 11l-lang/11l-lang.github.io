@@ -274,6 +274,17 @@ span.comment {color: #808080;}
 <span class="identifier">print</span>(<span class="identifier">math</span>.<span class="identifier">sqrt</span>(<span class="numeric-literal">2</span>))
 </pre>
 <br />
+Однако в некоторых случаях необходимо использовать именно <pre class="inline_code">from ... import ...</pre>:<br />
+<pre class="code_block">
+<span class="keyword">from</span> <span class="identifier">functools</span> <span class="keyword">import</span> <span class="identifier">reduce</span>
+<span class="keyword">from</span> <span class="identifier">functools</span> <span class="keyword">import</span> <span class="identifier">cmp_to_key</span>
+<span class="keyword">from</span> <span class="identifier">itertools</span> <span class="keyword">import</span> <span class="identifier">product</span>
+<span class="keyword">from</span> <span class="identifier">enum</span> <span class="keyword">import</span> <span class="identifier">IntEnum</span>
+<span class="keyword">from</span> <span class="identifier">copy</span> <span class="keyword">import</span> <span class="identifier">copy</span>, <span class="identifier">deepcopy</span>
+<span class="keyword">from</span> <span class="identifier">typing</span> <span class="keyword">import</span> <span class="identifier">List</span>, <span class="identifier">Tuple</span>, <span class="identifier">NamedTuple</span>, <span class="identifier">Dict</span>, <span class="identifier">DefaultDict</span>, <span class="identifier">Callable</span>, <span class="identifier">Set</span>, <span class="identifier">Optional</span>, <span class="identifier">IO</span>, <span class="identifier">TextIO</span>, <span class="identifier">BinaryIO</span>...
+<span class="keyword">from</span> <span class="identifier">_11l</span> <span class="keyword">import</span> *
+</pre>
+<br />
 <h3>Рекурсивный вызов функции</h3>
 <br />
 Если функция вызывает сама себя <span class="sq"><span class="sq_brackets">[</span>рекурсивно<span class="sq_brackets">]</span></span>, то при её объявлении необходимо явно указать тип возвращаемого значения (так как он не может быть выведен автоматически компилятором C++ в этом случае).<br />
@@ -359,7 +370,7 @@ span.comment {color: #808080;}
 Вот код из <a href="https://www.rosettacode.org/wiki/Sort_using_a_custom_comparator#Python">решения задачи Sort using a custom comparator</a>:<br />
 <pre class="code_block">
 <span class="keyword">def</span> <span class="identifier">mykey</span>(<span class="identifier">x</span>):
-    <span class="keyword">return</span> (-<span class="identifier">len</span>(<span class="identifier">x</span>), <span class="identifier">x</span>.<span class="identifier">upper</span>())
+    <span class="keyword">return</span> -<span class="identifier">len</span>(<span class="identifier">x</span>), <span class="identifier">x</span>.<span class="identifier">upper</span>()
  
 <span class="identifier">print</span>(<span class="identifier">sorted</span>(<span class="identifier">strings</span>, <span class="identifier">key</span>=<span class="identifier">mykey</span>))
 </pre>
@@ -367,7 +378,7 @@ span.comment {color: #808080;}
 Следует либо указать типы аргументов функции:<br />
 <pre class="code_block">
 <span class="keyword">def</span> <span class="identifier">mykey</span>(<span class="identifier">x</span> : <span class="identifier">str</span>):
-    <span class="keyword">return</span> (-<span class="identifier">len</span>(<span class="identifier">x</span>), <span class="identifier">x</span>.<span class="identifier">upper</span>())
+    <span class="keyword">return</span> -<span class="identifier">len</span>(<span class="identifier">x</span>), <span class="identifier">x</span>.<span class="identifier">upper</span>()
 </pre>
 Либо использовать лямбда-функцию:<br />
 <pre class="code_block">

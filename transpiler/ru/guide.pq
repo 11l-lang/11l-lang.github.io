@@ -158,6 +158,17 @@ import math
 print(math.sqrt(2))
 ’
 
+Однако в некоторых случаях необходимо использовать именно `from ... import ...`:
+#(Python)‘
+from functools import reduce
+from functools import cmp_to_key
+from itertools import product
+from enum import IntEnum
+from copy import copy, deepcopy
+from typing import List, Tuple, NamedTuple, Dict, DefaultDict, Callable, Set, Optional, IO, TextIO, BinaryIO...
+from _11l import *
+’
+
 Н‘Рекурсивный вызов функции’
 
 Если функция вызывает сама себя [рекурсивно], то при её объявлении необходимо явно указать тип возвращаемого значения (так как он не может быть выведен автоматически компилятором C++ в этом случае).
@@ -243,7 +254,7 @@ a.append(b[c](t, a.pop()))
 Вот код из ‘решения задачи Sort using a custom comparator’[https://www.rosettacode.org/wiki/Sort_using_a_custom_comparator#Python]:
 #(Python)‘
 def mykey(x):
-    return (-len(x), x.upper())
+    return -len(x), x.upper()
  
 print(sorted(strings, key=mykey))
 ’
@@ -251,7 +262,7 @@ print(sorted(strings, key=mykey))
 Следует либо указать типы аргументов функции:
 #(Python)‘
 def mykey(x : str):
-    return (-len(x), x.upper())
+    return -len(x), x.upper()
 ’
 Либо использовать лямбда-функцию:
 #(Python)‘

@@ -1,6 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
+<title>Руководство по использованию транспайлера Python → 11l → C++</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -101,10 +102,303 @@ div#main {width: 100%;}
 </head>
 <body>
 <div id="main" style="margin: 0 auto">
-<h3>Руководство по использованию транспайлера Python → 11l → C++</h3>
+<!--[[[Н‘Руководство по использованию транспайлера Python → 11l → C++’]]]--><div align="right"><table>
+<tr><td><a href="./../../guide" target="_self">en</a></td><td><b>ru</b></td></tr>
+</table>
+</div>
+<h2>Руководство по использованию транспайлера Python → 11l → C++</h2>
 <br />
 <br />
-<h4>Практика</h4>
+Здесь <span class="sq"><span class="sq_brackets">[</span>в данном руководстве<span class="sq_brackets">]</span></span> рассматриваются особенности работы транспайлера Python → 11l → C++, которые необходимо учитывать при написании Python-кода, чтобы он корректно скомпилировался данным транспайлером.<br />
+<br />
+<h3>Целые числа</h3>
+<br />
+Как известно, в языке программирования Python используются целые числа произвольной точности. С одной стороны, это позволяет программисту не задумываться о том, насколько большое число может <!--[[[потребоваться сохранить]/]]-->оказаться в переменной целого типа. Но с другой стороны работа с такими числами гораздо более ресурсоёмкая и менее эффективная. Поэтому все целые числа транспайлер Python → 11l → C++ рассматривает (как и принято в C++ по умолчанию) как 32-разрядные целые. Если требуется работать с числами большей разрядности (например, 64), то можно либо явно указать тип переменной как <pre class="inline_code">Int64</pre>, либо использовать опцию транспайлера <pre class="inline_code">--int64</pre> в командной строке (в этом случае все целые числа будут рассматриваться не как 32-, а как 64-разрядные). Явное указание типа переменной выглядит так:<br />
+<style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre class="code_block">
+<span class="identifier">s</span> : <span class="identifier">Int64</span> = <span class="numeric-literal">0</span>
+</pre>
+Но в Python-е нет встроенного типа <pre class="inline_code">Int64</pre>. Поэтому, если хочется, чтобы код работал в Python, необходимо в начале программы один раз добавить такую строчку:<br />
+<pre class="code_block">
+<span class="identifier">Int64</span> = <span class="identifier">int</span>
+</pre>
+Но транспайлер Python → 11l → C++ поймёт исходный Python-код и без такой строчки (а если встретит такую строку, то просто проигнорирует её).<br />
+<br />
+Если требуется целое число произвольной точности, то следует использовать тип <pre class="inline_code">BigInt</pre>.<br />
+<br />
+<h3>Символьные переменные</h3>
+<br />
+Аналогично целым 64-разрядным числам, транспайлер Python → 11l → C++ предоставляет возможность объявлять символьные переменные, то есть переменные, значением которых является код одного символа. Тип символьной переменной — <pre class="inline_code">Char</pre>. И аналогично <pre class="inline_code">Int64</pre>, чтобы получить код, который работает в Python, следует добавить такую строчку:<br />
+<pre class="code_block">
+<span class="identifier">Char</span> = <span class="identifier">str</span>
+</pre>
+Объявить массив из символов можно так:<br />
+<pre class="code_block">
+<span class="identifier">charr</span> : <span class="identifier">List</span>[<span class="identifier">Char</span>] = []
+</pre>
+Это может использоваться как для увеличения производительности, так и для уменьшения занимаемой оперативной памяти (особенно если необходим очень большой массив символов, например).<br />
+<br />
+<h3>Создание пустого списка/массива, словаря и множества</h3>
+<br />
+В отличие от языка Python, контейнеры (например массивы и множества) в языках 11l и C++ могут содержать элементы только одного типа (за исключением кортежей, которые могут содержать элементы различных типов), причем известного во время компиляции. На данном этапе транспайлер Python → 11l → C++ не пытается определить тип контейнеров по их использованию, как это сделано в некоторых языках программирования (например <a href="http://nemerle.org/About">Nemerle</a>), поэтому при создании пустого контейнера необходимо указать тип его элементов явно.<br />
+<table>
+<tr><th>Не поддерживается</th><th>Поддерживается</th></tr>
+<tr><td><pre style="display: inline"><span class="identifier">l</span> = []</pre></td><td><pre style="display: inline"><span class="identifier">l</span> : <span class="identifier">List</span>[<span class="identifier">int</span>] = []</pre><br />
+или<br />
+<pre style="display: inline"><span class="identifier">l</span> = [<span class="numeric-literal">0</span>]*<span class="numeric-literal">0</span></pre></td></tr>
+<tr><td><pre style="display: inline"><span class="identifier">d</span> = {}</pre></td><td><pre style="display: inline"><span class="identifier">d</span> : <span class="identifier">Dict</span>[<span class="identifier">str</span>, <span class="identifier">int</span>] = {}</pre></td></tr>
+<tr><td><pre style="display: inline"><span class="identifier">s</span> = <span class="identifier">set</span>()</pre></td><td><pre style="display: inline"><span class="identifier">s</span> = <span class="identifier">set</span>() <span class="comment"># int</span></pre></td></tr>
+<tr><td><pre style="display: inline"><span class="identifier">dd</span> = <span class="identifier">collections</span>.<span class="identifier">defaultdict</span>(<span class="identifier">int</span>)</pre></td><td><pre style="display: inline"><span class="identifier">dd</span> = <span class="identifier">collections</span>.<span class="identifier">defaultdict</span>(<span class="identifier">int</span>) <span class="comment"># str</span></pre></td></tr>
+</table>
+Если типом значения словаря <pre class="inline_code">collections.defaultdict</pre> является список, то необходимо использовать следующую форму записи:<br />
+<pre class="code_block">
+<span class="identifier">dd</span> : <span class="identifier">DefaultDict</span>[<span class="identifier">str</span>, <span class="identifier">List</span>[<span class="identifier">int</span>]] = <span class="identifier">collections</span>.<span class="identifier">defaultdict</span>(<span class="identifier">list</span>)
+</pre>
+<br />
+<h3>Создание непустого списка/массива, словаря и множества</h3>
+<br />
+Если контейнер инициализируется элементами, то указывать его тип не требуется:<br />
+<pre class="code_block">
+<span class="identifier">l</span> = [<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">3</span>]
+<span class="identifier">d</span> = {<span class="string-literal">'a'</span>: <span class="numeric-literal">1</span>, <span class="string-literal">'b'</span>: <span class="numeric-literal">2</span>}
+<span class="identifier">s</span> = {<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">3</span>}
+</pre>
+Так как все элементы списков должны быть одного типа, то такой список <span class="sq"><span class="sq_brackets">[</span>взятый <a href="https://www.rosettacode.org/wiki/Sorting_algorithms/Cycle_sort#Python">отсюда</a><span class="sq_brackets">]</span></span> не скомпилируется:<br />
+<pre class="code_block">
+<span class="identifier">x</span> = [<span class="numeric-literal">0</span>, <span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">1</span>, <span class="numeric-literal">9</span>, <span class="numeric-literal">3.5</span>, <span class="numeric-literal">5</span>, <span class="numeric-literal">8</span>, <span class="numeric-literal">4</span>, <span class="numeric-literal">7</span>, <span class="numeric-literal">0</span>, <span class="numeric-literal">6</span>]
+</pre>
+Чтобы это исправить достаточно указать тип первого элемента:<br />
+<pre class="code_block">
+<span class="identifier">x</span> = [<span class="identifier">float</span>(<span class="numeric-literal">0</span>), <span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">1</span>, <span class="numeric-literal">9</span>, <span class="numeric-literal">3.5</span>, <span class="numeric-literal">5</span>, <span class="numeric-literal">8</span>, <span class="numeric-literal">4</span>, <span class="numeric-literal">7</span>, <span class="numeric-literal">0</span>, <span class="numeric-literal">6</span>]
+</pre>
+<br />
+<h3>Передача списка как аргумента функции</h3>
+<br />
+В Python при передаче переменной типа list в функцию, её можно изменять внутри функции. И чтобы возможность изменять переменную сохранилась, транспайлеру Python → 11l → C++ необходимо явно указать тип этого аргумента.<br />
+<br />
+Так, при объявлении функции <pre class="inline_code">def decompress(compressed)</pre> в <a href="https://www.rosettacode.org/wiki/LZW_compression#Python">коде-решении задачи LZW compression</a> следует указать тип аргумента:<br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">decompress</span>(<span class="identifier">compressed</span> : <span class="identifier">List</span>[<span class="identifier">int</span>]):
+    ...
+</pre>
+Или так:<br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">decompress</span>(<span class="identifier">compressed</span> : <span class="identifier">list</span>):
+    ...
+</pre>
+<br />
+<h3>Переменные-члены классов</h3>
+<br />
+Чтобы код объявления нового класса успешно скомпилировался транспайлером Python → 11l → C++ необходимо указать типы всех переменных-членов этого класса.<br />
+<table>
+<tr><th>Не скомпилируется</th><th>Скомпилируется</th></tr>
+<tr><td><pre class="code_block">
+<span class="keyword">class</span> <span class="identifier">Error</span>(<span class="identifier">Exception</span>):
+    <span class="keyword">def</span> <span class="identifier">__init__</span>(<span class="identifier">self</span>, <span class="identifier">message</span>, <span class="identifier">pos</span>):
+        <span class="identifier">self</span>.<span class="identifier">message</span> = <span class="identifier">message</span>
+        <span class="identifier">self</span>.<span class="identifier">pos</span> = <span class="identifier">pos</span>
+
+
+</pre></td><td><pre class="code_block">
+<span class="keyword">class</span> <span class="identifier">Error</span>(<span class="identifier">Exception</span>):
+    <span class="identifier">message</span> : <span class="identifier">str</span>
+    <span class="identifier">pos</span>     : <span class="identifier">int</span>
+    <span class="keyword">def</span> <span class="identifier">__init__</span>(<span class="identifier">self</span>, <span class="identifier">message</span>, <span class="identifier">pos</span>):
+        <span class="identifier">self</span>.<span class="identifier">message</span> = <span class="identifier">message</span>
+        <span class="identifier">self</span>.<span class="identifier">pos</span> = <span class="identifier">pos</span>
+</pre></td></tr>
+</table>
+<br />
+<h3>Конкатенация строк</h3>
+<br />
+Так как язык программирования 11l не допускает использование оператора <pre class="inline_code">+</pre> для конкатенации строк (по <a href="http://11l-lang.org/doc/ru/‘’">причинам, обозначенным в документации языка</a>), а использует свой синтаксис для данной операции, то транспайлер Python → 11l пытается угадать в каких случаях оператор <pre class="inline_code">+</pre> является арифметическим, а в каких является оператором конкатенации строк. В случае если ему не удалось правильно определить конкатенацию строк, следует между операндами добавить прибавление пустой строки (вместо <pre style="display: inline"><span class="identifier">str1</span> + <span class="identifier">str2</span></pre> следует писать <pre style="display: inline"><span class="identifier">str1</span> + <span class="string-literal">''</span> + <span class="identifier">str2</span></pre>), например:<br />
+<pre class="code_block">
+<span class="identifier">aa</span> = [<span class="string-literal">'1'</span>, <span class="string-literal">'2'</span>]
+<span class="identifier">bb</span> = [<span class="string-literal">'x'</span>, <span class="string-literal">'y'</span>]
+<span class="keyword">for</span> <span class="identifier">a</span> <span class="keyword">in</span> <span class="identifier">aa</span>:
+    <span class="keyword">for</span> <span class="identifier">b</span> <span class="keyword">in</span> <span class="identifier">bb</span>:
+        <span class="identifier">print</span>(<span class="identifier">a</span> + <span class="string-literal">''</span> + <span class="identifier">b</span>)
+</pre>
+<br />
+Однако на практике в большинстве случаев, когда транспайлеру Python → 11l не удалось определить конкатенацию строк, достаточно добавить аннотацию типа. Например, в таком коде:<br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">rotated</span>(<span class="identifier">s</span>):
+    <span class="keyword">return</span> <span class="identifier">s</span>[<span class="numeric-literal">1</span>:] + <span class="identifier">s</span>[<span class="numeric-literal">0</span>]
+</pre>
+достаточно указать тип аргумента <pre class="inline_code">s</pre>:<br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">rotated</span>(<span class="identifier">s</span> : <span class="identifier">str</span>):
+    <span class="keyword">return</span> <span class="identifier">s</span>[<span class="numeric-literal">1</span>:] + <span class="identifier">s</span>[<span class="numeric-literal">0</span>]
+</pre>
+(Вместо того, чтобы писать <pre style="display: inline"><span class="identifier">s</span>[<span class="numeric-literal">1</span>:] + <span class="string-literal">''</span> + <span class="identifier">s</span>[<span class="numeric-literal">0</span>]</pre>.)<br />
+<span class="sq"><span class="sq_brackets">[</span>Возможность использовать оператор <pre class="inline_code">+</pre> для конкатенации строк в <!--[[[Python/]]]-->11l-коде может в будущих версиях транспайлера зависеть от опции <pre class="inline_code">--python-max-compat</pre>.<span class="sq_brackets">]</span></span><br />
+<br />
+<h3>Строковые и символьные литералы</h3>
+<br />
+Так как тип выражения <pre class="inline_code">"A"</pre> в языке 11l зависит от контекста (он может быть либо <pre class="inline_code">String</pre>, либо <pre class="inline_code">Char</pre>), в случае неверного определения типа строкового литерала транспайлером необходимо указать тип явно, т.е. писать <pre style="display: inline"><span class="identifier">str</span>(<span class="string-literal">'A'</span>)</pre> либо <pre style="display: inline"><span class="identifier">Char</span>(<span class="string-literal">'A'</span>)</pre>. Так, следующий Python-код не скомпилируется:<br />
+<pre class="code_block">
+<span class="identifier">print</span>([<span class="string-literal">'AF'</span>] + [<span class="string-literal">'A'</span>]*<span class="numeric-literal">5</span>)
+</pre>
+И необходимо писать так:<br />
+<pre class="code_block">
+<span class="identifier">print</span>([<span class="string-literal">'AF'</span>] + [<span class="identifier">str</span>(<span class="string-literal">'A'</span>)]*<span class="numeric-literal">5</span>)
+</pre>
+<br />
+Также, если есть переменная типа <pre class="inline_code">Char</pre> (<pre style="display: inline"><span class="identifier">ch</span> : <span class="identifier">Char</span></pre>), то чтобы присвоить ей символ необходимо написать <pre style="display: inline"><span class="identifier">ch</span> = <span class="identifier">Char</span>(<span class="string-literal">'*'</span>)</pre> вместо <pre style="display: inline"><span class="identifier">ch</span> = <span class="string-literal">'*'</span></pre>.<br />
+<br />
+<h3>Множественная инициализация</h3>
+<br />
+На данный момент транспайлер Python → 11l → C++ не поддерживает множественную инициализацию, и вместо <pre style="display: inline"><span class="identifier">a</span> = <span class="identifier">b</span> = <span class="numeric-literal">0</span></pre> следует писать:<br />
+<pre class="code_block">
+<span class="identifier">a</span> = <span class="numeric-literal">0</span>
+<span class="identifier">b</span> = <span class="numeric-literal">0</span>
+</pre>
+(Однако множественное присваивание (например, <pre style="display: inline"><span class="identifier">a</span>[<span class="numeric-literal">0</span>] = <span class="identifier">a</span>[<span class="numeric-literal">1</span>] = <span class="numeric-literal">1</span></pre>) поддерживается. Также поддерживаются конструкции <pre class="inline_code">if a == b == c ...</pre> и <pre class="inline_code">if a &lt; b &lt; c ...</pre>.)<br />
+<br />
+<h3>Конструкция from ... import ...</h3>
+<br />
+На данный момент транспайлер Python → 11l → C++ не поддерживает данную конструкцию, и вместо такого кода:<br />
+<pre class="code_block">
+<span class="keyword">from</span> <span class="identifier">math</span> <span class="keyword">import</span> <span class="identifier">sqrt</span>
+<span class="identifier">print</span>(<span class="identifier">sqrt</span>(<span class="numeric-literal">2</span>))
+</pre>
+следует писать:<br />
+<pre class="code_block">
+<span class="keyword">import</span> <span class="identifier">math</span>
+<span class="identifier">print</span>(<span class="identifier">math</span>.<span class="identifier">sqrt</span>(<span class="numeric-literal">2</span>))
+</pre>
+<br />
+<h3>Рекурсивный вызов функции</h3>
+<br />
+Если функция вызывает сама себя <span class="sq"><span class="sq_brackets">[</span>рекурсивно<span class="sq_brackets">]</span></span>, то при её объявлении необходимо явно указать тип возвращаемого значения (так как он не может быть выведен автоматически компилятором C++ в этом случае).<br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">find</span>(<span class="identifier">x</span>, <span class="identifier">y</span>) -> <span class="constant">None</span>: <span class="comment"># `-> None` здесь обязательно</span>
+    ...
+    <span class="identifier">find</span>(<span class="identifier">nx</span>, <span class="identifier">ny</span>) <span class="comment"># из-за этого вызова</span>
+</pre>
+<br />
+В случае рекурсивного вызова локальной функции требуется указывать не только тип возвращаемого значения, но и типы всех аргументов функции:<br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">fib</span>(<span class="identifier">n</span>):
+    <span class="keyword">def</span> <span class="identifier">f</span>(<span class="identifier">n</span> : <span class="identifier">int</span>) -> <span class="identifier">int</span>: <span class="comment"># написать просто `def f(n):`</span>
+                           <span class="comment"># или `def f(n) -> int:` нельзя</span>
+        <span class="keyword">if</span> <span class="identifier">n</span> &lt; <span class="numeric-literal">2</span>:
+            <span class="keyword">return</span> <span class="identifier">n</span>
+        <span class="keyword">return</span> <span class="identifier">f</span>(<span class="identifier">n</span>-<span class="numeric-literal">1</span>) + <span class="identifier">f</span>(<span class="identifier">n</span>-<span class="numeric-literal">2</span>)
+    <span class="keyword">return</span> <span class="identifier">f</span>(<span class="identifier">n</span>)
+</pre>
+Это связано с особенностью работы компилятора C++.<br />
+<br />
+<h3>Обход элементов словаря в цикле for</h3>
+<br />
+При обходе словаря в цикле <pre class="inline_code">for</pre> в том случае, когда транспайлер Python → 11l не смог определить, что итерируемый контейнер — это словарь, следует указать явно, что необходимо обходить словарь по ключам, а не по парам (ключ, значение):<br />
+<pre class="code_block">
+<span class="keyword">for</span> <span class="identifier">k</span> <span class="keyword">in</span> <span class="identifier">d</span>: <span class="comment"># если не удалось определить тип `d`,</span>
+    <span class="identifier">print</span>(<span class="identifier">k</span>)               <span class="comment"># то не скомпилируется</span>
+
+<span class="comment"># И в таком случае необходимо писать так:</span>
+<span class="keyword">for</span> <span class="identifier">k</span> <span class="keyword">in</span> <span class="identifier">d</span>.<span class="identifier">keys</span>():
+    <span class="identifier">print</span>(<span class="identifier">k</span>)
+</pre>
+<br />
+<h3>Деление</h3>
+<br />
+Если делитель и делимое не являются числовыми литералами и при этом являются целочисленными, то деление выполняется по правилам C++ и Python 2, а не Python 3, т.е. деление в таком случае целочисленное. Чтобы получить вещественное деление необходимо использовать приведение к вещественному типу (т.е. вместо <pre class="inline_code">a/b</pre> написать <pre class="inline_code">float(a)/b</pre> или <pre class="inline_code">a/float(b)</pre>), либо использовать опцию транспайлера <pre class="inline_code">--python-division</pre>, чтобы операция <pre class="inline_code">/</pre> всегда выполнялась по правилам Python 3.<br />
+<br />
+<h3>Остаток от деления</h3>
+<br />
+Если <pre style="display: inline"><span class="identifier">a</span></pre> может быть меньше <pre style="display: inline"><span class="numeric-literal">0</span></pre>, то вместо <pre style="display: inline"><span class="identifier">a</span> % <span class="identifier">b</span></pre> следует писать:<br />
+<pre class="code_block">
+((<span class="identifier">a</span> % <span class="identifier">b</span>) + <span class="identifier">b</span>) % <span class="identifier">b</span>
+</pre>
+или<br />
+<pre class="code_block">
+<span class="identifier">r</span> = <span class="identifier">a</span> % <span class="identifier">b</span>; <span class="keyword">if</span> <span class="identifier">r</span> &lt; <span class="numeric-literal">0</span>: <span class="identifier">r</span> += <span class="identifier">b</span>
+</pre>
+Так как операция <pre class="inline_code">%</pre> в 11l выполняется <span class="sq"><span class="sq_brackets">[</span>из соображений <a href="https://github.com/11l-lang/_11l_to_cpp/blob/8ad1117cadd82589def3229a5ff3574a6e5f5db4/11l_hpp/HandyMathLib/func.h#L162-L167">производительности</a><span class="sq_brackets">]</span></span> по правилам C++, а не Python.<br />
+Либо можно использовать опцию транспайлера <pre class="inline_code">--python-remainder</pre>, чтобы операция <pre class="inline_code">%</pre> выполнялась по правилам Python.<br />
+<br />
+<h3>Конструкция yield</h3>
+<br />
+На данный момент транспайлер Python → 11l → C++ не поддерживает данную конструкцию, и вместо такого кода:<br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">squares</span>(<span class="identifier">n</span>):
+    <span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="identifier">n</span>):
+        <span class="keyword">yield</span> <span class="identifier">i</span> ** <span class="numeric-literal">2</span>
+</pre>
+следует писать:<br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">squares</span>(<span class="identifier">n</span>):
+    <span class="identifier">r</span> : <span class="identifier">List</span>[<span class="identifier">int</span>] = []
+    <span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="identifier">n</span>):
+        <span class="identifier">r</span>.<span class="identifier">append</span>(<span class="identifier">i</span> ** <span class="numeric-literal">2</span>)
+    <span class="keyword">return</span> <span class="identifier">r</span>
+</pre>
+<br />
+<h3>Порядок вычисления аргументов функции</h3>
+<br />
+В отличие от языка Python в языке C++, к сожалению, порядок вычисления аргументов при передаче в функцию не определён, поэтому необходимо следить за возможной неправильной работой кода, производящего <!--[[[вычисления/]]]-->модификацию общих переменных во время передачи параметров функции.<br />
+Вот строчка кода из <a href="https://www.rosettacode.org/wiki/Parsing/RPN_calculator_algorithm#Python">примера реализации калькулятора обратной польской записи на языке Python</a>:<br />
+<pre class="code_block">
+<span class="identifier">a</span>.<span class="identifier">append</span>(<span class="identifier">b</span>[<span class="identifier">c</span>](<span class="identifier">a</span>.<span class="identifier">pop</span>(),<span class="identifier">a</span>.<span class="identifier">pop</span>()))
+</pre>
+Чтобы она корректно работала с транспайлером Python → 11l → C++, её необходимо переписать например так:<br />
+<pre class="code_block">
+<span class="identifier">t</span> = <span class="identifier">a</span>.<span class="identifier">pop</span>()
+<span class="identifier">a</span>.<span class="identifier">append</span>(<span class="identifier">b</span>[<span class="identifier">c</span>](<span class="identifier">t</span>, <span class="identifier">a</span>.<span class="identifier">pop</span>()))
+</pre>
+<br />
+<h3>Передача функции в качестве аргумента другой функции</h3>
+<br />
+Вот код из <a href="https://www.rosettacode.org/wiki/Sort_using_a_custom_comparator#Python">решения задачи Sort using a custom comparator</a>:<br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">mykey</span>(<span class="identifier">x</span>):
+    <span class="keyword">return</span> (-<span class="identifier">len</span>(<span class="identifier">x</span>), <span class="identifier">x</span>.<span class="identifier">upper</span>())
+ 
+<span class="identifier">print</span>(<span class="identifier">sorted</span>(<span class="identifier">strings</span>, <span class="identifier">key</span>=<span class="identifier">mykey</span>))
+</pre>
+Он не скомпилируется транспайлером Python → 11l → C++, так как в сгенерированном C++ коде <pre class="inline_code">mykey</pre> — это шаблонная функция.<br />
+Следует либо указать типы аргументов функции:<br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">mykey</span>(<span class="identifier">x</span> : <span class="identifier">str</span>):
+    <span class="keyword">return</span> (-<span class="identifier">len</span>(<span class="identifier">x</span>), <span class="identifier">x</span>.<span class="identifier">upper</span>())
+</pre>
+Либо использовать лямбда-функцию:<br />
+<pre class="code_block">
+<span class="identifier">mykey</span> = <span class="keyword">lambda</span> <span class="identifier">x</span>: (-<span class="identifier">len</span>(<span class="identifier">x</span>), <span class="identifier">x</span>.<span class="identifier">upper</span>())
+</pre>
+<br />
+<h3>Конструкция [... if ... else ... for ...]</h3>
+<br />
+Такой код <span class="sq"><span class="sq_brackets">[</span>взятый <a href="https://codeforces.com/contest/650/submission/16709913">отсюда</a><span class="sq_brackets">]</span></span> не скомпилируется:<br />
+<pre class="code_block">
+<span class="identifier">l</span> = [<span class="identifier">b</span> <span class="keyword">if</span> <span class="identifier">char</span> == <span class="string-literal">"w"</span> <span class="keyword">else</span> <span class="numeric-literal">1</span> <span class="keyword">for</span> <span class="identifier">char</span> <span class="keyword">in</span> <span class="identifier">input</span>()]
+</pre>
+Необходимо добавить скобки:<br />
+<pre class="code_block">
+<span class="identifier">l</span> = [(<span class="identifier">b</span> <span class="keyword">if</span> <span class="identifier">char</span> == <span class="string-literal">"w"</span> <span class="keyword">else</span> <span class="numeric-literal">1</span>) <span class="keyword">for</span> <span class="identifier">char</span> <span class="keyword">in</span> <span class="identifier">input</span>()]
+</pre>
+<br />
+<h3>Поддерживаемые модули</h3>
+<br />
+На данный момент транспайлер Python → 11l → C++ частично поддерживает следующие встроенные модули Python:<br />
+<ul>
+<li>math</li>
+<li>os</li>
+<li>time</li>
+<li>re</li>
+<li>random</li>
+<li>collections (только defaultdict и deque)</li>
+<li>heapq</li>
+</ul>
+<br />
+<h3>Практика</h3>
 <br />
 Попробуйте исправить данный Python-код так, чтобы он корректно скомпилировался транспайлером Python → 11l → C++:<br />
 <ol>
@@ -115,18 +409,18 @@ div#main {width: 100%;}
 <li><a href="https://codeforces.com/contest/1559/submission/147706575?locale=ru">Mocha и красное и синее</a></li>
 </ol>
 <br />
-<div class="note">Для проверки вашего решения откройте страницу соответствующей задачи (в таблице под словом ‘Задача’), сохраните входные данные примера в файл input.txt и выполните в командной строке следующие <!--[[[2 команды:
+<div class="note">Для проверки вашего решения откройте страницу соответствующей задачи (в таблице под словом ‘Задача’), сохраните входные данные примера в файл <pre class="inline_code">input.txt</pre> и выполните в командной строке следующие <!--[[[2 команды:
 #‘
 ...11l your_solution.py
 your_solution < input.txt > output.txt
 ’
-А затем сравните содержимое файла output.txt с выходными данными на странице задачи.]]]-->3 команды:<br />
+А затем сравните содержимое файла `output.txt` с выходными данными на странице задачи.]]]-->3 команды:<br />
 <pre class="code_block">
 ...11l your_solution.py
 python your_solution.py &lt; input.txt > output_py.txt
 your_solution &lt; input.txt > output.txt
 </pre>
-А затем сравните содержимое файлов output_py.txt и output.txt.</div>
+А затем сравните содержимое файлов <pre class="inline_code">output_py.txt</pre> и <pre class="inline_code">output.txt</pre>.</div>
 </div>
 </body>
 </html>

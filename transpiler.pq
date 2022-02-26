@@ -30,5 +30,5 @@ Usage:
 `<path_to_unpacked_archive_files>/11l <source_python_or_11l_file>` on Linux.’
 
 !‘Having problems with [[[compiling/]]]transpiling your Python [[[or 11l ]]]program? Please read ‘this guide’[./guide].
-And if you haven't found a solution there, then ‘write [[[on/]]]at the forum.’[http://forum.11l-lang.org/forums/help.3/]’’
+And if you haven't found a solution there, then ‘write [[[on/]]]at the forum’[http://forum.11l-lang.org/forums/help.3/].’’
 ’’’’’

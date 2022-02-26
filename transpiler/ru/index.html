@@ -1,0 +1,153 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Транспайлер Python → 11l → C++</title>
+<base target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A' || event.target.parentNode.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+    //[-Чтобы была возможность выделять текст внутри раскрытого ‘скрытого текста’/спойлера, необходимо [скрытие/]закрытие спойлера делать не просто по нажатию левой кнопки мыши, а по отпусканию левой кнопки мыши при условии отсутствия движения курсора [мыши] после того, как была нажата левая кнопка мыши.-]
+}
+function spoiler2(element, event)
+{
+    element.nextSibling.style.display = (element.nextSibling.style.display == "none" ? "" : "none");
+}
+</script>
+<style type="text/css">
+div#main, td {
+    font-size: 14px;
+    font-family: Verdana, sans-serif;
+    line-height: 160%;
+    text-align: justify;
+}
+span.cu_brackets_b {
+    font-size: initial;
+    font-family: initial;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: #6da3bd;
+}
+a:hover {
+    text-decoration: underline;
+    color: #4d7285;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 400;
+}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
+span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+span.sq_brackets {color: #BFBFBF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
+pre, code {font-family: 'Courier New'; line-height: normal}
+ul, ol {margin: 11px 0 7px 0;}
+ul li, ol li {padding: 7px 0;}
+ul li:first-child, ol li:first-child {padding-top   : 0;}
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+span.spoiler_title {
+    color: #548eaa;
+    cursor: pointer;
+    border-bottom: 1px dotted;
+}
+div.spoiler_text {
+    /*border: 1px dotted;*/
+    margin: 5px;
+    padding: 3px;
+}
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
+div.note {
+    padding: 18px 20px;
+    background: #ffffd7;
+}
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
+img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
+</style>
+</head>
+<body>
+<div id="main" style="margin: 0 auto">
+<!--[[[Н‘Транспайлер Python → 11l → C++’]]]--><br />
+<div align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/250px-Python_logo_and_wordmark.svg.png" /><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/U%2B2192.svg/100px-U%2B2192.svg.png" /><img src="https://avatars1.githubusercontent.com/u/22068453?s=150" /><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/U%2B2192.svg/100px-U%2B2192.svg.png" /><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/125px-ISO_C%2B%2B_Logo.svg.png" /></div>
+<br />
+<br />
+Транспайлер Python → 11l → C++ состоит из двух транспайлеров:<br />
+<ol>
+<li>Транспайлер Python → 11l, который переводит код на языке Python в код на новом языке программирования 11l.</li>
+<li>Транспайлер 11l → C++, который переводит код на языке 11l в C++ <span class="sq"><span class="sq_brackets">[</span>который затем компилируется в машинный код<span class="sq_brackets">]</span></span>.</li>
+</ol>
+<br />
+В некотором смысле язык 11l выступает в роли промежуточного языка, но, так как он очень похож и близок к языку Python (правда семантически, а не синтаксически), то специально изучать его, в общем-то, не требуется.<br />
+<br />
+Следует отметить, что особенностью данного транспайлера является то, что он генерирует человекочитаемый код на C++, что упрощает отладку написанной программы.<br />
+<br />
+<div align="center"><table>
+<tr><td><div align="center"><span class="spoiler_title" onclick="return spoiler2(this, event)">Производительность<br /></span><div class="spoiler_text" style="display: none">
+<br />
+<div align="justify">Вот результаты для <a href="https://sourceforge.net/p/pqmarkup/code/ci/default/tree/pqmarkup.py" title="<- https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup">программы преобразования пк-разметки в HTML</a> (в качестве исходных данных был взят исходник <a href="https://habr.ru/post/348218/">статьи по пк-разметке</a>):<br />
+<img src="https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/da5d89013d3915dd2f4f14d011007d4adfea0e02/chart2.png" /><br />
+<span class="sq"><span class="sq_brackets">[</span><a href="https://gist.github.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/e6cb2f07446ef4a19a3d6cdc1f8c483287ef1308/perf_tests.7z">Вот архив</a> с использовавшейся программой для сравнения производительности <span class="sq"><span class="sq_brackets">[</span>под Windows<span class="sq_brackets">]</span></span> (требуются установленный Python 3.6 или выше и следующие Python-пакеты: pywin32, cython).<span class="sq_brackets">]</span></span><br />
+</div>
+</div>
+</div>
+</td></tr>
+</table>
+<br />
+<table>
+<tr><td><div align="center"><b><!--[[[Установка/]]]-->Скачать</b><br />
+<br />
+<div align="justify">Вот последняя версия пары транспайлеров Python → 11l и 11l → C++: <u><a href="https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz">11l.tar.xz</a></u> <span class="sq"><span class="sq_brackets">[</span><a href="https://github.com/11l-lang">репозитории с исходниками</a><span class="sq_brackets">]</span></span>.<br />
+<br />
+Использование:<br />
+<ol>
+<li>Распакуйте архив в <!--[[[директорию]]/]-->каталог по вашему выбору.</li>
+<li>Откройте терминал/консоль/‘командную строку’.</li>
+<li>Выполните команду:<br />
+<pre class="inline_code">&lt;путь_до_каталога_с_распакованным_архивом>\11l &lt;исходный_файл_на_python_или_11l></pre> в Windows или<br />
+<pre class="inline_code">&lt;путь_до_каталога_с_распакованным_архивом>/11l &lt;исходный_файл_на_python_или_11l></pre> в Linux.</li>
+</ol>
+<br />
+<div class="note">Возникли <!--[[[трудности/]]]-->проблемы с компиляцией вашей программы на Python<!--[[[ или 11l]]]-->? Прочтите <a href="./guide" target="_self">это руководство</a>.<br />
+Если вы не нашли в нём решение <!--[[[вашей/]]]-->своей проблемы, тогда <a href="http://forum.11l-lang.org/forums/Помощь.7/">напишите на форуме</a>.</div></div>
+</div>
+</td></tr>
+</table>
+</div>
+</div>
+</body>
+</html>

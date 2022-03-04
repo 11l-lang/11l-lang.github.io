@@ -146,7 +146,7 @@ span.comment {color: #808080;}
 <br />
 <h3>Создание пустого списка/массива, словаря и множества</h3>
 <br />
-В отличие от языка Python, контейнеры (например массивы и множества) в языках 11l и C++ могут содержать элементы только одного типа (за исключением кортежей, которые могут содержать элементы различных типов), причем известного во время компиляции. На данном этапе транспайлер Python → 11l → C++ не пытается определить тип контейнеров по их использованию, как это сделано в некоторых языках программирования (например <a href="http://nemerle.org/About">Nemerle</a>), поэтому при создании пустого контейнера необходимо указать тип его элементов явно.<br />
+В отличие от языка Python, контейнеры (например массивы и множества) в языках 11l и C++ могут содержать элементы только одного типа (за исключением кортежей, которые могут содержать элементы различных типов), причем известного во время компиляции. В настоящий момент транспайлер Python → 11l → C++ не пытается определить тип контейнеров по их использованию, как это сделано в некоторых языках программирования (например <a href="http://nemerle.org/About">Nemerle</a>), поэтому при создании пустого контейнера необходимо указать тип его элементов явно.<br />
 <table>
 <tr><th>Не поддерживается</th><th>Поддерживается</th></tr>
 <tr><td><pre style="display: inline"><span class="identifier">l</span> = []</pre></td><td><pre style="display: inline"><span class="identifier">l</span> : <span class="identifier">List</span>[<span class="identifier">int</span>] = []</pre><br />
@@ -415,7 +415,7 @@ span.comment {color: #808080;}
 <ol>
 <li><a href="https://codeforces.com/contest/1559/submission/126421811?locale=ru">Mocha и прогулка</a></li>
 <li><a href="https://codeforces.com/contest/1559/submission/125992428?locale=ru">Mocha и Diana (простая версия)</a></li>
-<li><a href="https://codeforces.com/contest/1617/submission/146468818?locale=ru">Запрещённая подпоследовательность</a></li>
+<li><a href="https://codeforces.com/contest/1617/submission/146468818?locale=ru">Запрещённая подпоследовательность</a><!--[[[ (подсказка: {запись `s[i::]` можно сократить})]]]--></li>
 <li><a href="https://codeforces.com/contest/1617/submission/142712405?locale=ru">Задача про НОД</a></li>
 <li><a href="https://codeforces.com/contest/1559/submission/147706575?locale=ru">Mocha и красное и синее</a></li>
 </ol>

@@ -1,10 +1,10 @@
-[[[Н‘Python → 11l → C++ transpiler’]]]
+[[[H‘The Python → 11l → C++ transpiler’]]]
 ><‘Р‘https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/250px-Python_logo_and_wordmark.svg.png’Р‘https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/U%2B2192.svg/100px-U%2B2192.svg.png’Р‘https://avatars1.githubusercontent.com/u/22068453?s=150’Р‘https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/U%2B2192.svg/100px-U%2B2192.svg.png’Р‘https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/125px-ISO_C%2B%2B_Logo.svg.png’’
 
 
-Transpiler Python → 11l → C++ is a union of 2 transpilers:
-1. Python → 11l transpiler, which translates Python code into 11l.
-2. 11l → C++ transpiler, which translates 11l code into C++ [which is then compiled into machine code].
+The Python → 11l → C++ transpiler is a union of 2 transpilers:
+1. The Python → 11l transpiler, which translates Python code into 11l.
+2. The 11l → C++ transpiler, which translates 11l code into C++ [which is then compiled into machine code].
 
 In a sense, the 11l programming language acts as an intermediate language, but since it is very similar and close to the Python language (albeit semantically, not syntactically), it is generally not required to study it specifically.
 
@@ -20,7 +20,7 @@ P‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b
 
 T‘‘‘><‘*‘[[[Install/]]]Download’
 
-<>‘Here is the latest version of transpiler Python → 11l → C++: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘source code repos’[https://github.com/11l-lang]].
+<>‘Here is the latest version of the Python → 11l → C++ transpiler: _‘11l.tar.xz[https://bitbucket.org/11l-lang/11l/downloads/11l.tar.xz]’ [‘source code repos’[https://github.com/11l-lang]].
 
 Usage:
 1. Unpack archive to whatever directory you [[[like/]]]want.

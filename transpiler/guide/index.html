@@ -151,7 +151,7 @@ Unlike Python, containers (such as arrays and sets) in 11l and C++ can only cont
 <tr><th>Not supported</th><th>Supported</th></tr>
 <tr><td><pre style="display: inline"><span class="identifier">l</span> = []</pre></td><td><pre style="display: inline"><span class="identifier">l</span> : <span class="identifier">List</span>[<span class="identifier">int</span>] = []</pre><br />
 or<br />
-<pre style="display: inline"><span class="identifier">l</span> = [<span class="numeric-literal">0</span>]*<span class="numeric-literal">0</span></pre></td></tr>
+<pre style="display: inline"><span class="identifier">l</span> = [<span class="numeric-literal">0</span>] * <span class="numeric-literal">0</span></pre></td></tr>
 <tr><td><pre style="display: inline"><span class="identifier">d</span> = {}</pre></td><td><pre style="display: inline"><span class="identifier">d</span> : <span class="identifier">Dict</span>[<span class="identifier">str</span>, <span class="identifier">int</span>] = {}</pre></td></tr>
 <tr><td><pre style="display: inline"><span class="identifier">s</span> = <span class="identifier">set</span>()</pre></td><td><pre style="display: inline"><span class="identifier">s</span> = <span class="identifier">set</span>() <span class="comment"># int</span></pre></td></tr>
 <tr><td><pre style="display: inline"><span class="identifier">dd</span> = <span class="identifier">collections</span>.<span class="identifier">defaultdict</span>(<span class="identifier">int</span>)</pre></td><td><pre style="display: inline"><span class="identifier">dd</span> = <span class="identifier">collections</span>.<span class="identifier">defaultdict</span>(<span class="identifier">int</span>) <span class="comment"># str</span></pre></td></tr>
@@ -169,7 +169,7 @@ If a container is initialized with elements, then you do not need to specify the
 <span class="identifier">d</span> = {<span class="string-literal">'a'</span>: <span class="numeric-literal">1</span>, <span class="string-literal">'b'</span>: <span class="numeric-literal">2</span>}
 <span class="identifier">s</span> = {<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">3</span>}
 </pre>
-Since all elements of a list must be of the same type, a list like this <span class="sq"><span class="sq_brackets">[</span>taken from <a href="https://www.rosettacode.org/wiki/Sorting_algorithms/Cycle_sort#Python">here</a><span class="sq_brackets">]</span></span><span class="sq_brackets">]</span></span> will not compile:<br />
+Since all elements of a list must be of the same type, a list like this <span class="sq"><span class="sq_brackets">[</span>taken from <a href="https://www.rosettacode.org/wiki/Sorting_algorithms/Cycle_sort#Python">here</a><span class="sq_brackets">]</span></span> will not compile:<br />
 <pre class="code_block">
 <span class="identifier">x</span> = [<span class="numeric-literal">0</span>, <span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">1</span>, <span class="numeric-literal">9</span>, <span class="numeric-literal">3.5</span>, <span class="numeric-literal">5</span>, <span class="numeric-literal">8</span>, <span class="numeric-literal">4</span>, <span class="numeric-literal">7</span>, <span class="numeric-literal">0</span>, <span class="numeric-literal">6</span>]
 </pre>

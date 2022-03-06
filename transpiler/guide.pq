@@ -36,7 +36,7 @@ Unlike Python, containers (such as arrays and sets) in 11l and C++ can only cont
 T‘H‘‘Not supported’ ‘Supported’’
 ‘‘#(Python)‘l = []’’ ‘#(Python)‘l : List[int] = []’
 or
-#(Python)‘l = [0]*0’’’
+#(Python)‘l = [0] * 0’’’
 ‘‘#(Python)‘d = {}’’ ‘#(Python)‘d : Dict[str, int] = {}’’’
 ‘‘#(Python)‘s = set()’’ ‘#(Python)‘s = set() # int’’’
 ‘‘#(Python)‘dd = collections.defaultdict(int)’’ ‘#(Python)‘dd = collections.defaultdict(int) # str’’’
@@ -54,7 +54,7 @@ l = [1, 2, 3]
 d = {'a': 1, 'b': 2}
 s = {1, 2, 3}
 ’
-Since all elements of a list must be of the same type, a list like this [taken from here[https://www.rosettacode.org/wiki/Sorting_algorithms/Cycle_sort#Python]]] will not compile:
+Since all elements of a list must be of the same type, a list like this [taken from here[https://www.rosettacode.org/wiki/Sorting_algorithms/Cycle_sort#Python]] will not compile:
 #(Python)‘
 x = [0, 1, 2, 2, 2, 2, 1, 9, 3.5, 5, 8, 4, 7, 0, 6]
 ’

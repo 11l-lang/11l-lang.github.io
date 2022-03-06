@@ -36,7 +36,7 @@ charr : List[Char] = []
 Т‘Н‘‘Не поддерживается’ ‘Поддерживается’’
 ‘‘#(Python)‘l = []’’ ‘#(Python)‘l : List[int] = []’
 или
-#(Python)‘l = [0]*0’’’
+#(Python)‘l = [0] * 0’’’
 ‘‘#(Python)‘d = {}’’ ‘#(Python)‘d : Dict[str, int] = {}’’’
 ‘‘#(Python)‘s = set()’’ ‘#(Python)‘s = set() # int’’’
 ‘‘#(Python)‘dd = collections.defaultdict(int)’’ ‘#(Python)‘dd = collections.defaultdict(int) # str’’’

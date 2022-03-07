@@ -10,11 +10,38 @@ In a sense, the 11l programming language acts as an intermediate language, but s
 
 Also it should be noted that this transpiler generates a human-readable code, which simplifies debugging of the [[[written/]]]generated program.
 
-><‘T‘‘‘><‘‘Benchmark’{
+><‘T‘‘‘><‘‘Benchmarks’{
 
 <>‘Here is the results for ‘pqmarkup to HTML converter’[https://sourceforge.net/p/pqmarkup/code/ci/default/tree/pqmarkup.py <- https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup] (as an input data the source of ‘this article’[https://habr.ru/post/348218/] is taken):
 P‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/da5d89013d3915dd2f4f14d011007d4adfea0e02/chart2.png’
+(Shed Skin is not listed here because it does not support nested functions.)
 [‘Here is an archive’[https://gist.github.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/e6cb2f07446ef4a19a3d6cdc1f8c483287ef1308/perf_tests.7z] with benchmarking program used (Python 3.6 or higher is required, and following Python packages: pywin32, cython).]
+
+And this is the results for a ‘Prime number’[https://translate.google.com/translate?hl=&sl=ru&tl=en&u=https://informatics.msk.ru/mod/statements/view.php?chapterid=973] problem (with K = 1000000):
+P‘./chart_prime.png’
+‘Here is a corresponding Python source code’{
+#(Python)‘
+import math
+
+k = int(input())
+n = k * 17
+primes = [True] * n
+primes[0] = primes[1] = False
+
+for i in range(2, int(math.sqrt(n)) + 1):
+    if not primes[i]:
+        continue
+    for j in range(i * i, n, i):
+        primes[j] = False
+
+for i in range(n):
+    if primes[i]:
+        if k == 1:
+            print(i)
+            break
+        k -= 1
+’
+}
 ’
 }’’’’
 

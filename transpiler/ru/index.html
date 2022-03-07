@@ -121,7 +121,41 @@ div#main {width: 100%;}
 <br />
 <div align="justify">Вот результаты для <a href="https://sourceforge.net/p/pqmarkup/code/ci/default/tree/pqmarkup.py" title="<- https://sourceforge.net/p/pqmarkup/code/ <- https://bitbucket.org/pqmarkup/pqmarkup">программы преобразования пк-разметки в HTML</a> (в качестве исходных данных был взят исходник <a href="https://habr.ru/post/348218/">статьи по пк-разметке</a>):<br />
 <img src="https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/da5d89013d3915dd2f4f14d011007d4adfea0e02/chart2.png" /><br />
+(Shed Skin не представлен здесь, т.к. он не поддерживает локальные функции.)<br />
 <span class="sq"><span class="sq_brackets">[</span><a href="https://gist.github.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/e6cb2f07446ef4a19a3d6cdc1f8c483287ef1308/perf_tests.7z">Вот архив</a> с использовавшейся программой для сравнения производительности <span class="sq"><span class="sq_brackets">[</span>под Windows<span class="sq_brackets">]</span></span> (требуются установленный Python 3.6 или выше и следующие Python-пакеты: pywin32, cython).<span class="sq_brackets">]</span></span><br />
+<br />
+А вот результаты для задачи <a href="https://informatics.msk.ru/mod/statements/view.php?chapterid=973">Простое число</a> (при K = 1000000):<br />
+<img src="./../chart_prime.png" /><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Вот соответствующий исходный код решения данной задачи на языке Python<br /></span><div class="spoiler_text" style="display: none">
+<style>
+span.keyword {color: #0000FF; font-weight: bold;}
+span.identifier {color: #00009F;}
+span.string-literal {color: #800000;}
+span.numeric-literal {color: #008000;}
+span.constant {color: #008000;}
+span.comment {color: #808080;}
+</style><pre class="code_block">
+<span class="keyword">import</span> <span class="identifier">math</span>
+
+<span class="identifier">k</span> = <span class="identifier">int</span>(<span class="identifier">input</span>())
+<span class="identifier">n</span> = <span class="identifier">k</span> * <span class="numeric-literal">17</span>
+<span class="identifier">primes</span> = [<span class="constant">True</span>] * <span class="identifier">n</span>
+<span class="identifier">primes</span>[<span class="numeric-literal">0</span>] = <span class="identifier">primes</span>[<span class="numeric-literal">1</span>] = <span class="constant">False</span>
+
+<span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="numeric-literal">2</span>, <span class="identifier">int</span>(<span class="identifier">math</span>.<span class="identifier">sqrt</span>(<span class="identifier">n</span>)) + <span class="numeric-literal">1</span>):
+    <span class="keyword">if</span> <span class="keyword">not</span> <span class="identifier">primes</span>[<span class="identifier">i</span>]:
+        <span class="keyword">continue</span>
+    <span class="keyword">for</span> <span class="identifier">j</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="identifier">i</span> * <span class="identifier">i</span>, <span class="identifier">n</span>, <span class="identifier">i</span>):
+        <span class="identifier">primes</span>[<span class="identifier">j</span>] = <span class="constant">False</span>
+
+<span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="identifier">n</span>):
+    <span class="keyword">if</span> <span class="identifier">primes</span>[<span class="identifier">i</span>]:
+        <span class="keyword">if</span> <span class="identifier">k</span> == <span class="numeric-literal">1</span>:
+            <span class="identifier">print</span>(<span class="identifier">i</span>)
+            <span class="keyword">break</span>
+        <span class="identifier">k</span> -= <span class="numeric-literal">1</span>
+</pre>
+</div>
 </div>
 </div>
 </div>

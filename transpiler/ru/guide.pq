@@ -290,6 +290,7 @@ l = [(b if char == "w" else 1) for char in input()]
 . random
 . collections (только defaultdict и deque)
 . heapq
+. bisect
 
 Н‘Практика’
 
@@ -299,6 +300,8 @@ l = [(b if char == "w" else 1) for char in input()]
 3. ‘Запрещённая подпоследовательность’[https://codeforces.com/contest/1617/submission/146468818?locale=ru][[[ (подсказка: {запись `s[i::]` можно сократить})]]]
 4. ‘Задача про НОД’[https://codeforces.com/contest/1617/submission/142712405?locale=ru]
 5. ‘Mocha и красное и синее’[https://codeforces.com/contest/1559/submission/147706575?locale=ru]
+6. ‘Симпатичные перестановки’[https://codeforces.com/contest/1541/submission/120613649?locale=ru] (подсказка: {#(Python)‘[2,*n%2*[3],1]’ можно заменить на #(Python)‘[2]+n%2*[3]+[1]’})
+7. ‘Плей-офф турнир’[https://codeforces.com/contest/1535/submission/118451499?locale=ru]
 
 !‘Для проверки вашего решения откройте страницу соответствующей задачи (в таблице под словом ‘Задача’), сохраните входные данные примера в файл `input.txt` и выполните в командной строке следующие [[[2 команды:
 #‘

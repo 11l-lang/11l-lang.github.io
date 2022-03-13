@@ -407,6 +407,7 @@ Currently, the Python → 11l → C++ transpiler partially supports the followin
 <li>random</li>
 <li>collections (defaultdict and deque only)</li>
 <li>heapq</li>
+<li>bisect</li>
 </ul>
 <br />
 <h3>Practice</h3>
@@ -418,8 +419,12 @@ Try fixing this Python code so that it compiles correctly with the Python → 11
 <li><a href="https://codeforces.com/contest/1617/submission/146468818?locale=en">Forbidden Subsequence</a></li>
 <li><a href="https://codeforces.com/contest/1617/submission/142712405?locale=en">GCD Problem</a></li>
 <li><a href="https://codeforces.com/contest/1559/submission/147706575?locale=en">Mocha and Red and Blue</a></li>
+<li><a href="https://codeforces.com/contest/1541/submission/120613649?locale=en">Pretty Permutations</a> (hint: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><pre style="display: inline">[<span class="numeric-literal">2</span>,*<span class="identifier">n</span>%<span class="numeric-literal">2</span>*[<span class="numeric-literal">3</span>],<span class="numeric-literal">1</span>]</pre> can be replaced with <pre style="display: inline">[<span class="numeric-literal">2</span>]+<span class="identifier">n</span>%<span class="numeric-literal">2</span>*[<span class="numeric-literal">3</span>]+[<span class="numeric-literal">1</span>]</pre></span><span class="cu_brackets_b">}</span></span>)</li>
+<li><a href="https://codeforces.com/contest/1535/submission/118451499?locale=en">Playoff Tournament</a></li>
 </ol>
-<br />
+<!--[[[
+. [https://codeforces.com/contest/1541/submission/120557452] (`a[k]` -> `a[(k+len(a)) % len(a)]` as `k` can be negative)
+]]]--><br />
 <div class="note">To check your solution, open the page for the corresponding problem (under ‘Problem’ in the table), save the input of the example in a file called <pre class="inline_code">input.txt</pre> and run the following three commands from the command line:<br />
 <pre class="code_block">
 ...11l your_solution.py

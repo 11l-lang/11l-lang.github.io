@@ -290,6 +290,7 @@ Currently, the Python → 11l → C++ transpiler partially supports the followin
 . random
 . collections (defaultdict and deque only)
 . heapq
+. bisect
 
 H‘Practice’
 
@@ -299,7 +300,11 @@ Try fixing this Python code so that it compiles correctly with the Python → 11
 3. ‘Forbidden Subsequence’[https://codeforces.com/contest/1617/submission/146468818?locale=en]
 4. ‘GCD Problem’[https://codeforces.com/contest/1617/submission/142712405?locale=en]
 5. ‘Mocha and Red and Blue’[https://codeforces.com/contest/1559/submission/147706575?locale=en]
-
+6. ‘Pretty Permutations’[https://codeforces.com/contest/1541/submission/120613649?locale=en] (hint: {#(Python)‘[2,*n%2*[3],1]’ can be replaced with #(Python)‘[2]+n%2*[3]+[1]’})
+7. ‘Playoff Tournament’[https://codeforces.com/contest/1535/submission/118451499?locale=en]
+[[[
+. [https://codeforces.com/contest/1541/submission/120557452] (`a[k]` -> `a[(k+len(a)) % len(a)]` as `k` can be negative)
+]]]
 !‘To check your solution, open the page for the corresponding problem (under ‘Problem’ in the table), save the input of the example in a file called `input.txt` and run the following three commands from the command line:
 #‘
 ...11l your_solution.py

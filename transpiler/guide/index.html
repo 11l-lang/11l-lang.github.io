@@ -405,7 +405,7 @@ Currently, the Python → 11l → C++ transpiler partially supports the followin
 <li>time</li>
 <li>re</li>
 <li>random</li>
-<li>collections (defaultdict and deque only)</li>
+<li>collections (defaultdict, deque and Counter only)</li>
 <li>heapq</li>
 <li>bisect</li>
 </ul>
@@ -428,7 +428,7 @@ Try fixing this Python code so that it compiles correctly with the Python → 11
 <div class="note">To check your solution, open the page for the corresponding problem (under ‘Problem’ in the table), save the input of the example in a file called <pre class="inline_code">input.txt</pre> and run the following three commands from the command line:<br />
 <pre class="code_block">
 ...11l your_solution.py
-python your_solution.py &lt; input.txt > output_py.txt
+python orig_solution.py &lt; input.txt > output_py.txt
 your_solution &lt; input.txt > output.txt
 </pre>
 Then compare the contents of the files <pre class="inline_code">output_py.txt</pre> and <pre class="inline_code">output.txt</pre>.</div>

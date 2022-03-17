@@ -288,7 +288,7 @@ l = [(b if char == "w" else 1) for char in input()]
 . time
 . re
 . random
-. collections (только defaultdict и deque)
+. collections (только defaultdict, deque и Counter)
 . heapq
 . bisect
 
@@ -311,7 +311,7 @@ your_solution < input.txt > output.txt
 А затем сравните содержимое файла `output.txt` с выходными данными на странице задачи.]]]3 команды:
 #‘
 ...11l your_solution.py
-python your_solution.py < input.txt > output_py.txt
+python orig_solution.py < input.txt > output_py.txt
 your_solution < input.txt > output.txt
 ’
 А затем сравните содержимое файлов `output_py.txt` и `output.txt`.’

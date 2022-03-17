@@ -288,7 +288,7 @@ Currently, the Python → 11l → C++ transpiler partially supports the followin
 . time
 . re
 . random
-. collections (defaultdict and deque only)
+. collections (defaultdict, deque and Counter only)
 . heapq
 . bisect
 
@@ -308,7 +308,7 @@ Try fixing this Python code so that it compiles correctly with the Python → 11
 !‘To check your solution, open the page for the corresponding problem (under ‘Problem’ in the table), save the input of the example in a file called `input.txt` and run the following three commands from the command line:
 #‘
 ...11l your_solution.py
-python your_solution.py < input.txt > output_py.txt
+python orig_solution.py < input.txt > output_py.txt
 your_solution < input.txt > output.txt
 ’
 Then compare the contents of the files `output_py.txt` and `output.txt`.’

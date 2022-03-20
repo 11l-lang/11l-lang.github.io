@@ -237,7 +237,7 @@ it is sufficient to specify the type of the argument <pre class="inline_code">s<
     <span class="keyword">return</span> <span class="identifier">s</span>[<span class="numeric-literal">1</span>:] + <span class="identifier">s</span>[<span class="numeric-literal">0</span>]
 </pre>
 (Instead of writing <pre style="display: inline"><span class="identifier">s</span>[<span class="numeric-literal">1</span>:] + <span class="string-literal">''</span> + <span class="identifier">s</span>[<span class="numeric-literal">0</span>]</pre>.)<br />
-<span class="sq"><span class="sq_brackets">[</span>In future versions of the transpiler, the ability to use <pre class="inline_code">+</pre> for string concatenation in 11l code may depend on the <pre class="inline_code">--python-max-compat</pre> option.<span class="sq_brackets">]</span></span><br />
+<span class="sq"><span class="sq_brackets">[</span>In future versions of the transpiler, the ability to use <pre class="inline_code">+</pre> for string concatenation in 11l code may depend on the <pre class="inline_code">--max-compat-with-python</pre> option.<span class="sq_brackets">]</span></span><br />
 <br />
 <h3>String and character literals</h3>
 <br />
@@ -421,11 +421,12 @@ Try fixing this Python code so that it compiles correctly with the Python → 11
 <li><a href="https://codeforces.com/contest/1559/submission/147706575?locale=en">Mocha and Red and Blue</a></li>
 <li><a href="https://codeforces.com/contest/1541/submission/120613649?locale=en">Pretty Permutations</a> (hint: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><pre style="display: inline">[<span class="numeric-literal">2</span>,*<span class="identifier">n</span>%<span class="numeric-literal">2</span>*[<span class="numeric-literal">3</span>],<span class="numeric-literal">1</span>]</pre> can be replaced with <pre style="display: inline">[<span class="numeric-literal">2</span>]+<span class="identifier">n</span>%<span class="numeric-literal">2</span>*[<span class="numeric-literal">3</span>]+[<span class="numeric-literal">1</span>]</pre></span><span class="cu_brackets_b">}</span></span>)</li>
 <li><a href="https://codeforces.com/contest/1535/submission/118451499?locale=en">Playoff Tournament</a></li>
+<li><a href="https://codeforces.com/contest/1486/submission/107889551?locale=en">Paired Payment</a></li>
 </ol>
 <!--[[[
 . [https://codeforces.com/contest/1541/submission/120557452] (`a[k]` -> `a[(k+len(a)) % len(a)]` as `k` can be negative)
 ]]]--><br />
-<div class="note">To check your solution, open the page for the corresponding problem (under ‘Problem’ in the table), save the input of the example in a file called <pre class="inline_code">input.txt</pre> and run the following three commands from the command line:<br />
+<div class="note">To check your solution, open the page for the corresponding problem (under ‘Problem’ in the table), save the input of the example into a file called <pre class="inline_code">input.txt</pre> and then run the following three commands from the command line:<br />
 <pre class="code_block">
 ...11l your_solution.py
 python orig_solution.py &lt; input.txt > output_py.txt

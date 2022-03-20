@@ -121,7 +121,7 @@ def rotated(s : str):
     return s[1:] + s[0]
 ’
 (Instead of writing #(Python)‘s[1:] + '' + s[0]’.)
-[In future versions of the transpiler, the ability to use `+` for string concatenation in 11l code may depend on the `--python-max-compat` option.]
+[In future versions of the transpiler, the ability to use `+` for string concatenation in 11l code may depend on the `--max-compat-with-python` option.]
 
 H‘String and character literals’
 
@@ -302,10 +302,11 @@ Try fixing this Python code so that it compiles correctly with the Python → 11
 5. ‘Mocha and Red and Blue’[https://codeforces.com/contest/1559/submission/147706575?locale=en]
 6. ‘Pretty Permutations’[https://codeforces.com/contest/1541/submission/120613649?locale=en] (hint: {#(Python)‘[2,*n%2*[3],1]’ can be replaced with #(Python)‘[2]+n%2*[3]+[1]’})
 7. ‘Playoff Tournament’[https://codeforces.com/contest/1535/submission/118451499?locale=en]
+8. ‘Paired Payment’[https://codeforces.com/contest/1486/submission/107889551?locale=en]
 [[[
 . [https://codeforces.com/contest/1541/submission/120557452] (`a[k]` -> `a[(k+len(a)) % len(a)]` as `k` can be negative)
 ]]]
-!‘To check your solution, open the page for the corresponding problem (under ‘Problem’ in the table), save the input of the example in a file called `input.txt` and run the following three commands from the command line:
+!‘To check your solution, open the page for the corresponding problem (under ‘Problem’ in the table), save the input of the example into a file called `input.txt` and then run the following three commands from the command line:
 #‘
 ...11l your_solution.py
 python orig_solution.py < input.txt > output_py.txt

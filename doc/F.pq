@@ -18,7 +18,7 @@ T Person
       .name = name
       .age  = age
 ’
-}) or this is a module-default-function, e.g. `os:(command_string)` (see ‘module os documentation’[./../built-in-modules/os]).
+}) or this is a [[[module-default-function/]]]module nameless function, e.g. `os:(command_string)` (see ‘module os documentation’[./../built-in-modules/os]).
 
 `<arguments>`
 Comma- or semicolon-separated list of function[[['s]]] arguments. Can be empty.

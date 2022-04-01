@@ -22,10 +22,11 @@ function spoiler2(element, event)
 }
 </script>
 <style type="text/css">
-body td {
+div#main, td {
     font-size: 14px;
     font-family: Verdana, sans-serif;
     line-height: 160%;
+    text-align: justify;
 }
 span.cu_brackets_b {
     font-size: initial;
@@ -44,13 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -62,8 +62,8 @@ ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -93,10 +93,15 @@ pre.inline_code {
     border-radius: 3px;
 }
 img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
 </style>
 </head>
 <body>
-<table style="max-width: 1024px" align="center"><tr><td>
+<div id="main" style="margin: 0 auto">
 <!--[[[H‘F/fn’
 ]]]--><h3>F/fn keyword</h3>
 <br />
@@ -124,7 +129,7 @@ Name of the function. Can be empty if it is a constructor (when <!--[[[new ]]]--
       .<span class="identifier">name</span> = <span class="identifier">name</span>
       .<span class="identifier">age</span>  = <span class="identifier">age</span>
 </pre>
-</span><span class="cu_brackets_b">}</span></span>) or this is a module-default-function, e.g. <pre class="inline_code">os:(command_string)</pre> (see <a href="./../built-in-modules/os" target="_self">module os documentation</a>).<br />
+</span><span class="cu_brackets_b">}</span></span>) or this is a <!--[[[module-default-function/]]]-->module nameless function, e.g. <pre class="inline_code">os:(command_string)</pre> (see <a href="./../built-in-modules/os" target="_self">module os documentation</a>).<br />
 <br />
 <pre class="inline_code">&lt;arguments></pre><br />
 Comma- or semicolon-separated list of function<!--[[['s]]]--> arguments. Can be empty.<br />
@@ -197,7 +202,6 @@ Small example:<br />
 </pre>
 <br />
 <pre class="inline_code">F.args</pre>/<pre class="inline_code">fn.args</pre> is intended to provide access to the arguments passed to the current function, but it is not implemented yet.<br />
-
-</td></tr></table>
+</div>
 </body>
 </html>

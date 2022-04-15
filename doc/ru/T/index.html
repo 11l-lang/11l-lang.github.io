@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -115,11 +115,11 @@ span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
 <span class="keyword">T</span> &lt;<span class="identifier">имя</span> <span class="identifier">типа</span>>
-   <span class="identifier">String</span> <span class="identifier">s</span> <span class="comment">// переменная типа</span>
-   . <span class="identifier">String</span> <span class="identifier">ps</span> <span class="comment">// закрытая переменная типа [обоснование: точка используется для скрытых файлов и папок в Unix]</span>
+   <span class="identifier">String</span> <span class="identifier">s</span> <span class="comment">// переменная экземпляра типа</span>
+   . <span class="identifier">String</span> <span class="identifier">ps</span> <span class="comment">// закрытая переменная экземпляра типа [обоснование: точка используется для скрытых файлов и папок в Unix]</span>
    <span class="keyword">F</span> (<span class="identifier">s</span>) <span class="comment">// конструктор</span>
       .<span class="identifier">s</span> = <span class="identifier">s</span>
-   <span class="keyword">F</span> <span class="identifier">get_s_len</span>() <span class="comment">// функция типа</span>
+   <span class="keyword">F</span> <span class="identifier">get_s_len</span>() <span class="comment">// функция типа (метод)</span>
       <span class="keyword">R</span> .<span class="identifier">s</span>.<span class="identifier">len</span>
 </pre>
 <br />

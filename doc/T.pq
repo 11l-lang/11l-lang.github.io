@@ -4,11 +4,11 @@
 
 #(11l)‘
 T <type name>
-   String s // type variable
-   . String ps // private variable [rationale: dot is used for hidden files and folders in Unix]
+   String s // instance variable
+   . String ps // private instance variable [rationale: dot is used for hidden files and folders in Unix]
    F (s) // constructor
       .s = s
-   F get_s_len() // type function
+   F get_s_len() // member function (method)
       R .s.len
 ’
 

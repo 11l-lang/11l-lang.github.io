@@ -570,4 +570,10 @@ And if you haven't found a solution there, then ‘write [[[on/]]]at the forum�
 }’’’’
 
 T‘‘‘[[[English Forum \ Русскоязычный форум]]]Forum[http://forum.11l-lang.org]’’’
+
+T‘‘‘><‘‘Articles’{
+<<‘
+. ‘Article on Habr ‘‘Lexical Analysis in 11l’’’[https://habr.com/ru/post/663872/]
+’
+}’’’’
 ’

@@ -12,15 +12,22 @@ To construct an integer from a string in radix `base` write #(11l)‘Int(s, radi
 To construct an integer from an array of bytes write #(11l)‘Int(bytes' b)’ for little-endian, and #(11l)‘Int(bytes_be' b)’ for big-endian.
 [For the reverse operation use built-in function `bytes_from_int()`.]
 
-*‘Int8/Byte’
+*‘Int8’
 *‘Int16’
 *‘Int32’
 *‘Int64’
 or[http://forum.11l-lang.org/threads/int8-int16-int32-int64-vs-int1-int2-int4-int8.3/ ‘Int8, Int16, Int32, Int64 vs Int1, Int2, Int4, Int8 ‘Int8, Int16, Int32, Int64’ ‘Int1, Int2, Int4, Int8’ What way of the designation of the size of Int/Float do you prefer? Bits or bytes?’]
-*‘Int1/Byte’
+*‘Int1’
 *‘Int2’
 *‘Int4’
 *‘Int8’
+Signed integers.
+
+*‘Byte’
+*‘UInt16’
+*‘UInt32’
+*‘UInt64’
+Unsigned integers.
 
 *‘BigInt’
 Arbitrary-precision integer.

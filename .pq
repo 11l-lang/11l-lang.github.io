@@ -46,7 +46,7 @@ C(5)‘```
 11‘l’[‘‘l’ [[[means/]]]stands for ‘litterae’ in Latin, ‘logos’ in Greek [meaning ‘word’], or ‘letters’ in English’] [[[— ]]]is a [semi-esoteric] [[[‘very high-level’[https://en.wikipedia.org/wiki/Very_high-level_programming_language]]this term is unclear]][[[high-level/]]]compiled [[[universal/]]]general-purpose programming language, [[[at the same time providing]]]which provides a simple and direct mapping to hardware and aims to[[[/at]]] follow[[[ing]]] a zero-overhead principle, like C++ (unused language features do not add ‘run-time overhead’[‘excess computation time, oftentimes combined with the additional length of a compiled machine code’]). 11l is statically typed, but [[[smells]]]feels very much like a dynamically typed language (e.g. Python)[[[ or even scripting language]]].
 The design of 11l is aimed to achieve as much conciseness as possible[[[, and to reconsider all programming language elements]]].
 Also 11l tries to combine [[[expressiveness/]]]a good code readability of Python {and ‘as Python’[https://stackoverflow.com/a/3965129/2692494]: good 11l is often close to good pseudocode} [[[and/]]]with speed/performance of C++ {
->[http://www.stroustrup.com/bs_faq.html#really-say-that <- https://en.wikipedia.org/wiki/C++][-1]:‘C++ semantics is much cleaner than its syntax.’
+>[https://www.stroustrup.com/quotes.html <- https://en.wikipedia.org/wiki/C++][-1]:‘C++ semantics is much cleaner than its syntax.’
 >[-1]:‘Within C++, there is a much smaller and cleaner language struggling to get out’
 And 11l tries to be such a ‘smaller and cleaner language’.
 }.

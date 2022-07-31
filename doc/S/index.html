@@ -128,7 +128,7 @@ Expression <pre class="inline_code">&lt;expression></pre> is compared with const
 <br />
 The <pre class="inline_code">S</pre>/<pre class="inline_code">switch</pre> can be used in expressions:<br />
 <pre class="code_block">
-<span class="keyword">V</span> <span class="identifier">tag</span> = <span class="keyword">S</span> <span class="identifier">prev_char</span>()
+<span class="keyword">V</span> <span class="identifier">tag</span> = <span class="keyword">S</span> <span class="identifier">prevc</span>
            <span class="string-literal">‘*’</span>
               <span class="string-literal">‘b’</span>
            <span class="string-literal">‘_’</span>
@@ -140,11 +140,11 @@ The <pre class="inline_code">S</pre>/<pre class="inline_code">switch</pre> can b
 </pre>
 Or in one line. So:<br />
 <pre class="code_block">
-<span class="keyword">V</span> <span class="identifier">tag</span> = <span class="keyword">S</span> <span class="identifier">prev_char</span>() {<span class="string-literal">‘*’</span> {<span class="string-literal">‘b’</span>}; <span class="string-literal">‘_’</span> {<span class="string-literal">‘u’</span>}; <span class="string-literal">‘-’</span> {<span class="string-literal">‘s’</span>}; <span class="string-literal">‘~’</span> {<span class="string-literal">‘i’</span>}}
+<span class="keyword">V</span> <span class="identifier">tag</span> = <span class="keyword">S</span> <span class="identifier">prevc</span> {<span class="string-literal">‘*’</span> {<span class="string-literal">‘b’</span>}; <span class="string-literal">‘_’</span> {<span class="string-literal">‘u’</span>}; <span class="string-literal">‘-’</span> {<span class="string-literal">‘s’</span>}; <span class="string-literal">‘~’</span> {<span class="string-literal">‘i’</span>}}
 </pre>
 or so:<br />
 <pre class="code_block">
-<span class="keyword">V</span> <span class="identifier">tag</span> = <span class="keyword">S</span> <span class="identifier">prev_char</span>() {<span class="string-literal">‘*’</span> {<span class="string-literal">‘b’</span>} <span class="string-literal">‘_’</span> {<span class="string-literal">‘u’</span>} <span class="string-literal">‘-’</span> {<span class="string-literal">‘s’</span>} <span class="string-literal">‘~’</span> {<span class="string-literal">‘i’</span>}}
+<span class="keyword">V</span> <span class="identifier">tag</span> = <span class="keyword">S</span> <span class="identifier">prevc</span> {<span class="string-literal">‘*’</span> {<span class="string-literal">‘b’</span>} <span class="string-literal">‘_’</span> {<span class="string-literal">‘u’</span>} <span class="string-literal">‘-’</span> {<span class="string-literal">‘s’</span>} <span class="string-literal">‘~’</span> {<span class="string-literal">‘i’</span>}}
 </pre>
 <br />
 If you have a very long switch, which does not fit on the screen, you can add comment<!--[[[s]]]--> for each "case":<br />

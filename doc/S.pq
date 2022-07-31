@@ -17,7 +17,7 @@ Expression `<expression>` is compared with constant expressions for equality. If
 
 The `S`/`switch` can be used in expressions:
 #(11l)‘
-V tag = S prev_char()
+V tag = S prevc
            ‘*’
               ‘b’
            ‘_’
@@ -29,11 +29,11 @@ V tag = S prev_char()
 ’
 Or in one line. So:
 #(11l)‘
-V tag = S prev_char() {‘*’ {‘b’}; ‘_’ {‘u’}; ‘-’ {‘s’}; ‘~’ {‘i’}}
+V tag = S prevc {‘*’ {‘b’}; ‘_’ {‘u’}; ‘-’ {‘s’}; ‘~’ {‘i’}}
 ’
 or so:
 #(11l)‘
-V tag = S prev_char() {‘*’ {‘b’} ‘_’ {‘u’} ‘-’ {‘s’} ‘~’ {‘i’}}
+V tag = S prevc {‘*’ {‘b’} ‘_’ {‘u’} ‘-’ {‘s’} ‘~’ {‘i’}}
 ’
 
 If you have a very long switch, which does not fit on the screen, you can add comment[[[s]]] for each "case":

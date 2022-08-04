@@ -574,7 +574,7 @@ print(ans)
 
 (Based on ‘this solution’[https://github.com/nayuki/Project-Euler-solutions/blob/master/python/p091.py?ts=4].)
 
-} is ~500 times faster (the Python → 11l → C++ transpiler vs CPython).
+} for solving ‘problem #91 of the Project Euler’[https://projecteuler.net/problem=91] is ~500 times faster (the Python → 11l → C++ transpiler vs CPython).
 ’
 }’’’’
 

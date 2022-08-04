@@ -551,6 +551,30 @@ for i in range(n):
         k -= 1
 ’
 }
+
+And this code {
+#(Python)‘
+def is_right_triangle(x1, y1, x2, y2):
+    a = x1**2 + y1**2
+    b = x2**2 + y2**2
+    c = (x2 - x1)**2 + (y2 - y1)**2
+    return (a + b == c) or (b + c == a) or (c + a == b)
+
+LIMIT = 51
+ans = 0
+for x1 in range(LIMIT):
+    for y1 in range(LIMIT):
+        for x2 in range(LIMIT):
+            for y2 in range(LIMIT):
+                # For uniqueness, ensure that (x1,y1) has a larger angle than (x2,y2)
+                if y2 * x1 < y1 * x2 and is_right_triangle(x1, y1, x2, y2):
+                    ans += 1
+print(ans)
+’
+
+(Based on ‘this solution’[https://github.com/nayuki/Project-Euler-solutions/blob/master/python/p091.py?ts=4].)
+
+} is ~500 times faster (the Python → 11l → C++ transpiler vs CPython).
 ’
 }’’’’
 

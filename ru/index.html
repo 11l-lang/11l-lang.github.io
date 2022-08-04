@@ -672,6 +672,30 @@ void swap_row(double *a, double *b, int r1, int r2, int n)
         <span class="identifier">k</span> -= <span class="numeric-literal">1</span>
 </pre>
 </div>
+<br />
+А этот код <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre class="code_block">
+<span class="keyword">def</span> <span class="identifier">is_right_triangle</span>(<span class="identifier">x1</span>, <span class="identifier">y1</span>, <span class="identifier">x2</span>, <span class="identifier">y2</span>):
+    <span class="identifier">a</span> = <span class="identifier">x1</span>**<span class="numeric-literal">2</span> + <span class="identifier">y1</span>**<span class="numeric-literal">2</span>
+    <span class="identifier">b</span> = <span class="identifier">x2</span>**<span class="numeric-literal">2</span> + <span class="identifier">y2</span>**<span class="numeric-literal">2</span>
+    <span class="identifier">c</span> = (<span class="identifier">x2</span> - <span class="identifier">x1</span>)**<span class="numeric-literal">2</span> + (<span class="identifier">y2</span> - <span class="identifier">y1</span>)**<span class="numeric-literal">2</span>
+    <span class="keyword">return</span> (<span class="identifier">a</span> + <span class="identifier">b</span> == <span class="identifier">c</span>) <span class="keyword">or</span> (<span class="identifier">b</span> + <span class="identifier">c</span> == <span class="identifier">a</span>) <span class="keyword">or</span> (<span class="identifier">c</span> + <span class="identifier">a</span> == <span class="identifier">b</span>)
+
+<span class="identifier">LIMIT</span> = <span class="numeric-literal">51</span>
+<span class="identifier">ans</span> = <span class="numeric-literal">0</span>
+<span class="keyword">for</span> <span class="identifier">x1</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="identifier">LIMIT</span>):
+    <span class="keyword">for</span> <span class="identifier">y1</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="identifier">LIMIT</span>):
+        <span class="keyword">for</span> <span class="identifier">x2</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="identifier">LIMIT</span>):
+            <span class="keyword">for</span> <span class="identifier">y2</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="identifier">LIMIT</span>):
+                <span class="comment"># For uniqueness, ensure that (x1,y1) has a larger angle than (x2,y2)</span>
+                <span class="keyword">if</span> <span class="identifier">y2</span> * <span class="identifier">x1</span> &lt; <span class="identifier">y1</span> * <span class="identifier">x2</span> <span class="keyword">and</span> <span class="identifier">is_right_triangle</span>(<span class="identifier">x1</span>, <span class="identifier">y1</span>, <span class="identifier">x2</span>, <span class="identifier">y2</span>):
+                    <span class="identifier">ans</span> += <span class="numeric-literal">1</span>
+<span class="identifier">print</span>(<span class="identifier">ans</span>)
+</pre>
+<br />
+(На основе <a href="https://github.com/nayuki/Project-Euler-solutions/blob/master/python/p091.py?ts=4">этого решения</a>.)<br />
+<br />
+</span><span class="cu_brackets_b">}</span></span> в ~500 раз быстрее (если сравнивать транспайлер Python → 11l → C++ с CPython).<br />
 </div>
 </div>
 </div>

@@ -65,7 +65,8 @@ print(ans)
 
 (На основе ‘этого решения’[https://github.com/nayuki/Project-Euler-solutions/blob/master/python/p091.py?ts=4].)
 
-} решения ‘задачи №91 Проекта Эйлер’[https://projecteuler.net/problem=91] в ~500 раз быстрее (если сравнивать транспайлер Python → 11l → C++ с CPython).
+} решения ‘задачи №91 Проекта Эйлер’[https://projecteuler.net/problem=91] в ~500 раз быстрее (если сравнивать транспайлер Python → 11l → C++ с CPython):
+P‘./../chart_pe91.png’
 ’
 }’’’’
 

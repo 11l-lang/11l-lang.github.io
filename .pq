@@ -526,7 +526,7 @@ P‘https://gist.githubusercontent.com/alextretyak/5524244126944a4c39f70341ef21b
 (Shed Skin is not listed here because it does not support nested functions.)
 [‘Here is an archive’[https://gist.github.com/alextretyak/5524244126944a4c39f70341ef21b87a/raw/e6cb2f07446ef4a19a3d6cdc1f8c483287ef1308/perf_tests.7z] with testing program used (Python 3.6 or higher is required, and following Python packages: pywin32, cython).]
 
-And this is the results for a ‘Prime number’[https://translate.google.com/translate?hl=&sl=ru&tl=en&u=https://informatics.msk.ru/mod/statements/view.php?chapterid=973] problem (with K = 1000000):
+[[[And ]]]This is the results for a ‘Prime number’[https://translate.google.com/translate?hl=&sl=ru&tl=en&u=https://informatics.msk.ru/mod/statements/view.php?chapterid=973] problem (with K = 1000000):
 P‘./transpiler/chart_prime.png’
 ‘Here is a corresponding Python source code’{
 #(Python)‘
@@ -574,7 +574,8 @@ print(ans)
 
 (Based on ‘this solution’[https://github.com/nayuki/Project-Euler-solutions/blob/master/python/p091.py?ts=4].)
 
-} for solving ‘problem #91 of the Project Euler’[https://projecteuler.net/problem=91] is ~500 times faster (the Python → 11l → C++ transpiler vs CPython).
+} for solving ‘problem #91 of the Project Euler’[https://projecteuler.net/problem=91] is ~500 times faster (the Python → 11l → C++ transpiler vs CPython):
+P‘./transpiler/chart_pe91.png’
 ’
 }’’’’
 

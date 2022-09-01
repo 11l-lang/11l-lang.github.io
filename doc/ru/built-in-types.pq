@@ -35,10 +35,10 @@
 *‘Float’
 Вещественный тип (размерностью ‘32 или 64’[http://forum.11l-lang.org/threads/Размер-встроенного-типа-float.5/] разряда).
 
-*‘Float32’
+*‘Float32’/*‘SFloat’
 *‘Float64’
 или[http://forum.11l-lang.org/threads/int8-int16-int32-int64-vs-int1-int2-int4-int8.6/]
-*‘Float4’
+*‘Float4’/*‘SFloat’
 *‘Float8’
 
 *‘Char’

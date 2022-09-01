@@ -115,10 +115,10 @@ span.string-literal {color: #800000;}
 span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
-</style><pre style="display: inline"><span class="string-literal">f:‘</span>{<span class="numeric-literal">2</span>+<span class="numeric-literal">2</span>:03}<span class="string-literal">’</span></pre> gives <pre style="display: inline"><span class="string-literal">‘004’</span></pre>.<br />
+</style><pre style="display: inline"><span class="string-literal">f:‘</span>{<span class="numeric-literal">2</span>+<span class="numeric-literal">2</span>:3}<span class="string-literal">’</span></pre> gives <pre style="display: inline"><span class="string-literal">‘  4’</span></pre>.<br />
 <br />
 <pre>
-replacement_field ::=  "{" [field_name] [":" format_spec] "}"
+replacement_field ::=  "{" f_expression [":" format_spec] "}"
 format_spec ::= ["&lt;"](width["."precision] | "."[precision])
 width       ::= digit+
 precision   ::= digit+
@@ -126,12 +126,17 @@ precision   ::= digit+
 <br />
 In 11l all fields by default are right-aligned regardless of their type <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">in Python only numbers are right-aligned by default, and strings are left-aligned (which makes less sense in 11l because e.g. <pre style="display: inline"><span class="string-literal">f'</span>{<span class="identifier">n</span>:10,}<span class="string-literal">'</span></pre> in Python corresponds to <pre style="display: inline"><span class="string-literal">f:‘</span>{<span class="identifier">commatize</span>(<span class="identifier">n</span>):10}<span class="string-literal">’</span></pre> in 11l, and <pre class="inline_code">commatize()</pre> returns string)</span><span class="cu_brackets_b">}</span></span>. <pre class="inline_code">&lt;</pre> forces the field to be left-aligned.<br />
 <br />
-Preceding the <i>width</i> field by a zero (<pre class="inline_code">0</pre>) character enables zero-padding.<br />
+Preceding the <i>width</i> field by a zero (<pre class="inline_code">0</pre>) character enables zero-padding (e.g., <pre style="display: inline"><span class="string-literal">f:‘</span>{<span class="numeric-literal">2</span>+<span class="numeric-literal">2</span>:03}<span class="string-literal">’</span></pre> gives <pre style="display: inline"><span class="string-literal">‘004’</span></pre>).<br />
 <br />
-There are no types (like <pre class="inline_code">f</pre> in Python).<!--[[[
+There are no types (like <pre class="inline_code">d</pre> or <pre class="inline_code">f</pre> in Python).<!--[[[
 
 And of course, you can omit the format specifier: #(11l)‘f:‘id = {id}’’.
 ]]]--><br />
+<br />
+Also note how paired quotes are come in handy:<br />
+<pre class="code_block">
+<span class="identifier">print</span>(<span class="string-literal">f:‘</span><span class="string-literal">Id: </span>{<span class="identifier">row</span>[<span class="string-literal">‘id’</span>]}<span class="string-literal">’</span>)
+</pre>
 </div>
 </body>
 </html>

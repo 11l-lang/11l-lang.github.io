@@ -157,12 +157,14 @@ Address-of</td></tr>
 <tr><td>x * y<br />
 x / y<br />
 x I/ y<br />
+x -I/ y<br />
 x % y<br />
 </td><td>Multiplication<br />
 Division<br />
 Integer division <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">note that <pre class="inline_code">-5 // 2 = -3</pre> in Python whereas <pre class="inline_code">-5 I/ 2 = -2</pre> in 11l, but this is merely because of performance considerations, and if you know efficient implementation of Python integer division<!--[[[
 >[https://stackoverflow.com/questions/3895081/divide-and-get-remainder-at-the-same-time <- google:‘divmod c’]:‘‘this is the code’[http://svn.python.org/projects/python/trunk/Objects/intobject.c] of the Python implementation for integer divmod:...’
 ]]]-->, please write at the <a href="http://forum.11l-lang.org/forums/development.2/">forum</a></span><span class="cu_brackets_b">}</span></span><br />
+N. Integer division (<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">performs floor division if dividend is negative</span><span class="cu_brackets_b">}</span></span>)<br />
 Remainder</td></tr>
 <tr><td>x""y and x‘’y</td><td>String concatenation (<a href="./../‘’" target="_self">rationale</a>)</td></tr>
 <tr><td>x + y<br />

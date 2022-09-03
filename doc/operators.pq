@@ -56,13 +56,15 @@ x / y
 x I/ y
 x -I/ y
 x % y
+x -% y
 ’ ‘Multiplication
 Division
 Integer division {note that `-5 // 2 = -3` in Python whereas `-5 I/ 2 = -2` in 11l, but this is merely because of performance considerations, and if you know efficient implementation of Python integer division[[[
 >[https://stackoverflow.com/questions/3895081/divide-and-get-remainder-at-the-same-time <- google:‘divmod c’]:‘‘this is the code’[http://svn.python.org/projects/python/trunk/Objects/intobject.c] of the Python implementation for integer divmod:...’
 ]]], please write at the forum[http://forum.11l-lang.org/forums/development.2/]}
 N. Integer division ({performs floor division if dividend is negative})
-Remainder’’
+Remainder
+N. Remainder ({result is positive even if `x` is negative})’’
 ‘‘x""y and x‘’y’ ‘String concatenation (rationale[./../‘’])’’
 ‘‘x + y
 x - y’ ‘Addition

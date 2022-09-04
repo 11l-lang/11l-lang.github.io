@@ -16,7 +16,8 @@ Credits to:
 T‘‘
 ‘x.y
 module:f
-0‘a[x]’
+0‘a[i]’
+0‘a[%i]’
 f(x)
 x--
 x++
@@ -24,6 +25,7 @@ x++
 ‘Member access
 Module function or variable access
 Subscript
+N. Subscript ({if `i` is negative, the index is relative to the end of the array})
 Function call
 Postfix decrement
 Postfix increment’’

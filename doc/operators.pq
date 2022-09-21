@@ -165,5 +165,5 @@ x += ...
 -= *= /= I/=
 %= >>= <<= ^=
 0‘[+]= [&]= [|]=’
-(+)= ‘’=’ ‘Assignments (right to left associative)’’
+(+)= ‘’= .=’ ‘Assignments (right to left associative)’’
 ’

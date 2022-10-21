@@ -11,7 +11,7 @@ T Error
       .message = message
 ’
 
-Prefix `:` is used for global (and for static [see below]) variables:
+Prefix `:` is used for global (or for static [see below]) variables:
 #(11l)‘
 V global_var = 0
 
@@ -45,7 +45,7 @@ F f()
          ...
             I @.instr[t] == "\n"
 ’’
->[https://rosettacode.org/wiki/Bitmap#11l]:‘#(11l)‘...  @@.background ...’’
+>[https://rosettacode.org/wiki/Bitmap#11l]:‘#(11l)‘... @@.background ...’’
 
 H(-1)‘Static variables’
 

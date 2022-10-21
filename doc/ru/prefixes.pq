@@ -45,7 +45,7 @@ F f()
          ...
             I @.instr[t] == "\n"
 ’’
->[https://rosettacode.org/wiki/Bitmap#11l]:‘#(11l)‘...  @@.background ...’’
+>[https://rosettacode.org/wiki/Bitmap#11l]:‘#(11l)‘... @@.background ...’’
 [[[
 >[https://ru.wikipedia.org/wiki/Анонимная_функция]:‘по ссылке [&] или с помощью копии [=]’
 ]]]

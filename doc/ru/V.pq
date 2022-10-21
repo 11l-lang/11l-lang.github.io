@@ -51,3 +51,12 @@ V a = V b = 0
 -V grid_size = n_rows * n_cols
 -V min_words = 25
 ’
+
+H(-1)‘`V?` и `V&`’
+
+#(11l)‘
+V? i = ‘str’.find(‘s’)
+
+F print_set(DefaultDict[Int, Set[Int]] &map; key)
+   V& s = map[key] // `V s = map[key]` писать нельзя (но можно `V s = copy(map[key])`)
+’

@@ -51,3 +51,12 @@ is equivalent to this:
 -V grid_size = n_rows * n_cols
 -V min_words = 25
 ’
+
+H(-1)‘`V?` and `V&`’
+
+#(11l)‘
+V? i = ‘str’.find(‘s’)
+
+F print_set(DefaultDict[Int, Set[Int]] &map; key)
+   V& s = map[key] // `V s = map[key]` is forbidden (but you can write `V s = copy(map[key])`)
+’

@@ -487,6 +487,9 @@ Open file with the specified name and mode (<i>note: only ‘r’ and ‘w’ ar
 Read a whole file into a string, and return it.<br />
 <i>Note: only UTF-8 encoding <span class="sq"><span class="sq_brackets">[</span>with optional BOM<span class="sq_brackets">]</span></span> is supported at the present moment.</i><br />
 <br />
+<b>read</b>(1) -> Char<br />
+Read and return single character from the file.<br />
+<br />
 <b>read_line</b>(keep_newline = 0B) -> String<br />
 Read and return one line from the file. If <pre class="inline_code">keep_newline</pre> argument is true (1B), trailing new-line character is <!--[[[remained/]]]-->left as is.<br />
 <br />
@@ -495,6 +498,9 @@ Read and return one line from the file. If <pre class="inline_code">keep_newline
 <br />
 <b>read_bytes</b>() -> Array[Byte]<br />
 Read a whole file into an array of bytes, and return it.<br />
+<br />
+<b>read_bytes</b>(size) -> Array[Byte]<br />
+<!--[[[Read and return at most `size` bytes from the file.]]]-->Read up to <pre class="inline_code">size</pre> bytes from the file and return them.<br />
 <br />
 <b>write</b>(s)<br />
 Write the string <pre class="inline_code">s</pre> to the file.<br />

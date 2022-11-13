@@ -376,6 +376,9 @@ Open file with the specified name and mode (~‘note: only ‘r’ and ‘w’ a
 Read a whole file into a string, and return it.
 ~‘Note: only UTF-8 encoding [with optional BOM] is supported at the present moment.’
 
+*‘read’(1) -> Char
+Read and return single character from the file.
+
 *‘read_line’(keep_newline = 0B) -> String
 Read and return one line from the file. If `keep_newline` argument is true (1B), trailing new-line character is [[[remained/]]]left as is.
 
@@ -384,6 +387,9 @@ Read and return one line from the file. If `keep_newline` argument is true (1B),
 
 *‘read_bytes’() -> Array0‘[Byte]’
 Read a whole file into an array of bytes, and return it.
+
+*‘read_bytes’(size) -> Array0‘[Byte]’
+[[[Read and return at most `size` bytes from the file.]]]Read up to `size` bytes from the file and return them.
 
 *‘write’(s)
 Write the string `s` to the file.

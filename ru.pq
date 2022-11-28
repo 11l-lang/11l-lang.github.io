@@ -551,6 +551,8 @@ for i in range(n):
 
 А этот код {
 #(Python)‘
+# Copyright (c) Project Nayuki. All rights reserved. Modified with permission.
+
 def is_right_triangle(x1, y1, x2, y2):
     a = x1**2 + y1**2
     b = x2**2 + y2**2

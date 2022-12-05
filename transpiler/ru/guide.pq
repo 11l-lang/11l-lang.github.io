@@ -291,6 +291,7 @@ l = [(b if char == "w" else 1) for char in input()]
 . collections (только defaultdict, deque и Counter)
 . heapq
 . bisect
+. array
 
 Н‘Практика’
 

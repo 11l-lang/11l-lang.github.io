@@ -291,6 +291,7 @@ Currently, the Python → 11l → C++ transpiler partially supports the followin
 . collections (defaultdict, deque and Counter only)
 . heapq
 . bisect
+. array
 
 H‘Practice’
 

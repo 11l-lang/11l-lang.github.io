@@ -21,10 +21,11 @@ function spoiler2(element, event)
 }
 </script>
 <style type="text/css">
-body td {
+div#main, td {
     font-size: 14px;
     font-family: Verdana, sans-serif;
     line-height: 160%;
+    text-align: justify;
 }
 span.cu_brackets_b {
     font-size: initial;
@@ -43,13 +44,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -61,8 +61,8 @@ ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -92,10 +92,15 @@ pre.inline_code {
     border-radius: 3px;
 }
 img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
 </style>
 </head>
 <body>
-<table style="max-width: 1024px" align="center"><tr><td>
+<div id="main" style="margin: 0 auto">
 I think that operator <pre class="inline_code">+</pre> for string concatenation is an unfortunate decision, because:<br />
 <ol>
 <li>String concatenation is noncommutative unlike addition operator <pre class="inline_code">+</pre>. This argument mentions the developers of Julia programming language<!--[[[, D]]]-->:<br />
@@ -154,7 +159,9 @@ In the last case a raw string literal is used — raw strings should be enclosed
 <br />
 Consecutive string literals <span class="sq"><span class="sq_brackets">[</span>of one type (‘’ or "")<span class="sq_brackets">]</span></span> are <b>not</b> concatenated <span class="sq"><span class="sq_brackets">[</span>unlike in languages C or Python<span class="sq_brackets">]</span></span>, because it is error prone (this problem is mentioned <a href="https://www.python.org/dev/peps/pep-3126/">here</a> and <a href="http://www.viva64.com/en/d/0273/">here</a>) — space between two string literals indicate that likely comma is missed here.<br />
 String literals are concatenated only with variables: <pre style="display: inline"><span class="string-literal">‘Value = ’</span><span class="identifier">value</span><span class="string-literal">"\n"</span></pre>, and with string literals of other type: <pre style="display: inline"><span class="string-literal">‘no-break’</span><span class="string-literal">"\xA0"</span><span class="string-literal">‘space’</span></pre>. And in this case there should <b>not</b> be a space between string literal and a variable or string literal of other type.<br />
-
-</td></tr></table>
+<br />
+<blockquote>Why is <pre class="inline_code">+</pre> bad for strings, but <pre class="inline_code">*</pre> is not?</blockquote>
+Because <pre class="inline_code">*</pre> almost always has one of the operands as a string literal <span class="sq"><span class="sq_brackets">[</span><pre class="inline_code">"s" * n</pre>/<pre class="inline_code">n * "s"</pre><span class="sq_brackets">]</span></span> and such an operation is easily noticeable.<br />
+</div>
 </body>
 </html>

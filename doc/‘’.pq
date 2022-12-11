@@ -44,3 +44,6 @@ In the last case a raw string literal is used — raw strings should be enclosed
 
 Consecutive string literals [of one type (‘’ or "")] are *‘not’ concatenated [unlike in languages C or Python], because it is error prone (this problem is mentioned here[https://www.python.org/dev/peps/pep-3126/] and here[http://www.viva64.com/en/d/0273/]) — space between two string literals indicate that likely comma is missed here.
 String literals are concatenated only with variables: #(11l)‘‘Value = ’value"\n"’, and with string literals of other type: #(11l)‘‘no-break’"\xA0"‘space’’. And in this case there should *‘not’ be a space between string literal and a variable or string literal of other type.
+
+> Why is `+` bad for strings, but `*` is not?
+Because `*` almost always has one of the operands as a string literal [`"s" * n`/`n * "s"`] and such an operation is easily noticeable.

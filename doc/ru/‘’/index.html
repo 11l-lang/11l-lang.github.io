@@ -21,10 +21,11 @@ function spoiler2(element, event)
 }
 </script>
 <style type="text/css">
-body td {
+div#main, td {
     font-size: 14px;
     font-family: Verdana, sans-serif;
     line-height: 160%;
+    text-align: justify;
 }
 span.cu_brackets_b {
     font-size: initial;
@@ -43,13 +44,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -61,8 +61,8 @@ ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -92,10 +92,15 @@ pre.inline_code {
     border-radius: 3px;
 }
 img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
 </style>
 </head>
 <body>
-<table style="max-width: 1024px" align="center"><tr><td>
+<div id="main" style="margin: 0 auto">
 Я считаю, что оператор <pre class="inline_code">+</pre> для конкатенации строк — неудачное решение, так как:<br />
 <ol>
 <li>Он некоммутативен в отличие от операции сложения, обозначаемой символом <pre class="inline_code">+</pre>. Этот аргумент приводят, в частности, разработчики языка программирования Julia<!--[[[, D]]]-->:<br />
@@ -154,7 +159,9 @@ It doesn't print <pre class="inline_code">Animals are equal: true</pre>. It does
 В последнем случае используются "сырые" строки — их необходимо заключать в одиночные парные кавычки — символы <pre class="inline_code">‘</pre> и <pre class="inline_code">’</pre>, и их использование предпочтительно в 11l.<br />
 <br />
 Подряд идущие же строки <span class="sq"><span class="sq_brackets">[</span>одного типа (‘’ или "")<span class="sq_brackets">]</span></span> <b>не</b> склеиваются в одну <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">(как в <abbr title="например Си и Python">некоторых</abbr> языках программирования), так как это чревато пропущенными ошибками (эта проблема также упоминается <a href="https://www.python.org/dev/peps/pep-3126/">здесь</a> и <a href="http://www.viva64.com/ru/d/0273/">здесь</a>): например, возможно была пропущена запятая между строк, и механизм автоматического склеивания/конкатенации строк пропустит такую ошибку</span><span class="cu_brackets_b">}</span></span>, за исключением склеивания переменных: <pre style="display: inline"><span class="string-literal">‘Значение = ’</span><span class="identifier">value</span><span class="string-literal">"\n"</span></pre>, а также разнородных строк: <pre style="display: inline"><span class="string-literal">‘неразрывный’</span><span class="string-literal">"\xA0"</span><span class="string-literal">‘пробел’</span></pre> — при этом между <!--[[[строкой/]]]-->строковым литералом и переменной (или <!--[[[строкой]]]-->строковым литералом другого типа) <b>не</b> должно быть разделителей.<br />
-
-</td></tr></table>
+<br />
+<blockquote>Почему <pre class="inline_code">+</pre> для строк — плохо, а <pre class="inline_code">*</pre> — нет?</blockquote>
+Потому что у <pre class="inline_code">*</pre> практически всегда один из операндов является строковым литералом <span class="sq"><span class="sq_brackets">[</span><pre class="inline_code">"s" * n</pre>/<pre class="inline_code">n * "s"</pre><span class="sq_brackets">]</span></span> и такую операцию сразу заметно.<!--[[[ К тому же, оператор `*` для строки и числа является коммутативным.]]]--><br />
+</div>
 </body>
 </html>

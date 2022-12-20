@@ -292,6 +292,7 @@ l = [(b if char == "w" else 1) for char in input()]
 . heapq
 . bisect
 . array
+. fractions
 
 Н‘Практика’
 

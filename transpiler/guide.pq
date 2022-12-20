@@ -292,6 +292,7 @@ Currently, the Python → 11l → C++ transpiler partially supports the followin
 . heapq
 . bisect
 . array
+. fractions
 
 H‘Practice’
 

@@ -174,13 +174,18 @@ while i < len(source) and ('0' <= source[i] <= '9'
 
 ...
 
-if source[lexem_start:lexem_start+3] == '(.)':
-    i += 2
-    category = Token.Category.NAME
+load64(state[8*(x+5*y):8*(x+5*y)+8])
 
 ...
 
-load64(state[8*(x+5*y):8*(x+5*y)+8])
+elif i_next_str(":‘") and instr[find_ending_pair_quote(i+2)+1: # ’
+                                find_ending_pair_quote(i+2)+2] == '<':
+    ...
+...
+
+if source[lexem_start:lexem_start+3] == '(.)':
+    i += 2
+    category = Token.Category.NAME
 
 ...
 
@@ -196,6 +201,12 @@ elif token.category in (Token.Category.STATEMENT_SEPARATOR,
     key = ';'
 else:
     key = token.value(source)
+
+...
+
+import csv
+for row in csv.reader(open('data.csv', newline = '', encoding = 'utf-8')):
+    ...
 ’’ ‘#(11l)‘
 
 L(i) (1 .< .children.len).step(2)
@@ -230,13 +241,18 @@ L i < source.len & source[i] C (‘0’..‘9’, ‘a’..‘f’, ‘A’..‘
 
 ...
 
-I source[lexem_start .+ 3] == ‘(.)’
-   i += 2
-   category = NAME
+load64(state[8*(x+5*y) .+ 8])
 
 ...
 
-load64(state[8*(x+5*y) .+ 8])
+E I i_next_str(":‘") & // ’
+    instr[find_ending_pair_quote(i+2)+1 .+ 1] == ‘<’
+   ...
+...
+
+I source[lexem_start .+ 3] == ‘(.)’
+   i += 2
+   category = NAME
 
 ...
 
@@ -252,6 +268,12 @@ V key = S token.category
    E
       token.value(source)
 
+
+...
+
+
+L(row) csv:read(‘data.csv’)
+   ...
 ’’’’
 T‘‘‘#(Python)‘
 

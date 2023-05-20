@@ -93,7 +93,10 @@ P‘https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/OR_gate_RU.svg/100
 })’’
 ‘‘x < y, x <= y
 x > y, x >= y’ ‘Comparison operators’’
-‘‘x ? y’ ‘Null coalescing’’
+‘‘x ? y’ ‘Null coalescing (rationale: {
+This operator is denoted differently in different programming languages: some of them use `?:` (e.g., Kotlin, Groovy, Objective-C), [[[and some]]/]while others use `??` (e.g., C#, JavaScript, PHP, Swift, PowerShell).
+Besides, in 11l (like ‘in Kotlin’[https://discuss.kotlinlang.org/t/ternary-operator/2116/11 <- google:‘kotlin ternary’ <- [http://compiler.su/opisanie-yazyka.php]:‘Вот разработчик Котлина прямо сказал, что тернарного условного оператора нет, потому что его нельзя туда легко и удобно добавить.’]), `I`/`if` is an expression: it returns a value. Therefore, there is no ternary operator (`condition ? then : else`) because ordinary `I`/`if` works fine in this role.
+})’’
 ‘‘x..y, x.<y, x.+len
 x<.y, x<.<y’ ‘Ranges’’
 ‘‘x == y, x != y

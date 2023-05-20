@@ -184,7 +184,10 @@ x >> y</td><td>Поразрядный сдвиг влево<br />
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x &lt; y, x &lt;= y<br />
 x > y, x >= y</td><td>Операции сравнения</td></tr>
-<tr><td>x ? y</td><td>Вернуть левый операнд если он не нуль, иначе вернуть правый операнд</td></tr>
+<tr><td>x ? y</td><td>Вернуть левый операнд если он не нуль, иначе вернуть правый операнд (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+Этот оператор обозначается по-разному в различных языках программирования: в некоторых используется <pre class="inline_code">?:</pre> (например, в Kotlin, Groovy, Objective-C), а в некоторых используется <pre class="inline_code">??</pre> (например, в C#, JavaScript, PHP, Swift, PowerShell).<br />
+Кроме того, в 11l (так же как <a href="https://discuss.kotlinlang.org/t/ternary-operator/2116/11" title="<- google:‘kotlin ternary’ <- [http://compiler.su/opisanie-yazyka.php]:‘Вот разработчик Котлина прямо сказал, что тернарного условного оператора нет, потому что его нельзя туда легко и удобно добавить.’">в Kotlin</a>), <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> является выражением: оно возвращает значение. Поэтому, в тернарном операторе (<pre class="inline_code">условие ? тогда : иначе</pre>) нет необходимости, т.к. <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> прекрасно справляется с его ролью.<br />
+</span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x..y, x.&lt;y, x.+len<br />
 x&lt;.y, x&lt;.&lt;y</td><td>Диапазоны</td></tr>
 <tr><td>x == y, x != y<br />

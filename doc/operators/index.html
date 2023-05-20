@@ -196,7 +196,10 @@ Symbol | looks like 1 and [1] looks similar to <a href="https://ru.wikipedia.org
 </span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x &lt; y, x &lt;= y<br />
 x > y, x >= y</td><td>Comparison operators</td></tr>
-<tr><td>x ? y</td><td>Null coalescing</td></tr>
+<tr><td>x ? y</td><td>Null coalescing (rationale: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+This operator is denoted differently in different programming languages: some of them use <pre class="inline_code">?:</pre> (e.g., Kotlin, Groovy, Objective-C), <!--[[[and some]]/]-->while others use <pre class="inline_code">??</pre> (e.g., C#, JavaScript, PHP, Swift, PowerShell).<br />
+Besides, in 11l (like <a href="https://discuss.kotlinlang.org/t/ternary-operator/2116/11" title="<- google:‘kotlin ternary’ <- [http://compiler.su/opisanie-yazyka.php]:‘Вот разработчик Котлина прямо сказал, что тернарного условного оператора нет, потому что его нельзя туда легко и удобно добавить.’">in Kotlin</a>), <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> is an expression: it returns a value. Therefore, there is no ternary operator (<pre class="inline_code">condition ? then : else</pre>) because ordinary <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> works fine in this role.<br />
+</span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x..y, x.&lt;y, x.+len<br />
 x&lt;.y, x&lt;.&lt;y</td><td>Ranges</td></tr>
 <tr><td>x == y, x != y<br />

@@ -121,7 +121,13 @@ span.comment {color: #808080;}
 </style><pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">s</span>)</pre>.<br />
 To construct an integer from a string in radix <pre class="inline_code">base</pre> write <pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">s</span>, <span class="identifier">radix'</span> <span class="identifier">base</span>)</pre>.<br />
 To construct an integer from an array of bytes write <pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">bytes'</span> <span class="identifier">b</span>)</pre> for little-endian, and <pre style="display: inline"><span class="identifier">Int</span>(<span class="identifier">bytes_be'</span> <span class="identifier">b</span>)</pre> for big-endian.<br />
-<span class="sq"><span class="sq_brackets">[</span>For the reverse operation use built-in function <pre class="inline_code">bytes_from_int()</pre>.<span class="sq_brackets">]</span></span><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Methods<br /></span><div class="spoiler_text" style="display: none">
+<b>to_bytes</b>()<br />
+Return an array of bytes representing an integer.<br />
+<br />
+<b>bits</b>(range)<br />
+Return bits of an integer corresponding to a giving <pre class="inline_code">range</pre>. (Example: <pre style="display: inline"><span class="numeric-literal">00AB'CDEF</span>.<span class="identifier">bits</span>(<span class="numeric-literal">4</span> .+ <span class="numeric-literal">8</span>)</pre> gives <pre style="display: inline"><span class="numeric-literal">D'E</span></pre>.)<br />
+</div>
 <br />
 <b>Int8</b><br />
 <b>Int16</b><br />

@@ -10,7 +10,13 @@ Integral type (‘32 or 64’[http://forum.11l-lang.org/threads/size-of-int-buil
 To construct an integer from a string write #(11l)‘Int(s)’.
 To construct an integer from a string in radix `base` write #(11l)‘Int(s, radix' base)’.
 To construct an integer from an array of bytes write #(11l)‘Int(bytes' b)’ for little-endian, and #(11l)‘Int(bytes_be' b)’ for big-endian.
-[For the reverse operation use built-in function `bytes_from_int()`.]
+‘Methods’{
+*‘to_bytes’()
+Return an array of bytes representing an integer.
+
+*‘bits’(range)
+Return bits of an integer corresponding to a giving `range`. (Example: #(11l)‘00AB'CDEF.bits(4 .+ 8)’ gives #(11l)‘D'E’.)
+}
 
 *‘Int8’
 *‘Int16’

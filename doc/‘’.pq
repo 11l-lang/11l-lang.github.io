@@ -42,7 +42,7 @@ print(name‘’value)
 ’
 In the last case a raw string literal is used — raw strings should be enclosed in single quotation marks: characters `‘` and `’`.
 
-Consecutive string literals [of one type (‘’ or "")] are *‘not’ concatenated [unlike in languages C or Python], because it is error prone (this problem is mentioned here[https://www.python.org/dev/peps/pep-3126/] and here[https://pvs-studio.com/en/docs/warnings/v653/]) — space between two string literals indicate that likely comma is missed here.
+Consecutive string literals [of one type (‘’ or "")] are *‘not’ concatenated [unlike in languages C or Python], because it is error prone {this problem is mentioned here[https://www.python.org/dev/peps/pep-3126/] and here[https://pvs-studio.com/en/docs/warnings/v653/], and also implicit concatenation of adjacent string literals was removed[https://forum.dlang.org/thread/boqhmhozscevousrydbb@forum.dlang.org <- https://forum.dlang.org/group/general] from D} — space between two string literals indicate that likely comma is missed here.
 String literals are concatenated only with variables: #(11l)‘‘Value = ’value"\n"’, and with string literals of other type: #(11l)‘‘no-break’"\xA0"‘space’’. And in this case there should *‘not’ be a space between string literal and a variable or string literal of other type.
 
 > Why is `+` bad for strings, but `*` is not?

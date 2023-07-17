@@ -38,3 +38,4 @@ Built-in modules:
    re[./built-in-modules/re]
    random[./built-in-modules/random]
    ‘minheap and maxheap’[./built-in-modules/minmaxheap]
+   bits[./built-in-modules/bits]

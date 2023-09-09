@@ -10,6 +10,9 @@ Return the current time.
 *‘Time’(year, month = 1, day = 1, hour = 0, minute = 0, Float second = 0)
 Constructs a Time object from specified arguments.
 
+*‘Time’(', Float unix_time)
+[[[Return/]]]Constructs [[[the time]]]a Time object corresponding to the POSIX timestamp (i.e. seconds since the epoch).
+
 *‘unix_time’()
 Return seconds since the epoch as a floating point number.
 
@@ -53,9 +56,6 @@ H(-1)‘time functions’
 
 time:*‘today’()
 Return the current time as #(11l)‘Time(current_year, current_month, current_day)’.
-
-time:*‘from_unix_time’(Float seconds_since_the_epoch)
-Return [[[the time]]]a Time object corresponding to the POSIX timestamp (i.e. seconds since the epoch).
 
 time:*‘strptime’(string, format) -> Time
 Parse a string representing a time according to a format.

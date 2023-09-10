@@ -60,3 +60,72 @@ V? i = ‘str’.find(‘s’)
 F print_set(DefaultDict[Int, Set[Int]] &map; key)
    V& s = map[key] // `V s = map[key]` is forbidden (but you can write `V s = copy(map[key])`)
 ’
+
+H(-1)‘`I V`’
+
+#(11l)‘
+I (V&? sheep = Sheep?(animal)) != N
+   print(sheep.some_sheep_prop)
+’
+can be shortened {
+#(11l)‘I -V sheep = Sheep?(animal)’ is redundant also because if `animal` is of type `-Animal`, then `sheep` will be const anyway [like with `auto&` in C++ — `const auto&` is not needed in such case].
+} to:
+#(11l)‘
+I V sheep = Sheep?(animal)
+   ...
+’
+because there is no hidden copying and sharing in 11l.
+
+And like in Swift {
+>[https://stackoverflow.com/questions/25828301/how-is-swift-if-let-evaluated <- google:‘swift "if let"’]:‘you can write:
+#‘
+if let name = optionalName {
+’
+but not
+#‘
+if (let name = optionalName) {
+’
+’[[[}}]]]} #(11l)‘I (V sheep = Sheep?(animal)) {...}’ is forbidden.
+
+However, in 11l this is also possible:
+#(11l)‘
+I T(animal) == Sheep // or `I T(animal) >= Sheep`
+   print(animal.some_sheep_prop)
+’
+
+Also note this:
+#(11l)‘
+I V v = ... // `v` is like a constant reference, so
+   v = ...  // this is forbidden
+
+// And if you want `v = ...` then:
+I V& v = ...   // write this
+I V v = copy(...) // or this
+’
+[This may seems strange, but there is a similar behaviour in other parts of 11l: `L(el)` vs `L(&el)`, and function arguments (which are immutable ‘by default’/‘without qualifiers’).
+However, despite of `v = ...` is forbidden, you can call mutable methods of `v` (for the sake of convenience).]
+
+H(-1)‘`V E`’
+
+Instead of:
+#(11l)‘
+V&? el = map.get(key)
+I el == N
+   print(‘Key <’key‘> is not found!’)
+   R
+’
+[[[you can]]]it is better to write:
+#(11l)‘
+V& el = map.get(key) E
+   print(‘Key <’key‘> is not found!’)
+   R
+’
+This syntax is[[[/was]]] inspired by `guard let` {however, there is no analogue of `guard <condition>` in 11l, because you can write just `I !(<condition>)`} in Swift, but it is also a [[[very ]]]logical enough, because
+#(11l)‘
+V& el = map.get(key)!
+’
+is the same as:
+#(11l)‘
+V& el = map.get(key) E
+   X NullPointerException()
+’

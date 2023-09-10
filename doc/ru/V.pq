@@ -60,3 +60,72 @@ V? i = ‘str’.find(‘s’)
 F print_set(DefaultDict[Int, Set[Int]] &map; key)
    V& s = map[key] // `V s = map[key]` писать нельзя (но можно `V s = copy(map[key])`)
 ’
+
+H(-1)‘`I V`’
+
+#(11l)‘
+I (V&? sheep = Sheep?(animal)) != N
+   print(sheep.some_sheep_prop)
+’
+можно сократить {
+#(11l)‘I -V sheep = Sheep?(animal)’ также излишне, т.к. если `animal` имеет тип `-Animal`, то `sheep` будет константой в любом случае [подобно `auto&` в C++ — `const auto&` в данном случае не обязательно].
+} до:
+#(11l)‘
+I V sheep = Sheep?(animal)
+   ...
+’
+т.к. в 11l нет скрытого/неявного копирования[[[и разделения]]].
+
+И также как в Swift {
+>[https://stackoverflow.com/questions/25828301/how-is-swift-if-let-evaluated <- google:‘swift "if let"’]:‘you can write:
+#‘
+if let name = optionalName {
+’
+but not
+#‘
+if (let name = optionalName) {
+’
+’[[[}}]]]} запись #(11l)‘I (V sheep = Sheep?(animal)) {...}’ запрещена.
+
+Однако, в 11l также можно писать так:
+#(11l)‘
+I T(animal) == Sheep // или `I T(animal) >= Sheep`
+   print(animal.some_sheep_prop)
+’
+
+Также обратите внимание[[[ на следующее]]]:
+#(11l)‘
+I V v = ... // `v` ведёт себя как константная ссылка, поэтому
+   v = ...  // так писать нельзя
+
+// А если хочется иметь возможность писать `v = ...`, тогда:
+I V& v = ...   // пишите так
+I V v = copy(...) // или так
+’
+[Это/‘такое поведение’ может показаться странным, но подобный прецедент в 11l уже есть: `L(el)` vs `L(&el)`, а также аргументы функций (которые неизменяемы ‘по умолчанию’/‘без квалификаторов’).
+Впрочем, несмотря на запрет `v = ...` вызывать неконстантные методы `v` допускается (в целях удобства).]
+
+H(-1)‘`V E`’
+
+Вместо:
+#(11l)‘
+V&? el = map.get(key)
+I el == N
+   print(‘Key <’key‘> is not found!’)
+   R
+’
+лучше писать:
+#(11l)‘
+V& el = map.get(key) E
+   print(‘Key <’key‘> is not found!’)
+   R
+’
+Данный синтаксис был навеян `guard let` {однако в 11l нет аналога `guard <условие>`, т.к. можно использовать просто `I !(<условие>)`} из Swift, но он достаточно логичный, т.к.
+#(11l)‘
+V& el = map.get(key)!
+’
+то же самое, что
+#(11l)‘
+V& el = map.get(key) E
+   X NullPointerException()
+’

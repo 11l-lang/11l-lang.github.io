@@ -166,10 +166,80 @@ span.comment {color: #808080;}
 <h4><pre class="inline_code">V?</pre> и <pre class="inline_code">V&amp;</pre></h4>
 <br />
 <pre class="code_block">
-<span class="identifier">V?</span> <span class="identifier">i</span> = <span class="string-literal">‘str’</span>.<span class="identifier">find</span>(<span class="string-literal">‘s’</span>)
+<span class="keyword">V?</span> <span class="identifier">i</span> = <span class="string-literal">‘str’</span>.<span class="identifier">find</span>(<span class="string-literal">‘s’</span>)
 
 <span class="keyword">F</span> <span class="identifier">print_set</span>(<span class="identifier">DefaultDict</span>[<span class="identifier">Int</span>, <span class="identifier">Set</span>[<span class="identifier">Int</span>]] &amp;<span class="identifier">map</span>; <span class="identifier">key</span>)
-   <span class="identifier">V&amp;</span> <span class="identifier">s</span> = <span class="identifier">map</span>[<span class="identifier">key</span>] <span class="comment">// `V s = map[key]` писать нельзя (но можно `V s = copy(map[key])`)</span>
+   <span class="keyword">V&amp;</span> <span class="identifier">s</span> = <span class="identifier">map</span>[<span class="identifier">key</span>] <span class="comment">// `V s = map[key]` писать нельзя (но можно `V s = copy(map[key])`)</span>
+</pre>
+<br />
+<h4><pre class="inline_code">I V</pre></h4>
+<br />
+<pre class="code_block">
+<span class="keyword">I</span> (<span class="keyword">V&amp;</span>? <span class="identifier">sheep</span> = <span class="identifier">Sheep?</span>(<span class="identifier">animal</span>)) != <span class="keyword">N</span>
+   <span class="identifier">print</span>(<span class="identifier">sheep</span>.<span class="identifier">some_sheep_prop</span>)
+</pre>
+можно сократить <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre style="display: inline"><span class="keyword">I</span> -<span class="keyword">V</span> <span class="identifier">sheep</span> = <span class="identifier">Sheep?</span>(<span class="identifier">animal</span>)</pre> также излишне, т.к. если <pre class="inline_code">animal</pre> имеет тип <pre class="inline_code">-Animal</pre>, то <pre class="inline_code">sheep</pre> будет константой в любом случае <span class="sq"><span class="sq_brackets">[</span>подобно <pre class="inline_code">auto&amp;</pre> в C++ — <pre class="inline_code">const auto&amp;</pre> в данном случае не обязательно<span class="sq_brackets">]</span></span>.<br />
+</span><span class="cu_brackets_b">}</span></span> до:<br />
+<pre class="code_block">
+<span class="keyword">I</span> <span class="keyword">V</span> <span class="identifier">sheep</span> = <span class="identifier">Sheep?</span>(<span class="identifier">animal</span>)
+   ...
+</pre>
+т.к. в 11l нет скрытого/неявного копирования<!--[[[и разделения]]]-->.<br />
+<br />
+И также как в Swift <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<blockquote><a href="https://stackoverflow.com/questions/25828301/how-is-swift-if-let-evaluated" title="<- google:‘swift &quot;if let&quot;’"><i>https://stackoverflow.com/questions/25828301/...</i></a>:<br />
+you can write:<br />
+<pre class="code_block">
+if let name = optionalName {
+</pre>
+but not<br />
+<pre class="code_block">
+if (let name = optionalName) {
+</pre>
+</blockquote><!--[[[}}]]]--></span><span class="cu_brackets_b">}</span></span> запись <pre style="display: inline"><span class="keyword">I</span> (<span class="keyword">V</span> <span class="identifier">sheep</span> = <span class="identifier">Sheep?</span>(<span class="identifier">animal</span>)) {...}</pre> запрещена.<br />
+<br />
+Однако, в 11l также можно писать так:<br />
+<pre class="code_block">
+<span class="keyword">I</span> <span class="keyword">T</span>(<span class="identifier">animal</span>) == <span class="identifier">Sheep</span> <span class="comment">// или `I T(animal) >= Sheep`</span>
+   <span class="identifier">print</span>(<span class="identifier">animal</span>.<span class="identifier">some_sheep_prop</span>)
+</pre>
+<br />
+Также обратите внимание<!--[[[ на следующее]]]-->:<br />
+<pre class="code_block">
+<span class="keyword">I</span> <span class="keyword">V</span> <span class="identifier">v</span> = ... <span class="comment">// `v` ведёт себя как константная ссылка, поэтому</span>
+   <span class="identifier">v</span> = ...  <span class="comment">// так писать нельзя</span>
+
+<span class="comment">// А если хочется иметь возможность писать `v = ...`, тогда:</span>
+<span class="keyword">I</span> <span class="keyword">V&amp;</span> <span class="identifier">v</span> = ...   <span class="comment">// пишите так</span>
+<span class="keyword">I</span> <span class="keyword">V</span> <span class="identifier">v</span> = <span class="identifier">copy</span>(...) <span class="comment">// или так</span>
+</pre>
+<span class="sq"><span class="sq_brackets">[</span>Это/‘такое поведение’ может показаться странным, но подобный прецедент в 11l уже есть: <pre class="inline_code">L(el)</pre> vs <pre class="inline_code">L(&amp;el)</pre>, а также аргументы функций (которые неизменяемы ‘по умолчанию’/‘без квалификаторов’).<br />
+Впрочем, несмотря на запрет <pre class="inline_code">v = ...</pre> вызывать неконстантные методы <pre class="inline_code">v</pre> допускается (в целях удобства).<span class="sq_brackets">]</span></span><br />
+<br />
+<h4><pre class="inline_code">V E</pre></h4>
+<br />
+Вместо:<br />
+<pre class="code_block">
+<span class="keyword">V&amp;</span>? <span class="identifier">el</span> = <span class="identifier">map</span>.<span class="identifier">get</span>(<span class="identifier">key</span>)
+<span class="keyword">I</span> <span class="identifier">el</span> == <span class="keyword">N</span>
+   <span class="identifier">print</span>(<span class="string-literal">‘Key &lt;’</span><span class="identifier">key</span><span class="string-literal">‘> is not found!’</span>)
+   <span class="keyword">R</span>
+</pre>
+лучше писать:<br />
+<pre class="code_block">
+<span class="keyword">V&amp;</span> <span class="identifier">el</span> = <span class="identifier">map</span>.<span class="identifier">get</span>(<span class="identifier">key</span>) <span class="keyword">E</span>
+   <span class="identifier">print</span>(<span class="string-literal">‘Key &lt;’</span><span class="identifier">key</span><span class="string-literal">‘> is not found!’</span>)
+   <span class="keyword">R</span>
+</pre>
+Данный синтаксис был навеян <pre class="inline_code">guard let</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">однако в 11l нет аналога <pre class="inline_code">guard &lt;условие></pre>, т.к. можно использовать просто <pre class="inline_code">I !(&lt;условие>)</pre></span><span class="cu_brackets_b">}</span></span> из Swift, но он достаточно логичный, т.к.<br />
+<pre class="code_block">
+<span class="keyword">V&amp;</span> <span class="identifier">el</span> = <span class="identifier">map</span>.<span class="identifier">get</span>(<span class="identifier">key</span>)!
+</pre>
+то же самое, что<br />
+<pre class="code_block">
+<span class="keyword">V&amp;</span> <span class="identifier">el</span> = <span class="identifier">map</span>.<span class="identifier">get</span>(<span class="identifier">key</span>) <span class="keyword">E</span>
+   <span class="keyword">X</span> <span class="identifier">NullPointerException</span>()
 </pre>
 </div>
 </body>

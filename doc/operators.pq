@@ -22,6 +22,7 @@ f(x)
 x--
 x++
 x!
+x.*
 ’
 ‘Member access
 Module function or variable access
@@ -30,7 +31,8 @@ N. Subscript ({if `i` is negative, the index is relative to the end of the array
 Function call
 Postfix decrement
 Postfix increment
-Non-null assertion operator’’
+Non-null assertion operator
+Pointer dereference’’
 ‘‘^’ ‘Power operator (right to left associative)’’
 ‘‘-x
 +x

@@ -175,6 +175,25 @@ Example:<br />
 </pre>
 <br />
 <br />
+<h4>Matching named arguments elision</h4>
+<br />
+This call:<br />
+<pre class="code_block">
+<span class="identifier">my_function</span>(
+  <span class="identifier">my_first_variable'</span> <span class="identifier">my_first_variable</span>,
+  <span class="identifier">my_second_variable'</span> <span class="identifier">my_second_variable</span>
+)
+</pre>
+can be shortened to:<br />
+<pre class="code_block">
+<span class="identifier">my_function</span>(
+  <span class="identifier">'</span> <span class="identifier">my_first_variable</span>,
+  <span class="identifier">'</span> <span class="identifier">my_second_variable</span>
+)
+</pre>
+<span class="sq"><span class="sq_brackets">[</span>Inspired by <a href="https://discuss.python.org/t/syntactic-sugar-to-encourage-use-of-named-arguments/36217">this thread</a>.<span class="sq_brackets">]</span></span><br />
+<br />
+<br />
 <h3>F/fn subkeywords</h3>
 <br />
 <br />

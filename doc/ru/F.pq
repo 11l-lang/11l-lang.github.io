@@ -64,6 +64,25 @@ to_html(s, habr_html' 1B) // так тоже правильно
 ’
 
 
+Н(-1)‘Сокращение совпадающих именованных аргументов’
+
+Такой вызов:
+#(11l)‘
+my_function(
+  my_first_variable' my_first_variable,
+  my_second_variable' my_second_variable
+)
+’
+можно сократить до:
+#(11l)‘
+my_function(
+  ' my_first_variable,
+  ' my_second_variable
+)
+’
+[Идея навеяна ‘этим тредом’[https://discuss.python.org/t/syntactic-sugar-to-encourage-use-of-named-arguments/36217].]
+
+
 Н‘Ключевые подслова F/fn’
 
 

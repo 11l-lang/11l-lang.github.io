@@ -175,6 +175,25 @@ span.comment {color: #808080;}
 </pre>
 <br />
 <br />
+<h4>Сокращение совпадающих именованных аргументов</h4>
+<br />
+Такой вызов:<br />
+<pre class="code_block">
+<span class="identifier">my_function</span>(
+  <span class="identifier">my_first_variable'</span> <span class="identifier">my_first_variable</span>,
+  <span class="identifier">my_second_variable'</span> <span class="identifier">my_second_variable</span>
+)
+</pre>
+можно сократить до:<br />
+<pre class="code_block">
+<span class="identifier">my_function</span>(
+  <span class="identifier">'</span> <span class="identifier">my_first_variable</span>,
+  <span class="identifier">'</span> <span class="identifier">my_second_variable</span>
+)
+</pre>
+<span class="sq"><span class="sq_brackets">[</span>Идея навеяна <a href="https://discuss.python.org/t/syntactic-sugar-to-encourage-use-of-named-arguments/36217">этим тредом</a>.<span class="sq_brackets">]</span></span><br />
+<br />
+<br />
 <h3>Ключевые подслова F/fn</h3>
 <br />
 <br />

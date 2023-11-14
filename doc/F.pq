@@ -64,6 +64,25 @@ to_html(s, habr_html' 1B) // and this is correct
 ’
 
 
+H(-1)‘Matching named arguments elision’
+
+This call:
+#(11l)‘
+my_function(
+  my_first_variable' my_first_variable,
+  my_second_variable' my_second_variable
+)
+’
+can be shortened to:
+#(11l)‘
+my_function(
+  ' my_first_variable,
+  ' my_second_variable
+)
+’
+[Inspired by ‘this thread’[https://discuss.python.org/t/syntactic-sugar-to-encourage-use-of-named-arguments/36217].]
+
+
 Н‘F/fn subkeywords’
 
 

@@ -59,6 +59,14 @@ Examples:
 #(11l)‘L(n) [9,7] {print(n)}’ will print `9` and `7`.
 #(11l)‘L(k, v) [‘k’ = 1] {print(k‘=’v)}’ will print `k=1`.
 
+If you want to modify the items/elements of the iterating container, then prefix #(11l)‘<variable>’ with `&`:
+#(11l)‘
+V arr = [1, 2, 3]
+L(&el) arr
+   el++
+print(arr) // prints `[2, 3, 4]`
+’
+
 
 H(-1)‘5. A range loop.’
 

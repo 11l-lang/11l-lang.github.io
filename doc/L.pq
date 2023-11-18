@@ -67,6 +67,16 @@ L(&el) arr
 print(arr) // prints `[2, 3, 4]`
 ’
 
+‘Rarely useful stuff’{
+If you want to modify the temporal copy of #(11l)‘<variable>’, then prefix it with `=`:
+#(11l)‘
+V arr = [1, 2, 3]
+L(=el) arr // if you write `L(el) arr`, then there will be a compilation error in the next line
+   el++
+print(arr) // prints `[1, 2, 3]`
+’
+}
+
 
 H(-1)‘5. A range loop.’
 

@@ -178,6 +178,16 @@ If you want to modify the items/elements of the iterating container, then prefix
 <span class="identifier">print</span>(<span class="identifier">arr</span>) <span class="comment">// prints `[2, 3, 4]`</span>
 </pre>
 <br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Rarely useful stuff<br /></span><div class="spoiler_text" style="display: none">
+If you want to modify the temporal copy of <pre style="display: inline">&lt;<span class="identifier">variable</span>></pre>, then prefix it with <pre class="inline_code">=</pre>:<br />
+<pre class="code_block">
+<span class="keyword">V</span> <span class="identifier">arr</span> = [<span class="numeric-literal">1</span>, <span class="numeric-literal">2</span>, <span class="numeric-literal">3</span>]
+<span class="keyword">L</span>(=<span class="identifier">el</span>) <span class="identifier">arr</span> <span class="comment">// if you write `L(el) arr`, then there will be a compilation error in the next line</span>
+   <span class="identifier">el</span>++
+<span class="identifier">print</span>(<span class="identifier">arr</span>) <span class="comment">// prints `[1, 2, 3]`</span>
+</pre>
+</div>
+<br />
 <br />
 <h4>5. A range loop.</h4>
 <br />

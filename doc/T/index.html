@@ -129,7 +129,12 @@ span.comment {color: #808080;}
 <h4>Type aliases</h4>
 <br />
 <pre class="code_block">
-<span class="keyword">T</span> <span class="identifier">Tuple2</span>[<span class="keyword">T</span> <span class="identifier">Ty</span>] = <span class="identifier">Tuple</span>[<span class="identifier">Ty</span>, <span class="identifier">Ty</span>]
+<span class="keyword">T</span> <span class="identifier">Tuple2</span>[<span class="identifier">Ty</span>] = <span class="identifier">Tuple</span>[<span class="identifier">Ty</span>, <span class="identifier">Ty</span>] <span class="comment">// `Tuple[Ty, Ty]` can be shortened to `(Ty, Ty)`</span>
+</pre>
+<br />
+Type aliases can be used to create named tuples:<br />
+<pre class="code_block">
+<span class="keyword">T</span> <span class="identifier">Employee</span> = (<span class="identifier">String</span> <span class="identifier">name</span>, <span class="identifier">Int</span> <span class="identifier">id</span>)
 </pre>
 <br />
 <br />

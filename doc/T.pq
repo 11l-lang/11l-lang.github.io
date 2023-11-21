@@ -18,7 +18,12 @@ T <type name>
 H(-1)‘Type aliases’
 
 #(11l)‘
-T Tuple2[T Ty] = Tuple[Ty, Ty]
+T Tuple2[Ty] = Tuple[Ty, Ty] // `Tuple[Ty, Ty]` can be shortened to `(Ty, Ty)`
+’
+
+Type aliases can be used to create named tuples:
+#(11l)‘
+T Employee = (String name, Int id)
 ’
 
 

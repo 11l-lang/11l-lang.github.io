@@ -151,12 +151,14 @@ a(+)(-)b = a(-)b<br />
 Префиксный инкремент<br />
 Оператор взятия адреса</td></tr>
 <tr><td>x * y<br />
+x *&amp; y<br />
 x / y<br />
 x I/ y или x Ц/ y<br />
 x -I/ y или x -Ц/ y<br />
 x % y<br />
 x -% y<br />
 </td><td>Умножение<br />
+Умножение с переполнением (обоснование выбора: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">это соответствует <pre class="inline_code">UInt32((Int64(x) * y) [&amp;] FFFF'FFFFh).as(Int32)</pre>, а потому <pre class="inline_code">*&amp;</pre> более логично, чем <pre class="inline_code">&amp;*</pre> <a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators/#Overflow-Operators">в Swift</a> (ещё есть <pre class="inline_code">*%</pre> в Zig, что тоже вполне логично <span class="sq"><span class="sq_brackets">[</span>т.к. можно <!--[[[написать/]]]-->заменить <pre class="inline_code">[&amp;]</pre> на <pre class="inline_code">%</pre>: <pre class="inline_code">Int32((Int64(x) * y) % 1'0000'0000h)</pre><span class="sq_brackets">]</span></span>, но <pre class="inline_code">-%</pre> в 11l уже занято/используется для Floor-остатка от деления)</span><span class="cu_brackets_b">}</span></span>)<br />
 Деление<br />
 Целочисленное деление <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">примите к сведению, что <pre class="inline_code">-5 // 2 = -3</pre> в Python-е, в то время как <pre class="inline_code">-5 I/ 2 = -2</pre> в 11l, но это исключительно из соображений производительности, и если вы знаете эффективную реализацию целочисленного деления в стиле Python, тогда, пожалуйста, напишите об этом на <a href="http://forum.11l-lang.org/forums/Разработка.6/">форуме</a></span><span class="cu_brackets_b">}</span></span><br />
 Floor-деление<br />
@@ -164,8 +166,12 @@ Floor-деление<br />
 Floor-остаток от деления (<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">результат положительный даже когда <pre class="inline_code">x</pre> отрицательно</span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x""y и x‘’y</td><td>Конкатенация строк (<a href="./../‘’" target="_self">обоснование выбора</a>)</td></tr>
 <tr><td>x + y<br />
-x - y</td><td>Сложение<br />
-Вычитание</td></tr>
+x - y<br />
+x +&amp; y<br />
+x -&amp; y</td><td>Сложение<br />
+Вычитание<br />
+Сложение с переполнением<br />
+Вычитание с переполнением</td></tr>
 <tr><td>x &lt;&lt; y<br />
 x >> y</td><td>Поразрядный сдвиг влево<br />
 Поразрядный сдвиг вправо</td></tr>

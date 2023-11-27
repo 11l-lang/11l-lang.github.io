@@ -161,12 +161,14 @@ Prefix decrement<br />
 Prefix increment<br />
 Address-of</td></tr>
 <tr><td>x * y<br />
+x *&amp; y<br />
 x / y<br />
 x I/ y<br />
 x -I/ y<br />
 x % y<br />
 x -% y<br />
 </td><td>Multiplication<br />
+Overflow multiplication (rationale: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">this is similar to <pre class="inline_code">UInt32((Int64(x) * y) [&amp;] FFFF'FFFFh).as(Int32)</pre>, so <pre class="inline_code">*&amp;</pre> is more logical, than <pre class="inline_code">&amp;*</pre> <a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/advancedoperators/#Overflow-Operators">in Swift</a> (there is <pre class="inline_code">*%</pre> in Zig, which is quite logical also <span class="sq"><span class="sq_brackets">[</span>because you can <!--[[[write/]]]-->replace <pre class="inline_code">[&amp;]</pre> with <pre class="inline_code">%</pre>: <pre class="inline_code">Int32((Int64(x) * y) % 1'0000'0000h)</pre><span class="sq_brackets">]</span></span>, but <pre class="inline_code">-%</pre> in 11l is already used for N. Remainder)</span><span class="cu_brackets_b">}</span></span>)<br />
 Division<br />
 Integer division <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">note that <pre class="inline_code">-5 // 2 = -3</pre> in Python whereas <pre class="inline_code">-5 I/ 2 = -2</pre> in 11l, but this is merely because of performance considerations, and if you know efficient implementation of Python integer division<!--[[[
 >[https://stackoverflow.com/questions/3895081/divide-and-get-remainder-at-the-same-time <- google:‘divmod c’]:‘‘this is the code’[http://svn.python.org/projects/python/trunk/Objects/intobject.c] of the Python implementation for integer divmod:...’
@@ -176,8 +178,12 @@ Remainder<br />
 N. Remainder (<span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">result is positive even if <pre class="inline_code">x</pre> is negative</span><span class="cu_brackets_b">}</span></span>)</td></tr>
 <tr><td>x""y and x‘’y</td><td>String concatenation (<a href="./../‘’" target="_self">rationale</a>)</td></tr>
 <tr><td>x + y<br />
-x - y</td><td>Addition<br />
-Subtraction</td></tr>
+x - y<br />
+x +&amp; y<br />
+x -&amp; y</td><td>Addition<br />
+Subtraction<br />
+Overflow addition<br />
+Overflow subtraction</td></tr>
 <tr><td>x &lt;&lt; y<br />
 x >> y</td><td>Bitwise left shift<br />
 Bitwise right shift</td></tr>

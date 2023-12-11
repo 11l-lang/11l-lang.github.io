@@ -72,7 +72,7 @@ Integer division {note that `-5 // 2 = -3` in Python whereas `-5 I/ 2 = -2` in 1
 ]]], please write at the forum[http://forum.11l-lang.org/forums/development.2/]}
 N. Integer division ({performs floor division if dividend is negative})
 Remainder
-N. Remainder ({result is positive even if `x` is negative})’’
+N. Remainder ({result is positive even if `x` is negative}, rationale: {`%` in 11l works [for ‘performance reasons’[https://github.com/11l-lang/_11l_to_cpp/blob/8ad1117cadd82589def3229a5ff3574a6e5f5db4/11l_hpp/HandyMathLib/func.h#L162-L167]] as in C++, not as in Python})’’
 ‘‘x""y and x‘’y’ ‘String concatenation (rationale[./../‘’])’’
 ‘‘x + y
 x - y

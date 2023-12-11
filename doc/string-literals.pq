@@ -43,3 +43,25 @@ This is equivalent to
 #(11l)‘
 V str = "First line.\nSecond line."
 ’
+
+
+H‘Zero indented multi-line string literals’
+
+
+T‘H‘‘Python[https://sourceforge.net/p/pqmarkup/code/ci/b9c7c147afedf42549fc1eab09dfa9b31340b03e/tree/pqmarkup.py#l756]’ ‘11l’’
+‘‘#(Python)‘
+if args_output_html_document:
+    args_outfile.write('''\
+<html>
+<head>
+...
+''')
+’’ ‘#(11l)‘
+I args_output_html_document
+   args_outfile.write(\/‘
+<html>
+<head>
+...
+’)
+’’’
+’

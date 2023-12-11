@@ -154,6 +154,29 @@ hello
 <pre class="code_block">
 <span class="keyword">V</span> <span class="identifier">str</span> = <span class="string-literal">"First line.\nSecond line."</span>
 </pre>
+<br />
+<br />
+<h3>Многострочные строковые литералы с нулевым отступом</h3>
+<br />
+<br />
+<table>
+<tr><th><a href="https://sourceforge.net/p/pqmarkup/code/ci/b9c7c147afedf42549fc1eab09dfa9b31340b03e/tree/pqmarkup.py#l756">Python</a></th><th>11l</th></tr>
+<tr><td><pre class="code_block">
+<span class="keyword">if</span> <span class="identifier">args_output_html_document</span>:
+    <span class="identifier">args_outfile</span>.<span class="identifier">write</span>(<span class="string-literal">'''\
+&lt;html>
+&lt;head>
+...
+'''</span>)
+</pre></td><td><pre class="code_block">
+<span class="keyword">I</span> <span class="identifier">args_output_html_document</span>
+   <span class="identifier">args_outfile</span>.<span class="identifier">write</span>(<span class="string-literal">\/‘
+&lt;html>
+&lt;head>
+...
+’</span>)
+</pre></td></tr>
+</table>
 </div>
 </body>
 </html>

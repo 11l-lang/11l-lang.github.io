@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>11l Documentation</title>
+<title>Module csv</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -102,48 +102,27 @@ div#main {width: 100%;}
 </head>
 <body>
 <div id="main" style="margin: 0 auto">
-<!--[[[H‘11l Documentation’]]]--><br />
-<!--[[[Scoping rules/]]]--><a href="./code-blocks" target="_self">Code blocks</a><br />
+<!--[[[H‘Module csv’
+]]]--><h3>Module csv</h3>
 <br />
-<a href="./semicolons" target="_self">Semicolon free grammar and implied line joining</a><br />
 <br />
-<a href="./comments" target="_self">Comments</a><br />
+csv:<b>read</b>(String <i>file_name</i>, <i>encoding</i> = ‘utf-8’, <i>delimiter</i> = ‘,’; [String]? &amp;<i>header</i> = N)<br />
+csv:<b>read</b>(String <i>file_name</i>, <i>encoding</i> = ‘utf-8’, <i>delimiter</i> = ‘,’; <i>skip_first_row</i> = 1B)<br />
+csv:<b>read</b>(File &amp;&amp;<i>file</i>; <i>delimiter</i> = ‘,’; [String]? &amp;<i>header</i> = N)<br />
+csv:<b>read</b>(File &amp;&amp;<i>file</i>; <i>delimiter</i> = ‘,’; <i>skip_first_row</i> = 1B)<br />
+Return a reader object which will iterate over lines in the given csv file. The optional <i>header</i> parameter specifies an array that will take the value of the first row of the csv file.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Why not csv:Reader()?<br /></span><div class="spoiler_text" style="display: none">
+The object returned by <pre class="inline_code">csv:read()</pre> has no any methods like <pre class="inline_code">csv:Writer.write_row()</pre>, so it is rarely assigned to a variable and is usually used directly as a loop iterable expression.<br />
+</div>
 <br />
-<a href="./string-literals" target="_self">String literals</a><br />
-<a href="./integer-literals" target="_self">Integer literals</a><br />
+csv:<b>Writer</b>(String <i>file_name</i>, <i>encoding</i> = ‘utf-8’, <i>delimiter</i> = ‘,’)<br />
+csv:<b>Writer</b>(File &amp;&amp;<i>file</i>; <i>delimiter</i> = ‘,’)<br />
+Writer object responsible for converting the user's data into delimited strings in the csv file named <i>file_name</i> or specified in the <i>file</i> parameter.<br />
 <br />
-Keywords:<br />
-<a href="./C" target="_self">   C/in</a><br />
-<a href="./I" target="_self">   I/if and E/else</a><br />
-<a href="./F" target="_self">   F/fn</a><br />
-<a href="./L" target="_self">   L/loop</a><br />
-<a href="./N" target="_self">   N/null</a><br />
-<a href="./R" target="_self">   R/return</a><br />
-<a href="./S" target="_self">   S/switch</a><br />
-<a href="./T" target="_self">   T/type</a><br />
-<a href="./V" target="_self">   V/var</a><br />
-<a href="./X" target="_self">   X/exception</a><br />
+<h5>csv:Writer object methods</h5>
 <br />
-<a href="./built-in-types" target="_self">Built-in Types</a><br />
-<br />
-<a href="./operators" target="_self">Operators</a><br />
-<br />
-<a href="./prefixes" target="_self">Variables' prefixes</a><br />
-<br />
-<a href="./built-in-functions" target="_self"><!--[[[Global/]]]-->Built-in Functions</a><br />
-<br />
-<a href="./built-in-global-vars" target="_self">Built-in global variables</a><br />
-<br />
-Built-in modules:<br />
-<a href="./built-in-modules/f" target="_self">   f</a><br />
-<a href="./built-in-modules/os" target="_self">   os</a><br />
-<a href="./built-in-modules/fs" target="_self">   fs</a><br />
-<a href="./built-in-modules/time" target="_self">   time</a><br />
-<a href="./built-in-modules/re" target="_self">   re</a><br />
-<a href="./built-in-modules/random" target="_self">   random</a><br />
-   <a href="./built-in-modules/minmaxheap" target="_self">minheap and maxheap</a><br />
-<a href="./built-in-modules/bits" target="_self">   bits</a><br />
-<a href="./built-in-modules/csv" target="_self">   csv</a><br />
+<b>write_row</b>(Array <i>row</i>)<br />
+Write record to the csv file. <i>row</i> is an array of any items which can be converted to String.<br />
 </div>
 </body>
 </html>

@@ -39,3 +39,4 @@ Built-in modules:
    random[./built-in-modules/random]
    ‘minheap and maxheap’[./built-in-modules/minmaxheap]
    bits[./built-in-modules/bits]
+   csv[./built-in-modules/csv]

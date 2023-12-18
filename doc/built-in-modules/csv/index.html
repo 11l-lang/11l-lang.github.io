@@ -110,7 +110,9 @@ csv:<b>read</b>(String <i>file_name</i>, <i>encoding</i> = ‘utf-8’, <i>delim
 csv:<b>read</b>(String <i>file_name</i>, <i>encoding</i> = ‘utf-8’, <i>delimiter</i> = ‘,’; <i>skip_first_row</i> = 1B)<br />
 csv:<b>read</b>(File &amp;&amp;<i>file</i>; <i>delimiter</i> = ‘,’; [String]? &amp;<i>header</i> = N)<br />
 csv:<b>read</b>(File &amp;&amp;<i>file</i>; <i>delimiter</i> = ‘,’; <i>skip_first_row</i> = 1B)<br />
-Return a reader object which will iterate over lines in the given csv file. The optional <i>header</i> parameter specifies an array that will take the value of the first row of the csv file.<br />
+csv:<b>read_str</b>(String <i>file_contents</i>, <i>delimiter</i> = ‘,’; [String]? &amp;<i>header</i> = N)<br />
+csv:<b>read_str</b>(String <i>file_contents</i>, <i>delimiter</i> = ‘,’; <i>skip_first_row</i> = 1B)<br />
+Return a reader object which will iterate over <!--[[[lines/]]]-->records in the given csv file. The optional <i>header</i> parameter specifies an array that will take the value of the first row of the csv file.<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Why not csv:Reader()?<br /></span><div class="spoiler_text" style="display: none">
 The object returned by <pre class="inline_code">csv:read()</pre> has no any methods like <pre class="inline_code">csv:Writer.write_row()</pre>, so it is rarely assigned to a variable and is usually used directly as a loop iterable expression.<br />
 </div>

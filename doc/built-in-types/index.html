@@ -378,6 +378,13 @@ The same as <pre style="display: inline"><span class="identifier">arr</span>.<sp
 <b>pop</b>()<br />
 Retrieves the last item of this array and also removes it.<br />
 <br />
+<b>pop</b>(<i>i</i>)<br />
+Retrieves the item at <i>i</i> and also removes it.<br />
+<br />
+<b>pop_fast</b>(<i>i</i>)<br />
+Retrieves the item at <i>i</i> and also removes it.<br />
+This version is much more efficient than <b>pop</b>(<i>i</i>) (O(1) instead of O(N)), but does not preserve the order.<br />
+<br />
 <b>index</b>(x, start = 0)<br />
 Return index of the first occurrence of <pre class="inline_code">x</pre> in this array (at or after index <pre class="inline_code">start</pre>). <pre class="inline_code">ValueError</pre> is raised when <pre class="inline_code">x</pre> is not found in this array.<br />
 <br />

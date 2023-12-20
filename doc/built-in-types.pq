@@ -267,6 +267,13 @@ The same as #(11l)‘arr.append(x)’.
 *‘pop’()
 Retrieves the last item of this array and also removes it.
 
+*‘pop’(~‘i’)
+Retrieves the item at ~‘i’ and also removes it.
+
+*‘pop_fast’(~‘i’)
+Retrieves the item at ~‘i’ and also removes it.
+This version is much more efficient than *‘pop’(~‘i’) (O(1) instead of O(N)), but does not preserve the order.
+
 *‘index’(x, start = 0)
 Return index of the first occurrence of `x` in this array (at or after index `start`). `ValueError` is raised when `x` is not found in this array.
 

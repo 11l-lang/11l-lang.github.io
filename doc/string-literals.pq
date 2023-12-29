@@ -48,7 +48,8 @@ V str = "First line.\nSecond line."
 H‘Zero indented multi-line string literals’
 
 
-T‘H‘‘Python[https://sourceforge.net/p/pqmarkup/code/ci/b9c7c147afedf42549fc1eab09dfa9b31340b03e/tree/pqmarkup.py#l756]’ ‘11l’’
+T‘H‘‘Python’ ‘11l’’
+‘><‘pqmarkup.py[https://sourceforge.net/p/pqmarkup/code/ci/b9c7c147afedf42549fc1eab09dfa9b31340b03e/tree/pqmarkup.py#l756]’ -’
 ‘‘#(Python)‘
 if args_output_html_document:
     args_outfile.write('''\
@@ -63,5 +64,21 @@ I args_output_html_document
 <head>
 ...
 ’)
+’’’
+‘><‘cut_copy_paste_tests.py[https://github.com/alextretyak/CopyEdit/blob/87b0adc0c46ffa349ce879b42f3aacd8d575b71e/cut_copy_paste_tests.py#L12]’ -’
+‘‘#(Python)‘
+...:
+        tests = """\
+(1)
+1. Select THIS
+...
+"""
+’’ ‘#(11l)‘
+...
+      V tests = \/‘
+(1)
+1. Select THIS
+...
+’
 ’’’
 ’

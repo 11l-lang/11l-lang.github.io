@@ -194,6 +194,14 @@ This is equivalent to<br />
 ’</span>
 </pre></td></tr>
 </table>
+<br />
+Note that <pre class="inline_code">\/"..."</pre> makes no sense, as you can write:<br />
+<pre class="code_block">
+<span class="identifier">tests</span> = <span class="string-literal">"\
+...
+"</span>
+</pre>
+And <pre class="inline_code">\/‘...’</pre> is needed, as there is no <pre class="inline_code">"""..."""</pre> in 11l, but multi-line string literals often need inner double<!--[[[ or single]]]--> quotes.<br />
 </div>
 </body>
 </html>

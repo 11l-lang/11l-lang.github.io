@@ -82,3 +82,11 @@ I args_output_html_document
 ’
 ’’’
 ’
+
+Note that `\/"..."` makes no sense, as you can write:
+#(11l)‘
+tests = "\
+...
+"
+’
+And `\/‘...’` is needed, as there is no `"""..."""` in 11l, but multi-line string literals often need inner double[[[ or single]]] quotes.

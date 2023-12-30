@@ -194,6 +194,14 @@ hello
 ’</span>
 </pre></td></tr>
 </table>
+<br />
+Заметьте, что <pre class="inline_code">\/"..."</pre> не имеет смысла, т.к. можно писать так:<br />
+<pre class="code_block">
+<span class="identifier">tests</span> = <span class="string-literal">"\
+...
+"</span>
+</pre>
+А <pre class="inline_code">\/‘...’</pre> нужно по той причине, что в 11l нет <pre class="inline_code">"""..."""</pre>, <!--[[[но/]]]-->а многострочные строковые литералы часто содержат двойные<!--[[[ или одинарные](закомментировал, т.к. в 11l нет `'таких строк'`)]]--> кавычки.<br />
 </div>
 </body>
 </html>

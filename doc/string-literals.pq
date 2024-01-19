@@ -11,6 +11,7 @@ H‘Raw string literals’
 
 Raw string literals are enclosed in paired single quotation marks: characters `‘` and `’`.
 How to type [[[paired single quotation marks]]]this symbols see here[http://pqmarkup.org].
+!‘[[[#rec##audio#[REC_0002947.wav]]]]Alternatively, if you still have difficulty typing these characters, you can type the digraphs `'"` and `"'` instead of the paired single quotes. Note, however, these digraphs are not part of the 11l language. They exist only for ease of typing, and they will be replaced by `‘` and `’` in your source 11l file at the lexical analysis stage.’
 
 If raw string should contains unpaired single quotation marks, then balancing of raw string should be performed like as for raw HTML in pq markup (see ‘Advanced formatting. Raw HTML’[http://pqmarkup.org/syntax]).
 For example, there is a string [[[‘]]]`don’t`.

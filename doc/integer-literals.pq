@@ -10,6 +10,7 @@ print(F'F)        // ultrashort (single-byte) hexadecimal literal
 print(377o)       // octal literal
 print(1111'1111b) // binary literal
 print(255'000)    // decimal literal
+print(1'00000000) // special hexadecimal literal
 ’
 Output:
 `
@@ -20,6 +21,7 @@ Output:
 255
 255
 255000
+4294967296
 `
 
 Note that digit separator `'` is necessary [[[only ]]]for hexadecimal literals.

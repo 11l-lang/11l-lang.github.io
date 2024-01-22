@@ -1,0 +1,159 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<base target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A' || event.target.parentNode.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+    //[-Чтобы была возможность выделять текст внутри раскрытого ‘скрытого текста’/спойлера, необходимо [скрытие/]закрытие спойлера делать не просто по нажатию левой кнопки мыши, а по отпусканию левой кнопки мыши при условии отсутствия движения курсора [мыши] после того, как была нажата левая кнопка мыши.-]
+}
+function spoiler2(element, event)
+{
+    element.nextSibling.style.display = (element.nextSibling.style.display == "none" ? "" : "none");
+}
+</script>
+<style type="text/css">
+div#main, td {
+    font-size: 14px;
+    font-family: Verdana, sans-serif;
+    line-height: 160%;
+    text-align: justify;
+}
+span.cu_brackets_b {
+    font-size: initial;
+    font-family: initial;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: #6da3bd;
+}
+a:hover {
+    text-decoration: underline;
+    color: #4d7285;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 400;
+}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
+span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+span.sq_brackets {color: #BFBFBF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
+pre, code {font-family: 'Courier New'; line-height: normal}
+ul, ol {margin: 11px 0 7px 0;}
+ul li, ol li {padding: 7px 0;}
+ul li:first-child, ol li:first-child {padding-top   : 0;}
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+span.spoiler_title {
+    color: #548eaa;
+    cursor: pointer;
+    border-bottom: 1px dotted;
+}
+div.spoiler_text {
+    /*border: 1px dotted;*/
+    margin: 5px;
+    padding: 3px;
+}
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
+div.note {
+    padding: 18px 20px;
+    background: #ffffd7;
+}
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
+img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
+</style>
+</head>
+<body>
+<div id="main" style="margin: 0 auto">
+<h3>Диграфы и триграф<s>ы</s>, а также замена на уровне отображения</h3>
+<br />
+<span style="background-color: #FF9F9F">Данная информация <!--[[[частично/]]]-->отчасти устарела, но оставлена для истории, в целях пояснения причин, по которым <!--[[[я решил]]]-->было решено добавить триграф <pre style="display: inline">(+)</pre> и два диграфа <pre style="display: inline">>=</pre> и <pre style="display: inline">&lt;=</pre>.</span><br />
+<br />
+11l поддерживает только 4 диграфа и 1 триграф и вот почему.<br />
+<br />
+Диграфы <pre class="inline_code">'"</pre> и <pre class="inline_code">"'</pre> нужны для <!--[[[упрощения/]]]-->возможности набора одиночных парных кавычек — символов <pre class="inline_code">‘</pre> и <pre class="inline_code">’</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">а эти символы <!--[[[являются ]]]-->очень важны в языке 11l, т.к. являются основными для записи строковых литералов <span class="sq"><span class="sq_brackets">[</span>и обязательными для записи "сырых" строковых литералов<span class="sq_brackets">]</span></span> и используются в операторе конкатенации строк</span><span class="cu_brackets_b">}</span></span> — в условиях недоступности подходящей среды разработки (например, REditor) или установленного средства<!--[[[/инструмента]]]--> назначения глобальных горячих клавиш (например, AutoHotkey).<br />
+<br />
+Триграф <pre class="inline_code">(+)</pre> заменяется на <pre class="inline_code">⊕</pre> в исходном коде, т.к. замена на уровне отображения для этого символа нежелательна: уменьшение ширины в 3 раза слишком сильно бросается в глаза<!--[[[ (особенно некрасиво выглядит оператор `(+)=`, который отображается как ` ⊕ =`)]можно же отображать его как ` ⊕= `]]-->. К тому же, обозначение <pre class="inline_code">(+)</pre> не используется ни в одном языке программирования, а символ ⊕ используется в <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf" title="<- https://keccak.team/specifications.html <- https://keccak.team">публикациях</a>, <a href="https://ru.wikipedia.org/wiki/XOR-связный_список">в Википедии</a> и в <a href="https://codeforces.com/contest/1634/problem/B?locale=ru">текстах</a> задач по спортивному программированию.<br />
+<br />
+Диграфы <pre class="inline_code">>=</pre> и <pre class="inline_code">&lt;=</pre> заменяются на <pre class="inline_code">≥</pre> и <pre class="inline_code">≤</pre>, соответственно, так как:<br />
+<ol>
+<li><pre class="inline_code">>=</pre> и <pre class="inline_code">&lt;=</pre> выглядят не очень красиво, а <pre class="inline_code">&lt;=</pre> вообще выглядит как парный оператор для <pre class="inline_code">=></pre>;</li>
+<li>замена на уровне отображения приводит к тому, что строка с <pre class="inline_code">a >= b</pre> будет длиннее строки с <pre class="inline_code">a ≥ c</pre> и знаки сравнения не будут располагаться один под одним, как было бы красивее.</li>
+</ol>
+<br />
+<pre class="inline_code">[+]</pre> не является триграфом, т.к. для него нет соответствующего символа для замены.<br />
+<br />
+<pre class="inline_code">[&amp;]</pre> и <pre class="inline_code">[|]</pre> не заменяются на символы конъюнкции <pre class="inline_code">∧</pre> и дизъюнкции <pre class="inline_code">∨</pre>, т.к. эти символы легко путаются.<br />
+<br />
+Символ <pre class="inline_code">~</pre> не заменяется на <pre class="inline_code">¬</pre>, т.к. <!--[[[`¬` —]]]-->это достаточно редкая операция и <!--[[[символ `¬` не встречается в других языках программирования]]ну, `⊕`, `[+]`, `[&]` и `[|]` также не встречаются в других ЯП и что?]-->даже в языках программирования, использующих математические символы для <!--[[[представления/]]]-->обозначения операторов, таких как Julia и APL, для отрицания <span class="sq"><span class="sq_brackets">[</span>побитового<!--[[[\bitwise]]]--> в Julia и логического в APL<span class="sq_brackets">]</span></span> используется символ <pre class="inline_code">~</pre>, а не <pre class="inline_code">¬</pre>.<br />
+<br />
+<pre class="inline_code">!=</pre> не заменяется на <pre class="inline_code">≠</pre>, потому что:<br />
+<ol>
+<li>символ <pre class="inline_code">≠</pre> слишком короткий и теряется в коде, замена на уровне отображения <span class="sq"><span class="sq_brackets">[</span>в Fira Code и в REditor<span class="sq_brackets">]</span></span> выглядит красивее;</li>
+<li>т.к. оператор сравнения <pre class="inline_code">==</pre> состоит из двух символов, то возникает несогласованность (строка с <pre class="inline_code">a == b</pre> <!--[[[будет ]]]-->длиннее строки с <pre class="inline_code">a ≠ c</pre>);</li>
+<li>есть операция логического отрицания, которая обозначается символом <pre class="inline_code">!</pre> <span class="sq"><span class="sq_brackets">[</span>что с ней делать — непонятно, не заменять же её на <pre class="inline_code">¬</pre><span class="sq_brackets">]</span></span>, так что символ <pre class="inline_code">!</pre> в любом случае будет ассоциироваться с отрицанием и присутствие его в обозначении оператора не-равно <pre class="inline_code">!=</pre> вполне логично.</li>
+</ol>
+<br />
+Опционально заменяются на уровне отображения в REditor:<br />
+<ul>
+<li><pre class="inline_code">C</pre> заменяется на <pre class="inline_code">∈</pre>;</li>
+<li><pre class="inline_code">*</pre> заменяется на <pre class="inline_code">×</pre> или на <pre class="inline_code">∙</pre>;</li>
+<li><pre class="inline_code">~</pre> заменяется на <pre class="inline_code">¬</pre>.</li>
+</ul>
+<!--[[[
+#rec##audio#[REC_0002952.wav]
+Эх... Придётся всё-таки отказаться от диграфов `<=`, `>=` и триграфа `(+)` по той причине, что не очевидно, как их набирать глядя на код. Да, будет выглядеть красиво на GitHub-е том же [и] везде [{
+На самом деле не очень красиво: в kdiff3 значок ⊕ слишком мелкий, а в Sublime Text и на GitHub-е — довольно большой в 1.5-2 символа шириной, при этом ломается выравнивание кода.
+}], но как это набрать — неочевидно.
+]]]--><br />
+<span style="background-color: #9FFF9F">Было решено отказаться от триграфа <pre style="display: inline">(+)</pre> по причине того, что <b>не очевидно, как его набирать глядя на код</b>. (Это же относится и к диграфам <pre style="display: inline">>=</pre> и <pre style="display: inline">&lt;=</pre>, хотя и в меньшей степени.) Кроме того, есть проблемы с отображением символа ⊕: в KDiff3 значок ⊕ слишком мелкий и некрасивый, а в Sublime Text и на GitHub-е — довольно большой в 1.5-2 символа шириной, при этом ломается выравнивание кода.</span><br />
+<br />
+Но сама идея замены <pre class="inline_code">(+)</pre> на <pre class="inline_code">⊕</pre><!--[[[ в коде]]]--> имеет значимый положительный побочный эффект: цепочка логических выводов в итоге привела к тому, что было пересмотрено обозначение для оператора поразрядного НЕ.<br />
+2024-01-20 18:35:56<br />
+<pre class="inline_code">(-)</pre> заменяется на <pre class="inline_code">¬</pre>, т.к.:<br />
+<ol>
+<li>парная ей операция <pre class="inline_code">(+)</pre> теперь заменяется на <pre class="inline_code">⊕</pre> и в коде больше не используется;</li>
+<li><pre class="inline_code">(-)</pre> слишком непривычно выглядит, не используется больше ни в каком другом языке программирования, и я не вижу смысла привыкать к <!--[[[ней/]]]-->этой записи, когда есть общепринятая (как в <a href="https://ru.wikipedia.org/wiki/Алгебра_логики">русском</a>, так и в <a href="https://en.wikipedia.org/wiki/Boolean_algebra">английском</a>) запись отрицания <pre class="inline_code">¬</pre>.</li>
+</ol>
+2024-01-20 18:44:02/<br />
+Увидел <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9daca81525792364a725ec311d9d762a8a6956a9" /> на странице <a href="https://en.wikipedia.org/wiki/Negation">https://en.wikipedia.org/wiki/Negation</a>.<br />
+Так что, можно оставить просто <pre class="inline_code">~</pre> (как во всех других ЯП, в т.ч. Julia и даже в APL <span class="sq"><span class="sq_brackets">[</span>хотя в нём используется символ <pre class="inline_code">∼</pre>, но он очень похож на <pre class="inline_code">~</pre><span class="sq_brackets">]</span></span>) и заменять <pre class="inline_code">~</pre> на <pre class="inline_code">¬</pre> только при отображении в REditor (и по умолчанию можно даже не заменять наверное).<br />
+</div>
+</body>
+</html>

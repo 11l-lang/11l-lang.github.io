@@ -623,7 +623,7 @@ T‘‘‘[[[English Forum \ Русскоязычный форум]]]Forum[http:
 
 T‘‘‘><‘‘Articles’{
 <<‘
-. ‘Article on Habr ‘‘Lexical Analysis in 11l’’’[https://habr.com/ru/post/663872/]
+. ‘Article on Habr ‘‘Lexical Analysis in 11l’’’[https://habr.com/en/articles/663872/]
 ’
 }’’’’
 ’

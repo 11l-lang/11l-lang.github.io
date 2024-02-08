@@ -11,7 +11,7 @@ T Error
       .message = message
 ’
 
-Prefix `:` is used for global (or for static [see below]) variables:
+Prefix `:` is used for global (or for static [see below]) variables {global functions and types do not need the prefix `:`, because global functions and types are ok, but global variables are not so good and should be marked with `:`}:
 #(11l)‘
 V global_var = 0
 

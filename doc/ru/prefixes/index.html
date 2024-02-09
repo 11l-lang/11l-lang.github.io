@@ -201,6 +201,8 @@ span.comment {color: #808080;}
 <span class="keyword">V</span> <span class="identifier">t</span> = <span class="identifier">Type</span>.<span class="identifier">SubType</span>()
 </pre>
 <br />
+<i>Дополнительное пояснение:</i> <pre class="inline_code">:</pre> в <pre class="inline_code">.:static_type_fn()</pre> нужно, чтобы было видно, что эта функция — статическая. В случае <pre class="inline_code">Type.static_type_fn()</pre> двоеточие не нужно, т.к. итак можно понять, что функция статическая. Аналогично в <pre class="inline_code">.SubType()</pre> двоеточие не нужно, т.к. ‘типы всегда "статические"’/‘не бывает нестатических типов’.<br />
+<br />
 <h4>Признак изменяемости аргументов функции</h4>
 <br />
 <pre class="code_block">

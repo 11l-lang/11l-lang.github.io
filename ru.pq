@@ -286,6 +286,10 @@ width = active_window.rect.right - active_window.rect.left
 
 ...
 
+infile.seek(8, os.SEEK_CUR)
+
+...
+
 dot_pos = token.value(source).find('.')
 if dot_pos == -1:
     dot_pos = len(token.value(source))
@@ -298,6 +302,10 @@ main_window.pos.
 ...
 
 V width = active_window.rect. {.right - .left}
+
+...
+
+infile. .seek(.tell() + 8)
 
 ...
 

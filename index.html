@@ -406,6 +406,10 @@ span.comment {color: #808080;}
 
 ...
 
+<span class="identifier">infile</span>.<span class="identifier">seek</span>(<span class="numeric-literal">8</span>, <span class="identifier">os</span>.<span class="identifier">SEEK_CUR</span>)
+
+...
+
 <span class="identifier">dot_pos</span> = <span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>).<span class="identifier">find</span>(<span class="string-literal">'.'</span>)
 <span class="keyword">if</span> <span class="identifier">dot_pos</span> == -<span class="numeric-literal">1</span>:
     <span class="identifier">dot_pos</span> = <span class="identifier">len</span>(<span class="identifier">token</span>.<span class="identifier">value</span>(<span class="identifier">source</span>))
@@ -417,6 +421,10 @@ span.comment {color: #808080;}
 ...
 
 <span class="keyword">V</span> <span class="identifier">width</span> = <span class="identifier">active_window</span>.<span class="identifier">rect</span>. {.<span class="identifier">right</span> - .<span class="identifier">left</span>}
+
+...
+
+<span class="identifier">infile</span>. .<span class="identifier">seek</span>(.<span class="identifier">tell</span>() + <span class="numeric-literal">8</span>)
 
 ...
 

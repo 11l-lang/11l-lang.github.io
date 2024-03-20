@@ -85,7 +85,9 @@ There are 11 keywords at the root of that tree, and each word can be written as 
             ├── enum
             └── interface
 ── V/var
-── X/exception ──┬── try
+── X/exception ──┬── handle
+                 ├── throw
+                 ├── try
                  ├── catch
                  └── try_end
 ```

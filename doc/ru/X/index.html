@@ -22,10 +22,11 @@ function spoiler2(element, event)
 }
 </script>
 <style type="text/css">
-body td {
+div#main, td {
     font-size: 14px;
     font-family: Verdana, sans-serif;
     line-height: 160%;
+    text-align: justify;
 }
 span.cu_brackets_b {
     font-size: initial;
@@ -44,13 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
-td {text-align: justify; /*font-family: Tahoma, sans-serif;*/}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -62,8 +62,8 @@ ul, ol {margin: 11px 0 7px 0;}
 ul li, ol li {padding: 7px 0;}
 ul li:first-child, ol li:first-child {padding-top   : 0;}
 ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
-table table {margin: 9px 0; border-collapse: collapse;}
-table table th, table table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
 span.spoiler_title {
     color: #548eaa;
     cursor: pointer;
@@ -92,23 +92,69 @@ pre.inline_code {
     background-color: #FAFAFA;
     border-radius: 3px;
 }
+img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
 </style>
 </head>
 <body>
-<table width="55%" align="center"><tr><td>
+<div id="main" style="margin: 0 auto">
 <!--[[[Н‘X/exception’
 ]]]--><h3>Ключевое слово X/exception</h3>
 <br />
 <br />
-Этот код:<br />
-<style>
+В 11l <!--[[[поддерживается/]]]-->присутствует два <span class="sq"><span class="sq_brackets">[</span><span class="sq"><span class="sq_brackets">[</span>вида/<span class="sq_brackets">]</span></span>типа/<span class="sq_brackets">]</span></span>рода исключений:<br />
+<ol>
+<li>Нефатальные/<abbr title="с точки зрения  стоимости возбуждения исключения; если же исключение возбуждается очень редко, то лучше использовать исключения второго рода (т.к. исключения первого рода добавляют небольшие постоянные накладные расходы при каждом вызове функции, которая может их породить, а именно добавляют проверку типа возвращённого значения — обычное значение либо исключение)">дешёвые</abbr> исключения. Обязательны к перехвату в исходном коде, компилятор должен проверить, что все такие исключения перехватываются.<br />
+Их необходимо указывать в ‘спецификаторах исключений’\‘exception specifications’. Поведение аналогично checked исключениям <a href="https://habr.com/ru/companies/golovachcourses/articles/225585/">в Java</a><!--[[[Реализованы такие исключения]]]-->, а реализация — аналогично <!--[[["исключениям"]]]-->ошибкам в Rust и Swift — т.е. просто как дополнительное <span class="sq"><span class="sq_brackets">[</span>скрытое<span class="sq_brackets">]</span></span> возвращаемое значение у функции.</li>
+<li>Фатальные/дорогие исключения, отсутствие которых гарантировать невозможно и которые нельзя проверить на этапе компиляции. Поведение аналогично тому, как реализованы исключения в самых популярных языках программирования (C++, Python, C#<!--[[[
+‘The Trouble with Checked Exceptions A Conversation with Anders Hejlsberg, Part II’[https://www.artima.com/articles/the-trouble-with-checked-exceptions <= http://www.artima.com/intv/handcuffs.html <- https://github.com/dotnet/csharplang/discussions/429 <- google:‘checked exception c#’]
+]]]-->, unchecked исключения в Java).</li>
+</ol>
+<br />
+Исключения первого рода используют синтаксис <style>
 span.keyword {color: #0000FF; font-weight: bold;}
 span.identifier {color: #00009F;}
 span.string-literal {color: #800000;}
 span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
-</style><pre class="code_block">
+</style><pre style="display: inline"><span class="keyword">X</span> &lt;<span class="identifier">объект_исключения</span>></pre> для порождения и <pre style="display: inline"><span class="keyword">X.handle</span> &lt;<span class="identifier">тип_исключения</span>></pre> для обработки.<br />
+Исключения второго рода используют синтаксис <pre style="display: inline"><span class="keyword">X.throw</span> &lt;<span class="identifier">объект_исключения</span>></pre> для порождения и <pre style="display: inline"><span class="keyword">X.try</span></pre>/<pre style="display: inline"><span class="keyword">X.catch</span></pre> для обработки.<br />
+<br />
+Пример исключения первого рода:<!--[[[inspired by [https://codereview.stackexchange.com/a/259993 <- https://codereview.stackexchange.com/questions/259987/implement-a-range-behaviour-in-python-using-iterators <- google:‘python __next__ range implementation’]]]]--><br />
+<pre class="code_block">
+<span class="keyword">T</span> <span class="identifier">StopIteration</span> {}
+
+<span class="keyword">T</span> <span class="identifier">RangeIterator</span>
+   <span class="identifier">Int</span> <span class="identifier">start</span>, <span class="identifier">stop</span>
+
+   <span class="keyword">F</span> (<span class="identifier">start</span>, <span class="identifier">stop</span>)
+      .<span class="identifier">start</span> = <span class="identifier">start</span> - <span class="numeric-literal">1</span>
+      .<span class="identifier">stop</span>  = <span class="identifier">stop</span>
+
+   <span class="keyword">F</span> <span class="identifier">__next__</span>() <span class="keyword">X</span>(<span class="identifier">StopIteration</span>)
+      .<span class="identifier">start</span>++
+      <span class="keyword">I</span> .<span class="identifier">start</span> == .<span class="identifier">stop</span>
+         <span class="keyword">X</span> <span class="identifier">StopIteration</span>()
+      <span class="keyword">R</span> .<span class="identifier">start</span>
+
+<span class="keyword">V</span> <span class="identifier">it</span> = <span class="identifier">RangeIterator</span>(<span class="numeric-literal">1</span>, <span class="numeric-literal">10</span>)
+<span class="keyword">L</span>
+   <span class="keyword">V</span> <span class="identifier">next</span> = <span class="identifier">it</span>.<span class="identifier">__next__</span>()
+   <span class="keyword">X.handle</span> <span class="identifier">StopIteration</span>
+      <span class="keyword">L.break</span>
+   <span class="identifier">print</span>(<span class="identifier">next</span>)
+</pre>
+(Обратите внимание, что код, порождающий исключения первого рода, не обязательно заключать в блок <pre style="display: inline"><span class="keyword">X.try</span></pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">компилятор будет пытаться сопоставить обработчик <pre style="display: inline"><span class="keyword">X.handle</span></pre> следующий за вызовом функции, потенциально порождающей данное исключение</span><span class="cu_brackets_b">}</span></span>, т.к. такие исключения гарантированно должны быть обработаны<!--[[[
+>‘Страуструп Б. Дизайн и эволюция C++ (2007) стр. 399’:‘Наилучший вариант — каждое возбужденное исключение перехватывается тем или иным обработчиком, написанным пользователем.’
+]]]-->.)<br />
+<br />
+Пример исключения второго рода:<br />
+<pre class="code_block">
 <span class="keyword">T</span> <span class="identifier">Error</span>
    <span class="identifier">String</span> <span class="identifier">message</span>
    <span class="keyword">F</span> (<span class="identifier">message</span>)
@@ -116,17 +162,16 @@ span.comment {color: #808080;}
 
 <span class="keyword">X.try</span>
    <span class="identifier">print</span>(<span class="string-literal">‘1’</span>)
-   <span class="keyword">X</span> <span class="identifier">Error</span>(<span class="string-literal">‘error message’</span>)
+   <span class="keyword">X.throw</span> <span class="identifier">Error</span>(<span class="string-literal">‘error message’</span>)
    <span class="identifier">print</span>(<span class="string-literal">‘never printed string’</span>)
 <span class="keyword">X.catch</span> <span class="identifier">Error</span> <span class="identifier">e</span>
    <span class="identifier">print</span>(<span class="string-literal">‘Error: ’</span><span class="identifier">e</span>.<span class="identifier">message</span>)
 </pre>
-выведет:<br />
+Этот код выведет:<br />
 <pre>
 1
 Error: error message
 </pre>
-
-</td></tr></table>
+</div>
 </body>
 </html>

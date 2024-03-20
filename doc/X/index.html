@@ -147,7 +147,7 @@ An example of an exception of the first kind:<br />
       <span class="keyword">L.break</span>
    <span class="identifier">print</span>(<span class="identifier">next</span>)
 </pre>
-(Note that code generating exceptions of the first kind need not be enclosed in the <pre style="display: inline"><span class="keyword">X.try</span></pre> block <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">the compiler will try to match the <pre style="display: inline"><span class="keyword">X.handle</span></pre> handler following the call to the function potentially generating the exception</span><span class="cu_brackets_b">}</span></span>, since such exceptions are guaranteed to be handled.)<br />
+(Note that code generating exceptions of the first kind need not be enclosed in the <pre style="display: inline"><span class="keyword">X.try</span></pre> block <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><!--[[[the compiler will try to match the #(11l)‘X.handle’ handler following]]]-->the exception handler must be located immediately after the call to the function potentially generating the exception</span><span class="cu_brackets_b">}</span></span>, since such exceptions are guaranteed to be handled.)<br />
 <br />
 An example of an exception of the second kind:<br />
 <pre class="code_block">

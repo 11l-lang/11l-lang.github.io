@@ -34,7 +34,7 @@ L
       L.break
    print(next)
 ’
-(Note that code generating exceptions of the first kind need not be enclosed in the #(11l)‘X.try’ block {the compiler will try to match the #(11l)‘X.handle’ handler following the call to the function potentially generating the exception}, since such exceptions are guaranteed to be handled.)
+(Note that code generating exceptions of the first kind need not be enclosed in the #(11l)‘X.try’ block {[[[the compiler will try to match the #(11l)‘X.handle’ handler following]]]the exception handler must be located immediately after the call to the function potentially generating the exception}, since such exceptions are guaranteed to be handled.)
 
 An example of an exception of the second kind:
 #(11l)‘

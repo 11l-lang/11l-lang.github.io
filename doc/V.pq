@@ -127,5 +127,5 @@ V& el = map.get(key)!
 is the same as:
 #(11l)‘
 V& el = map.get(key) E
-   X NullPointerException()
+   X.throw NullPointerException()
 ’

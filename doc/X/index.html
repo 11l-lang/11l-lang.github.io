@@ -123,6 +123,12 @@ span.comment {color: #808080;}
 </style><pre style="display: inline"><span class="keyword">X</span> &lt;<span class="identifier">exception_object</span>></pre> for throwing and <pre style="display: inline"><span class="keyword">X.handle</span> &lt;<span class="identifier">exception_type</span>></pre> for handling.<br />
 Exceptions of the second kind use the syntax <pre style="display: inline"><span class="keyword">X.throw</span> &lt;<span class="identifier">exception_object</span>></pre> for throwing and <pre style="display: inline"><span class="keyword">X.try</span></pre>/<pre style="display: inline"><span class="keyword">X.catch</span></pre> for handling.<br />
 <br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Why `X.handle`?<br /></span><div class="spoiler_text" style="display: none">
+<blockquote><i><a href="https://www.stroustrup.com/except89.pdf" title="<- google:‘&quot;the design and evolution of c++&quot; &quot;void f() throw (e1, e2)&quot;’">Exception Handling for C++</a></i>:<br />
+Similarly, we chose <pre class="inline_code">catch</pre> in preference to <pre class="inline_code">handle</pre> because <pre class="inline_code">handle</pre> is a commonly used C identifier.</blockquote>
+<!--[[[And ]]]-->Unlike C++ <!--[[[or/]]]-->and <!--[[[any/]]]-->most other programming languages, subkeywords in 11l can be anything.<br />
+</div>
+<br />
 An example of an exception of the first kind:<br />
 <pre class="code_block">
 <span class="keyword">T</span> <span class="identifier">StopIteration</span> {}

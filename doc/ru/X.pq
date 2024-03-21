@@ -9,8 +9,16 @@
 ‘The Trouble with Checked Exceptions A Conversation with Anders Hejlsberg, Part II’[https://www.artima.com/articles/the-trouble-with-checked-exceptions <= http://www.artima.com/intv/handcuffs.html <- https://github.com/dotnet/csharplang/discussions/429 <- google:‘checked exception c#’]
 ]]], unchecked исключения в Java).
 
-Исключения первого рода используют синтаксис #(11l)‘X <объект_исключения>’ для порождения и #(11l)‘X.handle <тип_исключения>’ для обработки.
+Исключения первого рода используют синтаксис #(11l)‘X <объект_исключения>’ для порождения и #(11l)‘X.handle <тип_исключения>’ для обработки.[[[ {
+Почему #(11l)‘X.handle’:
+...
+}]](не влезает, поэтому [[[[перемещено/]помещено/]]]размещено ниже)]
 Исключения второго рода используют синтаксис #(11l)‘X.throw <объект_исключения>’ для порождения и #(11l)‘X.try’/#(11l)‘X.catch’ для обработки.
+
+‘Почему `X.handle`?’{
+>‘Exception Handling for C++’[https://www.stroustrup.com/except89.pdf <- google:‘"the design and evolution of c++" "void f() throw (e1, e2)"’ <- решил посмотреть как ‘возбуждать’ написано в оригинале книги ‘Страуструп Б. Дизайн и эволюция C++ (2007) стр. 399’ (‘raise’ или ‘throw’)]:‘Similarly, we chose `catch` in preference to `handle` because `handle` is a commonly used C identifier.’
+В отличие от C++ и большинства других языков программирования, ключевые подслова в 11l могут быть какими угодно.
+}
 
 Пример исключения первого рода:[[[inspired by [https://codereview.stackexchange.com/a/259993 <- https://codereview.stackexchange.com/questions/259987/implement-a-range-behaviour-in-python-using-iterators <- google:‘python __next__ range implementation’]]]]
 #(11l)‘

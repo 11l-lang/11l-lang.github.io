@@ -122,8 +122,17 @@ span.string-literal {color: #800000;}
 span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
-</style><pre style="display: inline"><span class="keyword">X</span> &lt;<span class="identifier">объект_исключения</span>></pre> для порождения и <pre style="display: inline"><span class="keyword">X.handle</span> &lt;<span class="identifier">тип_исключения</span>></pre> для обработки.<br />
+</style><pre style="display: inline"><span class="keyword">X</span> &lt;<span class="identifier">объект_исключения</span>></pre> для порождения и <pre style="display: inline"><span class="keyword">X.handle</span> &lt;<span class="identifier">тип_исключения</span>></pre> для обработки.<!--[[[ {
+Почему #(11l)‘X.handle’:
+...
+}]](не влезает, поэтому размещено ниже)]--><br />
 Исключения второго рода используют синтаксис <pre style="display: inline"><span class="keyword">X.throw</span> &lt;<span class="identifier">объект_исключения</span>></pre> для порождения и <pre style="display: inline"><span class="keyword">X.try</span></pre>/<pre style="display: inline"><span class="keyword">X.catch</span></pre> для обработки.<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Почему `X.handle`?<br /></span><div class="spoiler_text" style="display: none">
+<blockquote><i><a href="https://www.stroustrup.com/except89.pdf" title="<- google:‘&quot;the design and evolution of c++&quot; &quot;void f() throw (e1, e2)&quot;’ <- решил посмотреть как ‘возбуждать’ написано в оригинале книги ‘Страуструп Б. Дизайн и эволюция C++ (2007) стр. 399’ (‘raise’ или ‘throw’)">Exception Handling for C++</a></i>:<br />
+Similarly, we chose <pre class="inline_code">catch</pre> in preference to <pre class="inline_code">handle</pre> because <pre class="inline_code">handle</pre> is a commonly used C identifier.</blockquote>
+В отличие от C++ и большинства других языков программирования, ключевые подслова в 11l могут быть какими угодно.<br />
+</div>
 <br />
 Пример исключения первого рода:<!--[[[inspired by [https://codereview.stackexchange.com/a/259993 <- https://codereview.stackexchange.com/questions/259987/implement-a-range-behaviour-in-python-using-iterators <- google:‘python __next__ range implementation’]]]]--><br />
 <pre class="code_block">

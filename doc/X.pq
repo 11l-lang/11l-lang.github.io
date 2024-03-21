@@ -10,6 +10,11 @@ They must be specified in exception specifications. The behavior is similar to c
 Exceptions of the first kind use the syntax #(11l)‘X <exception_object>’ for throwing and #(11l)‘X.handle <exception_type>’ for handling.
 Exceptions of the second kind use the syntax #(11l)‘X.throw <exception_object>’ for throwing and #(11l)‘X.try’/#(11l)‘X.catch’ for handling.
 
+‘Why `X.handle`?’{
+>‘Exception Handling for C++’[https://www.stroustrup.com/except89.pdf <- google:‘"the design and evolution of c++" "void f() throw (e1, e2)"’]:‘Similarly, we chose `catch` in preference to `handle` because `handle` is a commonly used C identifier.’
+[[[And ]]]Unlike C++ [[[or/]]]and [[[any/]]]most other programming languages, subkeywords in 11l can be anything.
+}
+
 An example of an exception of the first kind:
 #(11l)‘
 T StopIteration {}

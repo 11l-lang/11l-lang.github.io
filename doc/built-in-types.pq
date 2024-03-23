@@ -386,8 +386,8 @@ Remove the first occurrence of `value`. If not found, raises a `ValueError`.
 *‘File’
 A file object.
 ‘Methods’{
-*‘File’(name, mode = ‘r’)
-Open file with the specified name and mode (~‘note: only ‘r’ and ‘w’ are supported at the present moment’).
+*‘File’(name, mode = READ)
+Open file with the specified name and mode (~‘note: only READ and WRITE are supported at the present moment’).
 
 *‘read’() -> String
 Read a whole file into a string, and return it.

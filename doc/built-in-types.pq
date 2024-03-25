@@ -386,12 +386,18 @@ Remove the first occurrence of `value`. If not found, raises a `ValueError`.
 *‘File’
 A file object.
 ‘Methods’{
-*‘File’(name, mode = READ)
-Open file with the specified name and mode (~‘note: only READ and WRITE are supported at the present moment’).
+*‘File’(name, encoding = ‘utf-8-sig’)
+Open file with the specified name for reading.
+
+*‘File’(name, WRITE, encoding = ‘utf-8’)
+Open file with the specified name for writing. If the given file exists, its contents are destroyed.
+
+*‘File’(name, APPEND, encoding = ‘utf-8’)
+Open file with the specified name for writing at the end of the file (appending).
+~‘Note: only utf-8 and utf-8-sig [UTF-8 with BOM] encodings are supported at the present moment.’
 
 *‘read’() -> String
 Read a whole file into a string, and return it.
-~‘Note: only UTF-8 encoding [with optional BOM] is supported at the present moment.’
 
 *‘read’(1) -> Char
 Read and return single character from the file.

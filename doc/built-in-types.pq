@@ -405,14 +405,17 @@ Read and return single character from the file.
 *‘read_line’(keep_newline = 0B) -> String
 Read and return one line from the file. If `keep_newline` argument is true (1B), trailing new-line character is [[[remained/]]]left as is.
 
-*‘read_lines’(keep_newline = 0B) -> Array[String]
-[[[Read and return an array of lines from the file.]]]Reads the entire file [[[specified by name]]] as individual lines, and returns those lines in an array. If `keep_newline` argument is true (1B), trailing new-line characters are [[[remained/]]]left as is.
+*‘read_lines’(keep_newline = 0B) -> Iterator0‘[String]’
+[[[Read and return an array of lines from the file.]]]Reads the entire file [[[specified by name]]] as individual lines, and returns those lines [[[in an array]]]as iterator. If `keep_newline` argument is true (1B), trailing new-line characters are [[[remained/]]]left as is.
 
 *‘read_bytes’() -> Array0‘[Byte]’
 Read a whole file into an array of bytes, and return it.
 
 *‘read_bytes’(size) -> Array0‘[Byte]’
-[[[Read and return at most `size` bytes from the file.]]]Read up to `size` bytes from the file and return them.
+Read `size` bytes from the file and return them. May throw `UnexpectedEOF`.
+
+*‘read_bytes’(at_most' size) -> Array0‘[Byte]’
+[[[Read and return at most `size` bytes from the file.]]]Read [[[up to]]]at most `size` bytes from the file and return them.
 
 *‘write’(s)
 Write the string `s` to the file.

@@ -21,18 +21,18 @@ Return bits of an integer corresponding to a giving `range`. (Example: #(11l)‘
 *‘Int8’
 *‘Int16’
 *‘Int32’
-*‘Int64’
+*‘Int64’ or *‘Long’[[[
 or[http://forum.11l-lang.org/threads/int8-int16-int32-int64-vs-int1-int2-int4-int8.3/ ‘Int8, Int16, Int32, Int64 vs Int1, Int2, Int4, Int8 ‘Int8, Int16, Int32, Int64’ ‘Int1, Int2, Int4, Int8’ What way of the designation of the size of Int/Float do you prefer? Bits or bytes?’]
 *‘Int1’
 *‘Int2’
 *‘Int4’
-*‘Int8’
+*‘Int8’]]]
 Signed integers.
 
 *‘Byte’
 *‘UInt16’
 *‘UInt32’
-*‘UInt64’
+*‘UInt64’ or *‘ULong’
 Unsigned integers.
 
 *‘BigInt’
@@ -41,11 +41,11 @@ Arbitrary-precision integer.
 *‘Float’
 Floating-point type (‘32 or 64’[http://forum.11l-lang.org/threads/size-of-float-built-in-type.2/] bits).
 
-*‘Float32’/*‘SFloat’
-*‘Float64’
+*‘Float32’ or *‘SFloat’
+*‘Float64’[[[
 or[http://forum.11l-lang.org/threads/int8-int16-int32-int64-vs-int1-int2-int4-int8.3/]
 *‘Float4’/*‘SFloat’
-*‘Float8’
+*‘Float8’]]]
 
 *‘Char’
 Character.

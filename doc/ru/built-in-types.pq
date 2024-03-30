@@ -15,18 +15,18 @@
 *‘Int8’
 *‘Int16’
 *‘Int32’
-*‘Int64’
+*‘Int64’ или *‘Long’[[[
 или[http://forum.11l-lang.org/threads/int8-int16-int32-int64-vs-int1-int2-int4-int8.6/]
 *‘Int1’
 *‘Int2’
 *‘Int4’
-*‘Int8’
+*‘Int8’]]]
 Знаковые целые.
 
 *‘Byte’
 *‘UInt16’
 *‘UInt32’
-*‘UInt64’
+*‘UInt64’ или *‘ULong’
 Беззнаковые целые.
 
 *‘BigInt’
@@ -35,11 +35,11 @@
 *‘Float’
 Вещественный тип (размерностью ‘32 или 64’[http://forum.11l-lang.org/threads/Размер-встроенного-типа-float.5/] разряда).
 
-*‘Float32’/*‘SFloat’
-*‘Float64’
+*‘Float32’ или *‘SFloat’
+*‘Float64’[[[
 или[http://forum.11l-lang.org/threads/int8-int16-int32-int64-vs-int1-int2-int4-int8.6/]
 *‘Float4’/*‘SFloat’
-*‘Float8’
+*‘Float8’]]]
 
 *‘Char’
 Символ.

@@ -28,3 +28,6 @@ Note that digit separator `'` is necessary [[[only ]]]for hexadecimal literals.
 [[‘’][[[I know that ]]]Someone [[[may/]]]might want to put in code a credit card number (like 1234'5678'9012'3456, which is hexadecimal (but not decimal!) literal in 11l), but how frequently this is really needed in practice?]
 
 Why `'` instead of `_` — there [[[might/]]]may be a valid [[[variable name]]]identifier (e.g. [[[`FFFF_FFFF` or ]]]the name of the enumerator[[[[https://en.cppreference.com/w/cpp/language/enum]:‘the name of the enumerator’]]] `C0_FE`).
+
+*‘Long-suffix (character `L`)’
+If provided, the literal is of type `Long`.

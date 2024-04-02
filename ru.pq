@@ -56,6 +56,7 @@
                  └── unlikely\редко
 ── E/else\И/иначе
 ── F/fn\Ф/фн ──┬── args\арг
+               ├── result\результат
                ├── destructor\деструктор
                └── virtual\виртуал ──┬── new\новая
                                      ├── override\переопр

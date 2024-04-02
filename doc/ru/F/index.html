@@ -221,6 +221,16 @@ span.comment {color: #808080;}
 </pre>
 <br />
 Подслово <pre class="inline_code">F.args</pre>/<pre class="inline_code">fn.args</pre> предназначено для обеспечения доступа к аргументам, переданным в текущую функцию, но на данный момент оно не реализовано.<br />
+<br />
+<pre class="inline_code">F.result</pre>/<pre class="inline_code">fn.result</pre> — это специальная переменная, которая служит в качестве неявной переменной возврата.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Почему `fn.result`?<br /></span><div class="spoiler_text" style="display: none">
+<ul>
+<li><pre class="inline_code">result</pre>, потому что в <a href="https://rosettacode.org/wiki/Function_definition#Nim">Nim</a> и <a href="https://rosettacode.org/wiki/Function_definition#Delphi">Delphi</a> есть специальная переменная <pre class="inline_code">result</pre>.</li>
+<li><pre class="inline_code">fn</pre>, потому что для возврата значения из функции в некоторых языках (например, <a href="https://rosettacode.org/wiki/Function_definition#BASIC">BASIC</a> и <a href="https://rosettacode.org/wiki/Function_definition#Pascal">Pascal</a>) необходимо присвоить значение имени функции.</li>
+</ul>
+<br />
+<pre class="inline_code">F.result</pre>/<pre class="inline_code">fn.result</pre> длиннее <pre class="inline_code">R</pre>/<pre class="inline_code">return</pre> намеренно, т.к. он должен использоваться только в случае необходимости. <pre class="inline_code">R</pre>/<pre class="inline_code">return</pre> предпочтительнее, поскольку функции в 11l не требуют указания типа возвращаемого значения.<br />
+</div>
 </div>
 </body>
 </html>

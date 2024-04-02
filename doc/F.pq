@@ -110,3 +110,11 @@ T Circle(Shape)
 ’
 
 `F.args`/`fn.args` is intended to provide access to the arguments passed to the current function, but it is not implemented yet.
+
+`F.result`/`fn.result` is a special variable that serves as an implicit return variable.[[[https://nim-by-example.github.io/variables/result/ <- google:‘nim result’]]][[[ It is useful for cases when]]]
+‘Why `fn.result`?’{
+. `result` because there is a `result` special variable in Nim[https://rosettacode.org/wiki/Function_definition#Nim] and Delphi[https://rosettacode.org/wiki/Function_definition#Delphi].
+. `fn` because to return a value from a function in some languages (e.g. BASIC[https://rosettacode.org/wiki/Function_definition#BASIC][[[ and]]], Pascal[https://rosettacode.org/wiki/Function_definition#Pascal]), you must assign the value to the function name.[[[https://www.statology.org/vba-function-return/ <- google:‘vba return value’]]]
+
+`F.result`/`fn.result` is longer than `R`/`return` by intent because it should only be used when necessary. `R`/`return` is preferred since functions in 11l [[[by default have]]] do not require specifying the return value type.
+}

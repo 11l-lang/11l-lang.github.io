@@ -221,6 +221,16 @@ Small example:<br />
 </pre>
 <br />
 <pre class="inline_code">F.args</pre>/<pre class="inline_code">fn.args</pre> is intended to provide access to the arguments passed to the current function, but it is not implemented yet.<br />
+<br />
+<pre class="inline_code">F.result</pre>/<pre class="inline_code">fn.result</pre> is a special variable that serves as an implicit return variable.<!--[[[https://nim-by-example.github.io/variables/result/ <- google:‘nim result’]]]--><!--[[[ It is useful for cases when]]]--><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Why `fn.result`?<br /></span><div class="spoiler_text" style="display: none">
+<ul>
+<li><pre class="inline_code">result</pre> because there is a <pre class="inline_code">result</pre> special variable in <a href="https://rosettacode.org/wiki/Function_definition#Nim">Nim</a> and <a href="https://rosettacode.org/wiki/Function_definition#Delphi">Delphi</a>.</li>
+<li><pre class="inline_code">fn</pre> because to return a value from a function in some languages (e.g. <a href="https://rosettacode.org/wiki/Function_definition#BASIC">BASIC</a><!--[[[ and]]]-->, <a href="https://rosettacode.org/wiki/Function_definition#Pascal">Pascal</a>), you must assign the value to the function name.<!--[[[https://www.statology.org/vba-function-return/ <- google:‘vba return value’]]]--></li>
+</ul>
+<br />
+<pre class="inline_code">F.result</pre>/<pre class="inline_code">fn.result</pre> is longer than <pre class="inline_code">R</pre>/<pre class="inline_code">return</pre> by intent because it should only be used when necessary. <pre class="inline_code">R</pre>/<pre class="inline_code">return</pre> is preferred since functions in 11l <!--[[[by default have]]]--> do not require specifying the return value type.<br />
+</div>
 </div>
 </body>
 </html>

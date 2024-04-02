@@ -110,3 +110,11 @@ T Circle(Shape)
 ’
 
 Подслово `F.args`/`fn.args` предназначено для обеспечения доступа к аргументам, переданным в текущую функцию, но на данный момент оно не реализовано.
+
+`F.result`/`fn.result` — это специальная переменная, которая служит в качестве неявной переменной возврата.
+‘Почему `fn.result`?’{
+. `result`, потому что в Nim[https://rosettacode.org/wiki/Function_definition#Nim] и Delphi[https://rosettacode.org/wiki/Function_definition#Delphi] есть специальная переменная `result`.
+. `fn`, потому что для возврата значения из функции в некоторых языках (например, BASIC[https://rosettacode.org/wiki/Function_definition#BASIC] и Pascal[https://rosettacode.org/wiki/Function_definition#Pascal]) необходимо присвоить значение имени функции.
+
+`F.result`/`fn.result` длиннее `R`/`return` намеренно, т.к. он должен использоваться только в случае необходимости. `R`/`return` предпочтительнее, поскольку функции в 11l не требуют указания типа возвращаемого значения.
+}

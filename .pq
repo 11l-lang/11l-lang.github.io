@@ -60,6 +60,7 @@ There are 11 keywords at the root of that tree, and each word can be written as 
           └── unlikely
 ── E/else
 ── F/fn ──┬── args
+          ├── result
           ├── destructor
           └── virtual ──┬── new
                         ├── override

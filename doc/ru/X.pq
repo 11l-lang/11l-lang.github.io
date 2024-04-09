@@ -25,24 +25,24 @@
 T StopIteration {}
 
 T RangeIterator
-   Int start, stop
+   Int cur, end
 
-   F (start, stop)
-      .start = start - 1
-      .stop  = stop
+   F (start, end)
+      .cur = start - 1
+      .end = end
 
    F __next__() X(StopIteration)
-      .start++
-      I .start == .stop
+      .cur++
+      I .cur == .end
          X StopIteration()
-      R .start
+      R .cur
 
 V it = RangeIterator(1, 10)
 L
-   V next = it.__next__()
+   V i = it.__next__()
    X.handle StopIteration
       L.break
-   print(next)
+   print(i)
 ’
 (Обратите внимание, что код, порождающий исключения первого рода, не обязательно заключать в блок #(11l)‘X.try’ {[[[компилятор будет пытаться сопоставить обработчик #(11l)‘X.handle’ следующий]]]при этом обработчик исключения должен располагаться сразу за вызовом функции, потенциально порождающей данное исключение}, т.к. такие исключения гарантированно должны быть обработаны[[[
 >‘Страуструп Б. Дизайн и эволюция C++ (2007) стр. 399’:‘Наилучший вариант — каждое возбужденное исключение перехватывается тем или иным обработчиком, написанным пользователем.’

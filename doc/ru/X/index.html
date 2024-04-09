@@ -139,24 +139,24 @@ Similarly, we chose <pre class="inline_code">catch</pre> in preference to <pre c
 <span class="keyword">T</span> <span class="identifier">StopIteration</span> {}
 
 <span class="keyword">T</span> <span class="identifier">RangeIterator</span>
-   <span class="identifier">Int</span> <span class="identifier">start</span>, <span class="identifier">stop</span>
+   <span class="identifier">Int</span> <span class="identifier">cur</span>, <span class="identifier">end</span>
 
-   <span class="keyword">F</span> (<span class="identifier">start</span>, <span class="identifier">stop</span>)
-      .<span class="identifier">start</span> = <span class="identifier">start</span> - <span class="numeric-literal">1</span>
-      .<span class="identifier">stop</span>  = <span class="identifier">stop</span>
+   <span class="keyword">F</span> (<span class="identifier">start</span>, <span class="identifier">end</span>)
+      .<span class="identifier">cur</span> = <span class="identifier">start</span> - <span class="numeric-literal">1</span>
+      .<span class="identifier">end</span> = <span class="identifier">end</span>
 
    <span class="keyword">F</span> <span class="identifier">__next__</span>() <span class="keyword">X</span>(<span class="identifier">StopIteration</span>)
-      .<span class="identifier">start</span>++
-      <span class="keyword">I</span> .<span class="identifier">start</span> == .<span class="identifier">stop</span>
+      .<span class="identifier">cur</span>++
+      <span class="keyword">I</span> .<span class="identifier">cur</span> == .<span class="identifier">end</span>
          <span class="keyword">X</span> <span class="identifier">StopIteration</span>()
-      <span class="keyword">R</span> .<span class="identifier">start</span>
+      <span class="keyword">R</span> .<span class="identifier">cur</span>
 
 <span class="keyword">V</span> <span class="identifier">it</span> = <span class="identifier">RangeIterator</span>(<span class="numeric-literal">1</span>, <span class="numeric-literal">10</span>)
 <span class="keyword">L</span>
-   <span class="keyword">V</span> <span class="identifier">next</span> = <span class="identifier">it</span>.<span class="identifier">__next__</span>()
+   <span class="keyword">V</span> <span class="identifier">i</span> = <span class="identifier">it</span>.<span class="identifier">__next__</span>()
    <span class="keyword">X.handle</span> <span class="identifier">StopIteration</span>
       <span class="keyword">L.break</span>
-   <span class="identifier">print</span>(<span class="identifier">next</span>)
+   <span class="identifier">print</span>(<span class="identifier">i</span>)
 </pre>
 (Обратите внимание, что код, порождающий исключения первого рода, не обязательно заключать в блок <pre style="display: inline"><span class="keyword">X.try</span></pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><!--[[[компилятор будет пытаться сопоставить обработчик #(11l)‘X.handle’ следующий]]]-->при этом обработчик исключения должен располагаться сразу за вызовом функции, потенциально порождающей данное исключение</span><span class="cu_brackets_b">}</span></span>, т.к. такие исключения гарантированно должны быть обработаны<!--[[[
 >‘Страуструп Б. Дизайн и эволюция C++ (2007) стр. 399’:‘Наилучший вариант — каждое возбужденное исключение перехватывается тем или иным обработчиком, написанным пользователем.’

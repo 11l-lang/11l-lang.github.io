@@ -20,24 +20,24 @@ An example of an exception of the first kind:
 T StopIteration {}
 
 T RangeIterator
-   Int start, stop
+   Int cur, end
 
-   F (start, stop)
-      .start = start - 1
-      .stop  = stop
+   F (start, end)
+      .cur = start - 1
+      .end = end
 
    F __next__() X(StopIteration)
-      .start++
-      I .start == .stop
+      .cur++
+      I .cur == .end
          X StopIteration()
-      R .start
+      R .cur
 
 V it = RangeIterator(1, 10)
 L
-   V next = it.__next__()
+   V i = it.__next__()
    X.handle StopIteration
       L.break
-   print(next)
+   print(i)
 ’
 (Note that code generating exceptions of the first kind need not be enclosed in the #(11l)‘X.try’ block {[[[the compiler will try to match the #(11l)‘X.handle’ handler following]]]the exception handler must be located immediately after the call to the function potentially generating the exception}, since such exceptions are guaranteed to be handled.)
 

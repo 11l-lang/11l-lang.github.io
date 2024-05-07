@@ -41,6 +41,9 @@ F f(=i, j)
 ’
 }
 
+`<return_type>`
+`Void` can be used as a return type name to denote that function does not return anything.
+
 
 H(-1)‘Named arguments’
 

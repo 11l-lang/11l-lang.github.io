@@ -129,7 +129,7 @@ Similarly, we chose <pre class="inline_code">catch</pre> in preference to <pre c
 <!--[[[And ]]]-->Unlike C++ <!--[[[or/]]]-->and <!--[[[any/]]]-->most other programming languages, subkeywords in 11l can be anything.<br />
 </div>
 <br />
-An example of an exception of the first kind:<br />
+An example of an exception of the <b>first kind</b>:<br />
 <pre class="code_block">
 <span class="keyword">T</span> <span class="identifier">StopIteration</span> {}
 
@@ -153,9 +153,58 @@ An example of an exception of the first kind:<br />
       <span class="keyword">L.break</span>
    <span class="identifier">print</span>(<span class="identifier">i</span>)
 </pre>
-(Note that code generating exceptions of the first kind need not be enclosed in the <pre style="display: inline"><span class="keyword">X.try</span></pre> block <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><!--[[[the compiler will try to match the #(11l)‘X.handle’ handler following]]]-->the exception handler must be located immediately after the call to the function potentially generating the exception</span><span class="cu_brackets_b">}</span></span>, since such exceptions are guaranteed to be handled.)<br />
 <br />
-An example of an exception of the second kind:<br />
+Note that code generating exceptions of the first kind <b>need not be</b> enclosed in the <pre style="display: inline"><span class="keyword">X.try</span></pre> block <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><!--[[[the compiler will try to match the #(11l)‘X.handle’ handler following]]]-->the exception handler must be located immediately after the call to the function potentially generating the exception</span><span class="cu_brackets_b">}</span></span>, since such exceptions are guaranteed to be handled.<br />
+However, it <b>can be</b> enclosed in the <pre style="display: inline"><span class="keyword">X.try</span></pre> block if necessary:<br />
+<pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">circles_from_p1p2r</span>(<span class="identifier">p1</span>, <span class="identifier">p2</span>, <span class="identifier">r</span>) <span class="keyword">X</span>(<span class="identifier">Error</span>)
+   <span class="keyword">I</span> <span class="identifier">r</span> == <span class="numeric-literal">0.0</span>
+      <span class="keyword">X</span> <span class="identifier">Error</span>(<span class="string-literal">‘radius of zero’</span>)
+   <span class="keyword">I</span> <span class="identifier">p1</span> == <span class="identifier">p2</span>
+      <span class="keyword">X</span> <span class="identifier">Error</span>(<span class="string-literal">‘coincident points gives infinite number of Circles’</span>)
+   ...
+   <span class="keyword">R</span> (<span class="identifier">c1</span>, <span class="identifier">c2</span>)
+
+<span class="keyword">L</span>(<span class="identifier">p1</span>, <span class="identifier">p2</span>, <span class="identifier">r</span>) [((<span class="numeric-literal">0.1234</span>, <span class="numeric-literal">0.9876</span>), (<span class="numeric-literal">0.8765</span>, <span class="numeric-literal">0.2345</span>), <span class="numeric-literal">2.0</span>),
+              ...
+              ((<span class="numeric-literal">0.1234</span>, <span class="numeric-literal">0.9876</span>), (<span class="numeric-literal">0.1234</span>, <span class="numeric-literal">0.9876</span>), <span class="numeric-literal">0.0</span>)]
+   <span class="identifier">print</span>(<span class="string-literal">"Through points:\n  #.,\n  #.\n  and radius #.6\nYou can construct the following circles:"</span>.<span class="identifier">format</span>(<span class="identifier">p1</span>, <span class="identifier">p2</span>, <span class="identifier">r</span>))
+   <span class="keyword">X.try</span>
+      <span class="keyword">V</span> (<span class="identifier">c1</span>, <span class="identifier">c2</span>) = <span class="identifier">circles_from_p1p2r</span>(<span class="identifier">p1</span>, <span class="identifier">p2</span>, <span class="identifier">r</span>)
+      <span class="identifier">print</span>(<span class="string-literal">"  #.\n  #.\n"</span>.<span class="identifier">format</span>(<span class="identifier">c1</span>, <span class="identifier">c2</span>))
+   <span class="keyword">X.handle</span> <span class="identifier">Error</span> <span class="identifier">v</span>
+      <span class="identifier">print</span>(<span class="string-literal">"  ERROR: #.\n"</span>.<span class="identifier">format</span>(<span class="identifier">v</span>.<span class="identifier">msg</span>))
+</pre>
+(<a href="https://rosettacode.org/wiki/Circles_of_given_radius_through_two_points#11l">Full code.</a>)<br />
+<br />
+Exceptions of the first kind are good for returning from recursive functions:<br />
+<pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">walk_maze</span>(<span class="identifier">m</span>, <span class="identifier">n</span>, &amp;<span class="identifier">cell</span>, <span class="identifier">indx</span>) <span class="keyword">X</span>(<span class="identifier">PercolatedException</span>)
+   <span class="identifier">cell</span>[<span class="identifier">n</span>][<span class="identifier">m</span>] = <span class="identifier">indx</span>
+   <span class="keyword">I</span> <span class="identifier">n</span> &lt; :<span class="identifier">nn</span> - <span class="numeric-literal">1</span> &amp; <span class="identifier">cell</span>[<span class="identifier">n</span> + <span class="numeric-literal">1</span>][<span class="identifier">m</span>] == :<span class="identifier">NOT_VISITED</span>
+      <span class="identifier">walk_maze</span>(<span class="identifier">m</span>, <span class="identifier">n</span> + <span class="numeric-literal">1</span>, &amp;<span class="identifier">cell</span>, <span class="identifier">indx</span>)
+   <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">n</span> == :<span class="identifier">nn</span> - <span class="numeric-literal">1</span>
+      <span class="keyword">X</span> <span class="identifier">PercolatedException</span>((<span class="identifier">m</span>, <span class="identifier">indx</span>))
+   <span class="keyword">I</span> <span class="identifier">m</span> &amp; <span class="identifier">cell</span>[<span class="identifier">n</span>][<span class="identifier">m</span> - <span class="numeric-literal">1</span>] == :<span class="identifier">NOT_VISITED</span>
+      <span class="identifier">walk_maze</span>(<span class="identifier">m</span> - <span class="numeric-literal">1</span>, <span class="identifier">n</span>, &amp;<span class="identifier">cell</span>, <span class="identifier">indx</span>)
+   <span class="keyword">I</span> <span class="identifier">m</span> &lt; :<span class="identifier">M</span> - <span class="numeric-literal">1</span> &amp; <span class="identifier">cell</span>[<span class="identifier">n</span>][<span class="identifier">m</span> + <span class="numeric-literal">1</span>] == :<span class="identifier">NOT_VISITED</span>
+      <span class="identifier">walk_maze</span>(<span class="identifier">m</span> + <span class="numeric-literal">1</span>, <span class="identifier">n</span>, &amp;<span class="identifier">cell</span>, <span class="identifier">indx</span>)
+   <span class="keyword">I</span> <span class="identifier">n</span> &amp; <span class="identifier">cell</span>[<span class="identifier">n</span> - <span class="numeric-literal">1</span>][<span class="identifier">m</span>] == :<span class="identifier">NOT_VISITED</span>
+      <span class="identifier">walk_maze</span>(<span class="identifier">m</span>, <span class="identifier">n</span> - <span class="numeric-literal">1</span>, &amp;<span class="identifier">cell</span>, <span class="identifier">indx</span>)
+
+<span class="keyword">F</span> <span class="identifier">check_from_top</span>(&amp;<span class="identifier">cell</span>) -> (<span class="identifier">Int</span>, <span class="identifier">Int</span>)?
+   <span class="keyword">V</span> (<span class="identifier">n</span>, <span class="identifier">walk_index</span>) = (<span class="numeric-literal">0</span>, <span class="numeric-literal">1</span>)
+   <span class="keyword">L</span>(<span class="identifier">m</span>) <span class="numeric-literal">0</span> .&lt; :<span class="identifier">M</span>
+      <span class="keyword">I</span> <span class="identifier">cell</span>[<span class="identifier">n</span>][<span class="identifier">m</span>] == :<span class="identifier">NOT_VISITED</span>
+         <span class="identifier">walk_index</span>++
+         <span class="identifier">walk_maze</span>(<span class="identifier">m</span>, <span class="identifier">n</span>, &amp;<span class="identifier">cell</span>, <span class="identifier">walk_index</span>)
+         <span class="keyword">X.handle</span> <span class="identifier">PercolatedException</span> <span class="identifier">ex</span>
+            <span class="keyword">R</span> <span class="identifier">ex</span>.<span class="identifier">t</span>
+   <span class="keyword">R</span> <span class="keyword">N</span>
+</pre>
+(<a href="https://rosettacode.org/wiki/Percolation/Site_percolation#11l">Full code.</a>)<br />
+<br />
+An example of an exception of the <b>second kind</b>:<br />
 <pre class="code_block">
 <span class="keyword">T</span> <span class="identifier">Error</span>
    <span class="identifier">String</span> <span class="identifier">message</span>

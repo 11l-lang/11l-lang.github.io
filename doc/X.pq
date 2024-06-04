@@ -15,7 +15,7 @@ Exceptions of the second kind use the syntax #(11l)‘X.throw <exception_object>
 [[[And ]]]Unlike C++ [[[or/]]]and [[[any/]]]most other programming languages, subkeywords in 11l can be anything.
 }
 
-An example of an exception of the first kind:
+An example of an exception of the *‘first kind’:
 #(11l)‘
 T StopIteration {}
 
@@ -39,9 +39,58 @@ L
       L.break
    print(i)
 ’
-(Note that code generating exceptions of the first kind need not be enclosed in the #(11l)‘X.try’ block {[[[the compiler will try to match the #(11l)‘X.handle’ handler following]]]the exception handler must be located immediately after the call to the function potentially generating the exception}, since such exceptions are guaranteed to be handled.)
 
-An example of an exception of the second kind:
+Note that code generating exceptions of the first kind *‘need not be’ enclosed in the #(11l)‘X.try’ block {[[[the compiler will try to match the #(11l)‘X.handle’ handler following]]]the exception handler must be located immediately after the call to the function potentially generating the exception}, since such exceptions are guaranteed to be handled.
+However, it *‘can be’ enclosed in the #(11l)‘X.try’ block if necessary:
+#(11l)‘
+F circles_from_p1p2r(p1, p2, r) X(Error)
+   I r == 0.0
+      X Error(‘radius of zero’)
+   I p1 == p2
+      X Error(‘coincident points gives infinite number of Circles’)
+   ...
+   R (c1, c2)
+
+L(p1, p2, r) [((0.1234, 0.9876), (0.8765, 0.2345), 2.0),
+              ...
+              ((0.1234, 0.9876), (0.1234, 0.9876), 0.0)]
+   print("Through points:\n  #.,\n  #.\n  and radius #.6\nYou can construct the following circles:".format(p1, p2, r))
+   X.try
+      V (c1, c2) = circles_from_p1p2r(p1, p2, r)
+      print("  #.\n  #.\n".format(c1, c2))
+   X.handle Error v
+      print("  ERROR: #.\n".format(v.msg))
+’
+(‘Full code.’[https://rosettacode.org/wiki/Circles_of_given_radius_through_two_points#11l])
+
+Exceptions of the first kind are good for returning from recursive functions:
+#(11l)‘
+F walk_maze(m, n, &cell, indx) X(PercolatedException)
+   cell[n][m] = indx
+   I n < :nn - 1 & cell[n + 1][m] == :NOT_VISITED
+      walk_maze(m, n + 1, &cell, indx)
+   E I n == :nn - 1
+      X PercolatedException((m, indx))
+   I m & cell[n][m - 1] == :NOT_VISITED
+      walk_maze(m - 1, n, &cell, indx)
+   I m < :M - 1 & cell[n][m + 1] == :NOT_VISITED
+      walk_maze(m + 1, n, &cell, indx)
+   I n & cell[n - 1][m] == :NOT_VISITED
+      walk_maze(m, n - 1, &cell, indx)
+
+F check_from_top(&cell) -> (Int, Int)?
+   V (n, walk_index) = (0, 1)
+   L(m) 0 .< :M
+      I cell[n][m] == :NOT_VISITED
+         walk_index++
+         walk_maze(m, n, &cell, walk_index)
+         X.handle PercolatedException ex
+            R ex.t
+   R N
+’
+(‘Full code.’[https://rosettacode.org/wiki/Percolation/Site_percolation#11l])
+
+An example of an exception of the *‘second kind’:
 #(11l)‘
 T Error
    String message

@@ -230,6 +230,31 @@ Similarly, we chose <pre class="inline_code">catch</pre> in preference to <pre c
 1
 Error: error message
 </pre>
+<!--[[[
+#rec##audio#[REC_0003174.wav]
+Разделение exception-ов на checked и unchecked в Java — идея, признанная неудачной. Почему тогда я сделал так же в 11l? Не так же. Если хотите, я сделал по аналогии с Rust и Swift. В Java была неудачная реализация и синтаксис. Было не понятно, какие исключения являются checked, какие нет. Синтаксически [в Java] они никак не [[выделялись/]]выделяются. throw и catch одинаково [[работали/]]работают для них. В 11l это устранено. И в 11l исключения первого рода — это просто дополнительное возвращаемое значение, просто синтаксический сахар, более удобная запись того, что уже есть в Rust и Swift. И в добавок [в 11l] поддерживаются полноценные исключения, как в C++, C# и Java.
+]]]--><br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Обоснование разделения исключений в 11l на два рода<br /></span><div class="spoiler_text" style="display: none">
+Разделение исключений на checked и unchecked в Java — идея, признанная неудачной:<br />
+<blockquote><i><a href="https://reflectoring.io/do-not-use-checked-exceptions/" title="<- google:‘checked exceptions in Java’">Don't Use Checked Exceptions</a></i>:<br />
+Java is the only (mainstream) programming language to implement the concept of checked exceptions. Ever since, checked exceptions have been the subject of controversy. Considered an innovative concept at the time (Java was introduced in 1996), nowadays they are commonly considered bad practice.</blockquote>
+<blockquote><i><a href="https://www.artima.com/articles/the-trouble-with-checked-exceptions" title="<= http://www.artima.com/intv/handcuffs.html <- https://github.com/dotnet/csharplang/discussions/429 <- google:‘checked exception c#’">The Trouble with Checked Exceptions A Conversation with Anders Hejlsberg, Part II</a></i>:<br />
+I completely agree that checked exceptions are a wonderful feature. It's just that particular implementations can be problematic. By implementing checked exceptions the way it's done in Java, for example, I think you just take one set of problems and trade them for another set of problems.</blockquote>
+<br />
+Почему тогда в 11l сделано так же?<br />
+Нет, не так же.<!--[[[
+В 11l исключения первого рода являются аналогом ошибок/исключений в Rust и Swift.]]]--><br />
+<br />
+Checked и unchecked исключения в Java имеют неудачный синтаксис и реализацию:<br />
+<ul>
+<li>синтаксически перехват и возбуждение checked и unchecked исключений никак не отличаются (<pre class="inline_code">throw</pre> и <pre class="inline_code">catch</pre> работают для них в Java одинаково, в 11l это устранено — checked исключения имеют другой синтаксис);</li>
+<li>возбуждение checked исключений такое же <a href="https://stackoverflow.com/questions/47017261/comparing-checked-and-unchecked-exceptions-performance-benchmarks-in-java" title="<- google:‘checked exceptions in java faster unchecked’">медленное</a> как и unchecked, что подавляет мотивацию использовать checked исключения в Java в качестве альтернативного возвращаемого значения.</li>
+</ul>
+<br />
+В 11l исключения первого рода — это просто дополнительное возвращаемое значение, просто синтаксический сахар, <!--[[[более удобная запись]]]-->аналог <!--[[[того, что уже есть]]]-->ошибок<!--[[[/исключений]]]--> в <a href="https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html">Rust</a> и <a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/errorhandling/">Swift</a>.<br />
+<br />
+И в дополнение, 11l поддерживает полноценные исключения, как в Python, C++, C#, Java и многих других языках. Это — исключения второго рода<!--[[[ в 11l]]]-->.<br />
+</div>
 </div>
 </body>
 </html>

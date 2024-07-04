@@ -119,8 +119,8 @@ How to type <!--[[[paired single quotation marks]]]-->this symbols see <a href="
 <br />
 If raw string should contains unpaired single quotation marks, then balancing of raw string should be performed like as for raw HTML in pq markup (see <a href="http://pqmarkup.org/syntax">Advanced formatting. Raw HTML</a>).<br />
 For example, there is a string <!--[[[‘]]]--><pre class="inline_code">don’t</pre>.<br />
-It contains unpaired closing single quotation mark. Let's add a balancing opening single quotation mark at the beginning of the string: <span style="color: #00FF00">‘<!--[[[’]]]--></span><!--[[[‘]]]-->don’t.<br />
-Enclose that balanced string in single quotation marks: <span style="color: #00FF00">‘<!--[[[’]]]--></span>‘don’t<span style="color: #00FF00"><!--[[[‘]]]-->’</span>.<br />
+It contains unpaired closing single quotation mark. Let's add a balancing opening single quotation mark at the beginning of the string: <code><span style="color: #00FF00">‘<!--[[[’]]]--></span><!--[[[‘]]]-->don’t</code>.<br />
+Enclose that balanced string in single quotation marks: <code><span style="color: #00FF00">‘<!--[[[’]]]--></span>‘don’t<span style="color: #00FF00"><!--[[[‘]]]-->’</span></code>.<br />
 Now we need to somehow show to the parser that single quotation mark at the beginning of the string is not a part of the raw string <span class="sq"><span class="sq_brackets">[</span>it is needed only for balancing<span class="sq_brackets">]</span></span>. For this purpose typewriter apostrophe <pre class="inline_code">'</pre> is used: one apostrophe absorbs one single quotation mark. In our case one apostrophe should be added at the beginning of the string: <pre style="display: inline">'‘‘don’t’</pre>.<br />
 <!--[[[This/]]]-->Any balanced string (e.g. <style>
 span.keyword {color: #0000FF; font-weight: bold;}

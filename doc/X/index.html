@@ -137,14 +137,13 @@ An example of an exception of the <b>first kind</b>:<br />
    <span class="identifier">Int</span> <span class="identifier">cur</span>, <span class="identifier">end</span>
 
    <span class="keyword">F</span> (<span class="identifier">start</span>, <span class="identifier">end</span>)
-      .<span class="identifier">cur</span> = <span class="identifier">start</span> - <span class="numeric-literal">1</span>
+      .<span class="identifier">cur</span> = <span class="identifier">start</span>
       .<span class="identifier">end</span> = <span class="identifier">end</span>
 
    <span class="keyword">F</span> <span class="identifier">__next__</span>() <span class="keyword">X</span>(<span class="identifier">StopIteration</span>)
-      .<span class="identifier">cur</span>++
-      <span class="keyword">I</span> .<span class="identifier">cur</span> == .<span class="identifier">end</span>
+      <span class="keyword">I</span> .<span class="identifier">cur</span> >= .<span class="identifier">end</span>
          <span class="keyword">X</span> <span class="identifier">StopIteration</span>()
-      <span class="keyword">R</span> .<span class="identifier">cur</span>
+      <span class="keyword">R</span> .<span class="identifier">cur</span>++
 
 <span class="keyword">V</span> <span class="identifier">it</span> = <span class="identifier">RangeIterator</span>(<span class="numeric-literal">1</span>, <span class="numeric-literal">10</span>)
 <span class="keyword">L</span>

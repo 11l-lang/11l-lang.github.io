@@ -28,14 +28,13 @@ T RangeIterator
    Int cur, end
 
    F (start, end)
-      .cur = start - 1
+      .cur = start
       .end = end
 
    F __next__() X(StopIteration)
-      .cur++
-      I .cur == .end
+      I .cur >= .end
          X StopIteration()
-      R .cur
+      R .cur++
 
 V it = RangeIterator(1, 10)
 L

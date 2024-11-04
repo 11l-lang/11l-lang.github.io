@@ -71,6 +71,7 @@
                    ├── on_break\при_прерывании
                    ├── was_no_break\не_был_прерван
                    ├── index\индекс
+                   ├── first_iteration\первая_итерация
                    ├── last_iteration\последняя_итерация
                    ├── next\след
                    └── prev\пред
@@ -474,7 +475,7 @@ F caesar(string, =key, decode = 0B)
 ‘Gaussian elimination’[https://www.rosettacode.org/wiki/Gaussian_elimination]:
 T‘
 ><‘‘C’ ‘11l’’
-‘‘#(C++)‘
+‘‘#(C)‘
 void swap_row(double *a, double *b, int r1, int r2, int n)
 {
     double tmp, *p1, *p2;

@@ -128,10 +128,12 @@ L.was_no_break
 ’
 
 
-`L.index`/`loop.index` can be used to get[[[/obtain]]] the index of the current iteration of loop.
+`L.index`/`loop.index` can be used to get[[[/obtain]]] the index of the current iteration of the loop.
 
 
-`L.last_iteration`/`loop.last_iteration`[[[Why not `L.last_element`? `L.last_element` means access to the last element of the iterating container (`container.last`).]]] [[[is used to check]]]evaluates to true (1B) if current element of the iterating container is the last one.
+`L.first_iteration`/`loop.first_iteration` evaluates to true (1B) on the first iteration of the loop, and evaluates to false (0B) otherwise.
+
+`L.last_iteration`/`loop.last_iteration`[[[Why not `L.last_element`? `L.last_element` means access to the last element of the iterating container (`container.last`).]]] [[[is used to check]]]evaluates to true (1B) if ‘current element of the iterating container’/‘current iteration’ is the last one.
 
 
 `L.prev`/`loop.prev` and `L.next`/`loop.next` are not supported now.

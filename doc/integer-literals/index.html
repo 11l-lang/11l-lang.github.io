@@ -114,7 +114,8 @@ span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
-<span class="identifier">print</span>(<span class="numeric-literal">255</span>)        <span class="comment">// decimal literal</span>
+<span class="identifier">print</span>(<span class="numeric-literal">255</span>)        <span class="comment">// decimal literal (Int)</span>
+<span class="identifier">print</span>(<span class="numeric-literal">255L</span>)       <span class="comment">// decimal literal (Long)</span>
 <span class="identifier">print</span>(<span class="numeric-literal">0000'00FF</span>)  <span class="comment">// hexadecimal literal</span>
 <span class="identifier">print</span>(<span class="numeric-literal">00'FF</span>)      <span class="comment">// short hexadecimal literal</span>
 <span class="identifier">print</span>(<span class="numeric-literal">F'F</span>)        <span class="comment">// ultrashort (single-byte) hexadecimal literal</span>
@@ -125,6 +126,7 @@ span.comment {color: #808080;}
 </pre>
 Output:<br />
 <pre>
+255
 255
 255
 255

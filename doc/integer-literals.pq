@@ -3,7 +3,8 @@
 
 [[[Inspired by ‘this page’[https://trizen.gitbooks.io/sidef-lang/content/programming_tasks/L/Literals/Integer.html]]]]
 #(11l)‘
-print(255)        // decimal literal
+print(255)        // decimal literal (Int)
+print(255L)       // decimal literal (Long)
 print(0000'00FF)  // hexadecimal literal
 print(00'FF)      // short hexadecimal literal
 print(F'F)        // ultrashort (single-byte) hexadecimal literal
@@ -14,6 +15,7 @@ print(1'00000000) // special hexadecimal literal
 ’
 Output:
 `
+255
 255
 255
 255

@@ -41,7 +41,7 @@ Arbitrary-precision integer.
 *‘Float’
 Floating-point type (‘32 or 64’[http://forum.11l-lang.org/threads/size-of-float-built-in-type.2/] bits).
 
-*‘Float32’ or *‘SFloat’
+*‘Float32’ or *‘SFloat’ [*‘S’ingle-precision *‘float’ing-point]
 *‘Float64’[[[
 or[http://forum.11l-lang.org/threads/int8-int16-int32-int64-vs-int1-int2-int4-int8.3/]
 *‘Float4’/*‘SFloat’

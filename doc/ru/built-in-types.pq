@@ -32,11 +32,11 @@
 *‘BigInt’
 Целочисленный тип на основе длинной арифметики.
 
-*‘Float’
+*‘Float’\*‘Вещ’
 Вещественный тип (размерностью ‘32 или 64’[http://forum.11l-lang.org/threads/Размер-встроенного-типа-float.5/] разряда).
 
-*‘Float32’ или *‘SFloat’
-*‘Float64’[[[
+*‘Float32’\*‘Вещ32’ или *‘SFloat’\*‘ВещО’ [*‘Вещ’ественное *‘о’динарной точности]
+*‘Float64’\*‘Вещ64’[[[
 или[http://forum.11l-lang.org/threads/int8-int16-int32-int64-vs-int1-int2-int4-int8.6/]
 *‘Float4’/*‘SFloat’
 *‘Float8’]]]

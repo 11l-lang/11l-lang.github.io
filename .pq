@@ -162,9 +162,9 @@ if not was_break: # or else:
 
 ...
 
-for i in range(len(self.children)):
-    res += self.children[i].to_str()
-    if i < len(self.children)-1:
+for child in self.children:
+    res += child.to_str()
+    if child is not self.children[-1]:
         res += ', '
 
 ...

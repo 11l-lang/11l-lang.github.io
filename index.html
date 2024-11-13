@@ -276,9 +276,9 @@ span.comment {color: #808080;}
 
 ...
 
-<span class="keyword">for</span> <span class="identifier">i</span> <span class="keyword">in</span> <span class="identifier">range</span>(<span class="identifier">len</span>(<span class="identifier">self</span>.<span class="identifier">children</span>)):
-    <span class="identifier">res</span> += <span class="identifier">self</span>.<span class="identifier">children</span>[<span class="identifier">i</span>].<span class="identifier">to_str</span>()
-    <span class="keyword">if</span> <span class="identifier">i</span> &lt; <span class="identifier">len</span>(<span class="identifier">self</span>.<span class="identifier">children</span>)-<span class="numeric-literal">1</span>:
+<span class="keyword">for</span> <span class="identifier">child</span> <span class="keyword">in</span> <span class="identifier">self</span>.<span class="identifier">children</span>:
+    <span class="identifier">res</span> += <span class="identifier">child</span>.<span class="identifier">to_str</span>()
+    <span class="keyword">if</span> <span class="identifier">child</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="identifier">self</span>.<span class="identifier">children</span>[-<span class="numeric-literal">1</span>]:
         <span class="identifier">res</span> += <span class="string-literal">', '</span>
 
 ...

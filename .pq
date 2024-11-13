@@ -43,7 +43,10 @@ C(5)‘```
 '‘</table>’'’
 [[[><‘H‘About’’]]]
 
-11‘l’[‘‘l’ [[[means/]]]stands for ‘litterae’ in Latin, ‘logos’ in Greek [meaning ‘word’], or ‘letters’ in English’] [[[— ]]]is a [semi-esoteric] [[[‘very high-level’[https://en.wikipedia.org/wiki/Very_high-level_programming_language]]this term is unclear]][[[high-level/]]]compiled [[[universal/]]]general-purpose programming language, [[[at the same time providing]]]which provides a simple and direct mapping to hardware and aims to[[[/at]]] follow[[[ing]]] a zero-overhead principle, like C++ (unused language features do not add ‘run-time overhead’[‘excess computation time, oftentimes combined with the additional length of a compiled machine code’]). 11l is statically typed, but [[[smells]]]feels very much like a dynamically typed language (e.g. Python)[[[ or even scripting language]]].
+11‘l’[‘‘l’ [[[means/]]]stands for ‘litterae’ in Latin, ‘logos’ in Greek [meaning ‘word’], or ‘letters’ in English’] [[[— ]]]is a [semi-esoteric] [[[‘very high-level’[https://en.wikipedia.org/wiki/Very_high-level_programming_language]]this term is unclear]][[[high-level/]]]compiled [[[universal/]]]general-purpose programming language, [[[at the same time providing]]]which provides a simple and direct mapping to hardware and [[[aims/]
+>[https://en.wikipedia.org/wiki/Lua_(programming_language) <- [./c.txt:‘правда не на JS, а на Lua и C++’]]:‘
+In general, Lua strives to provide simple, flexible meta-features...’
+]]strives to[[[/at]]] follow[[[ing]]] a zero-overhead principle, like C++ (unused language features do not add ‘run-time overhead’[‘excess computation time, oftentimes combined with the additional length of a compiled machine code’]). 11l is statically typed, but [[[smells]]]feels very much like a dynamically typed language (e.g. Python)[[[ or even scripting language]]].
 The design of 11l is aimed to achieve as much conciseness as possible[[[, and to reconsider all programming language elements]]].
 Also 11l tries to combine [[[expressiveness/]]]a good code readability of Python {and ‘as Python’[https://stackoverflow.com/a/3965129/2692494]: good 11l is often close to good pseudocode} [[[and/]]]with speed/performance of C++ {
 >[https://www.stroustrup.com/quotes.html <- https://en.wikipedia.org/wiki/C++][-1]:‘C++ semantics is much cleaner than its syntax.’

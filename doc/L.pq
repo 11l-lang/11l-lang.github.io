@@ -29,7 +29,7 @@ Keep executing a loop body as long the given [[[expression is]]]condition evalua
 ~‘Note: [[[the <condition> can not be]]]if ’`<condition>`~‘ is just a single identifier, like in ’#(11l)‘L ok {...}’~‘[[[. In that case you should write]]], then please write this: ’#(11l)‘L ok == 1B {...}’~‘.’
 
 
-H(-1)‘3. Loop a specified number of times.’
+H(-1)‘3. Loop a specified number [given as integer literal] of times.’
 
 #(11l)‘
 L <number>
@@ -43,10 +43,22 @@ L 3
 ’
 will print `"ABC"` 3 times.
 
-~‘Note: only [[[numeric]]]integer literals/constants are considered so far as ’`<number>` {~‘if you want to iterate [[[from 0 to ]]]an arbitrary number of times, you can use ranges, for example: ’#(11l)‘L 1..number’}.
+~‘Note: only [[[numeric]]]integer literals/constants are considered [[[so far]]] as ’`<number>` {~‘if you want to iterate [[[from 0 to ]]]an arbitrary number of times, [[[you can]]] use [[[ranges, for example: ]]]’[[[#(11l)‘L 1..number’]]]~‘the following form of loops’}.
 
 
-H(-1)‘4. A "for in" loop.’
+H(-1)‘4. Loop a specified number [given as some expression] of times.’
+
+#(11l)‘
+L 1..number // or 0.<number
+   ...
+’
+
+Examples:
+#(11l)‘L 1..n {print("ABC")}’ will print `"ABC"` n times.
+#(11l)‘L 0.<n {print("ABC")}’ will print `"ABC"` n times.
+
+
+H(-1)‘5. A "for in" loop.’
 
 #(11l)‘
 L(<variable>) <iterable>
@@ -76,18 +88,6 @@ L(=el) arr // if you write `L(el) arr`, then there will be a compilation error i
 print(arr) // prints `[1, 2, 3]`
 ’
 }
-
-
-H(-1)‘5. A range loop.’
-
-#(11l)‘
-L <range>
-   ...
-’
-
-Examples:
-#(11l)‘L 1..n {print("ABC")}’ will print `"ABC"` n times.
-#(11l)‘L 0.<n {print("ABC")}’ will print `"ABC"` n times.
 
 
 H‘L/loop subkeywords’

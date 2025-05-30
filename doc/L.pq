@@ -29,7 +29,7 @@ Keep executing a loop body as long the given [[[expression is]]]condition evalua
 ~‘Note: [[[the <condition> can not be]]]if ’`<condition>`~‘ is just a single identifier, like in ’#(11l)‘L ok {...}’~‘[[[. In that case you should write]]], then please write this: ’#(11l)‘L ok == 1B {...}’~‘.’
 
 
-H(-1)‘3. Loop a specified number [given as integer literal] of times.’
+H(-1)‘3. Loop a specified number [given as an integer literal] of times.’
 
 #(11l)‘
 L <number>
@@ -43,10 +43,10 @@ L 3
 ’
 will print `"ABC"` 3 times.
 
-~‘Note: only [[[numeric]]]integer literals/constants are considered [[[so far]]] as ’`<number>` {~‘if you want to iterate [[[from 0 to ]]]an arbitrary number of times, [[[you can]]] use [[[ranges, for example: ]]]’[[[#(11l)‘L 1..number’]]]~‘the following form of loops’}.
+~‘Note: only [[[numeric]]]integer literals/constants are [[[considered/]]]accepted [[[so far]]] as ’`<number>` {~‘if you want to iterate [[[from 0 to ]]]an arbitrary number of times, [[[you can]]] use [[[ranges, for example: ]]]’[[[#(11l)‘L 1..number’]]]~‘the following form of loops’}.
 
 
-H(-1)‘4. Loop a specified number [given as some expression] of times.’
+H(-1)‘4. Loop a specified number [given as [[[some/]]]an expression] of times.’
 
 #(11l)‘
 L 1..number // or 0.<number

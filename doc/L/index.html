@@ -140,7 +140,7 @@ Keep executing a loop body as long the given <!--[[[expression is]]]-->condition
 <i>Note: <!--[[[the <condition> can not be]]]-->if </i><pre class="inline_code">&lt;condition></pre><i> is just a single identifier, like in </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> {...}</pre><i><!--[[[. In that case you should write]]]-->, then please write this: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> == <span class="constant">1B</span> {...}</pre><i>.</i><br />
 <br />
 <br />
-<h4>3. Loop a specified number <span class="sq"><span class="sq_brackets">[</span>given as integer literal<span class="sq_brackets">]</span></span> of times.</h4>
+<h4>3. Loop a specified number <span class="sq"><span class="sq_brackets">[</span>given as an integer literal<span class="sq_brackets">]</span></span> of times.</h4>
 <br />
 <pre class="code_block">
 <span class="keyword">L</span> &lt;<span class="identifier">number</span>>
@@ -154,10 +154,10 @@ Example:<br />
 </pre>
 will print <pre class="inline_code">"ABC"</pre> 3 times.<br />
 <br />
-<i>Note: only <!--[[[numeric]]]-->integer literals/constants are considered <!--[[[so far]]]--> as </i><pre class="inline_code">&lt;number></pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><i>if you want to iterate <!--[[[from 0 to ]]]-->an arbitrary number of times, <!--[[[you can]]]--> use <!--[[[ranges, for example: ]]]--></i><!--[[[#(11l)‘L 1..number’]]]--><i>the following form of loops</i></span><span class="cu_brackets_b">}</span></span>.<br />
+<i>Note: only <!--[[[numeric]]]-->integer literals/constants are <!--[[[considered/]]]-->accepted <!--[[[so far]]]--> as </i><pre class="inline_code">&lt;number></pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><i>if you want to iterate <!--[[[from 0 to ]]]-->an arbitrary number of times, <!--[[[you can]]]--> use <!--[[[ranges, for example: ]]]--></i><!--[[[#(11l)‘L 1..number’]]]--><i>the following form of loops</i></span><span class="cu_brackets_b">}</span></span>.<br />
 <br />
 <br />
-<h4>4. Loop a specified number <span class="sq"><span class="sq_brackets">[</span>given as some expression<span class="sq_brackets">]</span></span> of times.</h4>
+<h4>4. Loop a specified number <span class="sq"><span class="sq_brackets">[</span>given as <!--[[[some/]]]-->an expression<span class="sq_brackets">]</span></span> of times.</h4>
 <br />
 <pre class="code_block">
 <span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">number</span> <span class="comment">// or 0.&lt;number</span>

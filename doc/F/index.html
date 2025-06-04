@@ -134,7 +134,7 @@ Name of the function. Can be empty if it is a constructor (when <!--[[[new ]]]--
 <pre class="inline_code">&lt;arguments></pre><br />
 Comma- or semicolon-separated list of function<!--[[['s]]]--> arguments. Can be empty.<br />
 Each argument is defined as:<br />
-[&lt;argument type>] [&lt;qualifier>]&lt;argument name> [= &lt;default value>]<br />
+[&lt;argument type>] [&lt;qualifier>][&lt;outer name>]&lt;inner name> [= &lt;default value>]<br />
 <br />
 By default all arguments passed to a function are constant and can not be changed inside a function, but this behaviour can be altered via qualifiers.<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Qualifiers<br /></span><div class="spoiler_text" style="display: none">
@@ -195,6 +195,21 @@ can be shortened to:<br />
 )
 </pre>
 <span class="sq"><span class="sq_brackets">[</span>Inspired by <a href="https://discuss.python.org/t/syntactic-sugar-to-encourage-use-of-named-arguments/36217">this thread</a>.<span class="sq_brackets">]</span></span><br />
+<br />
+<br />
+<h4>Outer and inner names of function arguments</h4>
+<br />
+<pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">f</span>(<span class="identifier">outer_name'</span> <span class="identifier">inner_name</span> = <span class="numeric-literal">0</span>)
+   <span class="keyword">R</span> <span class="identifier">inner_name</span>
+
+<span class="identifier">f</span>(<span class="identifier">outer_name'</span> <span class="numeric-literal">1</span>)
+
+<span class="keyword">F</span> <span class="identifier">f2</span>(<span class="identifier">String</span> <span class="identifier">outer_name'</span> <span class="identifier">inner_name</span> = <span class="string-literal">‘’</span>)
+   ...
+</pre>
+<br />
+If no outer argument name is specified, then it is the same as the inner name.<br />
 <br />
 <br />
 <h3>F/fn subkeywords</h3>

@@ -134,7 +134,7 @@ span.comment {color: #808080;}
 <pre class="inline_code">&lt;аргументы></pre><br />
 Список аргументов, разделённых запятой или точкой с запятой. Может быть пустым.<br />
 Каждый аргумент определяется как:<br />
-[&lt;тип аргумента>] [&lt;квалификатор>]&lt;имя аргумента> [= &lt;значение по умолчанию>]<br />
+[&lt;тип аргумента>] [&lt;квалификатор>][&lt;внешнее имя аргумента>]&lt;внутреннее имя аргумента> [= &lt;значение по умолчанию>]<br />
 <br />
 Все <!--[[[переданные/]]]-->передаваемые в функцию аргументы по умолчанию константны и не могут <!--[[[быть изменены]/]]--><!--[[[изменяться]]]-->модифицироваться внутри функции, но это <!--[[[воз]]]-->можно изменить посредством квалификаторов.<br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Квалификаторы<br /></span><div class="spoiler_text" style="display: none">
@@ -196,6 +196,21 @@ span.comment {color: #808080;}
 )
 </pre>
 <span class="sq"><span class="sq_brackets">[</span>Идея навеяна <a href="https://discuss.python.org/t/syntactic-sugar-to-encourage-use-of-named-arguments/36217">этим тредом</a>.<span class="sq_brackets">]</span></span><br />
+<br />
+<br />
+<h4>Внешние и внутренние имена аргументов функции</h4>
+<br />
+<pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">f</span>(<span class="identifier">outer_name'</span> <span class="identifier">inner_name</span> = <span class="numeric-literal">0</span>)
+   <span class="keyword">R</span> <span class="identifier">inner_name</span>
+
+<span class="identifier">f</span>(<span class="identifier">outer_name'</span> <span class="numeric-literal">1</span>)
+
+<span class="keyword">F</span> <span class="identifier">f2</span>(<span class="identifier">String</span> <span class="identifier">outer_name'</span> <span class="identifier">inner_name</span> = <span class="string-literal">‘’</span>)
+   ...
+</pre>
+<br />
+Если внешнее имя аргумента не указано, тогда оно <!--[[[полностью]]]--> совпадает с внутренним именем.<br />
 <br />
 <br />
 <h3>Ключевые подслова F/fn</h3>

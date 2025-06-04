@@ -23,7 +23,7 @@ T Person
 `<arguments>`
 Comma- or semicolon-separated list of function[[['s]]] arguments. Can be empty.
 Each argument is defined as:
-0‘[<argument type>] [<qualifier>]<argument name> [= <default value>]’
+0‘[<argument type>] [<qualifier>][<outer name>]<inner name> [= <default value>]’
 
 By default all arguments passed to a function are constant and can not be changed inside a function, but this behaviour can be altered via qualifiers.
 ‘Qualifiers’{
@@ -84,6 +84,21 @@ my_function(
 )
 ’
 [Inspired by ‘this thread’[https://discuss.python.org/t/syntactic-sugar-to-encourage-use-of-named-arguments/36217].]
+
+
+H(-1)‘Outer and inner names of function arguments’
+
+#(11l)‘
+F f(outer_name' inner_name = 0)
+   R inner_name
+
+f(outer_name' 1)
+
+F f2(String outer_name' inner_name = ‘’)
+   ...
+’
+
+If no outer argument name is specified, then it is the same as the inner name.
 
 
 Н‘F/fn subkeywords’

@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>I/if</title>
+<title>E/else</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -102,12 +102,14 @@ div#main {width: 100%;}
 </head>
 <body>
 <div id="main" style="margin: 0 auto">
-<!--[[[Н‘I/if’
-]]]--><h3>Ключевое слово I/if</h3>
+<!--[[[H‘E/else’
+]]]--><h3>E/else keyword</h3>
 <br />
 <br />
-<table>
-<tr><td><style>
+The <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre> keyword is used only in conjunction with other keywords:<br />
+<ol>
+<li><a href="./../I" target="_self"><pre class="inline_code">I</pre>/<pre class="inline_code">if</pre></a>:<br />
+<style>
 span.keyword {color: #0000FF; font-weight: bold;}
 span.identifier {color: #00009F;}
 span.string-literal {color: #800000;}
@@ -115,64 +117,29 @@ span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">условие</span>>
-   ...
-
-
-
-
-</pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">условие</span>>
+<span class="keyword">I</span> &lt;<span class="identifier">condition</span>>
    ...
 <span class="keyword">E</span>
    ...
-
-
-</pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">условие1</span>>
-   ...
-<span class="keyword">E</span> <span class="keyword">I</span> &lt;<span class="identifier">условие2</span>>
-   ...
-
-
-</pre></td><td><pre class="code_block">
-<span class="keyword">I</span> &lt;<span class="identifier">условие1</span>>
-   ...
-<span class="keyword">E</span> <span class="keyword">I</span> &lt;<span class="identifier">условие2</span>>
-   ...
-<span class="keyword">E</span>
-   ...
-</pre></td></tr>
-</table>
-<br />
-Два ключевых слова <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre> и <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> идущие подряд трактуются специальным образом в 11l, благодаря чему отпадает необходимость в специальном/отдельном ключевом слове (как <pre class="inline_code">elif</pre> в Python или <pre class="inline_code">elsif</pre> в Ruby).<br />
-<br />
-Также <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> и <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre> можно использовать в выражениях в качестве альтернативы тернарному оператору <pre class="inline_code">?:</pre> из языка Си:<br />
+</pre></li>
+<li><a href="./../S" target="_self"><pre class="inline_code">S</pre>/<pre class="inline_code">switch</pre></a>:<br />
 <pre class="code_block">
-<span class="identifier">sign</span> = <span class="keyword">I</span> <span class="identifier">x</span> &lt; <span class="numeric-literal">0</span> {-<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">x</span> > <span class="numeric-literal">0</span> {<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="numeric-literal">0</span> <span class="comment">// 11l</span>
-</pre>
-<pre class="code_block">
-sign =  x &lt; 0 ? -1  :  x > 0 ? 1 : 0; // C
-</pre>
-<br />
-<br />
-<h3>Ключевые подслова I/if</h3>
-<br />
-<br />
-<pre class="code_block">
-<span class="keyword">I.likely</span> &lt;<span class="identifier">условие</span>>
+<span class="keyword">S</span> &lt;<span class="identifier">expression</span>>
+   &lt;<span class="identifier">constant</span> <span class="identifier">expression</span> <span class="numeric-literal">1</span>>
+      &lt;<span class="identifier">statements</span> <span class="numeric-literal">1</span>>
+   &lt;<span class="identifier">constant</span> <span class="identifier">expression</span> <span class="numeric-literal">2</span>>
+      &lt;<span class="identifier">statements</span> <span class="numeric-literal">2</span>>
    ...
-</pre>
-используется, чтобы указать компилятору, что условие в подавляющем большинстве случаев будет выполнено.<br />
-<br />
-И аналогично:<br />
+   <span class="keyword">E</span>
+      &lt;<span class="identifier">default</span> <span class="identifier">statements</span>>
+</pre></li>
+<li><a href="./../V" target="_self"><pre class="inline_code">V</pre>/<pre class="inline_code">var</pre></a>:<br />
 <pre class="code_block">
-<span class="keyword">I.unlikely</span> &lt;<span class="identifier">условие</span>>
-   ...
-</pre>
-используется, чтобы указать компилятору, что условие в подавляющем большинстве случаев не будет выполнено.<br />
-<br />
-<i>Примечание: на данный момент увеличение производительности от использования данных подслов слишком незначительно, поэтому их использовать не рекомендуется.</i><br />
+<span class="keyword">V&amp;</span> <span class="identifier">el</span> = <span class="identifier">map</span>.<span class="identifier">get</span>(<span class="identifier">key</span>) <span class="keyword">E</span>
+   <span class="identifier">print</span>(<span class="string-literal">‘Key &lt;’</span><span class="identifier">key</span><span class="string-literal">‘> is not found!’</span>)
+   <span class="keyword">R</span>
+</pre></li>
+</ol>
 </div>
 </body>
 </html>

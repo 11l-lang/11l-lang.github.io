@@ -10,7 +10,7 @@
 
 Зарезервированные/ключевые слова:
    C/in[./C]
-‘   I/if и E/else’[./I]
+   I/if[./I]
    F/fn[./F]
    L/loop[./L]
    N/null[./N]
@@ -18,6 +18,7 @@
    S/switch[./S]
    T/type[./T]
    V/var[./V]
+   E/else[./E]
    X/exception[./X]
 
 ‘Встроенные типы данных’[./built-in-types]

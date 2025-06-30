@@ -10,7 +10,7 @@ Comments[./comments]
 
 Keywords:
    C/in[./C]
-‘   I/if and E/else’[./I]
+   I/if[./I]
    F/fn[./F]
    L/loop[./L]
    N/null[./N]
@@ -18,6 +18,7 @@ Keywords:
    S/switch[./S]
    T/type[./T]
    V/var[./V]
+   E/else[./E]
    X/exception[./X]
 
 ‘Built-in Types’[./built-in-types]

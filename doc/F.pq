@@ -3,7 +3,7 @@
 
 
 #(11l)‘
-F <name>(<arguments>) [-> <return_type>]
+F <name>(<arguments>) [-> <return_type>] [X(<exceptions>)]
    <body>
 ’
 
@@ -43,6 +43,9 @@ F f(=i, j)
 
 `<return_type>`
 `Void` can be used as a return type name to denote that function does not return anything.
+
+`<exceptions>`
+Comma-separated list of exceptions of the first kind, which function can throw.
 
 
 H(-1)‘Named arguments’

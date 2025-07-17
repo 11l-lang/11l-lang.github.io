@@ -114,7 +114,7 @@ span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
-<span class="keyword">F</span> &lt;<span class="identifier">name</span>>(&lt;<span class="identifier">arguments</span>>) [-> &lt;<span class="identifier">return_type</span>>]
+<span class="keyword">F</span> &lt;<span class="identifier">name</span>>(&lt;<span class="identifier">arguments</span>>) [-> &lt;<span class="identifier">return_type</span>>] [<span class="keyword">X</span>(&lt;<span class="identifier">exceptions</span>>)]
    &lt;<span class="identifier">body</span>>
 </pre>
 <br />
@@ -154,6 +154,9 @@ Example:<br />
 <br />
 <pre class="inline_code">&lt;return_type></pre><br />
 <pre class="inline_code">Void</pre> can be used as a return type name to denote that function does not return anything.<br />
+<br />
+<pre class="inline_code">&lt;exceptions></pre><br />
+Comma-separated list of exceptions of the first kind, which function can throw.<br />
 <br />
 <br />
 <h4>Named arguments</h4>

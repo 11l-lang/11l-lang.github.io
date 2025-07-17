@@ -114,7 +114,7 @@ span.numeric-literal {color: #008000;}
 span.constant {color: #008000;}
 span.comment {color: #808080;}
 </style><pre class="code_block">
-<span class="keyword">F</span> &lt;<span class="identifier">имя</span> <span class="identifier">функции</span>>(&lt;<span class="identifier">аргументы</span>>) [-> &lt;<span class="keyword">тип</span> <span class="identifier">возвращаемого</span> <span class="identifier">значения</span>>]
+<span class="keyword">F</span> &lt;<span class="identifier">имя</span> <span class="identifier">функции</span>>(&lt;<span class="identifier">аргументы</span>>) [-> &lt;<span class="keyword">тип</span> <span class="identifier">возвращаемого</span> <span class="identifier">значения</span>>] [<span class="keyword">X</span>(&lt;<span class="identifier">исключения</span>>)]
    &lt;<span class="identifier">тело</span> <span class="identifier">функции</span>>
 </pre>
 <br />
@@ -155,6 +155,14 @@ span.comment {color: #808080;}
 <pre class="inline_code">&lt;тип возвращаемого значения></pre><br />
 Если не указан, то тип возвращаемого значения определяется автоматически.<br />
 <pre class="inline_code">Void</pre> может использоваться в качестве типа возвращаемого значения для указания того, что функция ничего не возвращает.<br />
+<br />
+<pre class="inline_code">&lt;исключения></pre><br />
+Разделённый запятыми список исключений первого рода, которые может породить функция. Исключения располагаются справа от стрелочки <pre class="inline_code">-></pre>, а не слева <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre class="code_block">
+<span class="keyword">F</span> &lt;<span class="identifier">имя</span> <span class="identifier">функции</span>>(&lt;<span class="identifier">аргументы</span>>) [<span class="keyword">X</span>(&lt;<span class="identifier">исключения</span>>)] [-> &lt;<span class="keyword">тип</span> <span class="identifier">возвращаемого</span> <span class="identifier">значения</span>>]
+   &lt;<span class="identifier">тело</span> <span class="identifier">функции</span>>
+</pre>
+</span><span class="cu_brackets_b">}</span></span>, т.к. они являются своего рода возвращаемым значением.<br />
 <br />
 <br />
 <h4>Именованные аргументы</h4>

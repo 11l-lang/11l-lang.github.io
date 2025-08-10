@@ -461,6 +461,20 @@ span.comment {color: #808080;}
 </pre>
 </td></tr>
 </table>
+<table>
+<tr><td>Python:<br />
+<pre class="code_block">
+<span class="identifier">sum</span>(<span class="identifier">float</span>(<span class="identifier">line</span>.<span class="identifier">split</span>(<span class="string-literal">' '</span>)[<span class="numeric-literal">1</span>]) <span class="keyword">for</span> <span class="identifier">line</span> <span class="keyword">in</span> <span class="identifier">text</span>.<span class="identifier">split</span>(<span class="string-literal">"\n"</span>) <span class="keyword">if</span> <span class="identifier">float</span>(<span class="identifier">line</span>.<span class="identifier">split</span>(<span class="string-literal">' '</span>)[<span class="numeric-literal">1</span>]) > <span class="numeric-literal">0</span>)
+<span class="comment"># или:</span>
+<span class="identifier">sum</span>(<span class="identifier">filter</span>(<span class="keyword">lambda</span> <span class="identifier">value</span>: <span class="identifier">value</span> > <span class="numeric-literal">0</span>, <span class="identifier">map</span>(<span class="keyword">lambda</span> <span class="identifier">line</span>: <span class="identifier">float</span>(<span class="identifier">line</span>.<span class="identifier">split</span>(<span class="string-literal">' '</span>)[<span class="numeric-literal">1</span>]), <span class="identifier">text</span>.<span class="identifier">split</span>(<span class="string-literal">"\n"</span>))))
+</pre>
+</td></tr>
+<tr><td>11l:<br />
+<pre class="code_block">
+<span class="identifier">sum</span>(<span class="identifier">text</span>.<span class="identifier">split</span>(<span class="string-literal">"\n"</span>).<span class="identifier">map</span>(<span class="identifier">line</span> -> <span class="identifier">Float</span>(<span class="identifier">line</span>.<span class="identifier">split</span>(<span class="string-literal">‘ ’</span>)[<span class="numeric-literal">1</span>])).<span class="identifier">filter</span>(<span class="identifier">value</span> -> <span class="identifier">value</span> > <span class="numeric-literal">0</span>))
+</pre>
+</td></tr>
+</table>
 <span class="spoiler_title" onclick="return spoiler2(this, event)">algoprog.ru<br /></span><div class="spoiler_text" style="display: none">
 <a href="https://algoprog.ru/material/p280">Пересечение отрезков</a>:<br />
 <table>

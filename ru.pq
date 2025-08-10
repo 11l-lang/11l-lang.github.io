@@ -344,6 +344,17 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
       print(‘Unallowed character (\r or \t) found in file '’fname[2..]‘'’)
 ’
 ’’’
+T‘‘‘Python:
+#(Python)‘
+sum(float(line.split(' ')[1]) for line in text.split("\n") if float(line.split(' ')[1]) > 0)
+# или:
+sum(filter(lambda value: value > 0, map(lambda line: float(line.split(' ')[1]), text.split("\n"))))
+’
+’’‘‘11l:
+#(11l)‘
+sum(text.split("\n").map(line -> Float(line.split(‘ ’)[1])).filter(value -> value > 0))
+’
+’’’
 ‘algoprog.ru’{
 ‘Пересечение отрезков’[https://algoprog.ru/material/p280]:
 T‘><‘‘Python’ ‘11l’’

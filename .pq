@@ -351,6 +351,17 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
       print(‘Unallowed character (\r or \t) found in file '’fname[2..]‘'’)
 ’
 ’’’
+T‘‘‘Python:
+#(Python)‘
+sum(float(line.split(' ')[1]) for line in text.split("\n") if float(line.split(' ')[1]) > 0)
+# or:
+sum(filter(lambda value: value > 0, map(lambda line: float(line.split(' ')[1]), text.split("\n"))))
+’
+’’‘‘11l:
+#(11l)‘
+sum(text.split("\n").map(line -> Float(line.split(‘ ’)[1])).filter(value -> value > 0))
+’
+’’’
 ‘informatics.msk.ru’{
 ‘Intersecting line segments’[https://translate.google.com/translate?hl=&sl=ru&tl=en&u=https://informatics.msk.ru/mod/statements/view.php?chapterid=280]:
 T‘><‘‘Python’ ‘11l’’

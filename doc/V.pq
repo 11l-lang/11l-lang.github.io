@@ -120,7 +120,15 @@ V& el = map.get(key) E
    print(‘Key <’key‘> is not found!’)
    R
 ’
-This syntax is[[[/was]]] inspired by `guard let` {however, there is no analogue of `guard <condition>` in 11l, because you can write just `I !(<condition>)`} in Swift, but it is also a [[[very ]]]logical enough, because
+[[[
+Alternative syntax:
+#(11l)‘
+V& el = map.get(key)
+E
+   print(‘Key <’key‘> is not found!’)
+   R
+’
+]]]This syntax is[[[/was]]] inspired by `guard let` {however, there is no analogue of `guard <condition>` in 11l, because you can write just `I !(<condition>)`} in Swift, but it is also a [[[very ]]]logical enough, because
 #(11l)‘
 V& el = map.get(key)!
 ’

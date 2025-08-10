@@ -232,7 +232,15 @@ Instead of:<br />
    <span class="identifier">print</span>(<span class="string-literal">‘Key &lt;’</span><span class="identifier">key</span><span class="string-literal">‘> is not found!’</span>)
    <span class="keyword">R</span>
 </pre>
-This syntax is<!--[[[/was]]]--> inspired by <pre class="inline_code">guard let</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">however, there is no analogue of <pre class="inline_code">guard &lt;condition></pre> in 11l, because you can write just <pre class="inline_code">I !(&lt;condition>)</pre></span><span class="cu_brackets_b">}</span></span> in Swift, but it is also a <!--[[[very ]]]-->logical enough, because<br />
+<!--[[[
+Alternative syntax:
+#(11l)‘
+V& el = map.get(key)
+E
+   print(‘Key <’key‘> is not found!’)
+   R
+’
+]]]-->This syntax is<!--[[[/was]]]--> inspired by <pre class="inline_code">guard let</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">however, there is no analogue of <pre class="inline_code">guard &lt;condition></pre> in 11l, because you can write just <pre class="inline_code">I !(&lt;condition>)</pre></span><span class="cu_brackets_b">}</span></span> in Swift, but it is also a <!--[[[very ]]]-->logical enough, because<br />
 <pre class="code_block">
 <span class="keyword">V&amp;</span> <span class="identifier">el</span> = <span class="identifier">map</span>.<span class="identifier">get</span>(<span class="identifier">key</span>)!
 </pre>

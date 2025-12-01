@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -152,6 +152,15 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
          b = (-)b
       File(fname, ‘w’).write_bytes(bs))
 ]]]--><br />
+<br />
+<h3>Commenting compound statements</h3>
+<br />
+<br />
+The <pre class="inline_code">\</pre> character before a keyword disables the entire block of code corresponding to that compound statement:<br />
+<pre class="code_block">
+<span class="keyword">\</span><span class="keyword">I</span> <span class="numeric-literal">2</span> > <span class="numeric-literal">1</span>
+   <span class="identifier">print</span>(<span class="string-literal">‘This text will not be printed’</span>)
+</pre>
 </div>
 </body>
 </html>

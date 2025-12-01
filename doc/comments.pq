@@ -41,3 +41,12 @@ L(fname) fs:walk_dir(‘.’, dir_filter' d -> d[0] != ‘.’)
          b = (-)b
       File(fname, ‘w’).write_bytes(bs))
 ]]]
+
+Н‘Commenting compound statements’
+
+
+The `\` character before a keyword disables the entire block of code corresponding to that compound statement:
+#(11l)‘
+\I 2 > 1
+   print(‘This text will not be printed’)
+’

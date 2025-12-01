@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -127,7 +127,7 @@ this_function_call_is_commented_out()
 
 // Вложенный комментарий:
 \(
-// Пожалуйста поддерживайте баланс скобок и других парных символов в вашем исходном коде:
+// Пожалуйста, поддерживайте баланс скобок и других парных символов в вашем исходном коде:
 I ch == "(" // )
    ...
 ) // конец вложенного комментария
@@ -142,6 +142,16 @@ I ch == "(" // )
 <span class="comment">\[[[
 ... большой кусок кода ...
 ]]]</span>
+</pre>
+<br />
+<br />
+<h3>Комментирование составных операторов</h3>
+<br />
+<br />
+Символ <pre class="inline_code">\</pre> перед ключевым словом отключает весь блок кода, соответствующий данному оператору:<br />
+<pre class="code_block">
+<span class="keyword">\</span><span class="keyword">I</span> <span class="numeric-literal">2</span> > <span class="numeric-literal">1</span>
+   <span class="identifier">print</span>(<span class="string-literal">‘Этот текст не будет напечатан’</span>)
 </pre>
 </div>
 </body>

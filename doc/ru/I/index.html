@@ -145,9 +145,9 @@ span.comment {color: #808080;}
 </pre></td></tr>
 </table>
 <br />
-Два ключевых слова <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre> и <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> идущие подряд трактуются специальным образом в 11l, благодаря чему отпадает необходимость в специальном/отдельном ключевом слове (как <pre class="inline_code">elif</pre> в Python или <pre class="inline_code">elsif</pre> в Ruby).<br />
+Два ключевых слова <pre style="display: inline"><span class="keyword">E</span></pre>/<pre style="display: inline"><span class="keyword">else</span></pre> и <pre style="display: inline"><span class="keyword">I</span></pre>/<pre style="display: inline"><span class="keyword">if</span></pre> идущие подряд трактуются специальным образом в 11l, благодаря чему отпадает необходимость в специальном/отдельном ключевом слове (как <pre style="display: inline"><span class="keyword">elif</span></pre> в Python или <b><span style="color: #0000FF"><pre style="display: inline">elsif</pre></span></b> в Ruby).<br />
 <br />
-Также <pre class="inline_code">I</pre>/<pre class="inline_code">if</pre> и <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre> можно использовать в выражениях в качестве альтернативы тернарному оператору <pre class="inline_code">?:</pre> из языка Си:<br />
+Также <pre style="display: inline"><span class="keyword">I</span></pre>/<pre style="display: inline"><span class="keyword">if</span></pre> и <pre style="display: inline"><span class="keyword">E</span></pre>/<pre style="display: inline"><span class="keyword">else</span></pre> можно использовать в выражениях в качестве альтернативы тернарному оператору <pre class="inline_code">?:</pre> из языка Си:<br />
 <pre class="code_block">
 <span class="identifier">sign</span> = <span class="keyword">I</span> <span class="identifier">x</span> &lt; <span class="numeric-literal">0</span> {-<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="keyword">I</span> <span class="identifier">x</span> > <span class="numeric-literal">0</span> {<span class="numeric-literal">1</span>} <span class="keyword">E</span> <span class="numeric-literal">0</span> <span class="comment">// 11l</span>
 </pre>

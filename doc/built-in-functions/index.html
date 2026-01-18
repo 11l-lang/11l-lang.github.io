@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-weight: 400;
 }
-h1 {font-size: 190%; line-height: 120%;}
-h2 {font-size: 160%;}
-h3 {font-size: 137.5%;}
-h4 {font-size: 120%;}
-h5 {font-size: 110%;}
-h6 {font-size: 100%;}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
 span.sq_brackets {color: #BFBFBF;}
 span.cu_brackets {cursor: pointer;}
@@ -106,39 +106,39 @@ div#main {width: 100%;}
 ]]]--><h3>Built-in Functions</h3>
 <br />
 <br />
-<b>print</b>(object = ‘’, end = "\n")<br />
-Print <pre class="inline_code">object</pre> to stdout followed by <pre class="inline_code">end</pre>.<br />
+<b>print</b>(<i>object</i> = ‘’, <i>end</i> = "\n")<br />
+Print <i>object</i> to stdout followed by <i>end</i>.<br />
 <br />
-<b>input</b>(<span class="sq"><span class="sq_brackets">[</span>prompt<span class="sq_brackets">]</span></span>)<br />
-If the <pre class="inline_code">prompt</pre> argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string (stripping a trailing newline), and returns that.<br />
+<b>input</b>(<span class="sq"><span class="sq_brackets">[</span><i>prompt</i><span class="sq_brackets">]</span></span>)<br />
+If the <i>prompt</i> argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string (stripping a trailing newline), and returns that.<br />
 <br />
-<b>assert</b>(expression, message = ‘’)<br />
-Raise AssertionError if <pre class="inline_code">expression</pre> evaluates to false.<br />
+<b>assert</b>(<i>expression</i>, <i>message</i> = ‘’)<br />
+Raise AssertionError if <i>expression</i> evaluates to false.<br />
 <br />
-<b>exit</b>(message = N)<br />
-Terminates the calling process. When <pre class="inline_code">message</pre> is specified it is printed to stderr.<br />
+<b>exit</b>(<i>message</i> = N)<br />
+Terminates the calling process. When <i>message</i> is specified it is printed to stderr.<br />
 <br />
-<b>sleep</b>(secs)<br />
+<b>sleep</b>(<i>secs</i>)<br />
 Suspend execution of the calling thread for the given number of seconds. The argument may be a floating point number to indicate a more precise sleep time.<br />
 <br />
-<b>swap</b>(&amp;a, &amp;b)<br />
+<b>swap</b>(&amp;<i>a</i>, &amp;<i>b</i>)<br />
 Exchanges the values of the two arguments. Equivalent to <pre class="inline_code">(a, b) = (b, a)</pre>.<br />
 <br />
-<b>zip</b>(iterable1, iterable2 <span class="sq"><span class="sq_brackets">[</span>,iterable3<span class="sq_brackets">]</span></span>)<br />
+<b>zip</b>(<i>iterable1</i>, <i>iterable2</i><span class="sq"><span class="sq_brackets">[</span>, <i>iterable3</i><span class="sq_brackets">]</span></span>)<br />
 Aggregates elements from input iterables.<br />
 <br />
-<b>all</b>(iterable)<br />
-Return true (1B) if all elements of the <pre class="inline_code">iterable</pre> are true (or if the <pre class="inline_code">iterable</pre> is empty).<br />
+<b>all</b>(<i>iterable</i>)<br />
+Return true (1B) if all elements of the <i>iterable</i> are true (or if the <i>iterable</i> is empty).<br />
 <br />
-<b>any</b>(iterable)<br />
-Return true (1B) if any element of the <pre class="inline_code">iterable</pre> is true. If the <pre class="inline_code">iterable</pre> is empty, return false (0B).<!--[[[
+<b>any</b>(<i>iterable</i>)<br />
+Return true (1B) if any element of the <i>iterable</i> is true. If the <i>iterable</i> is empty, return false (0B).<!--[[[
 Why `sum(arr)`, `product(arr)`, `all(arr)`, `any(arr)` etc., but `arr.filter(...)`, `arr.map(...)`, `arr.reduce(...)`?
 Because I dislike empty parentheses [e.g. `arr.sum()`].]]]--><br />
 <br />
-<b>cart_product</b>(iterable1, iterable2 <span class="sq"><span class="sq_brackets">[</span>,iterable3<span class="sq_brackets">]</span></span>)<br />
+<b>cart_product</b>(<i>iterable1</i>, <i>iterable2</i><span class="sq"><span class="sq_brackets">[</span>, <i>iterable3</i><span class="sq_brackets">]</span></span>)<br />
 Cartesian product of input iterables.<br />
 <br />
-<b>multiloop</b>(iterable1, iterable2 <span class="sq"><span class="sq_brackets">[</span>,iterable3<span class="sq_brackets">]</span></span>, function)<br />
+<b>multiloop</b>(<i>iterable1</i>, <i>iterable2</i><span class="sq"><span class="sq_brackets">[</span>, <i>iterable3</i><span class="sq_brackets">]</span></span>, <i>function</i>)<br />
 This function is roughly equivalent to the following code: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <style>
 span.keyword {color: #0000FF; font-weight: bold;}
@@ -156,7 +156,7 @@ span.comment {color: #808080;}
    <span class="keyword">R</span> <span class="identifier">r</span>
 </pre></span><span class="cu_brackets_b">}</span></span><br />
 <br />
-<b>multiloop_filtered</b>(iterable1, iterable2 <span class="sq"><span class="sq_brackets">[</span>,iterable3<span class="sq_brackets">]</span></span>, filter_function, function)<br />
+<b>multiloop_filtered</b>(<i>iterable1</i>, <i>iterable2</i><span class="sq"><span class="sq_brackets">[</span>, <i>iterable3</i><span class="sq_brackets">]</span></span>, <i>filter_function</i>, <i>function</i>)<br />
 This function is roughly equivalent to the following code: <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
 <pre class="code_block">
 <span class="keyword">F</span> <span class="identifier">multiloop_filtered</span>(<span class="identifier">iterable1</span>, <span class="identifier">iterable2</span>, <span class="identifier">filter_function</span>, <span class="identifier">function</span>)
@@ -168,107 +168,107 @@ This function is roughly equivalent to the following code: <span class="cu_brack
    <span class="keyword">R</span> <span class="identifier">r</span>
 </pre></span><span class="cu_brackets_b">}</span></span><br />
 <br />
-<b>sum</b>(iterable)<br />
-Sums the items of an <pre class="inline_code">iterable</pre> and returns the total.<br />
+<b>sum</b>(<i>iterable</i>)<br />
+Sums the items of an <i>iterable</i> and returns the total.<br />
 <br />
-<b>product</b>(iterable)<br />
-Multiplies the items of an <pre class="inline_code">iterable</pre> and returns the total.<br />
+<b>product</b>(<i>iterable</i>)<br />
+Multiplies the items of an <i>iterable</i> and returns the total.<br />
 <br />
-<b>sorted</b>(iterable, key = N, reverse = 0B)<br />
-Return a new sorted array from the items in <pre class="inline_code">iterable</pre>.<br />
-<pre class="inline_code">key</pre> specifies a function of one argument that is used to extract a comparison key from each element of <pre class="inline_code">iterable</pre>.<br />
-<pre class="inline_code">reverse</pre> is a boolean value. If set to true (1B), then the elements of <pre class="inline_code">iterable</pre> are sorted as if each comparison were reversed.<br />
+<b>sorted</b>(<i>iterable</i>, <i>key</i> = N, <i>reverse</i> = 0B)<br />
+Return a new sorted array from the items in <i>iterable</i>.<br />
+<i>key</i> specifies a function of one argument that is used to extract a comparison key from each element of <i>iterable</i>.<br />
+<i>reverse</i> is a boolean value. If set to true (1B), then the elements of <i>iterable</i> are sorted as if each comparison were reversed.<br />
 <br />
-<b>min</b>(arg1, arg2)<br />
+<b>min</b>(<i>arg1</i>, <i>arg2</i>)<br />
 Return the smallest of two arguments.<br />
-<b>min</b>(iterable)<br />
-Return the smallest item of <pre class="inline_code">iterable</pre>.<br />
+<b>min</b>(<i>iterable</i>)<br />
+Return the smallest item of <i>iterable</i>.<br />
 <br />
-<b>max</b>(arg1, arg2)<br />
+<b>max</b>(<i>arg1</i>, <i>arg2</i>)<br />
 Return the largest of two arguments.<br />
-<b>max</b>(iterable)<br />
-Return the largest item of <pre class="inline_code">iterable</pre>.<br />
+<b>max</b>(<i>iterable</i>)<br />
+Return the largest item of <i>iterable</i>.<br />
 <br />
-<b>hex</b>(x)<br />
+<b>hex</b>(<i>x</i>)<br />
 Convert an integer number to an uppercase hexadecimal string.<br />
 <br />
-<b>bin</b>(x)<br />
+<b>bin</b>(<i>x</i>)<br />
 Convert an integer number to a binary string.<br />
 <br />
-<b>rotl</b>(value, shift)<br />
-Rotate the <pre class="inline_code">value</pre> left by <pre class="inline_code">shift</pre> bits.<br />
+<b>rotl</b>(<i>value</i>, <i>shift</i>)<br />
+Rotate the <i>value</i> left by <i>shift</i> bits.<br />
 <br />
-<b>rotr</b>(value, shift)<br />
-Rotate the <pre class="inline_code">value</pre> right by <pre class="inline_code">shift</pre> bits.<br />
+<b>rotr</b>(<i>value</i>, <i>shift</i>)<br />
+Rotate the <i>value</i> right by <i>shift</i> bits.<br />
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Mathematical functions<br /></span><div class="spoiler_text" style="display: none">
-<b>round</b>(number, ndigits = 0)<br />
-Return <pre class="inline_code">number</pre> rounded to <pre class="inline_code">ndigits</pre> precision after the decimal point.<br />
+<b>round</b>(<i>number</i>, <i>ndigits</i> = 0)<br />
+Return <i>number</i> rounded to <i>ndigits</i> precision after the decimal point.<br />
 <br />
-<b>ceil</b>(x)<br />
-Return the ceiling of <pre class="inline_code">x</pre>, the smallest integer greater than or equal to <pre class="inline_code">x</pre>.<br />
+<b>ceil</b>(<i>x</i>)<br />
+Return the ceiling of <i>x</i>, the smallest integer greater than or equal to <i>x</i>.<br />
 <br />
-<b>floor</b>(x)<br />
-Return the floor of <pre class="inline_code">x</pre>, the largest integer less than or equal to <pre class="inline_code">x</pre>.<br />
+<b>floor</b>(<i>x</i>)<br />
+Return the floor of <i>x</i>, the largest integer less than or equal to <i>x</i>.<br />
 <br />
-<b>trunc</b>(x)<br />
-Return value <pre class="inline_code">x</pre> truncated to an integer.<br />
+<b>trunc</b>(<i>x</i>)<br />
+Return value <i>x</i> truncated to an integer.<br />
 <br />
-<b>fract</b>(x)<br />
-Return the fractional part of <pre class="inline_code">x</pre>.<br />
+<b>fract</b>(<i>x</i>)<br />
+Return the fractional part of <i>x</i>.<br />
 <br />
-<b>wrap</b>(x, min_val, max_val)<br />
-<!--[[[(]]]-->Wraps x at range [min_val, max_val)<!--]-->. Returns <pre class="inline_code">mod(x - min_val, max_val - min_val) + min_val</pre>.<br />
+<b>wrap</b>(<i>x</i>, <i>min_val</i>, <i>max_val</i>)<br />
+<!--[[[(]]]-->Wraps <i>x</i> at range [<i>min_val</i>, <i>max_val</i>)<!--]-->. Returns <pre class="inline_code">mod(x - min_val, max_val - min_val) + min_val</pre>.<br />
 <br />
-<b>abs</b>(x)<br />
+<b>abs</b>(<i>x</i>)<br />
 Return the absolute value of a number.<br />
 <br />
-<b>exp</b>(x)<br />
-Return e raised to the power <pre class="inline_code">x</pre>, where e = 2.718281… is the base of natural logarithms.<br />
+<b>exp</b>(<i>x</i>)<br />
+Return e raised to the power <i>x</i>, where e = 2.718281… is the base of natural logarithms.<br />
 <br />
-<b>log</b>(x<span class="sq"><span class="sq_brackets">[</span>, base<span class="sq_brackets">]</span></span>)<br />
-With one argument, return the natural logarithm of <pre class="inline_code">x</pre> (to base e).<br />
-With two arguments, return the logarithm of <pre class="inline_code">x</pre> to the given <pre class="inline_code">base</pre>, calculated as <pre class="inline_code">log(x)/log(base)</pre>.<br />
+<b>log</b>(<i>x</i><span class="sq"><span class="sq_brackets">[</span>, <i>base</i><span class="sq_brackets">]</span></span>)<br />
+With one argument, return the natural logarithm of <i>x</i> (to base e).<br />
+With two arguments, return the logarithm of <i>x</i> to the given <i>base</i>, calculated as <pre class="inline_code">log(x)/log(base)</pre>.<br />
 <br />
-<b>log2</b>(x)<br />
-Return the base-2 logarithm of <pre class="inline_code">x</pre>.<br />
+<b>log2</b>(<i>x</i>)<br />
+Return the base-2 logarithm of <i>x</i>.<br />
 <br />
-<b>log10</b>(x)<br />
-Return the base-10 logarithm of <pre class="inline_code">x</pre>.<br />
+<b>log10</b>(<i>x</i>)<br />
+Return the base-10 logarithm of <i>x</i>.<br />
 <br />
-<b>pow</b>(x, y)<br />
-Return <pre class="inline_code">x</pre> raised to the power <pre class="inline_code">y</pre>.<br />
+<b>pow</b>(<i>x</i>, <i>y</i>)<br />
+Return <i>x</i> raised to the power <i>y</i>.<br />
 Using built-in <pre class="inline_code">^</pre> operator is recommended instead of this function.<br />
 <br />
-<b>sqrt</b>(x)<br />
-Return the square root of <pre class="inline_code">x</pre>.<br />
+<b>sqrt</b>(<i>x</i>)<br />
+Return the square root of <i>x</i>.<br />
 <br />
-<b>acos</b>(x)<br />
-Return the arc cosine of <pre class="inline_code">x</pre>, in radians.<br />
+<b>acos</b>(<i>x</i>)<br />
+Return the arc cosine of <i>x</i>, in radians.<br />
 <br />
-<b>asin</b>(x)<br />
-Return the arc sine of <pre class="inline_code">x</pre>, in radians.<br />
+<b>asin</b>(<i>x</i>)<br />
+Return the arc sine of <i>x</i>, in radians.<br />
 <br />
-<b>atan</b>(x)<br />
-Return the arc tangent of <pre class="inline_code">x</pre>, in radians.<br />
+<b>atan</b>(<i>x</i>)<br />
+Return the arc tangent of <i>x</i>, in radians.<br />
 <br />
-<b>atan2</b>(x, y)<br />
+<b>atan2</b>(<i>x</i>, <i>y</i>)<br />
 Return <pre class="inline_code">atan(y / x)</pre>, in radians. The result is between <pre class="inline_code">-pi</pre> and <pre class="inline_code">pi</pre>.<br />
 <br />
-<b>cos</b>(x)<br />
-Return the cosine of <pre class="inline_code">x</pre> radians.<br />
+<b>cos</b>(<i>x</i>)<br />
+Return the cosine of <i>x</i> radians.<br />
 <br />
-<b>sin</b>(x)<br />
-Return the sine of <pre class="inline_code">x</pre> radians.<br />
+<b>sin</b>(<i>x</i>)<br />
+Return the sine of <i>x</i> radians.<br />
 <br />
-<b>tan</b>(x)<br />
-Return the tangent of <pre class="inline_code">x</pre> radians.<br />
+<b>tan</b>(<i>x</i>)<br />
+Return the tangent of <i>x</i> radians.<br />
 <br />
-<b>degrees</b>(x)<br />
-Convert angle <pre class="inline_code">x</pre> from radians to degrees.<br />
+<b>degrees</b>(<i>x</i>)<br />
+Convert angle <i>x</i> from radians to degrees.<br />
 <br />
-<b>radians</b>(x)<br />
-Convert angle <pre class="inline_code">x</pre> from degrees to radians.<br />
+<b>radians</b>(<i>x</i>)<br />
+Convert angle <i>x</i> from degrees to radians.<br />
 </div>
 </div>
 </body>

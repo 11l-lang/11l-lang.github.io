@@ -2,7 +2,7 @@
 ]]]H‘V/var keyword’
 
 
-[[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var]]]The `V`/`var` statement declares a variable initializing it to a value.
+[[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var]]]The #(11l)‘V’/#(11l)‘var’ statement declares a variable initializing it to a value.
 #(11l)‘
 V variable_name = value
 ’
@@ -30,13 +30,13 @@ To declare and initialize to some value multiple variables at once use this nota
 V a = V b = 0
 ’
 
-To declare a constant "variable" use `-V`/`-var`:
+To declare a constant "variable" use #(11l)‘-V’/#(11l)‘-var’:
 #(11l)‘
 -V constant_name = value
 ’
 [{On the one hand, `-` means constancy, and on the other hand it means negation[https://en.wikipedia.org/wiki/Additive_inverse ‘This number is also known as the opposite (number), sign change, and negation.’] (<not variable> is <constant>).}]
 
-To reduce the amount of `V`/`var` keywords you can use a new scope. For example, this code:
+To reduce the amount of #(11l)‘V’/#(11l)‘var’ keywords you can use a new scope. For example, this code:
 #(11l)‘
 -V
    n_rows = 10

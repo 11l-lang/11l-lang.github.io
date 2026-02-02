@@ -134,7 +134,7 @@ span.comment {color: #808080;}
 <br />
 Тело цикла выполняется/повторяется до тех пор, пока заданное <!--[[[выражение]]]-->условие истинно (равно 1В).<br />
 <br />
-<i>Примечание: если </i><pre class="inline_code">&lt;условие></pre><i> представлено единственным идентификатором, например: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> {...}</pre><i>, тогда соблаговолите писать так: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> == <span class="constant">1B</span> {...}</pre><i>.</i><br />
+<i>Примечание: если </i><pre style="display: inline">&lt;<span class="identifier">условие</span>></pre><i> представлено единственным идентификатором, например: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> {...}</pre><i>, тогда соблаговолите писать так: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> == <span class="constant">1B</span> {...}</pre><i>.</i><br />
 <br />
 <!--[[[Повтор тела цикла заданное количество раз присутствует также в языках программирования ‘Алгол-68 и PL/1-KT’[https://compiler.su/tsikly.php#25].]]]--><br />
 <h4>3. Повтор тела цикла заданное количество <span class="sq"><span class="sq_brackets">[</span>в виде целого числа<span class="sq_brackets">]</span></span> раз.</h4>
@@ -149,9 +149,9 @@ span.comment {color: #808080;}
 <span class="keyword">L</span> <span class="numeric-literal">3</span>
    <span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)
 </pre>
-выведет <pre class="inline_code">"ABC"</pre> 3 раза.<br />
+выведет <pre class="inline_code">ABC</pre> 3 раза.<br />
 <br />
-<i>Примечание: только <!--[[[числовые]]]-->целочисленные константы принимаются в качестве </i><pre class="inline_code">&lt;число></pre><!--[[[~‘ на данный момент’]]]--> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><i>если вам требуется повторять тело цикла произвольное количество раз, тогда используйте <!--[[[диапазон, например: ]]]--></i><!--[[[#(11l)‘L 1..количество’]]]--><i>следующую форму циклов</i></span><span class="cu_brackets_b">}</span></span>.<br />
+<i>Примечание: только <!--[[[числовые]]]-->целочисленные константы принимаются в качестве </i><pre style="display: inline">&lt;<span class="identifier">число</span>></pre><!--[[[~‘ на данный момент’]]]--> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><i>если вам требуется повторять тело цикла произвольное количество раз, тогда используйте <!--[[[диапазон, например: ]]]--></i><!--[[[#(11l)‘L 1..количество’]]]--><i>следующую форму циклов</i></span><span class="cu_brackets_b">}</span></span>.<br />
 <br />
 <br />
 <h4>4. Повтор тела цикла заданное количество <span class="sq"><span class="sq_brackets">[</span>в виде выражения<span class="sq_brackets">]</span></span> раз.</h4>
@@ -162,8 +162,8 @@ span.comment {color: #808080;}
 </pre>
 <br />
 Примеры:<br />
-<pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> выведет <pre class="inline_code">"ABC"</pre> n раз.<br />
-<pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">0</span>.&lt;<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> выведет <pre class="inline_code">"ABC"</pre> n раз.<br />
+<pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> выведет <pre class="inline_code">ABC</pre> <pre style="display: inline"><span class="identifier">n</span></pre> раз.<br />
+<pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">0</span>.&lt;<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> выведет <pre class="inline_code">ABC</pre> <pre style="display: inline"><span class="identifier">n</span></pre> раз.<br />
 <br />
 <br />
 <h4>5. Цикл "для каждого".</h4>
@@ -175,7 +175,7 @@ span.comment {color: #808080;}
 <br />
 Примеры:<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">x</span>) <span class="numeric-literal">1</span>..<span class="numeric-literal">10</span> {<span class="identifier">print</span>(<span class="identifier">x</span>)}</pre> выведет числа от <pre class="inline_code">1</pre> до <pre class="inline_code">10</pre> включительно.<br />
-<pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">c</span>) <span class="string-literal">"str"</span> {<span class="identifier">print</span>(<span class="identifier">c</span>)}</pre> выведет <pre class="inline_code">"s"</pre>, <pre class="inline_code">"t"</pre> и <pre class="inline_code">"r"</pre>.<br />
+<pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">c</span>) <span class="string-literal">"str"</span> {<span class="identifier">print</span>(<span class="identifier">c</span>)}</pre> выведет <pre class="inline_code">s</pre>, <pre class="inline_code">t</pre> и <pre class="inline_code">r</pre>.<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">n</span>) [<span class="numeric-literal">9</span>,<span class="numeric-literal">7</span>] {<span class="identifier">print</span>(<span class="identifier">n</span>)}</pre> выведет <pre class="inline_code">9</pre> и <pre class="inline_code">7</pre>.<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">k</span>, <span class="identifier">v</span>) [<span class="string-literal">‘k’</span> = <span class="numeric-literal">1</span>] {<span class="identifier">print</span>(<span class="identifier">k</span><span class="string-literal">‘=’</span><span class="identifier">v</span>)}</pre> выведет <pre class="inline_code">k=1</pre>.<br />
 <br />

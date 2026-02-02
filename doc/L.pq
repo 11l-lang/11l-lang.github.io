@@ -26,7 +26,7 @@ L <condition>
 
 Keep executing a loop body as long the given [[[expression is]]]condition evaluates to true (1B).
 
-~‘Note: [[[the <condition> can not be]]]if ’`<condition>`~‘ is just a single identifier, like in ’#(11l)‘L ok {...}’~‘[[[. In that case you should write]]], then please write this: ’#(11l)‘L ok == 1B {...}’~‘.’
+~‘Note: [[[the <condition> can not be]]]if ’#(11l)‘<condition>’~‘ is just a single identifier, like in ’#(11l)‘L ok {...}’~‘[[[. In that case you should write]]], then please write this: ’#(11l)‘L ok == 1B {...}’~‘.’
 
 
 H(-1)‘3. Loop a specified number [given as an integer literal] of times.’
@@ -41,9 +41,9 @@ Example:
 L 3
    print("ABC")
 ’
-will print `"ABC"` 3 times.
+will print `ABC` 3 times.
 
-~‘Note: only [[[numeric]]]integer literals/constants are [[[considered/]]]accepted [[[so far]]] as ’`<number>` {~‘if you want to iterate [[[from 0 to ]]]an arbitrary number of times, [[[you can]]] use [[[ranges, for example: ]]]’[[[#(11l)‘L 1..number’]]]~‘the following form of loops’}.
+~‘Note: only [[[numeric]]]integer literals/constants are [[[considered/]]]accepted [[[so far]]] as ’#(11l)‘<number>’ {~‘if you want to iterate [[[from 0 to ]]]an arbitrary number of times, [[[you can]]] use [[[ranges, for example: ]]]’[[[#(11l)‘L 1..number’]]]~‘the following form of loops’}.
 
 
 H(-1)‘4. Loop a specified number [given as [[[some/]]]an expression] of times.’
@@ -54,11 +54,11 @@ L 1..number // or 0.<number
 ’
 
 Examples:
-#(11l)‘L 1..n {print("ABC")}’ will print `"ABC"` n times.
-#(11l)‘L 0.<n {print("ABC")}’ will print `"ABC"` n times.
+#(11l)‘L 1..n {print("ABC")}’ will print `ABC` #(11l)‘n’ times.
+#(11l)‘L 0.<n {print("ABC")}’ will print `ABC` #(11l)‘n’ times.
 
 
-H(-1)‘5. A "for each" loop.’
+H(-1)‘5. A "for-each" loop.’
 
 #(11l)‘
 L(<variable>) <iterable>
@@ -67,7 +67,7 @@ L(<variable>) <iterable>
 
 Examples:
 #(11l)‘L(x) 1..10 {print(x)}’ will print `1` through `10`.
-#(11l)‘L(c) "str" {print(c)}’ will print `"s"`, `"t"` and `"r"`.
+#(11l)‘L(c) "str" {print(c)}’ will print `s`, `t` and `r`.
 #(11l)‘L(n) [9,7] {print(n)}’ will print `9` and `7`.
 #(11l)‘L(k, v) [‘k’ = 1] {print(k‘=’v)}’ will print `k=1`.
 
@@ -133,7 +133,7 @@ L.was_no_break
 
 #(11l)‘L.first_iteration’/#(11l)‘loop.first_iteration’ evaluates to true (1B) on the first iteration of the loop, and evaluates to false (0B) otherwise.
 
-#(11l)‘L.last_iteration’/#(11l)‘loop.last_iteration’[[[Why not #(11l)‘L.last_element’? #(11l)‘L.last_element’ means access to the last element of the iterating container (`container.last`).]]] [[[is used to check]]]evaluates to true (1B) if ‘current element of the iterating container’/‘current iteration’ is the last one.
+#(11l)‘L.last_iteration’/#(11l)‘loop.last_iteration’[[[Why not #(11l)‘L.last_element’? #(11l)‘L.last_element’ means access to the last element of the iterating container (#(11l)‘container.last’).]]] [[[is used to check]]]evaluates to true (1B) if ‘current element of the iterating container’/‘current iteration’ is the last one.
 
 
 #(11l)‘L.prev’/#(11l)‘loop.prev’ and #(11l)‘L.next’/#(11l)‘loop.next’ are not supported now.

@@ -137,7 +137,7 @@ span.comment {color: #808080;}
 <br />
 Keep executing a loop body as long the given <!--[[[expression is]]]-->condition evaluates to true (1B).<br />
 <br />
-<i>Note: <!--[[[the <condition> can not be]]]-->if </i><pre class="inline_code">&lt;condition></pre><i> is just a single identifier, like in </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> {...}</pre><i><!--[[[. In that case you should write]]]-->, then please write this: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> == <span class="constant">1B</span> {...}</pre><i>.</i><br />
+<i>Note: <!--[[[the <condition> can not be]]]-->if </i><pre style="display: inline">&lt;<span class="identifier">condition</span>></pre><i> is just a single identifier, like in </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> {...}</pre><i><!--[[[. In that case you should write]]]-->, then please write this: </i><pre style="display: inline"><span class="keyword">L</span> <span class="identifier">ok</span> == <span class="constant">1B</span> {...}</pre><i>.</i><br />
 <br />
 <br />
 <h4>3. Loop a specified number <span class="sq"><span class="sq_brackets">[</span>given as an integer literal<span class="sq_brackets">]</span></span> of times.</h4>
@@ -152,9 +152,9 @@ Example:<br />
 <span class="keyword">L</span> <span class="numeric-literal">3</span>
    <span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)
 </pre>
-will print <pre class="inline_code">"ABC"</pre> 3 times.<br />
+will print <pre class="inline_code">ABC</pre> 3 times.<br />
 <br />
-<i>Note: only <!--[[[numeric]]]-->integer literals/constants are <!--[[[considered/]]]-->accepted <!--[[[so far]]]--> as </i><pre class="inline_code">&lt;number></pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><i>if you want to iterate <!--[[[from 0 to ]]]-->an arbitrary number of times, <!--[[[you can]]]--> use <!--[[[ranges, for example: ]]]--></i><!--[[[#(11l)‘L 1..number’]]]--><i>the following form of loops</i></span><span class="cu_brackets_b">}</span></span>.<br />
+<i>Note: only <!--[[[numeric]]]-->integer literals/constants are <!--[[[considered/]]]-->accepted <!--[[[so far]]]--> as </i><pre style="display: inline">&lt;<span class="identifier">number</span>></pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><i>if you want to iterate <!--[[[from 0 to ]]]-->an arbitrary number of times, <!--[[[you can]]]--> use <!--[[[ranges, for example: ]]]--></i><!--[[[#(11l)‘L 1..number’]]]--><i>the following form of loops</i></span><span class="cu_brackets_b">}</span></span>.<br />
 <br />
 <br />
 <h4>4. Loop a specified number <span class="sq"><span class="sq_brackets">[</span>given as <!--[[[some/]]]-->an expression<span class="sq_brackets">]</span></span> of times.</h4>
@@ -165,11 +165,11 @@ will print <pre class="inline_code">"ABC"</pre> 3 times.<br />
 </pre>
 <br />
 Examples:<br />
-<pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> will print <pre class="inline_code">"ABC"</pre> n times.<br />
-<pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">0</span>.&lt;<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> will print <pre class="inline_code">"ABC"</pre> n times.<br />
+<pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">1</span>..<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> will print <pre class="inline_code">ABC</pre> <pre style="display: inline"><span class="identifier">n</span></pre> times.<br />
+<pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">0</span>.&lt;<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> will print <pre class="inline_code">ABC</pre> <pre style="display: inline"><span class="identifier">n</span></pre> times.<br />
 <br />
 <br />
-<h4>5. A "for each" loop.</h4>
+<h4>5. A "for-each" loop.</h4>
 <br />
 <pre class="code_block">
 <span class="keyword">L</span>(&lt;<span class="identifier">variable</span>>) &lt;<span class="identifier">iterable</span>>
@@ -178,7 +178,7 @@ Examples:<br />
 <br />
 Examples:<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">x</span>) <span class="numeric-literal">1</span>..<span class="numeric-literal">10</span> {<span class="identifier">print</span>(<span class="identifier">x</span>)}</pre> will print <pre class="inline_code">1</pre> through <pre class="inline_code">10</pre>.<br />
-<pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">c</span>) <span class="string-literal">"str"</span> {<span class="identifier">print</span>(<span class="identifier">c</span>)}</pre> will print <pre class="inline_code">"s"</pre>, <pre class="inline_code">"t"</pre> and <pre class="inline_code">"r"</pre>.<br />
+<pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">c</span>) <span class="string-literal">"str"</span> {<span class="identifier">print</span>(<span class="identifier">c</span>)}</pre> will print <pre class="inline_code">s</pre>, <pre class="inline_code">t</pre> and <pre class="inline_code">r</pre>.<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">n</span>) [<span class="numeric-literal">9</span>,<span class="numeric-literal">7</span>] {<span class="identifier">print</span>(<span class="identifier">n</span>)}</pre> will print <pre class="inline_code">9</pre> and <pre class="inline_code">7</pre>.<br />
 <pre style="display: inline"><span class="keyword">L</span>(<span class="identifier">k</span>, <span class="identifier">v</span>) [<span class="string-literal">‘k’</span> = <span class="numeric-literal">1</span>] {<span class="identifier">print</span>(<span class="identifier">k</span><span class="string-literal">‘=’</span><span class="identifier">v</span>)}</pre> will print <pre class="inline_code">k=1</pre>.<br />
 <br />
@@ -243,7 +243,7 @@ Statements under <pre style="display: inline"><span class="keyword">L.was_no_bre
 <br />
 <pre style="display: inline"><span class="keyword">L.first_iteration</span></pre>/<pre style="display: inline"><span class="keyword">loop.first_iteration</span></pre> evaluates to true (1B) on the first iteration of the loop, and evaluates to false (0B) otherwise.<br />
 <br />
-<pre style="display: inline"><span class="keyword">L.last_iteration</span></pre>/<pre style="display: inline"><span class="keyword">loop.last_iteration</span></pre><!--[[[Why not #(11l)‘L.last_element’? #(11l)‘L.last_element’ means access to the last element of the iterating container (`container.last`).]]]--> <!--[[[is used to check]]]-->evaluates to true (1B) if ‘current element of the iterating container’/‘current iteration’ is the last one.<br />
+<pre style="display: inline"><span class="keyword">L.last_iteration</span></pre>/<pre style="display: inline"><span class="keyword">loop.last_iteration</span></pre><!--[[[Why not #(11l)‘L.last_element’? #(11l)‘L.last_element’ means access to the last element of the iterating container (#(11l)‘container.last’).]]]--> <!--[[[is used to check]]]-->evaluates to true (1B) if ‘current element of the iterating container’/‘current iteration’ is the last one.<br />
 <br />
 <br />
 <pre style="display: inline"><span class="keyword">L.prev</span></pre>/<pre style="display: inline"><span class="keyword">loop.prev</span></pre> and <pre style="display: inline"><span class="keyword">L.next</span></pre>/<pre style="display: inline"><span class="keyword">loop.next</span></pre> are not supported now.<br />

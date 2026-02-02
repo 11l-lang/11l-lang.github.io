@@ -58,7 +58,7 @@ Examples:
 #(11l)‘L 0.<n {print("ABC")}’ will print `"ABC"` n times.
 
 
-H(-1)‘5. A "for in" loop.’
+H(-1)‘5. A "for each" loop.’
 
 #(11l)‘
 L(<variable>) <iterable>
@@ -93,23 +93,23 @@ print(arr) // prints `[1, 2, 3]`
 H‘L/loop subkeywords’
 
 
-[[[[[[https://trizen.gitbooks.io/sidef-lang/content/syntax_and_semantics/constructs/break.html]]]The `L.break`/`loop.break` statement is used to exit early from loops.
-]]][[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break]]]The `L.break`/`loop.break` statement terminates the current loop.
+[[[[[[https://trizen.gitbooks.io/sidef-lang/content/syntax_and_semantics/constructs/break.html]]]The #(11l)‘L.break’/#(11l)‘loop.break’ statement is used to exit early from loops.
+]]][[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break]]]The #(11l)‘L.break’/#(11l)‘loop.break’ statement terminates the current loop.
 [[[https://doc.rust-lang.org/1.7.0/book/loops.html]]][[[You may also encounter situations where you have nested loops and need to specify which one your break[[[ or continue]]] statement is for.
-Like most other languages, by]]]By default[[[ a]]] `L.break`/`loop.break`[[[ or continue]]][[[ in 11l]]] will apply to innermost loop. In a situation where you would like to a break[[[ or continue]]] for one of the outer loops, you can specify which loop the break[[[ or continue]]] statement applies to:
+Like most other languages, by]]]By default[[[ a]]] #(11l)‘L.break’/#(11l)‘loop.break’[[[ or continue]]][[[ in 11l]]] will apply to innermost loop. In a situation where you would like to a break[[[ or continue]]] for one of the outer loops, you can specify which loop the break[[[ or continue]]] statement applies to:
 #(11l)‘
 L(y) 0..10
    L(x) 0..10
       I a[y][x] == 1
          L(y).break // breaks out of outer loop over `y`
 ’
-Or you can use `^L.break`, `^^L.break`, etc.
+Or you can use #(11l)‘^L.break’, #(11l)‘^^L.break’, etc.
 
 
-[[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue]]]The `L.continue`/`loop.continue` statement terminates execution of the statements in the current iteration of the current[[[ or labeled]]] loop, and continues execution of the loop with the next iteration.
+[[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue]]]The #(11l)‘L.continue’/#(11l)‘loop.continue’ statement terminates execution of the statements in the current iteration of the current[[[ or labeled]]] loop, and continues execution of the loop with the next iteration.
 
 
-The `L.remove_current_element_and_continue` statement removes current element of iterating collection. For example, this code removes all even numbers in `array`:
+The #(11l)‘L.remove_current_element_and_continue’ statement removes current element of iterating collection. For example, this code removes all even numbers in #(11l)‘array’:
 #(11l)‘
 L(i) array
    I i % 2 == 0
@@ -117,7 +117,7 @@ L(i) array
 ’
 
 
-Statements under `L.was_no_break`/`loop.was_no_break` are executed only when loop was successfully finished without `L.break`/`loop.break` (just like ‘else in Python’[http://book.pythontips.com/en/latest/for_-_else.html#else-clause <- google:‘python else for’ <- https://www.rosettacode.org/wiki/ABC_Problem#Python:_Iterative.2C_with_tests]):
+Statements under #(11l)‘L.was_no_break’/#(11l)‘loop.was_no_break’ are executed only when loop was successfully finished without #(11l)‘L.break’/#(11l)‘loop.break’ (just like ‘else in Python’[http://book.pythontips.com/en/latest/for_-_else.html#else-clause <- google:‘python else for’ <- https://www.rosettacode.org/wiki/ABC_Problem#Python:_Iterative.2C_with_tests]):
 #(11l)‘
 L(test) tests
    I !test.ok()
@@ -128,12 +128,12 @@ L.was_no_break
 ’
 
 
-`L.index`/`loop.index` can be used to get[[[/obtain]]] the index of the current iteration of the loop.
+#(11l)‘L.index’/#(11l)‘loop.index’ can be used to get[[[/obtain]]] the index of the current iteration of the loop.
 
 
-`L.first_iteration`/`loop.first_iteration` evaluates to true (1B) on the first iteration of the loop, and evaluates to false (0B) otherwise.
+#(11l)‘L.first_iteration’/#(11l)‘loop.first_iteration’ evaluates to true (1B) on the first iteration of the loop, and evaluates to false (0B) otherwise.
 
-`L.last_iteration`/`loop.last_iteration`[[[Why not `L.last_element`? `L.last_element` means access to the last element of the iterating container (`container.last`).]]] [[[is used to check]]]evaluates to true (1B) if ‘current element of the iterating container’/‘current iteration’ is the last one.
+#(11l)‘L.last_iteration’/#(11l)‘loop.last_iteration’[[[Why not #(11l)‘L.last_element’? #(11l)‘L.last_element’ means access to the last element of the iterating container (`container.last`).]]] [[[is used to check]]]evaluates to true (1B) if ‘current element of the iterating container’/‘current iteration’ is the last one.
 
 
-`L.prev`/`loop.prev` and `L.next`/`loop.next` are not supported now.
+#(11l)‘L.prev’/#(11l)‘loop.prev’ and #(11l)‘L.next’/#(11l)‘loop.next’ are not supported now.

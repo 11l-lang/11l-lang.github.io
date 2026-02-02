@@ -169,7 +169,7 @@ Examples:<br />
 <pre style="display: inline"><span class="keyword">L</span> <span class="numeric-literal">0</span>.&lt;<span class="identifier">n</span> {<span class="identifier">print</span>(<span class="string-literal">"ABC"</span>)}</pre> will print <pre class="inline_code">"ABC"</pre> n times.<br />
 <br />
 <br />
-<h4>5. A "for in" loop.</h4>
+<h4>5. A "for each" loop.</h4>
 <br />
 <pre class="code_block">
 <span class="keyword">L</span>(&lt;<span class="identifier">variable</span>>) &lt;<span class="identifier">iterable</span>>
@@ -204,22 +204,22 @@ If you want to modify the temporal copy of <pre style="display: inline">&lt;<spa
 <h3>L/loop subkeywords</h3>
 <br />
 <br />
-<!--[[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break]]]-->The <pre class="inline_code">L.break</pre>/<pre class="inline_code">loop.break</pre> statement terminates the current loop.<br />
+<!--[[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break]]]-->The <pre style="display: inline"><span class="keyword">L.break</span></pre>/<pre style="display: inline"><span class="keyword">loop.break</span></pre> statement terminates the current loop.<br />
 <!--[[[https://doc.rust-lang.org/1.7.0/book/loops.html]]]--><!--[[[You may also encounter situations where you have nested loops and need to specify which one your break[[[ or continue]]] statement is for.
-Like most other languages, by]]]-->By default<!--[[[ a]]]--> <pre class="inline_code">L.break</pre>/<pre class="inline_code">loop.break</pre><!--[[[ or continue]]]--><!--[[[ in 11l]]]--> will apply to innermost loop. In a situation where you would like to a break<!--[[[ or continue]]]--> for one of the outer loops, you can specify which loop the break<!--[[[ or continue]]]--> statement applies to:<br />
+Like most other languages, by]]]-->By default<!--[[[ a]]]--> <pre style="display: inline"><span class="keyword">L.break</span></pre>/<pre style="display: inline"><span class="keyword">loop.break</span></pre><!--[[[ or continue]]]--><!--[[[ in 11l]]]--> will apply to innermost loop. In a situation where you would like to a break<!--[[[ or continue]]]--> for one of the outer loops, you can specify which loop the break<!--[[[ or continue]]]--> statement applies to:<br />
 <pre class="code_block">
 <span class="keyword">L</span>(<span class="identifier">y</span>) <span class="numeric-literal">0</span>..<span class="numeric-literal">10</span>
    <span class="keyword">L</span>(<span class="identifier">x</span>) <span class="numeric-literal">0</span>..<span class="numeric-literal">10</span>
       <span class="keyword">I</span> <span class="identifier">a</span>[<span class="identifier">y</span>][<span class="identifier">x</span>] == <span class="numeric-literal">1</span>
          <span class="keyword">L</span>(<span class="identifier">y</span>).<span class="identifier">break</span> <span class="comment">// breaks out of outer loop over `y`</span>
 </pre>
-Or you can use <pre class="inline_code">^L.break</pre>, <pre class="inline_code">^^L.break</pre>, etc.<br />
+Or you can use <pre style="display: inline">^<span class="keyword">L.break</span></pre>, <pre style="display: inline">^^<span class="keyword">L.break</span></pre>, etc.<br />
 <br />
 <br />
-<!--[[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue]]]-->The <pre class="inline_code">L.continue</pre>/<pre class="inline_code">loop.continue</pre> statement terminates execution of the statements in the current iteration of the current<!--[[[ or labeled]]]--> loop, and continues execution of the loop with the next iteration.<br />
+<!--[[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue]]]-->The <pre style="display: inline"><span class="keyword">L.continue</span></pre>/<pre style="display: inline"><span class="keyword">loop.continue</span></pre> statement terminates execution of the statements in the current iteration of the current<!--[[[ or labeled]]]--> loop, and continues execution of the loop with the next iteration.<br />
 <br />
 <br />
-The <pre class="inline_code">L.remove_current_element_and_continue</pre> statement removes current element of iterating collection. For example, this code removes all even numbers in <pre class="inline_code">array</pre>:<br />
+The <pre style="display: inline"><span class="keyword">L.remove_current_element_and_continue</span></pre> statement removes current element of iterating collection. For example, this code removes all even numbers in <pre style="display: inline"><span class="identifier">array</span></pre>:<br />
 <pre class="code_block">
 <span class="keyword">L</span>(<span class="identifier">i</span>) <span class="identifier">array</span>
    <span class="keyword">I</span> <span class="identifier">i</span> % <span class="numeric-literal">2</span> == <span class="numeric-literal">0</span>
@@ -227,7 +227,7 @@ The <pre class="inline_code">L.remove_current_element_and_continue</pre> stateme
 </pre>
 <br />
 <br />
-Statements under <pre class="inline_code">L.was_no_break</pre>/<pre class="inline_code">loop.was_no_break</pre> are executed only when loop was successfully finished without <pre class="inline_code">L.break</pre>/<pre class="inline_code">loop.break</pre> (just like <a href="http://book.pythontips.com/en/latest/for_-_else.html#else-clause" title="<- google:‘python else for’ <- https://www.rosettacode.org/wiki/ABC_Problem#Python:_Iterative.2C_with_tests">else in Python</a>):<br />
+Statements under <pre style="display: inline"><span class="keyword">L.was_no_break</span></pre>/<pre style="display: inline"><span class="keyword">loop.was_no_break</span></pre> are executed only when loop was successfully finished without <pre style="display: inline"><span class="keyword">L.break</span></pre>/<pre style="display: inline"><span class="keyword">loop.break</span></pre> (just like <a href="http://book.pythontips.com/en/latest/for_-_else.html#else-clause" title="<- google:‘python else for’ <- https://www.rosettacode.org/wiki/ABC_Problem#Python:_Iterative.2C_with_tests">else in Python</a>):<br />
 <pre class="code_block">
 <span class="keyword">L</span>(<span class="identifier">test</span>) <span class="identifier">tests</span>
    <span class="keyword">I</span> !<span class="identifier">test</span>.<span class="identifier">ok</span>()
@@ -238,15 +238,15 @@ Statements under <pre class="inline_code">L.was_no_break</pre>/<pre class="inlin
 </pre>
 <br />
 <br />
-<pre class="inline_code">L.index</pre>/<pre class="inline_code">loop.index</pre> can be used to get<!--[[[/obtain]]]--> the index of the current iteration of the loop.<br />
+<pre style="display: inline"><span class="keyword">L.index</span></pre>/<pre style="display: inline"><span class="keyword">loop.index</span></pre> can be used to get<!--[[[/obtain]]]--> the index of the current iteration of the loop.<br />
 <br />
 <br />
-<pre class="inline_code">L.first_iteration</pre>/<pre class="inline_code">loop.first_iteration</pre> evaluates to true (1B) on the first iteration of the loop, and evaluates to false (0B) otherwise.<br />
+<pre style="display: inline"><span class="keyword">L.first_iteration</span></pre>/<pre style="display: inline"><span class="keyword">loop.first_iteration</span></pre> evaluates to true (1B) on the first iteration of the loop, and evaluates to false (0B) otherwise.<br />
 <br />
-<pre class="inline_code">L.last_iteration</pre>/<pre class="inline_code">loop.last_iteration</pre><!--[[[Why not `L.last_element`? `L.last_element` means access to the last element of the iterating container (`container.last`).]]]--> <!--[[[is used to check]]]-->evaluates to true (1B) if ‘current element of the iterating container’/‘current iteration’ is the last one.<br />
+<pre style="display: inline"><span class="keyword">L.last_iteration</span></pre>/<pre style="display: inline"><span class="keyword">loop.last_iteration</span></pre><!--[[[Why not #(11l)‘L.last_element’? #(11l)‘L.last_element’ means access to the last element of the iterating container (`container.last`).]]]--> <!--[[[is used to check]]]-->evaluates to true (1B) if ‘current element of the iterating container’/‘current iteration’ is the last one.<br />
 <br />
 <br />
-<pre class="inline_code">L.prev</pre>/<pre class="inline_code">loop.prev</pre> and <pre class="inline_code">L.next</pre>/<pre class="inline_code">loop.next</pre> are not supported now.<br />
+<pre style="display: inline"><span class="keyword">L.prev</span></pre>/<pre style="display: inline"><span class="keyword">loop.prev</span></pre> and <pre style="display: inline"><span class="keyword">L.next</span></pre>/<pre style="display: inline"><span class="keyword">loop.next</span></pre> are not supported now.<br />
 </div>
 </body>
 </html>

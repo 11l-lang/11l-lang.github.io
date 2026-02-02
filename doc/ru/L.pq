@@ -55,7 +55,7 @@ L 1..количество // или 0.<количество
 #(11l)‘L 0.<n {print("ABC")}’ выведет `"ABC"` n раз.
 
 
-Н(-1)‘5. Цикл "for in".’
+Н(-1)‘5. Цикл "для каждого".’
 
 #(11l)‘
 L(<переменная>) <итерируемое выражение>
@@ -90,21 +90,21 @@ print(arr) // выведет `[1, 2, 3]`
 Н‘[[[Зарезервированные/]]]Ключевые подслова L/loop’
 
 
-[[[https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/break]]]Инструкция `L.break`/`loop.break` прерывает выполнение текущего цикла.
-У вас может возникнуть потребность имея несколько вложенных циклов указать какой из них следует прервать. [[[Как и в большинстве других языков, по]]]По умолчанию `L.break`/`loop.break`[[[ в 11l]]] прерывает самый внутренний цикл. Если вам необходимо прер[[[ы]]]вать не самый внутренний цикл, тогда просто укажите какой именно цикл необходимо прервать:
+[[[https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/break]]]Инструкция #(11l)‘L.break’/#(11l)‘loop.break’ прерывает выполнение текущего цикла.
+У вас может возникнуть потребность имея несколько вложенных циклов указать какой из них следует прервать. [[[Как и в большинстве других языков, по]]]По умолчанию #(11l)‘L.break’/#(11l)‘loop.break’[[[ в 11l]]] прерывает самый внутренний цикл. Если вам необходимо прер[[[ы]]]вать не самый внутренний цикл, тогда просто укажите какой именно цикл необходимо прервать:
 #(11l)‘
 L(y) 0..10
    L(x) 0..10
       I a[y][x] == 1
          L(y).break // прерывает внешний цикл по `y`
 ’
-Также можно использовать `^L.break`, `^^L.break` и т.д.
+Также можно использовать #(11l)‘^L.break’, #(11l)‘^^L.break’ и т.д.
 
 
-[[[https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/continue]]]Инструкция `L.continue`/`loop.continue` прерывает выполнение текущей итерации текущего[[[ или отмеченного]]] цикла, и продолжает его выполнение на следующей итерации.
+[[[https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/continue]]]Инструкция #(11l)‘L.continue’/#(11l)‘loop.continue’ прерывает выполнение текущей итерации текущего[[[ или отмеченного]]] цикла, и продолжает его выполнение на следующей итерации.
 
 
-Инструкция `L.remove_current_element_and_continue` удаляет текущий элемент итерируемого [[[объекта/]]]контейнера. Например, этот код удаляет все чётные числа в `array`:
+Инструкция #(11l)‘L.remove_current_element_and_continue’ удаляет текущий элемент итерируемого [[[объекта/]]]контейнера. Например, этот код удаляет все чётные числа в #(11l)‘array’:
 #(11l)‘
 L(i) array
    I i % 2 == 0
@@ -112,7 +112,7 @@ L(i) array
 ’
 
 
-Код под `L.was_no_break`/`loop.was_no_break` выполняется только когда цикл успешно завершился без вызова `L.break`/`loop.break` (аналогично ‘else в Python’[https://pythonworld.ru/osnovy/cikly-for-i-while-operatory-break-i-continue-volshebnoe-slovo-else.html#else <- google:‘python else for’ <- https://www.rosettacode.org/wiki/ABC_Problem#Python:_Iterative.2C_with_tests]):
+Код под #(11l)‘L.was_no_break’/#(11l)‘loop.was_no_break’ выполняется только когда цикл успешно завершился без вызова #(11l)‘L.break’/#(11l)‘loop.break’ (аналогично ‘else в Python’[https://pythonworld.ru/osnovy/cikly-for-i-while-operatory-break-i-continue-volshebnoe-slovo-else.html#else <- google:‘python else for’ <- https://www.rosettacode.org/wiki/ABC_Problem#Python:_Iterative.2C_with_tests]):
 #(11l)‘
 L(test) tests
    I !test.ok()
@@ -123,12 +123,12 @@ L.was_no_break
 ’
 
 
-`L.index`/`loop.index` можно использовать для получения индекса (номера начиная с 0) текущей итерации цикла.
+#(11l)‘L.index’/#(11l)‘loop.index’ можно использовать для получения индекса (номера начиная с 0) текущей итерации цикла.
 
 
-`L.first_iteration`/`loop.first_iteration` является истиной (1B) на первой итерации цикла.
+#(11l)‘L.first_iteration’/#(11l)‘loop.first_iteration’ является истиной (1B) на первой итерации цикла.
 
-`L.last_iteration`/`loop.last_iteration` является истиной (1B), если ‘текущий элемент итерируемого контейнера последний’/‘текущая итерация цикла последняя’.
+#(11l)‘L.last_iteration’/#(11l)‘loop.last_iteration’ является истиной (1B), если ‘текущий элемент итерируемого контейнера последний’/‘текущая итерация цикла последняя’.
 
 
-`L.prev`/`loop.prev` и `L.next`/`loop.next` на данный момент не поддерживаются.
+#(11l)‘L.prev’/#(11l)‘loop.prev’ и #(11l)‘L.next’/#(11l)‘loop.next’ на данный момент не поддерживаются.

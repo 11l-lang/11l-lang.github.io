@@ -160,19 +160,46 @@ sign =  x &lt; 0 ? -1  :  x > 0 ? 1 : 0; // C
 <br />
 <br />
 <pre class="code_block">
-<span class="keyword">I.likely</span> &lt;<span class="identifier">condition</span>>
-   ...
-</pre>
-is used as a sign to the compiler that condition in most of the cases will be true.<br />
-<br />
-And similarly:<br />
-<pre class="code_block">
 <span class="keyword">I.unlikely</span> &lt;<span class="identifier">condition</span>>
    ...
 </pre>
 is used as a sign to the compiler that condition in most of the cases will be false.<br />
 <br />
-<i>Note: at the present moment performance increase when using this subkeywords is negligible, so their usage is not recommended.</i><br />
+This affects the generation of machine code as follows:<br />
+<ol>
+<li>The body of the <pre style="display: inline"><span class="keyword">I</span></pre>/<pre style="display: inline"><span class="keyword">if</span></pre> statement is moved to a separate (“cold”) area of ​​the code segment <abbr title="this depends on the compilation options (moving to a separate area has both advantages and disadvantages - it leads to more bloated jmps)">or</abbr> to the end of the function after all the “hot” code.</li>
+<li>If the body of the <pre style="display: inline"><span class="keyword">I</span></pre>/<pre style="display: inline"><span class="keyword">if</span></pre> statement consists of a single function call, then that call is not inlined.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Example:<br /></span><div class="spoiler_text" style="display: none">
+<pre class="code_block">
+<span class="keyword">T</span> <span class="identifier">String</span>
+   ...
+   <span class="keyword">F</span> <span class="identifier">append_char</span>(<span class="identifier">c</span>)
+      <span class="keyword">I.unlikely</span> .<span class="identifier">len</span> == .<span class="identifier">capacity</span>
+         .<span class="identifier">reserve_</span>(.<span class="identifier">len</span> + <span class="numeric-literal">1</span>)
+      .<span class="identifier">data</span>[.<span class="identifier">len</span>++] = <span class="identifier">c</span>
+</pre></div>
+</li>
+<li>The space on the stack for local variables inside the body of the <pre style="display: inline"><span class="keyword">I</span></pre>/<pre style="display: inline"><span class="keyword">if</span></pre> statement is allocated not at the ‘beginning of the function’/‘moment of entry into the function’, but at the beginning of the body of the <pre style="display: inline"><span class="keyword">I</span></pre>/<pre style="display: inline"><span class="keyword">if</span></pre> statement itself.<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Example:<br /></span><div class="spoiler_text" style="display: none">
+<pre class="code_block">
+<span class="keyword">F</span> <span class="identifier">f</span>()
+   [<span class="identifier">Byte</span>, <span class="identifier">max_len'</span> <span class="numeric-literal">16</span>] <span class="identifier">barr</span>
+   <span class="keyword">I.unlikely</span> ...
+      [<span class="identifier">Byte</span>, <span class="identifier">max_len'</span> <span class="numeric-literal">1024</span>] <span class="identifier">big_arr</span>
+      ...
+</pre>
+When entering <span class="sq"><span class="sq_brackets">[</span>at the start of execution<span class="sq_brackets">]</span></span> the function <pre style="display: inline"><span class="identifier">f</span></pre>, 16 bytes <span class="sq"><span class="sq_brackets">[</span>not 1040<span class="sq_brackets">]</span></span> will be allocated on the stack. The space for <pre style="display: inline"><span class="identifier">big_arr</span></pre> <span class="sq"><span class="sq_brackets">[</span>1024 bytes<span class="sq_brackets">]</span></span> will be allocated only if the condition after <pre style="display: inline"><span class="keyword">I.unlikely</span></pre> is met. And it will be freed immediately after the body of this statement is completed.<br />
+</div>
+</li>
+</ol>
+<br />
+<pre class="code_block">
+<span class="keyword">I.likely</span> &lt;<span class="identifier">condition</span>>
+   ...
+</pre>
+is used as a sign to the compiler that condition in most of the cases will be true.<br />
+<br />
+Affects the generation of machine code only if there is an <pre style="display: inline"><span class="keyword">E</span></pre>/<pre style="display: inline"><span class="keyword">else</span></pre> branch, the code in which is marked "unlikely".<br />
 </div>
 </body>
 </html>

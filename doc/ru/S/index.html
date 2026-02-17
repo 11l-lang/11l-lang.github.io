@@ -124,9 +124,9 @@ span.comment {color: #808080;}
       &lt;<span class="identifier">блок</span> <span class="identifier">кода</span> <span class="identifier">в</span> <span class="identifier">противном</span> <span class="identifier">случае</span>>]
 </pre>
 <br />
-Выражение <pre class="inline_code">&lt;выражение></pre> сравнивается с константными выражениями и в случае равенства выполняется соответствующий блок <!--[[[операторов]]]-->кода. Если ни одно константное выражение не совпало с выражением <pre class="inline_code">&lt;выражение></pre>, то выполняется <span class="sq"><span class="sq_brackets">[</span>при его наличии<span class="sq_brackets">]</span></span> <pre class="inline_code">&lt;блок кода в противном случае></pre> (отмеченный ключевым словом <pre class="inline_code">E</pre>/<pre class="inline_code">else</pre>).<br />
+Выражение <pre style="display: inline">&lt;<span class="identifier">выражение</span>></pre> сравнивается с константными выражениями и в случае равенства выполняется соответствующий блок <!--[[[операторов]]]-->кода. Если ни одно константное выражение не совпало с выражением <pre style="display: inline">&lt;<span class="identifier">выражение</span>></pre>, то выполняется <span class="sq"><span class="sq_brackets">[</span>при его наличии<span class="sq_brackets">]</span></span> <pre style="display: inline">&lt;<span class="identifier">блок</span> <span class="identifier">кода</span> <span class="identifier">в</span> <span class="identifier">противном</span> <span class="identifier">случае</span>></pre> (отмеченный ключевым словом <pre style="display: inline"><span class="keyword">E</span></pre>/<pre style="display: inline"><span class="keyword">else</span></pre>).<br />
 <br />
-Оператор <pre class="inline_code">S</pre>/<pre class="inline_code">switch</pre> можно использовать в выражениях:<br />
+Оператор <pre style="display: inline"><span class="keyword">S</span></pre>/<pre style="display: inline"><span class="keyword">switch</span></pre> можно использовать в выражениях:<br />
 <pre class="code_block">
 <span class="keyword">V</span> <span class="identifier">tag</span> = <span class="keyword">S</span> <span class="identifier">prevc</span>
            <span class="string-literal">‘*’</span>
@@ -174,6 +174,10 @@ span.comment {color: #808080;}
       ...
 </pre>
 </div>
+<br />
+<h4><pre class="inline_code">S!</pre></h4>
+<br />
+Вы можете поставить <pre class="inline_code">!</pre> сразу после ключевого слова <pre style="display: inline"><span class="keyword">S</span></pre>/<pre style="display: inline"><span class="keyword">switch</span></pre>, чтобы обеспечить ограничение на этапе компиляции, согласно которому <i>все возможные</i> значения в <pre style="display: inline">&lt;<span class="identifier">выражение</span>></pre> должны иметь соответствующую ветвь выполнения.<br />
 </div>
 </body>
 </html>

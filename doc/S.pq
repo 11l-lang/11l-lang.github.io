@@ -13,9 +13,9 @@ S <expression>
       <default statements>]
 ’
 
-Expression `<expression>` is compared with constant expressions for equality. If a matching expression is found, then corresponding statements are executed. If no matching expression is found, `<default statements>` [if present] are executed.[[[Keyword `else` is also used in Basic, Pascal, Ruby, Kotlin, Nim and CoffeeScript.]]]
+Expression #(11l)‘<expression>’ is compared with constant expressions for equality. If a matching expression is found, then corresponding statements are executed. If no matching expression is found, #(11l)‘<default statements>’ [if present] are executed.[[[Keyword #(11l)‘else’ is also used in Basic, Pascal, Ruby, Kotlin, Nim and CoffeeScript.]]]
 
-The `S`/`switch` can be used in expressions:
+The #(11l)‘S’/#(11l)‘switch’ can be used in expressions:
 #(11l)‘
 V tag = S prevc
            ‘*’
@@ -63,3 +63,10 @@ S message
       ...
 ’
 }
+
+H(-1)‘`S!`’
+[[[
+>[https://wiki.freepascal.org/Case <- https://wiki.freepascal.org/Case/ru <- google:‘pascal case statement’]:‘
+Originally, standard Pascal also set the constraint, that ~‘all possible’ values of the selector have to have a corresponding match. This is no longer the case with modern compilers.’
+]]]
+You can [[[write #(11l)‘S!’/#(11l)‘switch!’ instead of]]][[[append/]]]put `!` right after #(11l)‘S’/#(11l)‘switch’ keyword to enforce a compile-time constraint that ~‘all possible’ values of the selector #(11l)‘<expression>’ have to have a corresponding match.

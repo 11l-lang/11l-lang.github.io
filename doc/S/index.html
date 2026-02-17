@@ -124,9 +124,9 @@ span.comment {color: #808080;}
       &lt;<span class="identifier">default</span> <span class="identifier">statements</span>>]
 </pre>
 <br />
-Expression <pre class="inline_code">&lt;expression></pre> is compared with constant expressions for equality. If a matching expression is found, then corresponding statements are executed. If no matching expression is found, <pre class="inline_code">&lt;default statements></pre> <span class="sq"><span class="sq_brackets">[</span>if present<span class="sq_brackets">]</span></span> are executed.<!--[[[Keyword `else` is also used in Basic, Pascal, Ruby, Kotlin, Nim and CoffeeScript.]]]--><br />
+Expression <pre style="display: inline">&lt;<span class="identifier">expression</span>></pre> is compared with constant expressions for equality. If a matching expression is found, then corresponding statements are executed. If no matching expression is found, <pre style="display: inline">&lt;<span class="identifier">default</span> <span class="identifier">statements</span>></pre> <span class="sq"><span class="sq_brackets">[</span>if present<span class="sq_brackets">]</span></span> are executed.<!--[[[Keyword #(11l)‘else’ is also used in Basic, Pascal, Ruby, Kotlin, Nim and CoffeeScript.]]]--><br />
 <br />
-The <pre class="inline_code">S</pre>/<pre class="inline_code">switch</pre> can be used in expressions:<br />
+The <pre style="display: inline"><span class="keyword">S</span></pre>/<pre style="display: inline"><span class="keyword">switch</span></pre> can be used in expressions:<br />
 <pre class="code_block">
 <span class="keyword">V</span> <span class="identifier">tag</span> = <span class="keyword">S</span> <span class="identifier">prevc</span>
            <span class="string-literal">‘*’</span>
@@ -174,6 +174,13 @@ If you have a very long switch, which does not fit on the screen, you can add co
       ...
 </pre>
 </div>
+<br />
+<h4><pre class="inline_code">S!</pre></h4>
+<!--[[[
+>[https://wiki.freepascal.org/Case <- https://wiki.freepascal.org/Case/ru <- google:‘pascal case statement’]:‘
+Originally, standard Pascal also set the constraint, that ~‘all possible’ values of the selector have to have a corresponding match. This is no longer the case with modern compilers.’
+]]]--><br />
+You can <!--[[[write #(11l)‘S!’/#(11l)‘switch!’ instead of]]]--><!--[[[append/]]]-->put <pre class="inline_code">!</pre> right after <pre style="display: inline"><span class="keyword">S</span></pre>/<pre style="display: inline"><span class="keyword">switch</span></pre> keyword to enforce a compile-time constraint that <i>all possible</i> values of the selector <pre style="display: inline">&lt;<span class="identifier">expression</span>></pre> have to have a corresponding match.<br />
 </div>
 </body>
 </html>

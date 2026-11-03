@@ -75,7 +75,7 @@
                    ├── last_iteration\последняя_итерация
                    ├── next\след
                    └── prev\пред
-── N/null\Н/нуль
+── N/null\Н/нулл
 ── R/return\Р/вернуть
 ── S/switch\В/выбрать ──┬── break\прервать
                         └── fallthrough

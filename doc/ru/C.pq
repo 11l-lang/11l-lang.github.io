@@ -2,8 +2,8 @@
 ]]]H‘Ключевое слово C/in’
 
 
-#(11l)‘element C container’ возвращает истину/1В если `element` *‘с’одержится в `container`.
-#(11l)‘element !C container’ возвращает истину/1В если `element` не *‘с’одержится в `container`.
+#(11l)‘element C container’ возвращает истину/1Л если `element` *‘с’одержится в `container`.
+#(11l)‘element !C container’ возвращает истину/1Л если `element` не *‘с’одержится в `container`.
 
 Вы можете сократить условие #(11l)‘a == b | a == c’ используя `C`/`in` таким образом:
 #(11l)‘
